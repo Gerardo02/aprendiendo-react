@@ -3,8 +3,7 @@ import "../App.css";
 import captura from "../images/captura.png";
 const App2 = () => {
   return (
-    <div className="App">
-      hola
+    <div className="index-page">
       <a href="captura">
         <img className="img-captura" src={captura} alt="menu captura" />
       </a>
