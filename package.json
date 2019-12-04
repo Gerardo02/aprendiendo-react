@@ -1,5 +1,5 @@
 {
-  "name": "ganadera-4",
+  "name": "ganadera-3",
   "version": "0.1.0",
   "main": "public/electron.js",
   "description": "Inventario ganadero",
@@ -7,15 +7,17 @@
     "name": "Gerardo & Moises"
   },
   "build": {
-    "appId": "ganadera-4.menu"
+    "appId": "ganadera-3.menu"
   },
   "win": {
     "icon": ""
   },
   "homepage": "./",
   "dependencies": {
+    "cors": "^2.8.5",
     "cross-env": "^6.0.3",
     "electron-is-dev": "^1.1.0",
+    "mysql": "^2.17.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",

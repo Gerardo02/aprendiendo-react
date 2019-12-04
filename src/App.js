@@ -8,8 +8,8 @@ import {
   Link,
   Redirect
 } from "react-router-dom";
-import mainPage from "./pages/App2.jsx";
-import secondPage from "./pages/second.jsx";
+import mainPage from "./pages/App2";
+import secondPage from "./pages/second";
 const App = () => {
   return (
     <Router>
