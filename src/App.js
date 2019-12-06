@@ -85,7 +85,7 @@ class App extends Component {
           </select>
           <br />
           <br />
-          Origen del animal (donde nacio)
+          Origen del animal
           <br />
           <input type="text" id="origen"></input>
           <br />
@@ -124,7 +124,7 @@ class App extends Component {
           <br />
           Edad del animal (aproximado)
           <br />
-          <input type="text" id="edad"></input>años
+          <input type="text" id="edad"></input>meses
           <br />
           <br />
           Ultima fecha en la que pario (Si nunca lo ha hecho, dejar en blanco)
