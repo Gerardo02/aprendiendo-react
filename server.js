@@ -1,3 +1,4 @@
+//import App, { respuesta, input } from "./App";
 const mysql = require("mysql");
 const express = require("express");
 const cors = require("cors");
@@ -20,16 +21,10 @@ connection.connect(err => {
 
 app.use(cors());
 
-app.listen("1450", () => {
-  console.log("inicializa servidor en puerto 1450");
+app.listen("4000", () => {
+  console.log("inicializa servidor en puerto 4000");
 });
 
-// command
-
-/*const outputDatos = execSync("start firefox localhost:1450/datos", {
-    encoding: "utf-8"
-  });*/
-//console.log("Output datos was:\n", outputDatos);
 app.get("/datos", (req, resp) => {
   connection.query("SELECT * FROM datos", (err, rows, fields) => {
     if (err) {
@@ -40,24 +35,16 @@ app.get("/datos", (req, resp) => {
     }
   });
 });
-/*
-else if (process.platform === "darwin") {
-  const outputDatos = execSync("open chrome localhost:1450/datos", {
-    encoding: "utf-8"
-  });
-  console.log("Output datos was:\n", outputDatos);
-  app.get("/datos", (req, resp) => {
-    connection.query("SELECT * FROM datos", (err, rows, fields) => {
+
+app.get("/add", (req, resp) => {
+  connection.query(
+    `INSERT INTO datos (empresas) VALUES ()`,
+    (err, rows, fields) => {
       if (err) {
         throw err;
       } else {
-        console.log("succes datos");
-        //console.log(`El tipo es:${rows[0].tipo}`);
+        console.log("se anadio");
       }
-      resp.send("Conectado a la table datos");
-      //datos = rows;
-      //console.log(datos);
-    });
-  });
-}
-*/
+    }
+  );
+});
