@@ -26,7 +26,7 @@ app.listen("4000", () => {
 });
 
 app.get("/datos", (req, resp) => {
-  connection.query("SELECT * FROM datos", (err, rows, fields) => {
+  connection.query("SELECT * FROM datos", (err, rows) => {
     if (err) {
       throw err;
     } else {
@@ -37,13 +37,71 @@ app.get("/datos", (req, resp) => {
 });
 
 app.get("/add", (req, resp) => {
+  const {
+    empresas,
+    predio,
+    tipo,
+    raza,
+    origen,
+    fechaAlta,
+    fechaNac,
+    pesoCompra,
+    pesoActual,
+    incremento,
+    estatus,
+    arete,
+    edad,
+    ultimoParto,
+    mesesVacia,
+    fechaBaja,
+    motivoBaja,
+    particularidades
+  } = req.query;
   connection.query(
-    `INSERT INTO datos (empresas) VALUES ()`,
-    (err, rows, fields) => {
+    `INSERT INTO datos (
+      empresas,
+      predio,
+      tipo,
+      raza,
+      origen,
+      arete,
+      fecha_alta,
+      fecha_nacimiento,
+      peso_compra,
+      peso_actual,
+      incremento_peso,
+      estatus,
+      edad,
+      ultimo_parto,
+      meses_vacia,
+      fecha_baja,
+      motivo_baja,
+      particularidades
+    ) VALUES (
+      '${empresas}',
+      '${predio}', 
+      '${tipo}', 
+      '${raza}', 
+      '${origen}', 
+      '${arete}', 
+      '${fechaAlta}', 
+      '${fechaNac}', 
+      ${pesoCompra}, 
+      ${pesoActual}, 
+      ${incremento}, 
+      '${estatus}', 
+      ${edad}, 
+      '${ultimoParto}', 
+      ${mesesVacia}, 
+      '${fechaBaja}', 
+      '${motivoBaja}', 
+      '${particularidades}')`,
+    (err, rows) => {
       if (err) {
         throw err;
       } else {
         console.log("se anadio");
+        return resp.send("added");
       }
     }
   );
