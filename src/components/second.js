@@ -1,12 +1,12 @@
 import React from "react";
 import "../App.css";
-import captura from "../images/captura.png";
+import toro from "../images/captura.png";
 const second = () => {
   return (
     <div className="App">
       captura datos
       <a href="/">
-        <img className="img-captura" src={captura} alt="menu captura" />
+        <img className="img-captura" src={toro} alt="menu captura" />
       </a>
     </div>
   );
