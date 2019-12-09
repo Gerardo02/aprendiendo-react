@@ -11,13 +11,31 @@ class App2 extends Component {
       const raza = document.getElementById("raza").value;
       const origen = document.getElementById("origen").value;
       const arete = document.getElementById("arete").value;
-      const fechaAlta = document.getElementById("fecha-alta").value;
-      const fechaNac = document.getElementById("fecha-nac").value;
+      let dia = document.getElementById("dia").value;
+      let mes = document.getElementById("mes").value;
+      let ano = document.getElementById("ano").value;
+      let today = new Date();
+      let mm = today.getMonth() + 1; //January is 0!
+      let yyyy = today.getFullYear();
+      let edad;
+      if (yyyy === ano) {
+        edad = mm - mes;
+      } else if (yyyy > ano) {
+        mes = 12 - mes;
+        yyyy = yyyy - ano;
+        yyyy = yyyy * 12;
+        mm = 12 - mm;
+        mm = yyyy - mm;
+        edad = mm + mes;
+      }
+      const fechaAlta = document.getElementById("fecha-alt").value;
+
+      const fechaNac = `${dia}/${mes}/${ano}`;
       const pesoCompra = document.getElementById("peso-compra").value;
       const pesoActual = document.getElementById("peso-actual").value;
       const incremento = pesoActual - pesoCompra;
       const estatus = document.getElementById("estatus").value;
-      const edad = document.getElementById("edad").value;
+
       const ultimoParto = document.getElementById("ultimo-parto").value;
       const mesesVacia = document.getElementById("meses-vacia").value;
       const fechaBaja = document.getElementById("fecha-baja").value;
@@ -79,12 +97,14 @@ class App2 extends Component {
             <br />
             Fecha en que se registra el animal
             <br />
-            <input type="date" id="fecha-alta"></input>
+            <input type="text" id="dia"></input>
+            <input type="text" id="mes"></input>
+            <input type="text" id="ano"></input>
             <br />
             <br />
             Fecha de nacimiento del animal (aproximado)
             <br />
-            <input type="date" id="fecha-nac"></input>
+            <input type="date" id="fecha-alt"></input>
             <br />
             <br />
             Lo que peso cuando se compro
@@ -102,11 +122,6 @@ class App2 extends Component {
               <option value="Vacia">Vacia</option>
               <option value="Cargada">Cargada</option>
             </select>
-            <br />
-            <br />
-            Edad del animal (aproximado)
-            <br />
-            <input type="text" id="edad"></input>
             <br />
             <br />
             Ultima fecha en la que pario (Si nunca lo ha hecho, dejar en blanco)
