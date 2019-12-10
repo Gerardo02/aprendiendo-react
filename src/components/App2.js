@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "../App.css";
-import toro from "../images/captura.png";
 
 class App2 extends Component {
   render() {
@@ -11,6 +10,14 @@ class App2 extends Component {
       const raza = document.getElementById("raza").value;
       const origen = document.getElementById("origen").value;
       const arete = document.getElementById("arete").value;
+
+      //fecha de alta
+      let diaAlt = document.getElementById("diaAlt").value;
+      let mesAlt = document.getElementById("mesAlt").value;
+      let anoAlt = document.getElementById("anoAlt").value;
+      const fechaAlta = `${diaAlt}/${mesAlt}/${anoAlt}`;
+
+      //fecha de nacimiento
       let dia = document.getElementById("dia").value;
       let mes = document.getElementById("mes").value;
       let ano = document.getElementById("ano").value;
@@ -28,25 +35,36 @@ class App2 extends Component {
         mm = yyyy - mm;
         edad = mm + mes;
       }
-      const fechaAlta = document.getElementById("fecha-alt").value;
-
       const fechaNac = `${dia}/${mes}/${ano}`;
       const pesoCompra = document.getElementById("peso-compra").value;
       const pesoActual = document.getElementById("peso-actual").value;
       const incremento = pesoActual - pesoCompra;
       const estatus = document.getElementById("estatus").value;
 
-      const ultimoParto = document.getElementById("ultimo-parto").value;
-      const mesesVacia = document.getElementById("meses-vacia").value;
-      const fechaBaja = document.getElementById("fecha-baja").value;
-      const motivoBaja = document.getElementById("motivo-baja").value;
+      //fecha de ultimo parto
+      let diaVac = document.getElementById("diaVac").value;
+      let mesVac = document.getElementById("mesVac").value;
+      let anoVac = document.getElementById("anoVac").value;
+      let mesesVacia;
+      let today2 = new Date();
+      let mm2 = today2.getMonth() + 1;
+      let yyyy2 = today2.getFullYear();
+      if (yyyy2 === anoVac) {
+        mesesVacia = mm2 - mesVac;
+      } else if (yyyy2 > anoVac) {
+        mesVac = 12 - mesVac;
+        yyyy2 = yyyy2 - anoVac;
+        yyyy2 = yyyy2 * 12;
+        mm2 = 12 - mm2;
+        mm2 = yyyy2 - mm2;
+        mesesVacia = mm2 + mesVac;
+      }
+      const ultimoParto = `${diaVac}/${mesVac}/${anoVac}`;
       const particularidades = document.getElementById("particularidades")
         .value;
       const response = await fetch(
-        `http://localhost:4000/add?empresas=${empresas}&predio=${predio}&tipo=${tipo}&raza=${raza}&origen=${origen}&arete=${arete}&fechaAlta=${fechaAlta}&fechaNac=${fechaNac}&pesoCompra=${pesoCompra}&pesoActual=${pesoActual}&incremento=${incremento}&estatus=${estatus}&edad=${edad}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&fechaBaja=${fechaBaja}&motivoBaja=${motivoBaja}&particularidades=${particularidades}`
+        `http://localhost:4000/add?empresas=${empresas}&predio=${predio}&tipo=${tipo}&raza=${raza}&origen=${origen}&arete=${arete}&fechaAlta=${fechaAlta}&fechaNac=${fechaNac}&pesoCompra=${pesoCompra}&pesoActual=${pesoActual}&incremento=${incremento}&estatus=${estatus}&edad=${edad}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}`
       );
-
-      console.log("se hizo");
     };
 
     return (
@@ -97,14 +115,16 @@ class App2 extends Component {
             <br />
             Fecha en que se registra el animal
             <br />
-            <input type="text" id="dia"></input>
-            <input type="text" id="mes"></input>
-            <input type="text" id="ano"></input>
+            <input type="text" id="diaAlt"></input>
+            <input type="text" id="mesAlt"></input>
+            <input type="text" id="anoAlt"></input>
             <br />
             <br />
             Fecha de nacimiento del animal (aproximado)
             <br />
-            <input type="date" id="fecha-alt"></input>
+            <input type="text" id="dia"></input>
+            <input type="text" id="mes"></input>
+            <input type="text" id="ano"></input>
             <br />
             <br />
             Lo que peso cuando se compro
@@ -126,28 +146,9 @@ class App2 extends Component {
             <br />
             Ultima fecha en la que pario (Si nunca lo ha hecho, dejar en blanco)
             <br />
-            <input type="date" id="ultimo-parto"></input>
-            <br />
-            <br />
-            Meses que lleva vacia
-            <br />
-            <input type="text" id="meses-vacia"></input>meses
-            <br />
-            <br />
-            Fecha de baja del animal (Si no se ha dado de baja o no se piensa
-            dar de baja, dejar en blanco)
-            <br />
-            <input type="date" id="fecha-baja"></input>
-            <br />
-            <br />
-            Motivo de la baja (Si no se dio de baja, dejar en blanco)
-            <br />
-            <select id="motivo-baja">
-              <option value=""></option>
-              <option value="Venta">Venta</option>
-              <option value="Muerte">Muerte</option>
-              <option value="Robo">Robo</option>
-            </select>
+            <input type="text" id="diaVac"></input>
+            <input type="text" id="mesVac"></input>
+            <input type="text" id="anoVac"></input>
             <br />
             <br />
             Algunas particularidades que pueda tener el animal

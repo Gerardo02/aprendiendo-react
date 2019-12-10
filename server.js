@@ -53,8 +53,6 @@ app.get("/add", (req, resp) => {
     edad,
     ultimoParto,
     mesesVacia,
-    fechaBaja,
-    motivoBaja,
     particularidades
   } = req.query;
   connection.query(
@@ -74,8 +72,6 @@ app.get("/add", (req, resp) => {
       edad,
       ultimo_parto,
       meses_vacia,
-      fecha_baja,
-      motivo_baja,
       particularidades
     ) VALUES (
       '${empresas}',
@@ -93,8 +89,6 @@ app.get("/add", (req, resp) => {
       ${edad}, 
       '${ultimoParto}', 
       ${mesesVacia}, 
-      '${fechaBaja}', 
-      '${motivoBaja}', 
       '${particularidades}')`,
     (err, rows) => {
       if (err) {

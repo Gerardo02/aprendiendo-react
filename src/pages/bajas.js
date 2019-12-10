@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-import toro from "../images/captura.png";
 import "../App.css";
-
-import App2 from "../components/App2";
 
 class bajas extends Component {
   render() {
