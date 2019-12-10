@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import toro from "./images/captura.png";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import App2 from "./components/App2";
 import principal from "./pages/principal";
 import captura from "./pages/captura";
 import inventario from "./pages/inventario";
