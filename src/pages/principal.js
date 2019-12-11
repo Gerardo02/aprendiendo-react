@@ -1,5 +1,10 @@
 import React, { Component } from "react";
-import "../App.css";
+
+import fondo from "../images/fondo.mp4";
+
+import "../style-principal.css";
+
+import App2 from "../components/App2";
 
 class principal extends Component {
   render() {
@@ -10,14 +15,39 @@ class principal extends Component {
     today = dd + "/" + mm + "/" + yyyy;
     return (
       <>
-        <a href="/">inicio</a>
-        <br />
-        <a href="captura">captura</a>
-        <br />
-        <a href="inventario">inventario</a>
-        <br />
-        <a href="/bajas">bajas</a>
-        <h1>{today}</h1>
+        <div>
+          <div className="barra-nav">
+            <a className="textobarra" href="/">
+              inicio
+            </a>
+            <a className="textobarra" href="/captura">
+              captura
+            </a>
+            <a className="textobarra" href="/inventario">
+              inventario
+            </a>
+            <a className="textobarra" href="/historial">
+              historial
+            </a>
+            <a className="textobarra" href="/bajas">
+              bajas
+            </a>
+            <div className="fecha-hoy">
+              <p className="dia-hoy"> {dd}</p>
+              <p className="slash">/</p>
+              <p className="mes-hoy"> {mm}</p>
+            </div>
+          </div>
+          <div className="banner-iconos">Aqui van los iconos</div>
+
+          <video
+            className="video-fondo"
+            autoPlay
+            muted
+            loop
+            src={fondo}
+          ></video>
+        </div>
       </>
     );
   }
