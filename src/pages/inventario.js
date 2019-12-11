@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../App.css";
-
+import Inve from "../components/inve";
 class inventario extends Component {
   render() {
     return (
@@ -13,6 +13,7 @@ class inventario extends Component {
         <br />
         <a href="inventario">inventario</a>
         <br />
+        <Inve />
       </>
     );
   }
