@@ -1,18 +1,27 @@
 import React, { Component } from "react";
-import "../App.css";
+import toro from "../images/captura.png";
 
 class bajas extends Component {
   render() {
     return (
       <>
-        <a href="/">inicio</a>
-        <br />
-        <a href="inventario">inventario</a>
-        <br />
-        <a href="/bajas">bajas</a>
-        <br />
-        <a href="/historial">historial</a>
-        <br />
+        <div className="barra-nav">
+          <a className="textobarra" href="/">
+            inicio
+          </a>
+          <a className="textobarra" href="/captura">
+            captura
+          </a>
+          <a className="textobarra" href="/inventario">
+            inventario
+          </a>
+          <a className="textobarra" href="/historial">
+            historial
+          </a>
+          <a className="textobarra" href="/bajas">
+            bajas
+          </a>
+        </div>
       </>
     );
   }

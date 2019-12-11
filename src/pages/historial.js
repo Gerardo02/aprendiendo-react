@@ -1,12 +1,26 @@
 import React, { Component } from "react";
-import "../App.css";
 
 class historial extends Component {
   render() {
     return (
       <>
-        <a href="/">inicio</a>
-        <a href="inventario">inventario</a>
+        <div className="barra-nav">
+          <a className="textobarra" href="/">
+            inicio
+          </a>
+          <a className="textobarra" href="/captura">
+            captura
+          </a>
+          <a className="textobarra" href="/inventario">
+            inventario
+          </a>
+          <a className="textobarra" href="/historial">
+            historial
+          </a>
+          <a className="textobarra" href="/bajas">
+            bajas
+          </a>
+        </div>
       </>
     );
   }
