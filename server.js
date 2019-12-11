@@ -40,6 +40,8 @@ app.get("/add", (req, resp) => {
   const {
     empresas,
     predio,
+    precio,
+    numGuia,
     tipo,
     raza,
     origen,
@@ -59,6 +61,8 @@ app.get("/add", (req, resp) => {
     `INSERT INTO datos (
       empresas,
       predio,
+      precio,
+      num_guia,
       tipo,
       raza,
       origen,
@@ -76,6 +80,8 @@ app.get("/add", (req, resp) => {
     ) VALUES (
       '${empresas}',
       '${predio}', 
+      ${precio},
+      '${numGuia}',
       '${tipo}', 
       '${raza}', 
       '${origen}', 
@@ -96,6 +102,37 @@ app.get("/add", (req, resp) => {
       } else {
         console.log("se anadio");
         return resp.send("added");
+      }
+    }
+  );
+});
+app.get("/agregados", (req, resp) => {
+  connection.query("SELECT * FROM agregados", (err, rows) => {
+    if (err) {
+      throw err;
+    } else {
+      console.log("succes agregados");
+      resp.json(rows);
+    }
+  });
+});
+app.get("/add/agregados", (req, resp) => {
+  const {
+    empresas,
+    predio,
+    tipo,
+    raza,
+    origen,
+    estatus,
+    particularidades
+  } = req.query;
+  connection.query(
+    `INSERT INTO agregados (predio) VALUES ('${predio}')`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("se agregaron");
       }
     }
   );

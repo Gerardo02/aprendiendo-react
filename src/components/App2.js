@@ -4,10 +4,35 @@ import "../style-captura1.css";
 //import toro from "../images/captura.png";
 
 class App2 extends Component {
+  state = {
+    loading: true,
+    items: null
+  };
+
+  async componentDidMount() {
+    const response = await fetch("http://localhost:4000/agregados");
+    const data = await response.json();
+
+    this.setState({
+      items: data[0],
+      loading: false
+    });
+
+    const agregar = document.getElementById("empresas");
+
+    data.forEach(element => {
+      const predio = element.predio;
+      agregar.innerHTML += `<option value="${predio}">${predio}<option/>`;
+    });
+
+    console.log(data);
+  }
   render() {
     let addData = async () => {
       const empresas = document.getElementById("empresas").value;
       const predio = document.getElementById("predio").value;
+      const precio = document.getElementById("precio").value;
+      const numGuia = document.getElementById("numGuia").value;
       const tipo = document.getElementById("tipo").value;
       const raza = document.getElementById("raza").value;
       const origen = document.getElementById("origen").value;
@@ -65,9 +90,16 @@ class App2 extends Component {
       const particularidades = document.getElementById("particularidades")
         .value;
       const response = await fetch(
-        `http://localhost:4000/add?empresas=${empresas}&predio=${predio}&tipo=${tipo}&raza=${raza}&origen=${origen}&arete=${arete}&fechaAlta=${fechaAlta}&fechaNac=${fechaNac}&pesoCompra=${pesoCompra}&pesoActual=${pesoActual}&incremento=${incremento}&estatus=${estatus}&edad=${edad}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}`
+        `http://localhost:4000/add?empresas=${empresas}&predio=${predio}&precio=${precio}&numGuia=${numGuia}&tipo=${tipo}&raza=${raza}&origen=${origen}&arete=${arete}&fechaAlta=${fechaAlta}&fechaNac=${fechaNac}&pesoCompra=${pesoCompra}&pesoActual=${pesoActual}&incremento=${incremento}&estatus=${estatus}&edad=${edad}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}`
       );
     };
+    /*let dataAdd = async () => {
+      const response = await fetch("http://localhost:4000/agregados");
+      const data = response.json();
+      
+      console.log(data);
+      
+    };*/
 
     return (
       <React.Fragment>
