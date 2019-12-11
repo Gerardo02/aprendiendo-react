@@ -1,25 +1,19 @@
-.cuadro-1 {
-  background-color: black;
+.cua {
+  background-color: rgb(48, 47, 47);
   border-radius: 5px;
   width: 30%;
-  left: 15%;
-  right: 40%;
-  top: 10%;
+  top: 15%;
   margin: 0ch;
   padding: 0ch;
   line-height: 20px;
   position: absolute;
 }
+.cuadro-1 {
+  left: 15%;
+  right: 40%;
+}
 .cuadro-2 {
-  background-color: black;
-  border-radius: 5px;
-  width: 30%;
   right: 15%;
-  top: 10%;
-  margin: 0ch;
-  padding: 0ch;
-  line-height: 20px;
-  position: absolute;
 }
 
 .index-page {

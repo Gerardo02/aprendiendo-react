@@ -32,11 +32,11 @@ class principal extends Component {
             <a className="textobarra" href="/bajas">
               bajas
             </a>
-            <div className="fecha-hoy">
-              <p className="dia-hoy"> {dd}</p>
-              <p className="slash">/</p>
-              <p className="mes-hoy"> {mm}</p>
-            </div>
+          </div>
+          <div className="fecha-hoy">
+            <p className="fech dia-hoy"> {dd}</p>
+            <p className="fech slash">/</p>
+            <p className="fech mes-hoy"> {mm}</p>
           </div>
           <div className="banner-iconos">Aqui van los iconos</div>
 
