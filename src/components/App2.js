@@ -103,10 +103,13 @@ class App2 extends Component {
 
     return (
       <React.Fragment>
+        <div className="div-filtros">aqui van los filtros</div>
         <div className="index-page">
           <form>
             <div className="cua cuadro-1">
-              <div className="banner cua-1">
+              <div className="textito-cuadrito">
+                Empresas
+                <br />
                 <select className="" id="empresas">
                   <option value="">Selecciona una empresa...</option>
                   <option value="Ganadera XX SPR de RL">
@@ -120,6 +123,8 @@ class App2 extends Component {
                 <input type="text" id="predio"></input>
                 <br />
                 <br />
+                Tipo de ganado
+                <br />
                 <select id="tipo">
                   <option value="">Selecciona el tipo de ganado...</option>
                   <option value="Toro">Toro</option>
@@ -130,6 +135,8 @@ class App2 extends Component {
                   <option value="Vaca adulta">Vaca adulta</option>
                 </select>
                 <br />
+                <br />
+                Raza del animal
                 <br />
                 <select id="raza">
                   <option value="">Selecciona la raza del animal...</option>
@@ -156,6 +163,13 @@ class App2 extends Component {
                 <input type="text" id="ano"></input>
                 <br />
                 <br />
+              </div>
+              <div className="banner cua-1">
+                <p className="textito">Esto va dentro del banner </p>
+              </div>
+            </div>
+            <div className="cua cuadro-2">
+              <div className="textito-cuadrito">
                 Fecha de nacimiento del animal (aproximado)
                 <br />
                 <input type="date" id="fecha-alt"></input>
@@ -166,15 +180,13 @@ class App2 extends Component {
                 <input type="text" id="peso-compra"></input>kg
                 <br />
                 <br />
-              </div>
-            </div>
-            <div className="cua cuadro-2">
-              <div className="banner cua-2">
                 Lo que pesa ahora (Si se acaba de comprar, registrar el mismo
                 peso)
                 <br />
                 <input type="text" id="peso-actual"></input>kg
                 <br />
+                <br />
+                Estado del animal
                 <br />
                 <select id="estatus">
                   <option value="">Selecciona el estatus del animal...</option>
@@ -201,7 +213,11 @@ class App2 extends Component {
                 </select>
                 <br />
                 <br />
-                <button onClick={addData}>Aceptar</button>
+              </div>
+              <div className="banner cua-2">
+                <button className="botonsito" onClick={addData}>
+                  Aceptar
+                </button>
               </div>
             </div>
           </form>
