@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import toro from "../images/captura.png";
-
+import Inve from "../components/inve";
 import App2 from "../components/App2";
 
 class inventario extends Component {
@@ -24,6 +24,7 @@ class inventario extends Component {
             bajas
           </a>
         </div>
+        <Inve />
       </>
     );
   }

@@ -19,12 +19,10 @@ class App2 extends Component {
     });
 
     const agregar = document.getElementById("empresas");
-
     data.forEach(element => {
       const predio = element.predio;
-      agregar.innerHTML += `<option value="${predio}">${predio}<option/>`;
+      agregar.innerHTML += `<option value="${predio}">${predio}</option>`;
     });
-
     console.log(data);
   }
   render() {
@@ -93,13 +91,6 @@ class App2 extends Component {
         `http://localhost:4000/add?empresas=${empresas}&predio=${predio}&precio=${precio}&numGuia=${numGuia}&tipo=${tipo}&raza=${raza}&origen=${origen}&arete=${arete}&fechaAlta=${fechaAlta}&fechaNac=${fechaNac}&pesoCompra=${pesoCompra}&pesoActual=${pesoActual}&incremento=${incremento}&estatus=${estatus}&edad=${edad}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}`
       );
     };
-    /*let dataAdd = async () => {
-      const response = await fetch("http://localhost:4000/agregados");
-      const data = response.json();
-      
-      console.log(data);
-      
-    };*/
 
     return (
       <React.Fragment>
