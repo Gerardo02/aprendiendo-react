@@ -22,7 +22,7 @@ class Inve extends Component {
       const prueba2 = document.getElementById("texto").value;
       const prueba = document.getElementById("hola");
       console.log(prueba2);
-      prueba.innerHTML = `<option value="${predio}">${predio}<option/>`;
+      //prueba.innerHTML = `<option value="${predio}">${predio}<option/>`;
     };
 
     return (
