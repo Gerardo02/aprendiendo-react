@@ -106,6 +106,7 @@ app.get("/add", (req, resp) => {
     }
   );
 });
+/*
 app.get("/agregados", (req, resp) => {
   connection.query("SELECT * FROM agregados", (err, rows) => {
     if (err) {
@@ -137,3 +138,4 @@ app.get("/add/agregados", (req, resp) => {
     }
   );
 });
+*/
