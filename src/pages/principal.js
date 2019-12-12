@@ -6,6 +6,8 @@ import "../style-principal.css";
 
 import App2 from "../components/App2";
 
+import icono from "../images/captura.png";
+
 class principal extends Component {
   render() {
     let today = new Date();
@@ -38,7 +40,11 @@ class principal extends Component {
             <p className="fech slash">/</p>
             <p className="fech mes-hoy"> {mm}</p>
           </div>
-          <div className="banner-iconos">Aqui van los iconos</div>
+          <div className="banner-iconos">
+            <img className="icono captura" src={icono} alt="" />
+            <img className="icono inventario" src={icono} alt="" />
+            <img className="icono historial" src={icono} alt="" />
+          </div>
 
           <video
             className="video-fondo"

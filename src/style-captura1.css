@@ -1,12 +1,34 @@
+.div-filtros {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  left: 10%;
+  height: 20%;
+  background-color: rgb(95, 158, 160, 0.5);
+}
+
+input {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: white;
+  position: relative;
+  border-bottom: 1px solid #b2b2b2;
+  margin-bottom: 6px;
+}
+
 .cua {
   background-color: rgb(48, 47, 47);
   border-radius: 5px;
   width: 30%;
-  top: 15%;
+  top: 35%;
   margin: 0ch;
-  padding: 0ch;
+  padding: 5px;
   line-height: 20px;
   position: absolute;
+  box-shadow: 10px 20px 28px #616060;
 }
 .cuadro-1 {
   left: 15%;
@@ -20,4 +42,26 @@
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 20px;
   color: white;
+}
+.textito-cuadrito {
+  padding: 10px;
+}
+
+.textito {
+  padding: 10px;
+  margin: 15px;
+}
+.botonsito {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin: 15px;
+}
+
+.banner {
+  background-color: tomato;
+  border-radius: 0px 0px 5px 5px;
+  display: flex;
+  flex-direction: row-reverse;
+  height: auto;
 }

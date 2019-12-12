@@ -1,0 +1,58 @@
+.cuerpo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form {
+  height: 50px;
+  width: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.form input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding-top: 20px;
+  color: red;
+}
+.form label {
+  position: absolute;
+  left: 0%;
+  bottom: 0px;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  border-bottom: 1px solid black;
+}
+.form label::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: -1px;
+  height: 100%;
+  width: 100%;
+  border-bottom: 3px solid blue;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.content-name {
+  position: absolute;
+  bottom: 5px;
+  left: 0px;
+  transition: all 0.3s ease;
+}
+
+.form input :focus + .label-name .content-name,
+.form input :valid + .label-name .content-name {
+  transform: translateY(150%);
+  color: blue;
+  font-size: 14px;
+}
+.form input:focus + .label-name::after,
+.form input:valid + .label-name::after {
+  transform: translateX(0%);
+}

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../inve.css";
 import toro from "../images/captura.png";
 import Inve from "../components/inve";
 import App2 from "../components/App2";
@@ -24,6 +25,20 @@ class inventario extends Component {
             bajas
           </a>
         </div>
+        <body className="cuerpo">
+          <div className="form">
+            <input
+              classname="inputs"
+              name="name"
+              type="text"
+              id="predio"
+              required
+            />
+            <label for="name" classname="label-name">
+              <span className="content-name">name</span>
+            </label>
+          </div>
+        </body>
         <Inve />
       </>
     );
