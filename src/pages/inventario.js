@@ -34,12 +34,11 @@ class inventario extends Component {
               id="predio"
               required
             />
-            <label for="name" className="label-name">
+            <label htmlFor="name" className="label-name">
               <span className="content-name">name</span>
             </label>
           </div>
         </div>
-        <Inve />
       </>
     );
   }

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import toro from "../images/captura.png";
 import "../style-captura1.css";
-
+import Prueba from "../components/prueba";
 import App2 from "../components/App2";
 
 class captura extends Component {

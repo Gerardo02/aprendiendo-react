@@ -8,9 +8,10 @@ class App2 extends Component {
     loading: true,
     items: null
   };
-  /*
+
   async componentDidMount() {
-    //const response = await fetch("http://localhost:4000/agregados");
+    const response2 = await fetch("http://localhost:4000/agregados/insertar");
+    const response = await fetch("http://localhost:4000/agregados");
     const data = await response.json();
 
     this.setState({
@@ -19,17 +20,20 @@ class App2 extends Component {
     });
 
     const agregarPredio = document.getElementById("predio");
-    const agregarEmpresas = document.getElementById("empresas");
-    agregarPredio.innerHTML = `<option value="">Selecciona el predio...</option>
-    <option value="Santa Teresa">Santa Teresa</option>`;
+    //const agregarEmpresas = document.getElementById("empresas");
+
     data.forEach(element => {
       const predio = element.predio;
-      const empresas = element.empresas;
-      agregarPredio.innerHTML += `<option value="${predio}">${predio}</option>`;
+      //const empresas = element.empresas;
+      if (predio === null) {
+      } else {
+        agregarPredio.innerHTML += `<option value="${predio}">${predio}</option>`;
+      }
+
       //agregarEmpresas.innerHTML += `<option value="${empresas}">${empresas}</option>`;
     });
     console.log(data);
-  }*/
+  }
 
   render() {
     let addData = async () => {
@@ -96,11 +100,16 @@ class App2 extends Component {
       const response = await fetch(
         `http://localhost:4000/add?empresas=${empresas}&predio=${predio}&precio=${precio}&numGuia=${numGuia}&tipo=${tipo}&raza=${raza}&origen=${origen}&arete=${arete}&fechaAlta=${fechaAlta}&fechaNac=${fechaNac}&pesoCompra=${pesoCompra}&pesoActual=${pesoActual}&incremento=${incremento}&estatus=${estatus}&edad=${edad}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}`
       );
+      console.log(empresas);
     };
 
     return (
       <React.Fragment>
-        <div className="div-filtros">aqui van los filtros</div>
+        <div className="div-filtros">
+          <a href="/add">
+            <button>Agregar Datos</button>
+          </a>
+        </div>
         <div className="index-page">
           <form>
             <div className="cua cuadro-1">
@@ -117,7 +126,20 @@ class App2 extends Component {
                 <br />
                 Predio
                 <br />
-                <select className="" id="predio"></select>
+                <select className="" id="predio">
+                  <option value="">Selecciona el predio...</option>
+                  <option value="Santa Teresa">Santa Teresa</option>
+                </select>
+                <br />
+                <br />
+                Precio
+                <br />
+                <input type="number" id="precio"></input>
+                <br />
+                <br />
+                Numero de guia
+                <br />
+                <input type="text" id="numGuia"></input>
                 <br />
                 <br />
                 Tipo de ganado
@@ -155,9 +177,9 @@ class App2 extends Component {
                 <br />
                 Fecha en que se registra el animal
                 <br />
-                <input type="text" id="dia"></input>
-                <input type="text" id="mes"></input>
-                <input type="text" id="ano"></input>
+                <input type="text" id="diaAlt"></input>
+                <input type="text" id="mesAlt"></input>
+                <input type="text" id="anoAlt"></input>
                 <br />
                 <br />
               </div>
@@ -169,7 +191,9 @@ class App2 extends Component {
               <div className="textito-cuadrito">
                 Fecha de nacimiento del animal (aproximado)
                 <br />
-                <input type="date" id="fecha-alt"></input>
+                <input type="text" id="dia"></input>
+                <input type="text" id="mes"></input>
+                <input type="text" id="ano"></input>
                 <br />
                 <br />
                 Lo que peso cuando se compro
@@ -211,11 +235,12 @@ class App2 extends Component {
                 <br />
                 <br />
               </div>
-              <div className="banner cua-2">
-                <button className="botonsito" onClick={addData}>
-                  Aceptar
-                </button>
-              </div>
+
+              <button className="botonsito" onClick={addData}>
+                Aceptar
+              </button>
+
+              <div className="banner cua-2"></div>
             </div>
           </form>
         </div>

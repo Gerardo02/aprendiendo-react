@@ -101,12 +101,12 @@ app.get("/add", (req, resp) => {
         throw err;
       } else {
         console.log("se anadio");
-        return resp.send("added");
+        resp.send("added");
       }
     }
   );
 });
-/*
+
 app.get("/agregados", (req, resp) => {
   connection.query("SELECT * FROM agregados", (err, rows) => {
     if (err) {
@@ -117,35 +117,30 @@ app.get("/agregados", (req, resp) => {
     }
   });
 });
-app.get("/add/agregados", (req, resp) => {
-  const {
-    empresas,
-    predio,
-    tipo,
-    raza,
-    origen,
-    estatus,
-    particularidades
-  } = req.query;
+
+app.get("/add/predio", (req, resp) => {
+  const { predio } = req.query;
   connection.query(
     `INSERT INTO agregados (predio) VALUES ('${predio}')`,
     (err, rows) => {
       if (err) {
         throw err;
       } else {
-        console.log("se agregaron");
+        console.log("se agregaron predio");
       }
     }
-  ); /*
+  );
+});
+app.get("/add/empresas", (req, resp) => {
+  const { empresas } = req.query;
   connection.query(
     `INSERT INTO agregados (empresas) VALUES ('${empresas}')`,
     (err, rows) => {
       if (err) {
         throw err;
       } else {
-        console.log("se agregaron");
+        console.log("se agregaron empresas");
       }
     }
-  );*/
+  );
 });
-*/
