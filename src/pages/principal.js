@@ -8,6 +8,8 @@ import App2 from "../components/App2";
 
 import icono from "../images/captura.png";
 
+import bajasimg from "../images/bajas.png";
+
 class principal extends Component {
   render() {
     let today = new Date();
@@ -41,9 +43,20 @@ class principal extends Component {
             <p className="fech mes-hoy"> {mm}</p>
           </div>
           <div className="banner-iconos">
-            <img className="icono captura" src={icono} alt="" />
-            <img className="icono inventario" src={icono} alt="" />
-            <img className="icono historial" src={icono} alt="" />
+            <a className="imagenbarra" href="/captura">
+              <img className="icono captura" src={icono} alt="" />
+            </a>
+            <a className="imagenbarra" href="/inventario">
+              <img className="icono inventario" src={icono} alt="" />
+            </a>
+            <a className="imagenbarra" href="/historial">
+              <img className="icono historial" src={icono} alt="" />
+            </a>
+          </div>
+          <div className="div-bajas">
+            <a className="imagenbajas" href="/bajas">
+              <img className="bajas" src={bajasimg} alt="" />
+            </a>
           </div>
 
           <video

@@ -8,9 +8,9 @@ class App2 extends Component {
     loading: true,
     items: null
   };
-
+  /*
   async componentDidMount() {
-    const response = await fetch("http://localhost:4000/agregados");
+    //const response = await fetch("http://localhost:4000/agregados");
     const data = await response.json();
 
     this.setState({
@@ -29,7 +29,8 @@ class App2 extends Component {
       //agregarEmpresas.innerHTML += `<option value="${empresas}">${empresas}</option>`;
     });
     console.log(data);
-  }
+  }*/
+
   render() {
     let addData = async () => {
       const empresas = document.getElementById("empresas").value;

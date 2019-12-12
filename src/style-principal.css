@@ -46,7 +46,7 @@
   flex-direction: column;
   color: white;
   text-align: center;
-  background-color: rgb(165, 42, 42, 0.7);
+  /*background-color: rgb(165, 42, 42, 0.7);*/
   width: 20%;
   position: absolute;
   right: 20%;
@@ -58,11 +58,26 @@
 
 .icono {
   width: 100%;
-  background-color: rgb(255, 248, 220, 0.8);
   position: relative;
   /*line-height: 500px;*/
 }
+.imagenbarra {
+  padding: 0px;
+  margin: 0px;
+  background-color: rgb(255, 248, 220, 0.8);
+}
 
+.div-bajas {
+  display: flex;
+  position: absolute;
+  background-color: rgb(63, 62, 62, 0.5);
+  right: 5%;
+  bottom: 10%;
+  border-radius: 50px;
+}
+.bajas {
+  width: 100px;
+}
 /*
 .captura {
 }
