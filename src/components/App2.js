@@ -20,11 +20,13 @@ class App2 extends Component {
 
     const agregarPredio = document.getElementById("predio");
     const agregarEmpresas = document.getElementById("empresas");
+    agregarPredio.innerHTML = `<option value="">Selecciona el predio...</option>
+    <option value="Santa Teresa">Santa Teresa</option>`;
     data.forEach(element => {
       const predio = element.predio;
       const empresas = element.empresas;
       agregarPredio.innerHTML += `<option value="${predio}">${predio}</option>`;
-      agregarEmpresas.innerHTML += `<option value="${empresas}">${empresas}</option>`;
+      //agregarEmpresas.innerHTML += `<option value="${empresas}">${empresas}</option>`;
     });
     console.log(data);
   }
@@ -114,10 +116,7 @@ class App2 extends Component {
                 <br />
                 Predio
                 <br />
-                <select className="" id="predio">
-                  <option value="">Selecciona el predio...</option>
-                  <option value="Santa Teresa">Santa Teresa</option>
-                </select>
+                <select className="" id="predio"></select>
                 <br />
                 <br />
                 Tipo de ganado

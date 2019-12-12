@@ -25,20 +25,20 @@ class inventario extends Component {
             bajas
           </a>
         </div>
-        <body className="cuerpo">
+        <div className="cuerpo">
           <div className="form">
             <input
-              classname="inputs"
+              className="inputs"
               name="name"
               type="text"
               id="predio"
               required
             />
-            <label for="name" classname="label-name">
+            <label for="name" className="label-name">
               <span className="content-name">name</span>
             </label>
           </div>
-        </body>
+        </div>
         <Inve />
       </>
     );
