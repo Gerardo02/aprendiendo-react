@@ -32,7 +32,7 @@ class Add extends Component {
     let agregarOrigen = async () => {
       const origen = document.getElementById("origen").value;
       const response = await fetch(
-        `http://localhost:4000/add/otigen?origen=${origen}`
+        `http://localhost:4000/add/origen?origen=${origen}`
       );
     };
     let agregarParticularidades = async () => {

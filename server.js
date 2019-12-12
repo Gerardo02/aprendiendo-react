@@ -144,3 +144,68 @@ app.get("/add/empresas", (req, resp) => {
     }
   );
 });
+app.get("/add/origen", (req, resp) => {
+  const { origen } = req.query;
+  connection.query(
+    `INSERT INTO agregados (origen) VALUES ('${origen}')`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("se agregaron origen");
+      }
+    }
+  );
+});
+app.get("/add/tipo", (req, resp) => {
+  const { tipo } = req.query;
+  connection.query(
+    `INSERT INTO agregados (tipo) VALUES ('${tipo}')`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("se agregaron tipo");
+      }
+    }
+  );
+});
+app.get("/add/raza", (req, resp) => {
+  const { raza } = req.query;
+  connection.query(
+    `INSERT INTO agregados (raza) VALUES ('${raza}')`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("se agregaron raza");
+      }
+    }
+  );
+});
+app.get("/add/estatus", (req, resp) => {
+  const { estatus } = req.query;
+  connection.query(
+    `INSERT INTO agregados (estatus) VALUES ('${estatus}')`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("se agregaron estatus");
+      }
+    }
+  );
+});
+app.get("/add/particularidades", (req, resp) => {
+  const { particularidades } = req.query;
+  connection.query(
+    `INSERT INTO agregados (particularidades) VALUES ('${particularidades}')`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("se agregaron particularidades");
+      }
+    }
+  );
+});

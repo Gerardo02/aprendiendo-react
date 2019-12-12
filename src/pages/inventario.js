@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "../inve.css";
 import toro from "../images/captura.png";
 import Inve from "../components/inve";
-import App2 from "../components/App2";
 
 class inventario extends Component {
   render() {
@@ -39,6 +38,7 @@ class inventario extends Component {
             </label>
           </div>
         </div>
+        <Inve />
       </>
     );
   }

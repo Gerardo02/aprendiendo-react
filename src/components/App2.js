@@ -10,7 +10,6 @@ class App2 extends Component {
   };
 
   async componentDidMount() {
-    const response2 = await fetch("http://localhost:4000/agregados/insertar");
     const response = await fetch("http://localhost:4000/agregados");
     const data = await response.json();
 
@@ -20,17 +19,43 @@ class App2 extends Component {
     });
 
     const agregarPredio = document.getElementById("predio");
-    //const agregarEmpresas = document.getElementById("empresas");
-
+    const agregarEmpresas = document.getElementById("empresas");
+    const agregarTipo = document.getElementById("tipo");
+    const agregarRaza = document.getElementById("raza");
+    const agregarOrigen = document.getElementById("origen");
+    const agregarEstatus = document.getElementById("estatus");
+    const agregarParti = document.getElementById("particularidades");
     data.forEach(element => {
       const predio = element.predio;
-      //const empresas = element.empresas;
+      const empresas = element.empresas;
       if (predio === null) {
       } else {
         agregarPredio.innerHTML += `<option value="${predio}">${predio}</option>`;
       }
-
-      //agregarEmpresas.innerHTML += `<option value="${empresas}">${empresas}</option>`;
+      if (empresas === null) {
+      } else {
+        agregarEmpresas.innerHTML += `<option value="${empresas}">${empresas}</option>`;
+      }
+      if (element.tipo === null) {
+      } else {
+        agregarTipo.innerHTML += `<option value="${element.tipo}">${element.tipo}</option>`;
+      }
+      if (element.raza === null) {
+      } else {
+        agregarRaza.innerHTML += `<option value="${element.raza}">${element.raza}</option>`;
+      }
+      if (element.origen === null) {
+      } else {
+        agregarOrigen.innerHTML += `<option value="${element.origen}">${element.origen}</option>`;
+      }
+      if (element.estatus === null) {
+      } else {
+        agregarEstatus.innerHTML += `<option value="${element.estatus}">${element.estatus}</option>`;
+      }
+      if (element.particularidades === null) {
+      } else {
+        agregarParti.innerHTML += `<option value="${element.particularidades}">${element.particularidades}</option>`;
+      }
     });
     console.log(data);
   }
@@ -167,7 +192,10 @@ class App2 extends Component {
                 <br />
                 Origen del animal
                 <br />
-                <input type="text" id="origen"></input>
+                <select id="origen">
+                  <option value="">Selecciona el origen del animal...</option>
+                  <option value="Criollo">Criollo</option>
+                </select>
                 <br />
                 <br />
                 Arete del animal
@@ -224,10 +252,10 @@ class App2 extends Component {
                 <input type="text" id="anoVac"></input>
                 <br />
                 <br />
-                Algunas particularidades que pueda tener el animal
+                Alguna particularidad que pueda tener el animal
                 <br />
                 <select id="particularidades">
-                  <option value=""></option>
+                  <option value="">Particularidad del animal</option>
                   <option value="Enfermo">Enfermo</option>
                   <option value="Extraviado">Extraviado</option>
                   <option value="Bronco">Bronco</option>
