@@ -18,10 +18,13 @@ class App2 extends Component {
       loading: false
     });
 
-    const agregar = document.getElementById("empresas");
+    const agregarPredio = document.getElementById("predio");
+    const agregarEmpresas = document.getElementById("empresas");
     data.forEach(element => {
       const predio = element.predio;
-      agregar.innerHTML += `<option value="${predio}">${predio}</option>`;
+      const empresas = element.empresas;
+      agregarPredio.innerHTML += `<option value="${predio}">${predio}</option>`;
+      agregarEmpresas.innerHTML += `<option value="${empresas}">${empresas}</option>`;
     });
     console.log(data);
   }*/
@@ -112,7 +115,10 @@ class App2 extends Component {
                 <br />
                 Predio
                 <br />
-                <input type="text" id="predio"></input>
+                <select className="" id="predio">
+                  <option value="">Selecciona el predio...</option>
+                  <option value="Santa Teresa">Santa Teresa</option>
+                </select>
                 <br />
                 <br />
                 Tipo de ganado

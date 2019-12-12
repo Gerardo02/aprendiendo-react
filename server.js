@@ -136,6 +136,16 @@ app.get("/add/agregados", (req, resp) => {
         console.log("se agregaron");
       }
     }
-  );
+  ); /*
+  connection.query(
+    `INSERT INTO agregados (empresas) VALUES ('${empresas}')`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("se agregaron");
+      }
+    }
+  );*/
 });
 */
