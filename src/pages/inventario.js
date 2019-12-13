@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../inve.css";
 import toro from "../images/captura.png";
 import Inve from "../components/inve";
-
+import Filtros from "../components/filtros";
 class inventario extends Component {
   render() {
     return (
@@ -24,20 +24,10 @@ class inventario extends Component {
             bajas
           </a>
         </div>
-        <div className="cuerpo">
-          <div className="form">
-            <input
-              className="inputs"
-              name="name"
-              type="text"
-              id="predio"
-              required
-            />
-            <label htmlFor="name" className="label-name">
-              <span className="content-name">name</span>
-            </label>
-          </div>
-        </div>
+        <Filtros />
+        <br />
+        <br />
+
         <Inve />
       </>
     );
