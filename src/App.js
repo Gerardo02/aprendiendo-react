@@ -6,6 +6,7 @@ import captura from "./pages/captura";
 import inventario from "./pages/inventario";
 import historial from "./pages/historial";
 import bajas from "./pages/bajas";
+import App2 from "./components/App2";
 class App extends Component {
   state = {
     loading: true,
@@ -22,6 +23,7 @@ class App extends Component {
     });
     console.log(data);
   }
+
   render() {
     return (
       <>

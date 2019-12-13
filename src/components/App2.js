@@ -121,6 +121,16 @@ class App2 extends Component {
                 </select>
                 <br />
                 <br />
+                precio
+                <br />
+                <input type="text" id="precio"></input>
+                <br />
+                <br />
+                numero de guia
+                <br />
+                <input type="text" id="numGuia"></input>
+                <br />
+                <br />
                 Tipo de ganado
                 <br />
                 <select id="tipo">
@@ -156,9 +166,9 @@ class App2 extends Component {
                 <br />
                 Fecha en que se registra el animal
                 <br />
-                <input type="text" id="dia"></input>
-                <input type="text" id="mes"></input>
-                <input type="text" id="ano"></input>
+                <input type="text" id="diaAlt"></input>
+                <input type="text" id="mesAlt"></input>
+                <input type="text" id="anoAlt"></input>
                 <br />
                 <br />
               </div>
@@ -168,6 +178,13 @@ class App2 extends Component {
             </div>
             <div className="cua cuadro-2">
               <div className="textito-cuadrito">
+                Fecha de nacimiento
+                <br />
+                <input type="text" id="dia"></input>
+                <input type="text" id="mes"></input>
+                <input type="text" id="ano"></input>
+                <br />
+                <br />
                 Fecha de nacimiento del animal (aproximado)
                 <br />
                 <input type="date" id="fecha-alt"></input>
@@ -212,13 +229,12 @@ class App2 extends Component {
                 <br />
                 <br />
               </div>
-              <div className="banner cua-2">
-                <button className="botonsito" onClick={addData}>
-                  Aceptar
-                </button>
-              </div>
+              <div className="banner cua-2"></div>
             </div>
           </form>
+          <button className="botonsito" onClick={addData}>
+            Aceptar
+          </button>
         </div>
       </React.Fragment>
     );

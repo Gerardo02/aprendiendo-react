@@ -146,6 +146,6 @@ app.get("/add/agregados", (req, resp) => {
         console.log("se agregaron");
       }
     }
-  );*/
+  );
 });
 */
