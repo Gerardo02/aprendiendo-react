@@ -19,7 +19,7 @@ class App extends Component {
     const data = await response.json();
 
     this.setState({
-      items: data[0],
+      items: data,
       loading: false
     });
     console.log(data);
