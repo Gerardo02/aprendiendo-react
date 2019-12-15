@@ -8,9 +8,9 @@ class App2 extends Component {
     loading: true,
     items: null
   };
-  /*
+
   async componentDidMount() {
-    //const response = await fetch("http://localhost:4000/agregados");
+    const response = await fetch("http://localhost:4000/agregados");
     const data = await response.json();
 
     this.setState({
@@ -20,14 +20,45 @@ class App2 extends Component {
 
     const agregarPredio = document.getElementById("predio");
     const agregarEmpresas = document.getElementById("empresas");
+    const agregarTipo = document.getElementById("tipo");
+    const agregarRaza = document.getElementById("raza");
+    const agregarOrigen = document.getElementById("origen");
+    const agregarEstatus = document.getElementById("estatus");
+    const agregarParti = document.getElementById("particularidades");
     data.forEach(element => {
       const predio = element.predio;
       const empresas = element.empresas;
-      agregarPredio.innerHTML += `<option value="${predio}">${predio}</option>`;
-      agregarEmpresas.innerHTML += `<option value="${empresas}">${empresas}</option>`;
+      if (predio === null) {
+      } else {
+        agregarPredio.innerHTML += `<option value="${predio}">${predio}</option>`;
+      }
+      if (empresas === null) {
+      } else {
+        agregarEmpresas.innerHTML += `<option value="${empresas}">${empresas}</option>`;
+      }
+      if (element.tipo === null) {
+      } else {
+        agregarTipo.innerHTML += `<option value="${element.tipo}">${element.tipo}</option>`;
+      }
+      if (element.raza === null) {
+      } else {
+        agregarRaza.innerHTML += `<option value="${element.raza}">${element.raza}</option>`;
+      }
+      if (element.origen === null) {
+      } else {
+        agregarOrigen.innerHTML += `<option value="${element.origen}">${element.origen}</option>`;
+      }
+      if (element.estatus === null) {
+      } else {
+        agregarEstatus.innerHTML += `<option value="${element.estatus}">${element.estatus}</option>`;
+      }
+      if (element.particularidades === null) {
+      } else {
+        agregarParti.innerHTML += `<option value="${element.particularidades}">${element.particularidades}</option>`;
+      }
     });
     console.log(data);
-  }*/
+  }
 
   render() {
     let addData = async () => {
@@ -94,11 +125,16 @@ class App2 extends Component {
       const response = await fetch(
         `http://localhost:4000/add?empresas=${empresas}&predio=${predio}&precio=${precio}&numGuia=${numGuia}&tipo=${tipo}&raza=${raza}&origen=${origen}&arete=${arete}&fechaAlta=${fechaAlta}&fechaNac=${fechaNac}&pesoCompra=${pesoCompra}&pesoActual=${pesoActual}&incremento=${incremento}&estatus=${estatus}&edad=${edad}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}`
       );
+      console.log(empresas);
     };
 
     return (
       <React.Fragment>
-        <div className="div-filtros">aqui van los filtros</div>
+        <div className="div-filtros">
+          <a href="/add">
+            <button>Agregar Datos</button>
+          </a>
+        </div>
         <div className="index-page">
           <form>
             <div className="cua cuadro-1">
@@ -156,7 +192,10 @@ class App2 extends Component {
                 <br />
                 Origen del animal
                 <br />
-                <input type="text" id="origen"></input>
+                <select id="origen">
+                  <option value="">Selecciona el origen del animal...</option>
+                  <option value="Criollo">Criollo</option>
+                </select>
                 <br />
                 <br />
                 Arete del animal
@@ -183,11 +222,6 @@ class App2 extends Component {
                 <input type="text" id="dia"></input>
                 <input type="text" id="mes"></input>
                 <input type="text" id="ano"></input>
-                <br />
-                <br />
-                Fecha de nacimiento del animal (aproximado)
-                <br />
-                <input type="date" id="fecha-alt"></input>
                 <br />
                 <br />
                 Lo que peso cuando se compro
@@ -218,10 +252,10 @@ class App2 extends Component {
                 <input type="text" id="anoVac"></input>
                 <br />
                 <br />
-                Algunas particularidades que pueda tener el animal
+                Alguna particularidad que pueda tener el animal
                 <br />
                 <select id="particularidades">
-                  <option value=""></option>
+                  <option value="">Particularidad del animal</option>
                   <option value="Enfermo">Enfermo</option>
                   <option value="Extraviado">Extraviado</option>
                   <option value="Bronco">Bronco</option>
