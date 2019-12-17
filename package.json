@@ -16,12 +16,13 @@
   "dependencies": {
     "cors": "^2.8.5",
     "cross-env": "^6.0.3",
+    "electron-find": "^1.0.6",
     "electron-is-dev": "^1.1.0",
     "mysql": "^2.17.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0"
+    "react-scripts": "^3.3.0"
   },
   "scripts": {
     "react-start": "react-scripts start",

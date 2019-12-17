@@ -7,6 +7,7 @@ import inventario from "./pages/inventario";
 import historial from "./pages/historial";
 import bajas from "./pages/bajas";
 import add from "./pages/addSel";
+import actualizar from "./pages/actualizar";
 import App2 from "./components/App2";
 class App extends Component {
   state = {
@@ -36,6 +37,7 @@ class App extends Component {
             <Route exact path="/inventario" component={inventario} />
             <Route exact path="/captura" component={captura} />
             <Route exact path="/add" component={add} />
+            <Route exact path="/actualizar" component={actualizar} />
           </Switch>
         </Router>
       </>

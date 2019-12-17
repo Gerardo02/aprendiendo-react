@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-
 import "../style-captura1.css";
-//import toro from "../images/captura.png";
-
-class App2 extends Component {
+class Actualizar extends Component {
   state = {
     loading: true,
     items: null
@@ -150,9 +147,11 @@ class App2 extends Component {
         alert("Datos incompletos (si no se sabe algun dato, inventarlo)");
       }
     };
-
     return (
-      <React.Fragment>
+      <>
+        <a href="/inventario">
+          <button>Regresar</button>
+        </a>
         <div className="div-filtros">
           <a href="/add">
             <button>Agregar Datos</button>
@@ -292,9 +291,9 @@ class App2 extends Component {
             </div>
           </div>
         </div>
-      </React.Fragment>
+      </>
     );
   }
 }
 
-export default App2;
+export default Actualizar;

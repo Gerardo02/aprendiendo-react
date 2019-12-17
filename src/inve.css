@@ -17,3 +17,25 @@
 .texto-inve2 {
   padding: 5%;
 }
+.btn-baja {
+  margin-top: 30%;
+  margin-bottom: 30%;
+  z-index: 1;
+  border-radius: 15px;
+}
+.top-btn {
+  background-color: black;
+  margin-top: 30%;
+}
+.fecha-baja {
+  width: 15px;
+  margin-right: 1%;
+}
+.fecha-baja-ano {
+  width: 30px;
+}
+
+.baja-container {
+  text-align: center;
+  justify-items: left;
+}

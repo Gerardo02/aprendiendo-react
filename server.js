@@ -8,7 +8,7 @@ const app = express();
 connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "633d5ca8e4",
+  password: "767482",
   database: "inventario_ganadero"
 });
 // connect
@@ -102,6 +102,97 @@ app.get("/add", (req, resp) => {
       } else {
         console.log("se anadio");
         resp.send("added");
+      }
+    }
+  );
+});
+
+app.get("/delete", (req, resp) => {
+  const { arete } = req.query;
+  connection.query(
+    `DELETE FROM datos WHERE arete = '${arete}'`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes delete");
+      }
+    }
+  );
+});
+
+app.get("/send", (req, resp) => {
+  const {
+    empresas,
+    predio,
+    precio,
+    numGuia,
+    tipo,
+    raza,
+    origen,
+    fechaAlta,
+    fechaNac,
+    pesoCompra,
+    pesoActual,
+    incremento,
+    estatus,
+    arete,
+    edad,
+    ultimoParto,
+    mesesVacia,
+    particularidades,
+    fechaBaja,
+    motivoBaja
+  } = req.query;
+  connection.query(
+    `INSERT INTO bajas (
+      empresas,
+      predio,
+      precio,
+      num_guia,
+      tipo,
+      raza,
+      origen,
+      arete,
+      fecha_alta,
+      fecha_nacimiento,
+      peso_compra,
+      peso_actual,
+      incremento_peso,
+      estatus,
+      edad,
+      ultimo_parto,
+      meses_vacia,
+      particularidades,
+      fecha_baja,
+      motivo_baja
+      ) VALUES (
+      '${empresas}',
+      '${predio}', 
+      ${precio},
+      '${numGuia}',
+      '${tipo}', 
+      '${raza}', 
+      '${origen}', 
+      '${arete}', 
+      '${fechaAlta}', 
+      '${fechaNac}', 
+      ${pesoCompra}, 
+      ${pesoActual}, 
+      ${incremento}, 
+      '${estatus}', 
+      ${edad}, 
+      '${ultimoParto}', 
+      ${mesesVacia}, 
+      '${particularidades}',
+      '${fechaBaja}',
+      '${motivoBaja}'
+      )`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes add baja");
       }
     }
   );
