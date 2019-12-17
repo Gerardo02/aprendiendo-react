@@ -52,7 +52,7 @@ class Add extends Component {
     return (
       <>
         <div className="cuadrototal">
-          <div className="cuadro-1">
+          <div className="cuadro-11">
             <div className="texto espacio1">
               <form>
                 <input

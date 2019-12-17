@@ -1,10 +1,41 @@
 import React, { Component } from "react";
 import "../inve.css";
-import toro from "../images/captura.png";
 import Inve from "../components/inve";
 import Filtros from "../components/filtros";
 class inventario extends Component {
+  async componentDidMount() {
+    const response = await fetch("http://localhost:4000/datos");
+    const data = await response.json();
+
+    /*   const edad11 = data.map(equis => {
+      console.log(equis.empresas);
+    });
+*/
+
+    this.setState({
+      items: data,
+      loading: false
+    });
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      filtertext: "hello"
+    };
+  }
+
+  filterupdate(value) {
+    this.setState({
+      filtertext: value
+    });
+  }
+
   render() {
+    //console.log(
+    //"filtertext state from parent component",
+    //this.state.filtertext
+    //);
     return (
       <>
         <div className="barra-nav">
@@ -24,11 +55,15 @@ class inventario extends Component {
             bajas
           </a>
         </div>
-        <Filtros />
+
+        <Filtros
+          filtertext={this.state.filtertext}
+          filterupdate={this.filterupdate.bind(this)}
+        />
         <br />
         <br />
 
-        <Inve />
+        <Inve filtertext={this.state.filtertext} />
       </>
     );
   }
