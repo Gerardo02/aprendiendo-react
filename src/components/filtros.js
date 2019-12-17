@@ -1,5 +1,34 @@
 import React, { Component } from "react";
-import Inve from "./inve";
+import "../inve.css";
+//import toro from "../images/captura.png";
+
+class Filtros extends Component {
+  filterupdate() {
+    const val = this.myvalue.value;
+    this.props.filterupdate(val);
+  }
+
+  render() {
+    //console.log("filtertext value", this.props.filtertext);
+    return (
+      <React.Fragment>
+        <form>
+          <input
+            type="text"
+            ref={value => (this.myvalue = value)}
+            placeholder="type to filter..."
+            onChange={this.filterupdate.bind(this)}
+          />
+          <p>filtertext value is: {this.props.filtertext} </p>
+        </form>
+      </React.Fragment>
+    );
+  }
+}
+
+export default Filtros;
+
+/*import React, { Component } from "react";
 import "../inve.css";
 //import toro from "../images/captura.png";
 
@@ -37,3 +66,4 @@ class Filtros extends Component {
 }
 
 export default Filtros;
+*/

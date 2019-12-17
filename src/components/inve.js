@@ -5,6 +5,8 @@ class Inve extends Component {
   async componentDidMount() {
     const response = await fetch("http://localhost:4000/datos");
     const data = await response.json();
+    //console.log(data);
+    const { filtertext } = this.props;
     const inventario = document.getElementById("cuadro-inventario");
     let flag = 0;
     data.forEach(element => {
