@@ -127,13 +127,7 @@ class App2 extends Component {
       const particularidades = document.getElementById("particularidades")
         .value;
       const movimiento = "Captura";
-      let datosNormales = async () => {
-        const response = await fetch(
-          `http://localhost:4000/add?empresas=${empresas}&predio=${predio}&precio=${precio}&numGuia=${numGuia}&tipo=${tipo}&raza=${raza}&origen=${origen}&arete=${arete}&fechaAlta=${fechaAlta}&fechaNac=${fechaNac}&pesoCompra=${pesoCompra}&pesoActual=${pesoActual}&incremento=${incremento}&estatus=${estatus}&edad=${edad}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}`
-        );
-      };
       let sendHistorial = async () => {
-        window.location.reload();
         const response = await fetch(
           `http://localhost:4000/send/historial?tipo=${tipo}&numGuia=${numGuia}&raza=${raza}&arete=${arete}&fecha=${fechaAlta}&movimiento=${movimiento}`
         );
@@ -158,17 +152,18 @@ class App2 extends Component {
         mesVac !== "" &&
         anoVac !== ""
       ) {
-        buttons.forEach(button => {
-          button.addEventListener("click", sendHistorial);
-          button.addEventListener("click", datosNormales);
-        });
+        window.location.reload();
+        const response = await fetch(
+          `http://localhost:4000/add?empresas=${empresas}&predio=${predio}&precio=${precio}&numGuia=${numGuia}&tipo=${tipo}&raza=${raza}&origen=${origen}&arete=${arete}&fechaAlta=${fechaAlta}&fechaNac=${fechaNac}&pesoCompra=${pesoCompra}&pesoActual=${pesoActual}&incremento=${incremento}&estatus=${estatus}&edad=${edad}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}`
+        );
+        sendHistorial();
       } else {
         alert("Datos incompletos (si no se sabe algun dato, inventarlo)");
       }
-    };
+    }; /* 
     buttons.forEach(button => {
       button.addEventListener("click", addData);
-    });
+    });*/
     return (
       <React.Fragment>
         <div className="div-filtros">
@@ -304,7 +299,9 @@ class App2 extends Component {
               <br />
             </div>
             <div className="banner cua-2">
-              <button className="botonsito">Aceptar</button>
+              <button className="botonsito" onClick={addData}>
+                Aceptar
+              </button>
             </div>
           </div>
         </div>

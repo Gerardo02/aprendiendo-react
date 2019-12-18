@@ -114,8 +114,7 @@ app.get("/add", (req, resp) => {
       edad,
       ultimo_parto,
       meses_vacia,
-      particularidades,
-      movimiento
+      particularidades
     ) VALUES (
       '${empresas}',
       '${predio}', 
@@ -135,7 +134,7 @@ app.get("/add", (req, resp) => {
       '${ultimoParto}', 
       ${mesesVacia}, 
       '${particularidades}'
-      'Captura')`,
+      )`,
     (err, rows) => {
       if (err) {
         throw err;

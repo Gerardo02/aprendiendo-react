@@ -90,9 +90,22 @@ class bajas extends Component {
           `http://localhost:4000/delete/bajas?arete=${areteId}&numGuia=${data[numId].num_guia}`
         );
       };
+      let fetch3 = async () => {
+        const movimiento = "Recuperado";
+        let today = new Date();
+        let dd = today.getDay() + 15;
+        let mm = today.getMonth() + 1; //January is 0!
+        let yyyy = today.getFullYear();
+        const fecha = `${dd}/${mm}/${yyyy}`;
+        const deleteRow = await fetch(
+          `http://localhost:4000/send/historial?tipo=${data[numId].tipo}&numGuia=${data[numId].num_guia}&raza=${data[numId].raza}&arete=${areteId}&fecha=${fecha}&movimiento=${movimiento}`
+        );
+      };
+
       button.forEach(button => {
         button.addEventListener("click", fetch1);
         button.addEventListener("click", fetch2);
+        button.addEventListener("click", fetch3);
       });
     };
 
