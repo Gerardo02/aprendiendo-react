@@ -158,7 +158,7 @@ class Actualizar extends Component {
           </a>
         </div>
         <div className="index-page">
-          <div className="cua cuadro-11">
+          <div className="cua cuadro-1">
             <div className="textito-cuadrito">
               Empresas
               <br />
