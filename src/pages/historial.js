@@ -1,23 +1,40 @@
 import React, { Component } from "react";
-import { emptyStatement } from "@babel/types";
+import "../inve.css";
 
 class historial extends Component {
   async componentDidMount() {
-    const response = await fetch("http://localhost:4000/datos");
+    const response = await fetch("http://localhost:4000/historial");
     const data = await response.json();
     //console.log(data);
-
-    const empresa12 = data[0].predio;
-    const empresa1 = data;
-    /*
-    const division = document.getElementById("esta");
-
-    division.innerHTML = `
-    <p> la informacion es esta : ${empresa}
-    `;
-*/
-    console.log(empresa1);
-    console.log(empresa12);
+    const { filtertext } = this.props;
+    const inventario = document.getElementById("cuadro-inventario");
+    let flag = 0;
+    data.forEach(element => {
+      inventario.innerHTML += `
+      
+      <div class="cuadro-animal">
+      <div class="texto-inve1">
+      <strong>Arete</strong><br/>
+      ${element.arete}<br/><br/>
+      <strong>Numero de guia</strong><br/>
+      ${element.num_guia}<br/><br/>
+      <strong>Fecha del movimiento</strong><br/>
+      ${element.fecha}<br/><br/>
+      
+      </div>
+      <div class="texto-inve2">
+      <strong>Movimiento</strong><br/>
+      ${element.movimiento}<br/><br/>
+      <strong>Tipo de ganado </strong><br/>
+      ${element.tipo}<br/><br/>
+      <strong>Raza </strong><br/>
+      ${element.raza}<br/><br/>
+      </div>
+      </div>
+      <br/><br/><br/>
+      `;
+      flag++;
+    });
   }
 
   render() {
@@ -40,6 +57,10 @@ class historial extends Component {
             bajas
           </a>
         </div>
+        <br />
+        <br />
+
+        <div id="cuadro-inventario"></div>
       </>
     );
   }

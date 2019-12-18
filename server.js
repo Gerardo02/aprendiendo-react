@@ -36,6 +36,44 @@ app.get("/datos", (req, resp) => {
   });
 });
 
+app.get("/historial", (req, resp) => {
+  connection.query("SELECT * FROM historial", (err, rows) => {
+    if (err) {
+      throw err;
+    } else {
+      console.log("succes datos");
+      resp.json(rows);
+    }
+  });
+});
+
+app.get("/send/historial", (req, resp) => {
+  const { numGuia, tipo, raza, arete, fecha, movimiento } = req.query;
+  connection.query(
+    `INSERT INTO historial (
+    num_guia,
+    tipo,
+    raza,
+    arete,
+    fecha,
+    movimiento
+  ) VALUES (
+    '${numGuia}',
+    '${tipo}', 
+    '${raza}', 
+    '${arete}', 
+    '${fecha}', 
+    '${movimiento}')`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes send historial");
+      }
+    }
+  );
+});
+
 app.get("/add", (req, resp) => {
   const {
     empresas,
@@ -76,7 +114,8 @@ app.get("/add", (req, resp) => {
       edad,
       ultimo_parto,
       meses_vacia,
-      particularidades
+      particularidades,
+      movimiento
     ) VALUES (
       '${empresas}',
       '${predio}', 
@@ -95,7 +134,8 @@ app.get("/add", (req, resp) => {
       ${edad}, 
       '${ultimoParto}', 
       ${mesesVacia}, 
-      '${particularidades}')`,
+      '${particularidades}'
+      'Captura')`,
     (err, rows) => {
       if (err) {
         throw err;
