@@ -31,11 +31,31 @@
   width: 15px;
   margin-right: 1%;
 }
-.fecha-baja-ano {
+.fechabaja {
   width: 30px;
 }
 
 .baja-container {
   text-align: center;
   justify-items: left;
+}
+
+.inputbaja {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  position: relative;
+  border-bottom: 1px solid #b2b2b2;
+  margin-bottom: 6px;
+}
+
+.div-actualizar {
+  display: flex;
+  margin: 15px;
+  justify-content: center;
+}
+.btn-actualizar {
+  font-size: 20px;
+
+  border-radius: 50px;
 }

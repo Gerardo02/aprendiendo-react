@@ -9,11 +9,11 @@
   background-color: rgb(95, 158, 160, 0.5);
 }
 
-input {
+.input1 {
   outline: none;
   border: none;
   background-color: transparent;
-
+  color: white;
   position: relative;
   border-bottom: 1px solid #b2b2b2;
   margin-bottom: 6px;
@@ -64,4 +64,51 @@ input {
   display: flex;
   flex-direction: row-reverse;
   height: auto;
+}
+
+/*---------------------------------------- aqui inicia estilo para actualizar --------------------------------------*/
+.index-page-actualizar {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+.cuadroactualizar {
+  background-color: rgb(48, 47, 47);
+  border-radius: 5px;
+  width: 80%;
+  margin: 0ch;
+  padding: 5px;
+  line-height: 20px;
+  position: absolute;
+  box-shadow: 10px 20px 28px #616060;
+}
+.banner-actualizar {
+  background-color: tomato;
+  border-radius: 0px 0px 5px 5px;
+  display: flex;
+  height: auto;
+}
+.input-arete {
+  position: relative;
+  margin: 18px;
+}
+
+.botonsito-actualizar {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin: 15px;
+  float: right;
+}
+
+.input2 {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: white;
+  position: relative;
+  border-bottom: 1px solid #b2b2b2;
+  margin-bottom: 6px;
 }

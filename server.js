@@ -107,6 +107,33 @@ app.get("/add", (req, resp) => {
   );
 });
 
+app.get("/actualizar", (req, resp) => {
+  const {
+    arete,
+    pesoActual,
+    estatus,
+    ultimoParto,
+    mesesVacia,
+    particularidades
+  } = req.query;
+  connection.query(
+    `UPDATE DATOS SET 
+    peso_actual=${pesoActual},
+    estatus='${estatus}',
+    ultimo_parto='${ultimoParto}',
+    meses_vacia=${mesesVacia},
+    particularidades='${particularidades}'  WHERE arete = '${arete}'`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("se ACTUALIZO");
+        resp.send("added");
+      }
+    }
+  );
+});
+
 app.get("/delete", (req, resp) => {
   const { arete } = req.query;
   connection.query(
@@ -119,6 +146,31 @@ app.get("/delete", (req, resp) => {
       }
     }
   );
+});
+
+app.get("/delete/bajas", (req, resp) => {
+  const { arete } = req.query;
+  connection.query(
+    `DELETE FROM bajas WHERE arete = '${arete}'`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes delete from bajas");
+      }
+    }
+  );
+});
+
+app.get("/bajas", (req, resp) => {
+  connection.query(`SELECT * FROM bajas`, (err, rows) => {
+    if (err) {
+      throw err;
+    } else {
+      console.log("succes bajas");
+      resp.json(rows);
+    }
+  });
 });
 
 app.get("/send", (req, resp) => {
@@ -193,6 +245,77 @@ app.get("/send", (req, resp) => {
         throw err;
       } else {
         console.log("succes add baja");
+      }
+    }
+  );
+});
+
+app.get("/send/bajas", (req, resp) => {
+  const {
+    empresas,
+    predio,
+    precio,
+    numGuia,
+    tipo,
+    raza,
+    origen,
+    fechaAlta,
+    fechaNac,
+    pesoCompra,
+    pesoActual,
+    incremento,
+    estatus,
+    arete,
+    edad,
+    ultimoParto,
+    mesesVacia,
+    particularidades
+  } = req.query;
+  connection.query(
+    `INSERT INTO datos (
+      empresas,
+      predio,
+      precio,
+      num_guia,
+      tipo,
+      raza,
+      origen,
+      arete,
+      fecha_alta,
+      fecha_nacimiento,
+      peso_compra,
+      peso_actual,
+      incremento_peso,
+      estatus,
+      edad,
+      ultimo_parto,
+      meses_vacia,
+      particularidades
+      ) VALUES (
+      '${empresas}',
+      '${predio}', 
+      ${precio},
+      '${numGuia}',
+      '${tipo}', 
+      '${raza}', 
+      '${origen}', 
+      '${arete}', 
+      '${fechaAlta}', 
+      '${fechaNac}', 
+      ${pesoCompra}, 
+      ${pesoActual}, 
+      ${incremento}, 
+      '${estatus}', 
+      ${edad}, 
+      '${ultimoParto}', 
+      ${mesesVacia}, 
+      '${particularidades}'
+      )`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes send to datos");
       }
     }
   );

@@ -81,11 +81,12 @@ class App2 extends Component {
       let dia = document.getElementById("dia").value;
       let mes = document.getElementById("mes").value;
       let ano = document.getElementById("ano").value;
+      const fechaNac = `${dia}/${mes}/${ano}`;
       let today = new Date();
       let mm = today.getMonth() + 1; //January is 0!
       let yyyy = today.getFullYear();
       let edad;
-      if (yyyy === ano) {
+      if (yyyy <= ano) {
         edad = mm - mes;
       } else if (yyyy > ano) {
         mes = 12 - mes;
@@ -95,7 +96,7 @@ class App2 extends Component {
         mm = yyyy - mm;
         edad = mm + mes;
       }
-      const fechaNac = `${dia}/${mes}/${ano}`;
+
       const pesoCompra = document.getElementById("peso-compra").value;
       const pesoActual = document.getElementById("peso-actual").value;
       const incremento = pesoActual - pesoCompra;
@@ -105,11 +106,12 @@ class App2 extends Component {
       let diaVac = document.getElementById("diaVac").value;
       let mesVac = document.getElementById("mesVac").value;
       let anoVac = document.getElementById("anoVac").value;
+      const ultimoParto = `${diaVac}/${mesVac}/${anoVac}`;
       let mesesVacia;
       let today2 = new Date();
       let mm2 = today2.getMonth() + 1;
       let yyyy2 = today2.getFullYear();
-      if (yyyy2 === anoVac) {
+      if (yyyy2 <= anoVac) {
         mesesVacia = mm2 - mesVac;
       } else if (yyyy2 > anoVac) {
         mesVac = 12 - mesVac;
@@ -119,7 +121,7 @@ class App2 extends Component {
         mm2 = yyyy2 - mm2;
         mesesVacia = mm2 + mesVac;
       }
-      const ultimoParto = `${diaVac}/${mesVac}/${anoVac}`;
+
       const particularidades = document.getElementById("particularidades")
         .value;
       if (arete !== "") {
@@ -181,12 +183,12 @@ class App2 extends Component {
               <br />
               Precio
               <br />
-              <input type="text" id="precio"></input>
+              <input className="input1" type="text" id="precio"></input>
               <br />
               <br />
               numero de guia
               <br />
-              <input type="text" id="numGuia"></input>
+              <input className="input1" type="text" id="numGuia"></input>
               <br />
               <br />
               Tipo de ganado
@@ -222,14 +224,14 @@ class App2 extends Component {
               <br />
               Arete del animal
               <br />
-              <input type="text" id="arete"></input>
+              <input className="input1" type="text" id="arete"></input>
               <br />
               <br />
               Fecha en que se registra el animal
               <br />
-              <input type="text" id="diaAlt"></input>
-              <input type="text" id="mesAlt"></input>
-              <input type="text" id="anoAlt"></input>
+              <input className="input1" type="text" id="diaAlt"></input>
+              <input className="input1" type="text" id="mesAlt"></input>
+              <input className="input1" type="text" id="anoAlt"></input>
               <br />
               <br />
             </div>
@@ -241,20 +243,20 @@ class App2 extends Component {
             <div className="textito-cuadrito">
               Fecha de nacimiento
               <br />
-              <input type="text" id="dia"></input>
-              <input type="text" id="mes"></input>
-              <input type="text" id="ano"></input>
+              <input className="input1" type="text" id="dia"></input>
+              <input className="input1" type="text" id="mes"></input>
+              <input className="input1" type="text" id="ano"></input>
               <br />
               <br />
               Lo que peso cuando se compro
               <br />
-              <input type="text" id="peso-compra"></input>kg
+              <input className="input1" type="text" id="peso-compra"></input>kg
               <br />
               <br />
               Lo que pesa ahora (Si se acaba de comprar, registrar el mismo
               peso)
               <br />
-              <input type="text" id="peso-actual"></input>kg
+              <input className="input1" type="text" id="peso-actual"></input>kg
               <br />
               <br />
               Estado del animal
@@ -269,9 +271,9 @@ class App2 extends Component {
               Ultima fecha en la que pario (Si nunca lo ha hecho, escribir la
               fecha de nacimiento)
               <br />
-              <input type="text" id="diaVac"></input>
-              <input type="text" id="mesVac"></input>
-              <input type="text" id="anoVac"></input>
+              <input className="input1" type="text" id="diaVac"></input>
+              <input className="input1" type="text" id="mesVac"></input>
+              <input className="input1" type="text" id="anoVac"></input>
               <br />
               <br />
               Alguna particularidad que pueda tener el animal
