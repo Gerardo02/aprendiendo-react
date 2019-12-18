@@ -53,9 +53,7 @@ class Inve extends Component {
       <strong>Particularidades </strong><br/>
       ${element.particularidades}<br/>
       </div>
-      <a href="/actualizar">
-      <button>Actualizar ${element.arete}</button>
-      </a>
+      
       <a href="#top" class="top-btn">
       <button class="btn-baja" data-arete=${element.arete} data-numero=${flag}>Dar de baja ${element.arete}</button>
       </a>
@@ -110,20 +108,35 @@ class Inve extends Component {
   render() {
     return (
       <>
+        <div className="div-actualizar">
+          <a href="/actualizar">
+            <button className="btn-actualizar">Actualizar</button>
+          </a>
+        </div>
         <a name="top"></a>
         <div id="cuadro-inventario">
           <div className="baja-container" id="baja-container">
             <form>
               Motivo de baja <br />
-              <input type="text" id="motivo-baja"></input>
+              <input className="inputbaja" type="text" id="motivo-baja"></input>
               <br />
               <br />
               Fecha de baja
               <br />
-              <input className="fecha-baja" id="dia-baja" type="text"></input>/
-              <input className="fecha-baja" type="text" id="mes-baja"></input>/
               <input
-                className="fecha-baja-ano"
+                className="inputbaja fechabaja"
+                id="dia-baja"
+                type="text"
+              ></input>
+              /
+              <input
+                className="inputbaja fechabaja"
+                type="text"
+                id="mes-baja"
+              ></input>
+              /
+              <input
+                className="inputbaja fechabaja"
                 type="text"
                 id="ano-baja"
               ></input>

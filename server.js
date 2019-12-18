@@ -8,7 +8,7 @@ const app = express();
 connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "767482",
+  password: "633d5ca8e4",
   database: "inventario_ganadero"
 });
 // connect
@@ -101,6 +101,55 @@ app.get("/add", (req, resp) => {
         throw err;
       } else {
         console.log("se anadio");
+        resp.send("added");
+      }
+    }
+  );
+});
+
+app.get("/actualizar", (req, resp) => {
+  const {
+    arete,
+    empresas,
+    predio,
+    precio,
+    numGuia,
+    tipo,
+    raza,
+    origen,
+    fechaAlta,
+    fechaNac,
+    pesoCompra,
+    pesoActual,
+    incremento,
+    estatus,
+    ultimoParto,
+    mesesVacia,
+    particularidades
+  } = req.query;
+  connection.query(
+    `UPDATE DATOS SET 
+    empresas='${empresas}',
+    predio='${predio}',
+    precio=${precio},
+    num_guia='${numGuia}',
+    tipo='${tipo}',
+    raza='${raza}',
+    origen='${origen}',
+    fecha_alta='${fechaAlta}',
+    fecha_nacimiento='${fechaNac}',
+    peso_compra=${pesoCompra},
+    peso_actual=${pesoActual},
+    incremento_peso=${incremento},
+    estatus='${estatus}',
+    ultimo_parto='${ultimoParto}',
+    meses_vacia=${mesesVacia},
+    particularidades='${particularidades}'  WHERE arete = '${arete}'`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("se ACTUALIZO");
         resp.send("added");
       }
     }

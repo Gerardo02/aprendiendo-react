@@ -119,46 +119,29 @@ class Actualizar extends Component {
       const ultimoParto = `${diaVac}/${mesVac}/${anoVac}`;
       const particularidades = document.getElementById("particularidades")
         .value;
-      if (arete !== "") {
-        console.log(empresas);
-      } else {
-        alert("Arete necesario!!!!!!!!!!!!!!!!!!");
-      }
-      if (
-        precio !== "" &&
-        numGuia !== "" &&
-        diaAlt !== "" &&
-        mesAlt !== "" &&
-        anoAlt !== "" &&
-        dia !== "" &&
-        mes !== "" &&
-        ano !== "" &&
-        pesoCompra !== "" &&
-        pesoActual !== "" &&
-        diaVac !== "" &&
-        mesVac !== "" &&
-        anoVac !== ""
-      ) {
-        window.location.reload();
-        const response = await fetch(
-          `http://localhost:4000/add?empresas=${empresas}&predio=${predio}&precio=${precio}&numGuia=${numGuia}&tipo=${tipo}&raza=${raza}&origen=${origen}&arete=${arete}&fechaAlta=${fechaAlta}&fechaNac=${fechaNac}&pesoCompra=${pesoCompra}&pesoActual=${pesoActual}&incremento=${incremento}&estatus=${estatus}&edad=${edad}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}`
-        );
-      } else {
-        alert("Datos incompletos (si no se sabe algun dato, inventarlo)");
-      }
+      window.location.reload();
+      const response = await fetch(
+        `http://localhost:4000/actualizar?arete=${arete}&empresas=${empresas}&predio=${predio}&precio=${precio}&numGuia=${numGuia}&tipo=${tipo}&raza=${raza}&origen=${origen}&fechaAlta=${fechaAlta}&fechaNac=${fechaNac}&pesoCompra=${pesoCompra}&pesoActual=${pesoActual}&incremento=${incremento}&estatus=${estatus}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}`
+      );
     };
     return (
       <>
         <a href="/inventario">
           <button>Regresar</button>
         </a>
-        <div className="div-filtros">
-          <a href="/add">
-            <button>Agregar Datos</button>
-          </a>
-        </div>
-        <div className="index-page">
-          <div className="cua cuadro-11">
+
+        <div className="index-page-actualizar">
+          <div className="cuadroactualizar">
+            <div className="banner-actualizar">
+              <div className="input-arete">
+                Arete del animal
+                <input className="input2" type="text" id="arete"></input>
+              </div>
+
+              <button className="botonsito-actualizar" onClick={addData}>
+                Aceptar
+              </button>
+            </div>
             <div className="textito-cuadrito">
               Empresas
               <br />
@@ -180,12 +163,12 @@ class Actualizar extends Component {
               <br />
               Precio
               <br />
-              <input type="text" id="precio"></input>
+              <input className="input2" type="text" id="precio"></input>
               <br />
               <br />
               numero de guia
               <br />
-              <input type="text" id="numGuia"></input>
+              <input className="input2" type="text" id="numGuia"></input>
               <br />
               <br />
               Tipo de ganado
@@ -219,41 +202,32 @@ class Actualizar extends Component {
               </select>
               <br />
               <br />
-              Arete del animal
-              <br />
-              <input type="text" id="arete"></input>
-              <br />
-              <br />
               Fecha en que se registra el animal
               <br />
-              <input type="text" id="diaAlt"></input>
-              <input type="text" id="mesAlt"></input>
-              <input type="text" id="anoAlt"></input>
+              <input className="input2" type="text" id="diaAlt"></input>
+              <input className="input2" type="text" id="mesAlt"></input>
+              <input className="input2" type="text" id="anoAlt"></input>
               <br />
               <br />
             </div>
-            <div className="banner cua-1">
-              <p className="textito">Esto va dentro del banner </p>
-            </div>
-          </div>
-          <div className="cua cuadro-2">
+
             <div className="textito-cuadrito">
               Fecha de nacimiento
               <br />
-              <input type="text" id="dia"></input>
-              <input type="text" id="mes"></input>
-              <input type="text" id="ano"></input>
+              <input className="input2" type="text" id="dia"></input>
+              <input className="input2" type="text" id="mes"></input>
+              <input className="input2" type="text" id="ano"></input>
               <br />
               <br />
               Lo que peso cuando se compro
               <br />
-              <input type="text" id="peso-compra"></input>kg
+              <input className="input2" type="text" id="peso-compra"></input>kg
               <br />
               <br />
               Lo que pesa ahora (Si se acaba de comprar, registrar el mismo
               peso)
               <br />
-              <input type="text" id="peso-actual"></input>kg
+              <input className="input2" type="text" id="peso-actual"></input>kg
               <br />
               <br />
               Estado del animal
@@ -268,9 +242,9 @@ class Actualizar extends Component {
               Ultima fecha en la que pario (Si nunca lo ha hecho, escribir la
               fecha de nacimiento)
               <br />
-              <input type="text" id="diaVac"></input>
-              <input type="text" id="mesVac"></input>
-              <input type="text" id="anoVac"></input>
+              <input className="input2" type="text" id="diaVac"></input>
+              <input className="input2" type="text" id="mesVac"></input>
+              <input className="input2" type="text" id="anoVac"></input>
               <br />
               <br />
               Alguna particularidad que pueda tener el animal
@@ -283,11 +257,6 @@ class Actualizar extends Component {
               </select>
               <br />
               <br />
-            </div>
-            <div className="banner cua-2">
-              <button className="botonsito" onClick={addData}>
-                Aceptar
-              </button>
             </div>
           </div>
         </div>
