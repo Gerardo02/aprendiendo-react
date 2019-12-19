@@ -59,25 +59,12 @@ class Actualizar extends Component {
 
   render() {
     let addData = async () => {
-      const empresas = document.getElementById("empresas").value;
-      const predio = document.getElementById("predio").value;
-      const precio = document.getElementById("precio").value;
-      const numGuia = document.getElementById("numGuia").value;
-      const tipo = document.getElementById("tipo").value;
-      const raza = document.getElementById("raza").value;
-      const origen = document.getElementById("origen").value;
       const arete = document.getElementById("arete").value;
 
-      //fecha de alta
-      let diaAlt = document.getElementById("diaAlt").value;
-      let mesAlt = document.getElementById("mesAlt").value;
-      let anoAlt = document.getElementById("anoAlt").value;
-      const fechaAlta = `${diaAlt}/${mesAlt}/${anoAlt}`;
-
       //fecha de nacimiento
-      let dia = document.getElementById("dia").value;
+      /*let dia = document.getElementById("dia").value;
       let mes = document.getElementById("mes").value;
-      let ano = document.getElementById("ano").value;
+      let ano = document.getElementById("ano").value;*
       let today = new Date();
       let mm = today.getMonth() + 1; //January is 0!
       let yyyy = today.getFullYear();
@@ -92,7 +79,7 @@ class Actualizar extends Component {
         mm = yyyy - mm;
         edad = mm + mes;
       }
-      const fechaNac = `${dia}/${mes}/${ano}`;
+      const fechaNac = `${dia}/${mes}/${ano}`;*/
       const pesoCompra = document.getElementById("peso-compra").value;
       const pesoActual = document.getElementById("peso-actual").value;
       const incremento = pesoActual - pesoCompra;
@@ -121,7 +108,7 @@ class Actualizar extends Component {
         .value;
       window.location.reload();
       const response = await fetch(
-        `http://localhost:4000/actualizar?arete=${arete}&empresas=${empresas}&predio=${predio}&precio=${precio}&numGuia=${numGuia}&tipo=${tipo}&raza=${raza}&origen=${origen}&fechaAlta=${fechaAlta}&fechaNac=${fechaNac}&pesoCompra=${pesoCompra}&pesoActual=${pesoActual}&incremento=${incremento}&estatus=${estatus}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}`
+        `http://localhost:4000/actualizar?arete=${arete}&pesoActual=${pesoActual}&incremento=${incremento}&estatus=${estatus}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}`
       );
     };
     return (
@@ -143,87 +130,6 @@ class Actualizar extends Component {
               </button>
             </div>
             <div className="textito-cuadrito">
-              Empresas
-              <br />
-              <select className="" id="empresas">
-                <option value="">Selecciona una empresa...</option>
-                <option value="Ganadera XX SPR de RL">
-                  Ganadera XX SPR de RL
-                </option>
-              </select>
-              <br />
-              <br />
-              Predio
-              <br />
-              <select className="" id="predio">
-                <option value="">Selecciona el predio...</option>
-                <option value="Santa Teresa">Santa Teresa</option>
-              </select>
-              <br />
-              <br />
-              Precio
-              <br />
-              <input className="input2" type="text" id="precio"></input>
-              <br />
-              <br />
-              numero de guia
-              <br />
-              <input className="input2" type="text" id="numGuia"></input>
-              <br />
-              <br />
-              Tipo de ganado
-              <br />
-              <select id="tipo">
-                <option value="">Selecciona el tipo de ganado...</option>
-                <option value="Toro">Toro</option>
-                <option value="Becerro">Becerro</option>
-                <option value="Becerra">Becerra</option>
-                <option value="Vaquilla">Vaquilla</option>
-                <option value="Vaquilla cargada">Vaquilla cargada</option>
-                <option value="Vaca adulta">Vaca adulta</option>
-              </select>
-              <br />
-              <br />
-              Raza del animal
-              <br />
-              <select id="raza">
-                <option value="">Selecciona la raza del animal...</option>
-                <option value="Brangus">Brangus</option>
-                <option value="Simental">Simental</option>
-                <option value="Pinta">Pinta</option>
-              </select>
-              <br />
-              <br />
-              Origen del animal
-              <br />
-              <select id="origen">
-                <option value="">Selecciona el origen del animal...</option>
-                <option value="Criollo">Criollo</option>
-              </select>
-              <br />
-              <br />
-              Fecha en que se registra el animal
-              <br />
-              <input className="input2" type="text" id="diaAlt"></input>
-              <input className="input2" type="text" id="mesAlt"></input>
-              <input className="input2" type="text" id="anoAlt"></input>
-              <br />
-              <br />
-            </div>
-
-            <div className="textito-cuadrito">
-              Fecha de nacimiento
-              <br />
-              <input className="input2" type="text" id="dia"></input>
-              <input className="input2" type="text" id="mes"></input>
-              <input className="input2" type="text" id="ano"></input>
-              <br />
-              <br />
-              Lo que peso cuando se compro
-              <br />
-              <input className="input2" type="text" id="peso-compra"></input>kg
-              <br />
-              <br />
               Lo que pesa ahora (Si se acaba de comprar, registrar el mismo
               peso)
               <br />

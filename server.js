@@ -110,16 +110,6 @@ app.get("/add", (req, resp) => {
 app.get("/actualizar", (req, resp) => {
   const {
     arete,
-    empresas,
-    predio,
-    precio,
-    numGuia,
-    tipo,
-    raza,
-    origen,
-    fechaAlta,
-    fechaNac,
-    pesoCompra,
     pesoActual,
     incremento,
     estatus,
@@ -129,16 +119,6 @@ app.get("/actualizar", (req, resp) => {
   } = req.query;
   connection.query(
     `UPDATE DATOS SET 
-    empresas='${empresas}',
-    predio='${predio}',
-    precio=${precio},
-    num_guia='${numGuia}',
-    tipo='${tipo}',
-    raza='${raza}',
-    origen='${origen}',
-    fecha_alta='${fechaAlta}',
-    fecha_nacimiento='${fechaNac}',
-    peso_compra=${pesoCompra},
     peso_actual=${pesoActual},
     incremento_peso=${incremento},
     estatus='${estatus}',
