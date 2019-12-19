@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../style-captura1.css";
+
 class Actualizar extends Component {
   state = {
     loading: true,
@@ -7,93 +8,32 @@ class Actualizar extends Component {
   };
 
   async componentDidMount() {
-    const response = await fetch("http://localhost:4000/agregados");
+    const response = await fetch("http://localhost:4000/datos");
     const data = await response.json();
-
     this.setState({
       items: data[0],
       loading: false
     });
-
-    const agregarPredio = document.getElementById("predio");
-    const agregarEmpresas = document.getElementById("empresas");
-    const agregarTipo = document.getElementById("tipo");
-    const agregarRaza = document.getElementById("raza");
-    const agregarOrigen = document.getElementById("origen");
-    const agregarEstatus = document.getElementById("estatus");
-    const agregarParti = document.getElementById("particularidades");
-    data.forEach(element => {
-      const predio = element.predio;
-      const empresas = element.empresas;
-      if (predio === null) {
-      } else {
-        agregarPredio.innerHTML += `<option value="${predio}">${predio}</option>`;
-      }
-      if (empresas === null) {
-      } else {
-        agregarEmpresas.innerHTML += `<option value="${empresas}">${empresas}</option>`;
-      }
-      if (element.tipo === null) {
-      } else {
-        agregarTipo.innerHTML += `<option value="${element.tipo}">${element.tipo}</option>`;
-      }
-      if (element.raza === null) {
-      } else {
-        agregarRaza.innerHTML += `<option value="${element.raza}">${element.raza}</option>`;
-      }
-      if (element.origen === null) {
-      } else {
-        agregarOrigen.innerHTML += `<option value="${element.origen}">${element.origen}</option>`;
-      }
-      if (element.estatus === null) {
-      } else {
-        agregarEstatus.innerHTML += `<option value="${element.estatus}">${element.estatus}</option>`;
-      }
-      if (element.particularidades === null) {
-      } else {
-        agregarParti.innerHTML += `<option value="${element.particularidades}">${element.particularidades}</option>`;
-      }
-    });
-    console.log(data);
   }
 
   render() {
     let addData = async () => {
       const arete = document.getElementById("arete").value;
 
-      //fecha de nacimiento
-      /*let dia = document.getElementById("dia").value;
-      let mes = document.getElementById("mes").value;
-      let ano = document.getElementById("ano").value;*
-      let today = new Date();
-      let mm = today.getMonth() + 1; //January is 0!
-      let yyyy = today.getFullYear();
-      let edad;
-      if (yyyy === ano) {
-        edad = mm - mes;
-      } else if (yyyy > ano) {
-        mes = 12 - mes;
-        yyyy = yyyy - ano;
-        yyyy = yyyy * 12;
-        mm = 12 - mm;
-        mm = yyyy - mm;
-        edad = mm + mes;
-      }
-      const fechaNac = `${dia}/${mes}/${ano}`;*/
-      const pesoCompra = document.getElementById("peso-compra").value;
       const pesoActual = document.getElementById("peso-actual").value;
-      const incremento = pesoActual - pesoCompra;
       const estatus = document.getElementById("estatus").value;
 
       //fecha de ultimo parto
       let diaVac = document.getElementById("diaVac").value;
       let mesVac = document.getElementById("mesVac").value;
       let anoVac = document.getElementById("anoVac").value;
+      const ultimoParto = `${diaVac}/${mesVac}/${anoVac}`;
       let mesesVacia;
       let today2 = new Date();
       let mm2 = today2.getMonth() + 1;
       let yyyy2 = today2.getFullYear();
-      if (yyyy2 === anoVac) {
+      console.log(yyyy2);
+      if (yyyy2 <= anoVac) {
         mesesVacia = mm2 - mesVac;
       } else if (yyyy2 > anoVac) {
         mesVac = 12 - mesVac;
@@ -103,20 +43,16 @@ class Actualizar extends Component {
         mm2 = yyyy2 - mm2;
         mesesVacia = mm2 + mesVac;
       }
-      const ultimoParto = `${diaVac}/${mesVac}/${anoVac}`;
+      console.log(mesesVacia);
       const particularidades = document.getElementById("particularidades")
         .value;
       window.location.reload();
       const response = await fetch(
-        `http://localhost:4000/actualizar?arete=${arete}&pesoActual=${pesoActual}&incremento=${incremento}&estatus=${estatus}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}`
+        `http://localhost:4000/actualizar?arete=${arete}&pesoActual=${pesoActual}&estatus=${estatus}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}`
       );
     };
     return (
       <>
-        <a href="/inventario">
-          <button>Regresar</button>
-        </a>
-
         <div className="index-page-actualizar">
           <div className="cuadroactualizar">
             <div className="banner-actualizar">
@@ -124,14 +60,22 @@ class Actualizar extends Component {
                 Arete del animal
                 <input className="input2" type="text" id="arete"></input>
               </div>
-
-              <button className="botonsito-actualizar" onClick={addData}>
-                Aceptar
-              </button>
+              <div className="div-botonsitos">
+                <button className="botonsito-actualizar" onClick={addData}>
+                  Aceptar
+                </button>
+                <a href="/inventario">
+                  <button
+                    className="botonsito-actualizar regresar"
+                    href="/inventario"
+                  >
+                    Regresar
+                  </button>
+                </a>
+              </div>
             </div>
             <div className="textito-cuadrito">
-              Lo que pesa ahora (Si se acaba de comprar, registrar el mismo
-              peso)
+              Lo que pesa ahora
               <br />
               <input className="input2" type="text" id="peso-actual"></input>kg
               <br />

@@ -67,6 +67,7 @@
 }
 
 /*---------------------------------------- aqui inicia estilo para actualizar --------------------------------------*/
+
 .index-page-actualizar {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 20px;
@@ -80,19 +81,28 @@
   width: 80%;
   margin: 0ch;
   padding: 5px;
-  line-height: 20px;
-  position: absolute;
+  top: 15%;
+  bottom: 15%;
+  height: 70%;
+  position: fixed;
   box-shadow: 10px 20px 28px #616060;
 }
 .banner-actualizar {
   background-color: tomato;
   border-radius: 0px 0px 5px 5px;
   display: flex;
+  justify-content: space-between;
   height: auto;
 }
 .input-arete {
   position: relative;
-  margin: 18px;
+  margin: 18px 0px 0px 15px;
+}
+.div-botonsitos {
+  background-color: rgb(0, 0, 0, 0.5);
+  display: flex;
+  border-radius: 0px 0px 5px 0px;
+  justify-content: center;
 }
 
 .botonsito-actualizar {
@@ -100,7 +110,6 @@
   border: none;
   border-radius: 5px;
   margin: 15px;
-  float: right;
 }
 
 .input2 {

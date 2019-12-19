@@ -83,9 +83,8 @@ class Inve extends Component {
         const dia = document.getElementById("dia-baja").value;
         const mes = document.getElementById("mes-baja").value;
         const ano = document.getElementById("ano-baja").value;
-        const fechaBaja = `${dia}/${mes}/${ano}`;
         const motivoBaja = document.getElementById("motivo-baja").value;
-        console.log(motivoBaja, fechaBaja);
+        const fechaBaja = `${dia}/${mes}/${ano}`;
         const sendToBajas = await fetch(
           `http://localhost:4000/send?empresas=${data[numId].empresas}&predio=${data[numId].predio}&precio=${data[numId].precio}&numGuia=${data[numId].num_guia}&tipo=${data[numId].tipo}&raza=${data[numId].raza}&origen=${data[numId].origen}&arete=${data[numId].arete}&fechaAlta=${data[numId].fecha_alta}&fechaNac=${data[numId].fecha_nacimiento}&pesoCompra=${data[numId].peso_compra}&pesoActual=${data[numId].peso_actual}&incremento=${data[numId].incremento_peso}&estatus=${data[numId].estatus}&edad=${data[numId].edad}&ultimoParto=${data[numId].ultimo_parto}&mesesVacia=${data[numId].meses_vacia}&particularidades=${data[numId].particularidades}&motivoBaja=${motivoBaja}&fechaBaja=${fechaBaja}`
         );
@@ -95,9 +94,21 @@ class Inve extends Component {
           `http://localhost:4000/delete?arete=${areteId}&numGuia=${data[numId].num_guia}`
         );
       };
+      let sendHistorial = async () => {
+        const movimiento = "Baja";
+        const dia = document.getElementById("dia-baja").value;
+        const mes = document.getElementById("mes-baja").value;
+        const ano = document.getElementById("ano-baja").value;
+        const fechaBaja = `${dia}/${mes}/${ano}`;
+        const deleteRow = await fetch(
+          `http://localhost:4000/send/historial?tipo=${data[numId].tipo}&numGuia=${data[numId].num_guia}&raza=${data[numId].raza}&arete=${areteId}&fecha=${fechaBaja}&movimiento=${movimiento}`
+        );
+      };
+
       button.forEach(button => {
         button.addEventListener("click", eliminar);
         button.addEventListener("click", eliminarBien);
+        button.addEventListener("click", sendHistorial);
       });
     };
 

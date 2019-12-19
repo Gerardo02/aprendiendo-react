@@ -61,10 +61,12 @@ class App2 extends Component {
   }
 
   render() {
+    const buttons = document.querySelectorAll("button.botonsito");
+
     let addData = async () => {
-      const empresas = document.getElementById("empresas").value;
       const predio = document.getElementById("predio").value;
       const precio = document.getElementById("precio").value;
+      const empresas = document.getElementById("empresas").value;
       const numGuia = document.getElementById("numGuia").value;
       const tipo = document.getElementById("tipo").value;
       const raza = document.getElementById("raza").value;
@@ -81,11 +83,12 @@ class App2 extends Component {
       let dia = document.getElementById("dia").value;
       let mes = document.getElementById("mes").value;
       let ano = document.getElementById("ano").value;
+      const fechaNac = `${dia}/${mes}/${ano}`;
       let today = new Date();
       let mm = today.getMonth() + 1; //January is 0!
       let yyyy = today.getFullYear();
       let edad;
-      if (yyyy === ano) {
+      if (yyyy <= ano) {
         edad = mm - mes;
       } else if (yyyy > ano) {
         mes = 12 - mes;
@@ -95,7 +98,7 @@ class App2 extends Component {
         mm = yyyy - mm;
         edad = mm + mes;
       }
-      const fechaNac = `${dia}/${mes}/${ano}`;
+
       const pesoCompra = document.getElementById("peso-compra").value;
       const pesoActual = document.getElementById("peso-actual").value;
       const incremento = pesoActual - pesoCompra;
@@ -105,11 +108,12 @@ class App2 extends Component {
       let diaVac = document.getElementById("diaVac").value;
       let mesVac = document.getElementById("mesVac").value;
       let anoVac = document.getElementById("anoVac").value;
+      const ultimoParto = `${diaVac}/${mesVac}/${anoVac}`;
       let mesesVacia;
       let today2 = new Date();
       let mm2 = today2.getMonth() + 1;
       let yyyy2 = today2.getFullYear();
-      if (yyyy2 === anoVac) {
+      if (yyyy2 <= anoVac) {
         mesesVacia = mm2 - mesVac;
       } else if (yyyy2 > anoVac) {
         mesVac = 12 - mesVac;
@@ -119,9 +123,15 @@ class App2 extends Component {
         mm2 = yyyy2 - mm2;
         mesesVacia = mm2 + mesVac;
       }
-      const ultimoParto = `${diaVac}/${mesVac}/${anoVac}`;
+
       const particularidades = document.getElementById("particularidades")
         .value;
+      const movimiento = "Captura";
+      let sendHistorial = async () => {
+        const response = await fetch(
+          `http://localhost:4000/send/historial?tipo=${tipo}&numGuia=${numGuia}&raza=${raza}&arete=${arete}&fecha=${fechaAlta}&movimiento=${movimiento}`
+        );
+      };
       if (arete !== "") {
         console.log(empresas);
       } else {
@@ -146,11 +156,14 @@ class App2 extends Component {
         const response = await fetch(
           `http://localhost:4000/add?empresas=${empresas}&predio=${predio}&precio=${precio}&numGuia=${numGuia}&tipo=${tipo}&raza=${raza}&origen=${origen}&arete=${arete}&fechaAlta=${fechaAlta}&fechaNac=${fechaNac}&pesoCompra=${pesoCompra}&pesoActual=${pesoActual}&incremento=${incremento}&estatus=${estatus}&edad=${edad}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}`
         );
+        sendHistorial();
       } else {
         alert("Datos incompletos (si no se sabe algun dato, inventarlo)");
       }
-    };
-
+    }; /* 
+    buttons.forEach(button => {
+      button.addEventListener("click", addData);
+    });*/
     return (
       <React.Fragment>
         <div className="div-filtros">

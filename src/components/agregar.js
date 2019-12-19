@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../inve.css";
 import "../style-agregar.css";
 
 class Add extends Component {
@@ -53,6 +52,13 @@ class Add extends Component {
       <>
         <div className="cuadrototal">
           <div className="cuadro-11">
+            <div className="banner-agregar">
+              <div className="boton1">
+                <a href="/captura">
+                  <button>Regresar</button>
+                </a>
+              </div>
+            </div>
             <div className="texto espacio1">
               <form>
                 <input
@@ -103,11 +109,6 @@ class Add extends Component {
 
                 <button onClick={agregarPredio}>Agregar predio...</button>
               </form>
-            </div>
-            <div className="boton1">
-              <a href="/captura">
-                <button>Regresar</button>
-              </a>
             </div>
           </div>
           <br />

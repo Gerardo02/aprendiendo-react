@@ -1,7 +1,118 @@
 import React, { Component } from "react";
 import historial from "./historial";
+import "../inve.css";
 
 class bajas extends Component {
+  async componentDidMount() {
+    const response = await fetch("http://localhost:4000/bajas");
+    const data = await response.json();
+    //console.log(data);
+    const { filtertext } = this.props;
+    const inventario = document.getElementById("cuadro-inventario");
+    let flag = 0;
+    data.forEach(element => {
+      inventario.innerHTML += `
+      
+      <div class="cuadro-animal">
+      <div class="texto-inve1">
+      <strong>Empresa </strong><br/>
+      ${element.empresas}<br/><br/>
+      <strong>Predio </strong><br/>
+      ${element.predio}<br/><br/>
+      <strong>Precio </strong><br/>
+      ${element.precio}<br/><br/>
+      <strong>Numero de guia </strong><br/>
+      ${element.num_guia}<br/><br/>
+      <strong>Tipo de ganado </strong><br/>
+      ${element.tipo}<br/><br/>
+      <strong>Raza </strong><br/>
+      ${element.raza}<br/><br/>
+      <strong>Origen </strong><br/>
+      ${element.origen}<br/><br/>
+      <strong>Arete </strong><br/>
+      ${element.arete}<br/><br/>
+      <strong>Fecha de registro </strong><br/>
+      ${element.fecha_alta}<br/><br/>
+      <strong>Fecha de baja</strong><br/>
+      ${element.fecha_baja}<br/>
+      </div>
+      <div class="texto-inve2">
+      <strong>Fecha de nacimiento</strong><br/>
+      ${element.fecha_nacimiento}<br/><br/>
+      <strong>Peso de compra </strong><br/>
+      ${element.peso_compra}<br/><br/>
+      <strong>Peso actual </strong><br/>
+      ${element.peso_actual}<br/><br/>
+      <strong>Incremento de peso </strong><br/>
+      ${element.incremento_peso}<br/><br/>
+      <strong>Estatus </strong><br/>
+      ${element.estatus}<br/><br/>
+      <strong>Edad (en meses)</strong><br/>
+      ${element.edad}<br/><br/>
+      <strong>Ultimo parto </strong><br/>
+      ${element.ultimo_parto}<br/><br/>
+      <strong>Meses vacia </strong><br/>
+      ${element.meses_vacia}<br/><br/>
+      <strong>Particularidades </strong><br/>
+      ${element.particularidades}<br/><br/>
+      <strong>Motivo de baja </strong><br/>
+      ${element.motivo_baja}<br/>
+      </div>
+      
+      <button class="btn-baja" data-arete=${element.arete} data-numero=${flag}>Recuperar ${element.arete}</button>
+      
+      </div>
+      <br/><br/><br/>
+      `;
+      flag++;
+    });
+    document.getElementById("btn-rec").style.display = "none";
+    let buttons = document.querySelectorAll("button.btn-baja");
+    let button = document.querySelectorAll("button.recuperar-segunda");
+    let deleteData = async event => {
+      const areteId = event.target.dataset.arete;
+      const numId = event.target.dataset.numero;
+
+      const alertaSeguro = window.confirm(
+        `Estas seguro que quieres recuperar a ${areteId}?`
+      );
+      if (alertaSeguro === true) {
+        document.getElementById("btn-rec").style.display = "block";
+      }
+      let fetch1 = async () => {
+        window.location.reload();
+        const sendToBajas = await fetch(
+          `http://localhost:4000/send/bajas?empresas=${data[numId].empresas}&predio=${data[numId].predio}&precio=${data[numId].precio}&numGuia=${data[numId].num_guia}&tipo=${data[numId].tipo}&raza=${data[numId].raza}&origen=${data[numId].origen}&arete=${data[numId].arete}&fechaAlta=${data[numId].fecha_alta}&fechaNac=${data[numId].fecha_nacimiento}&pesoCompra=${data[numId].peso_compra}&pesoActual=${data[numId].peso_actual}&incremento=${data[numId].incremento_peso}&estatus=${data[numId].estatus}&edad=${data[numId].edad}&ultimoParto=${data[numId].ultimo_parto}&mesesVacia=${data[numId].meses_vacia}&particularidades=${data[numId].particularidades}`
+        );
+      };
+      let fetch2 = async () => {
+        const deleteRow = await fetch(
+          `http://localhost:4000/delete/bajas?arete=${areteId}&numGuia=${data[numId].num_guia}`
+        );
+      };
+      let fetch3 = async () => {
+        const movimiento = "Recuperado";
+        let today = new Date();
+        let dd = today.getDay() + 15;
+        let mm = today.getMonth() + 1; //January is 0!
+        let yyyy = today.getFullYear();
+        const fecha = `${dd}/${mm}/${yyyy}`;
+        const deleteRow = await fetch(
+          `http://localhost:4000/send/historial?tipo=${data[numId].tipo}&numGuia=${data[numId].num_guia}&raza=${data[numId].raza}&arete=${areteId}&fecha=${fecha}&movimiento=${movimiento}`
+        );
+      };
+
+      button.forEach(button => {
+        button.addEventListener("click", fetch1);
+        button.addEventListener("click", fetch2);
+        button.addEventListener("click", fetch3);
+      });
+    };
+
+    buttons.forEach(button => {
+      button.addEventListener("click", deleteData);
+    });
+  }
   render() {
     return (
       <>
@@ -22,141 +133,15 @@ class bajas extends Component {
             bajas
           </a>
         </div>
+        <br />
+        <br />
+        <button className="recuperar-segunda" id="btn-rec">
+          Recuperar
+        </button>
+        <div id="cuadro-inventario"></div>
       </>
     );
   }
 }
 
 export default bajas;
-
-/*
-let namelist = data.filter(element => {
-  console.log(element.predio);
-  return (
-    element.predio.toLowerCase().indexOf(filtertext.toLowerCase()) >= 0
-  );
-});   data.filter(data => {
-      console.log(data.peso_compra);
-      return data.predio.toLowerCase().indexOf(filtertext.toLowerCase()) >= 0;
-    });
-*/
-
-/*
-----------------------------------------------------
-
-import React, { Component } from "react";
-import "../inve.css";
-
-class Inve extends Component {
-  async componentDidMount() {
-    const response = await fetch("http://localhost:4000/datos");
-    const data = await response.json();
-    //console.log(data);
-    const { filtertext } = this.props;
-    const inventario = document.getElementById("cuadro-inventario");
-    /*
-    const enpresa = data.map(element => {
-      console.log(element.id);
-    });
-const namelist = data.map(element => {
-  console.log(element.predio, element.precio);
-});
-
-data.forEach(element => {
-  inventario.innerHTML += `
-  
-  <div>
-  <div class="cuadro-animal">
-  <div class="texto-inve1">
-  <p key= ${element.id}>
-  <strong>Empresa </strong><br/>
-  ${element.empresas}
-  <p/>
-  <p key= ${element.id}>
-  <strong>Predio </strong><br/>
-  ${element.predio}<br/><br/>
-  <p/>
-  <p key= ${element.id}>
-  <strong>Precio </strong><br/>
-  ${element.precio}<br/><br/>
-  <p/>
-  <p key= ${element.id}>
-  <strong>Numero de guia </strong><br/>
-  ${element.num_guia}<br/><br/>
-  <p/>
-  <p key= ${element.id}>
-  <strong>Tipo de ganado </strong><br/>
-  ${element.tipo}<br/><br/>
-  <p/>
-  <p key= ${element.id}>
-  <strong>Raza </strong><br/>
-  ${element.raza}<br/><br/>
-  <p/>
-  <p key= ${element.id}>
-  <strong>Origen </strong><br/>
-  ${element.origen}<br/><br/>
-  <p/>
-  <p key= ${element.id}>
-  <strong>Arete </strong><br/>
-  ${element.arete}<br/><br/>
-  <p/>
-  <p key= ${element.id}>
-  <strong>Fecha de registro </strong><br/>
-  ${element.fecha_alta}<br/>
-  <p/>
-  </div>
-  <div class="texto-inve2">
-  <p key= ${element.id}>
-  <strong>Fecha de nacimiento</strong><br/>
-  ${element.fecha_nacimiento}<br/><br/>
-  <p/>
-  <p key= ${element.id}>
-  <strong>Peso de compra </strong><br/>
-  ${element.peso_compra}<br/><br/>
-  <p/>
-  <p key= ${element.id}>
-  <strong>Peso actual </strong><br/>
-  ${element.peso_actual}<br/><br/>
-  <p/>
-  <p key= ${element.id}>
-  <strong>Incremento de peso </strong><br/>
-  ${element.incremento_peso}<br/><br/>
-  <p/>
-  <p key= ${element.id}>
-  <strong>Estatus </strong><br/>
-  ${element.estatus}<br/><br/>
-  <p/>
-  <p key= ${element.id}>
-  <strong>Edad (en meses)</strong><br/>
-  ${element.edad}<br/><br/>
-  <p/>
-  <p key= ${element.id}>
-  <strong>Ultimo parto </strong><br/>
-  ${element.ultimo_parto}<br/><br/>
-  <p/>
-  <p key= ${element.id}>
-  <strong>Meses vacia </strong><br/>
-  ${element.meses_vacia}<br/><br/>
-  <p/>
-  <p key= ${element.id}>
-  <strong>Particularidades </strong><br/>
-  ${element.particularidades}<br/>
-  <p/>
-  </div>
-  </div>
-  <br/><br/><br/>
-  </div>
-  `;
-});
-}
-render() {
-return (
-  <>
-    <div id="cuadro-inventario"></div>
-  </>
-);
-}
-}
-
-export default Inve;
-*/
