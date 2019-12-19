@@ -132,6 +132,9 @@ class bajas extends Component {
           <a className="textobarra" href="/bajas">
             bajas
           </a>
+          <a className="textobarra" href="/reportes">
+            reportes
+          </a>
         </div>
         <br />
         <br />

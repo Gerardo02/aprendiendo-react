@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import "../style-captura1.css";
-import App2 from "../components/App2";
-
-class captura extends Component {
+import Add from "../components/agregar";
+import Filtra from "../components/filtraRepo";
+class reporte extends Component {
   render() {
     return (
       <>
@@ -26,10 +25,10 @@ class captura extends Component {
             reportes
           </a>
         </div>
-        <App2 />
+        <Filtra />
       </>
     );
   }
 }
 
-export default captura;
+export default reporte;

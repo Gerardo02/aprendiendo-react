@@ -74,6 +74,107 @@ app.get("/send/historial", (req, resp) => {
   );
 });
 
+app.get("/filtrar", (req, resp) => {
+  connection.query(
+    "SELECT * FROM datos WHERE incremento_peso > 0",
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes filtrados incremento");
+        resp.json(rows);
+      }
+    }
+  );
+});
+
+app.get("/filtrar/decre", (req, resp) => {
+  connection.query(
+    "SELECT * FROM datos WHERE incremento_peso <= 0",
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes filtrados decremento");
+        resp.json(rows);
+      }
+    }
+  );
+});
+
+app.get("/filtrar/vacia", (req, resp) => {
+  connection.query(
+    "SELECT * FROM datos WHERE estatus = 'Vacia'",
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes filtrados vacia");
+        resp.json(rows);
+      }
+    }
+  );
+});
+
+app.get("/filtrar/cargada", (req, resp) => {
+  connection.query(
+    "SELECT * FROM datos WHERE estatus = 'Cargada'",
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes filtrados cargada");
+        resp.json(rows);
+      }
+    }
+  );
+});
+
+app.get("/filtrar/predio", (req, resp) => {
+  const { predio } = req.query;
+  connection.query(
+    `SELECT * FROM datos WHERE predio = '${predio}'`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes filtrados predio");
+        resp.json(rows);
+      }
+    }
+  );
+});
+
+app.get("/filtrar/origen", (req, resp) => {
+  const { origen } = req.query;
+  connection.query(
+    `SELECT * FROM datos WHERE origen = '${origen}'`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes filtrados origen");
+        resp.json(rows);
+      }
+    }
+  );
+});
+
+app.get("/buscar/arete", (req, resp) => {
+  const { arete } = req.query;
+  connection.query(
+    `SELECT * FROM datos WHERE arete = '${arete}'`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes busqueda arete");
+        resp.json(rows);
+      }
+    }
+  );
+});
+
 app.get("/add", (req, resp) => {
   const {
     empresas,

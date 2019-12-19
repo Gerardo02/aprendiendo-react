@@ -60,55 +60,45 @@ class Add extends Component {
               </div>
             </div>
             <div className="texto espacio1">
-              <form>
-                <input
-                  type="text"
-                  id="empresas"
-                  className="texto-prueba"
-                ></input>
-                <button onClick={agregarEmpresas}>Agregar empresas...</button>
-                <br />
-                <br />
-                <br />
-                <input type="text" id="tipo" className="texto-prueba"></input>
-                <button onClick={agregarTipo}>Agregar tipo...</button>
-                <br />
-                <br />
-                <br />
-                <input type="text" id="raza" className="texto-prueba"></input>
-                <button onClick={agregarRaza}>Agregar raza...</button>
-                <br />
-                <br />
-                <br />
-                <input type="text" id="origen" className="texto-prueba"></input>
-                <button onClick={agregarOrigen}>Agregar origen...</button>
-                <br />
-                <br />
-                <br />
-                <input
-                  type="text"
-                  id="particularidades"
-                  className="texto-prueba"
-                ></input>
-                <button onClick={agregarParticularidades}>
-                  Agregar particularidades...
-                </button>
-                <br />
-                <br />
-                <br />
-                <input
-                  type="text"
-                  id="estatus"
-                  className="texto-prueba"
-                ></input>
-                <button onClick={agregarEstatus}>Agregar estatus...</button>
-                <br />
-                <br />
-                <br />
-                <input type="text" id="predio" className="texto-prueba"></input>
+              <input type="text" id="empresas" className="texto-prueba"></input>
+              <button onClick={agregarEmpresas}>Agregar empresas...</button>
+              <br />
+              <br />
+              <br />
+              <input type="text" id="tipo" className="texto-prueba"></input>
+              <button onClick={agregarTipo}>Agregar tipo...</button>
+              <br />
+              <br />
+              <br />
+              <input type="text" id="raza" className="texto-prueba"></input>
+              <button onClick={agregarRaza}>Agregar raza...</button>
+              <br />
+              <br />
+              <br />
+              <input type="text" id="origen" className="texto-prueba"></input>
+              <button onClick={agregarOrigen}>Agregar origen...</button>
+              <br />
+              <br />
+              <br />
+              <input
+                type="text"
+                id="particularidades"
+                className="texto-prueba"
+              ></input>
+              <button onClick={agregarParticularidades}>
+                Agregar particularidades...
+              </button>
+              <br />
+              <br />
+              <br />
+              <input type="text" id="estatus" className="texto-prueba"></input>
+              <button onClick={agregarEstatus}>Agregar estatus...</button>
+              <br />
+              <br />
+              <br />
+              <input type="text" id="predio" className="texto-prueba"></input>
 
-                <button onClick={agregarPredio}>Agregar predio...</button>
-              </form>
+              <button onClick={agregarPredio}>Agregar predio...</button>
             </div>
           </div>
           <br />
