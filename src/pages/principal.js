@@ -36,6 +36,9 @@ class principal extends Component {
             <a className="textobarra" href="/bajas">
               bajas
             </a>
+            <a className="textobarra" href="/reportes">
+              reportes
+            </a>
           </div>
           <div className="fecha-hoy">
             <p className="fech dia-hoy"> {dd}</p>
