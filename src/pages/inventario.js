@@ -18,19 +18,6 @@ class inventario extends Component {
     });
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      filtertext: "hello"
-    };
-  }
-
-  filterupdate(value) {
-    this.setState({
-      filtertext: value
-    });
-  }
-
   render() {
     //console.log(
     //"filtertext state from parent component",
@@ -59,14 +46,10 @@ class inventario extends Component {
           </a>
         </div>
 
-        <Filtros
-          filtertext={this.state.filtertext}
-          filterupdate={this.filterupdate.bind(this)}
-        />
         <br />
         <br />
 
-        <Inve filtertext={this.state.filtertext} />
+        <Inve />
       </>
     );
   }

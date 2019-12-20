@@ -254,7 +254,8 @@ app.get("/actualizar", (req, resp) => {
     estatus,
     ultimoParto,
     mesesVacia,
-    particularidades
+    particularidades,
+    incremento
   } = req.query;
   connection.query(
     `UPDATE DATOS SET 
@@ -262,7 +263,8 @@ app.get("/actualizar", (req, resp) => {
     estatus='${estatus}',
     ultimo_parto='${ultimoParto}',
     meses_vacia=${mesesVacia},
-    particularidades='${particularidades}'  WHERE arete = '${arete}'`,
+    particularidades='${particularidades}',
+    incremento_peso='${incremento}'  WHERE arete = '${arete}'`,
     (err, rows) => {
       if (err) {
         throw err;

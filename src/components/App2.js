@@ -125,15 +125,17 @@ class App2 extends Component {
       }
 
       let today3 = new Date();
+      let dd3 = today3.getDate();
       let mm3 = today3.getMonth() + 1;
-      let yyyy3 = today2.getFullYear();
+      let yyyy3 = today3.getFullYear();
+      let fechaMovimiento = `${dd3}/${mm3}/${yyyy3}`;
 
       const particularidades = document.getElementById("particularidades")
         .value;
       const movimiento = "Captura";
       let sendHistorial = async () => {
         const response = await fetch(
-          `http://localhost:4000/send/historial?tipo=${tipo}&numGuia=${numGuia}&raza=${raza}&arete=${arete}&fecha=${fechaAlta}&movimiento=${movimiento}`
+          `http://localhost:4000/send/historial?tipo=${tipo}&numGuia=${numGuia}&raza=${raza}&arete=${arete}&fecha=${fechaMovimiento}&movimiento=${movimiento}`
         );
       };
       if (arete !== "") {

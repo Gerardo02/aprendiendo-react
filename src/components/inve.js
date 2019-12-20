@@ -6,11 +6,11 @@ class Inve extends Component {
     const response = await fetch("http://localhost:4000/datos");
     const data = await response.json();
     //console.log(data);
-    const { filtertext } = this.props;
     const inventario = document.getElementById("cuadro-inventario");
     let flag = 0;
     data.forEach(element => {
       inventario.innerHTML += `
+      
       
       <div class="cuadro-animal">
       <div class="texto-inve1">
@@ -95,13 +95,15 @@ class Inve extends Component {
         );
       };
       let sendHistorial = async () => {
+        let today3 = new Date();
+        let dd3 = today3.getDate();
+        let mm3 = today3.getMonth() + 1;
+        let yyyy3 = today3.getFullYear();
+        let fechaMovimiento = `${dd3}/${mm3}/${yyyy3}`;
         const movimiento = "Baja";
-        const dia = document.getElementById("dia-baja").value;
-        const mes = document.getElementById("mes-baja").value;
-        const ano = document.getElementById("ano-baja").value;
-        const fechaBaja = `${dia}/${mes}/${ano}`;
+
         const deleteRow = await fetch(
-          `http://localhost:4000/send/historial?tipo=${data[numId].tipo}&numGuia=${data[numId].num_guia}&raza=${data[numId].raza}&arete=${areteId}&fecha=${fechaBaja}&movimiento=${movimiento}`
+          `http://localhost:4000/send/historial?tipo=${data[numId].tipo}&numGuia=${data[numId].num_guia}&raza=${data[numId].raza}&arete=${areteId}&fecha=${fechaMovimiento}&movimiento=${movimiento}`
         );
       };
 

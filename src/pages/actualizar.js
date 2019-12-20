@@ -2,25 +2,24 @@ import React, { Component } from "react";
 import "../style-captura1.css";
 
 class Actualizar extends Component {
-  state = {
-    loading: true,
-    items: null
-  };
-
-  async componentDidMount() {
-    const response = await fetch("http://localhost:4000/datos");
-    const data = await response.json();
-    this.setState({
-      items: data[0],
-      loading: false
-    });
-  }
-
   render() {
     let addData = async () => {
-      const arete = document.getElementById("arete").value;
+      const response1 = await fetch("http://localhost:4000/datos");
+      const data = await response1.json();
 
+      const arete = document.getElementById("arete").value;
       const pesoActual = document.getElementById("peso-actual").value;
+
+      const found = data.find(element => element.arete === `${arete}`);
+      console.log(arete);
+      console.log(found);
+      const pesoinicial = found.peso_compra;
+      console.log(pesoinicial);
+
+      let incremento = pesoActual - pesoinicial;
+
+      console.log(incremento);
+
       const estatus = document.getElementById("estatus").value;
 
       //fecha de ultimo parto
@@ -46,9 +45,9 @@ class Actualizar extends Component {
       console.log(mesesVacia);
       const particularidades = document.getElementById("particularidades")
         .value;
-      window.location.reload();
+      //window.location.reload();
       const response = await fetch(
-        `http://localhost:4000/actualizar?arete=${arete}&pesoActual=${pesoActual}&estatus=${estatus}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}`
+        `http://localhost:4000/actualizar?arete=${arete}&pesoActual=${pesoActual}&estatus=${estatus}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}&incremento=${incremento}`
       );
     };
     return (

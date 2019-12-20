@@ -92,13 +92,14 @@ class bajas extends Component {
       };
       let fetch3 = async () => {
         const movimiento = "Recuperado";
-        let today = new Date();
-        let dd = today.getDay() + 15;
-        let mm = today.getMonth() + 1; //January is 0!
-        let yyyy = today.getFullYear();
-        const fecha = `${dd}/${mm}/${yyyy}`;
+        let today3 = new Date();
+        let dd3 = today3.getDate();
+        let mm3 = today3.getMonth() + 1;
+        let yyyy3 = today3.getFullYear();
+        let fechaMovimiento = `${dd3}/${mm3}/${yyyy3}`;
+
         const deleteRow = await fetch(
-          `http://localhost:4000/send/historial?tipo=${data[numId].tipo}&numGuia=${data[numId].num_guia}&raza=${data[numId].raza}&arete=${areteId}&fecha=${fecha}&movimiento=${movimiento}`
+          `http://localhost:4000/send/historial?tipo=${data[numId].tipo}&numGuia=${data[numId].num_guia}&raza=${data[numId].raza}&arete=${areteId}&fecha=${fechaMovimiento}&movimiento=${movimiento}`
         );
       };
 
