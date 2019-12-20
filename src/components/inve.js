@@ -124,6 +124,7 @@ class Inve extends Component {
         `http://localhost:4000/buscar/arete?arete=${arete}`
       );
       const data = await response.json();
+      let flag = 0;
       data.forEach(element => {
         cuadro.innerHTML += `
         
@@ -168,11 +169,13 @@ class Inve extends Component {
         <strong>Particularidades </strong><br/>
         ${element.particularidades}<br/>
         </div>
-        
-        
+        <a href="#top" class="top-btn">
+      <button class="btn-baja" data-arete=${element.arete} data-numero=${flag}>Dar de baja ${element.arete}</button>
+      </a>
         </div>
         <br/><br/><br/>
         `;
+        flag++;
       });
     };
     return (

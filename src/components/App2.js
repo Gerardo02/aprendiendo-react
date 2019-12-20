@@ -170,6 +170,9 @@ class App2 extends Component {
           <a href="/add">
             <button>Agregar Datos</button>
           </a>
+          <a href="/eliminar">
+            <button>Eliminar Datos</button>
+          </a>
         </div>
         <div className="index-page">
           <div className="cua cuadro-1">
