@@ -124,6 +124,10 @@ class App2 extends Component {
         mesesVacia = mm2 + mesVac;
       }
 
+      let today3 = new Date();
+      let mm3 = today3.getMonth() + 1;
+      let yyyy3 = today2.getFullYear();
+
       const particularidades = document.getElementById("particularidades")
         .value;
       const movimiento = "Captura";
