@@ -171,7 +171,6 @@ class Inve extends Component {
         <strong>Particularidades </strong><br/>
         ${element.particularidades}<br/>
         </div>
-        
         <a href="#top" class="top-btn">
       <button class="btn-baja" data-arete=${element.arete} data-numero=${flag}>Dar de baja ${element.arete}</button>
       </a>

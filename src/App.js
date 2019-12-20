@@ -9,6 +9,7 @@ import bajas from "./pages/bajas";
 import add from "./pages/addSel";
 import actualizar from "./pages/actualizar";
 import reportes from "./pages/reportes";
+import eliminar from "./pages/eliminar";
 import App2 from "./components/App2";
 class App extends Component {
   state = {
@@ -40,6 +41,7 @@ class App extends Component {
             <Route exact path="/add" component={add} />
             <Route exact path="/actualizar" component={actualizar} />
             <Route exact path="/reportes" component={reportes} />
+            <Route exact path="/eliminar" component={eliminar} />
           </Switch>
         </Router>
       </>

@@ -474,6 +474,20 @@ app.get("/agregados", (req, resp) => {
   });
 });
 
+app.get("/agregados/delete", (req, resp) => {
+  const { empresas, tipo, predio, raza, origen, particularidades } = req.query;
+  connection.query(
+    `DELETE FROM agregados WHERE tipo = '${tipo}' OR empresas = '${empresas}' OR predio = '${predio}' OR raza = '${raza}' OR origen = '${origen}' OR particularidades = '${particularidades}'`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes delete agregados");
+      }
+    }
+  );
+});
+
 app.get("/add/predio", (req, resp) => {
   const { predio } = req.query;
   connection.query(
