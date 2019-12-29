@@ -63,11 +63,8 @@ class Actualizar extends Component {
                 <button className="botonsito-actualizar" onClick={addData}>
                   Aceptar
                 </button>
-                <a href="/inventario">
-                  <button
-                    className="botonsito-actualizar regresar"
-                    href="/inventario"
-                  >
+                <a href="/inventario1">
+                  <button className="botonsito-actualizar regresar">
                     Regresar
                   </button>
                 </a>

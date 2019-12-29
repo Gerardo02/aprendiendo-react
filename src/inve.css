@@ -11,6 +11,12 @@
   box-shadow: 10px 20px 28px #616060;
   border-radius: 15px;
 }
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
 .texto-inve1 {
   padding: 5%;
 }
@@ -22,10 +28,6 @@
   margin-bottom: 30%;
   z-index: 1;
   border-radius: 15px;
-}
-.top-btn {
-  background-color: black;
-  margin-top: 30%;
 }
 .fecha-baja {
   width: 15px;

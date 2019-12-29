@@ -6,59 +6,33 @@ class Inve extends Component {
     const response = await fetch("http://localhost:4000/datos");
     const data = await response.json();
     //console.log(data);
-    const inventario = document.getElementById("cuadro-inventario");
+    const inventario = document.getElementById("table-inve");
     let flag = 0;
     data.forEach(element => {
       inventario.innerHTML += `
+      <tr>
+        <td>${element.empresas}</td>
+        <td>${element.predio}</td>     
+        <td>${element.precio}</td>     
+        <td>${element.num_guia}</td>     
+        <td>${element.tipo}</td>     
+        <td>${element.raza}</td>   
+        <td>${element.origen}</td>
+        <td>${element.arete}</td>
+        <td>${element.fecha_alta}</td>
+        <td>${element.fecha_nacimiento}</td>
+        <td>${element.peso_compra}</td>
+        <td>${element.peso_actual}</td>
+        <td>${element.incremento_peso}</td>
+        <td>${element.estatus}</td>
+        <td>${element.edad}</td>
+        <td>${element.ultimo_parto}</td>
+        <td>${element.meses_vacia}</td>
+        <td>${element.particularidades}</td>
+        <td><button class="btn-baja" data-arete=${element.arete} data-numero=${flag} id="btn-top">Dar de baja ${element.arete}</button></td>
+      </tr>
       
       
-      <div class="cuadro-animal">
-      <div class="texto-inve1">
-      <strong>Empresa </strong><br/>
-      ${element.empresas}<br/><br/>
-      <strong>Predio </strong><br/>
-      ${element.predio}<br/><br/>
-      <strong>Precio </strong><br/>
-      ${element.precio}<br/><br/>
-      <strong>Numero de guia </strong><br/>
-      ${element.num_guia}<br/><br/>
-      <strong>Tipo de ganado </strong><br/>
-      ${element.tipo}<br/><br/>
-      <strong>Raza </strong><br/>
-      ${element.raza}<br/><br/>
-      <strong>Origen </strong><br/>
-      ${element.origen}<br/><br/>
-      <strong>Arete </strong><br/>
-      ${element.arete}<br/><br/>
-      <strong>Fecha de registro </strong><br/>
-      ${element.fecha_alta}<br/>
-      </div>
-      <div class="texto-inve2">
-      <strong>Fecha de nacimiento</strong><br/>
-      ${element.fecha_nacimiento}<br/><br/>
-      <strong>Peso de compra </strong><br/>
-      ${element.peso_compra}<br/><br/>
-      <strong>Peso actual </strong><br/>
-      ${element.peso_actual}<br/><br/>
-      <strong>Incremento de peso </strong><br/>
-      ${element.incremento_peso}<br/><br/>
-      <strong>Estatus </strong><br/>
-      ${element.estatus}<br/><br/>
-      <strong>Edad (en meses)</strong><br/>
-      ${element.edad}<br/><br/>
-      <strong>Ultimo parto </strong><br/>
-      ${element.ultimo_parto}<br/><br/>
-      <strong>Meses vacia </strong><br/>
-      ${element.meses_vacia}<br/><br/>
-      <strong>Particularidades </strong><br/>
-      ${element.particularidades}<br/>
-      </div>
-      
-      <a href="#top" class="top-btn">
-      <button class="btn-baja" data-arete=${element.arete} data-numero=${flag}>Dar de baja ${element.arete}</button>
-      </a>
-      </div>
-      <br/><br/><br/>
       `;
       flag++;
     });
@@ -120,7 +94,7 @@ class Inve extends Component {
   }
   render() {
     let buscarArete = async () => {
-      const cuadro = document.getElementById("cuadro-arete");
+      const cuadro = document.getElementById("table-inve");
       const arete = document.getElementById("buscar-arete").value;
       const response = await fetch(
         `http://localhost:4000/buscar/arete?arete=${arete}`
@@ -129,53 +103,27 @@ class Inve extends Component {
       let flag = 0;
       data.forEach(element => {
         cuadro.innerHTML += `
-        
-        <div class="cuadro-animal">
-        <div class="texto-inve1">
-        <strong>Empresa </strong><br/>
-        ${element.empresas}<br/><br/>
-        <strong>Predio </strong><br/>
-        ${element.predio}<br/><br/>
-        <strong>Precio </strong><br/>
-        ${element.precio}<br/><br/>
-        <strong>Numero de guia </strong><br/>
-        ${element.num_guia}<br/><br/>
-        <strong>Tipo de ganado </strong><br/>
-        ${element.tipo}<br/><br/>
-        <strong>Raza </strong><br/>
-        ${element.raza}<br/><br/>
-        <strong>Origen </strong><br/>
-        ${element.origen}<br/><br/>
-        <strong>Arete </strong><br/>
-        ${element.arete}<br/><br/>
-        <strong>Fecha de registro </strong><br/>
-        ${element.fecha_alta}<br/>
-        </div>
-        <div class="texto-inve2">
-        <strong>Fecha de nacimiento</strong><br/>
-        ${element.fecha_nacimiento}<br/><br/>
-        <strong>Peso de compra </strong><br/>
-        ${element.peso_compra}<br/><br/>
-        <strong>Peso actual </strong><br/>
-        ${element.peso_actual}<br/><br/>
-        <strong>Incremento de peso </strong><br/>
-        ${element.incremento_peso}<br/><br/>
-        <strong>Estatus </strong><br/>
-        ${element.estatus}<br/><br/>
-        <strong>Edad (en meses)</strong><br/>
-        ${element.edad}<br/><br/>
-        <strong>Ultimo parto </strong><br/>
-        ${element.ultimo_parto}<br/><br/>
-        <strong>Meses vacia </strong><br/>
-        ${element.meses_vacia}<br/><br/>
-        <strong>Particularidades </strong><br/>
-        ${element.particularidades}<br/>
-        </div>
-        <a href="#top" class="top-btn">
-      <button class="btn-baja" data-arete=${element.arete} data-numero=${flag}>Dar de baja ${element.arete}</button>
-      </a>
-        </div>
-        <br/><br/><br/>
+        <tr>
+          <td>${element.empresas}</td>
+          <td>${element.predio}</td>     
+          <td>${element.precio}</td>     
+          <td>${element.num_guia}</td>     
+          <td>${element.tipo}</td>     
+          <td>${element.raza}</td>   
+          <td>${element.origen}</td>
+          <td>${element.arete}</td>
+          <td>${element.fecha_alta}</td>
+          <td>${element.fecha_nacimiento}</td>
+          <td>${element.peso_compra}</td>
+          <td>${element.peso_actual}</td>
+          <td>${element.incremento_peso}</td>
+          <td>${element.estatus}</td>
+          <td>${element.edad}</td>
+          <td>${element.ultimo_parto}</td>
+          <td>${element.meses_vacia}</td>
+          <td>${element.particularidades}</td>
+          <td><button class="btn-baja" data-arete=${element.arete} data-numero=${flag} id="btn-top">Dar de baja ${element.arete}</button></td>
+        </tr>
         `;
         flag++;
       });
@@ -187,12 +135,34 @@ class Inve extends Component {
             <button className="btn-actualizar">Actualizar</button>
           </a>
         </div>
-        <a name="top"></a>
         Buscar arete
         <input type="text" id="buscar-arete"></input>
         <button onClick={buscarArete}>Aceptrar</button>
         <div id="cuadro-arete"></div>
         <div id="cuadro-inventario">
+          <table id="table-inve" className="table-inve">
+            <tr>
+              <th>Empresa</th>
+              <th>Predio</th>
+              <th>Precio</th>
+              <th>Numero de Guia</th>
+              <th>Tipo de Ganado</th>
+              <th>Raza</th>
+              <th>Origen</th>
+              <th>Arete</th>
+              <th>Fecha de Registro</th>
+              <th>Fecha de Nacimiento</th>
+              <th>Peso de Compra</th>
+              <th>Peso Actual</th>
+              <th>Incremento de peso</th>
+              <th>Estatus</th>
+              <th>Edad (en meses)</th>
+              <th>Ultimo Parto</th>
+              <th>Meses Vacia</th>
+              <th>Particularidades</th>
+              <th>Dar de Baja</th>
+            </tr>
+          </table>
           <div className="baja-container" id="baja-container">
             <form>
               Motivo de baja <br />

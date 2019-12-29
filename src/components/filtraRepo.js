@@ -7,12 +7,18 @@ class Filtra extends Component {
     const inventario = document.getElementById("callPredio");
     const origen = document.getElementById("callOrigen");
     data.forEach(element => {
-      inventario.innerHTML += `
+      if (element.predio === null) {
+      } else {
+        inventario.innerHTML += `
         <option value="${element.predio}">${element.predio}</option>
         `;
-      origen.innerHTML += `
+      }
+      if (element.origen === null) {
+      } else {
+        origen.innerHTML += `
         <option value="${element.origen}">${element.origen}</option>
         `;
+      }
     });
   }
   render() {
@@ -354,9 +360,13 @@ class Filtra extends Component {
           <button onClick={callDecre}>Los que decrementaron de peso</button>
           <button onClick={callVacia}>Las que estan vacias</button>
           <button onClick={callCargada}>Las que estan cargadas</button>
-          <select id="callPredio"></select>
+          <select id="callPredio">
+            <option value="">Selecciona el predio...</option>
+          </select>
           <button onClick={callPredio}>Aceptar predio</button>
-          <select id="callOrigen"></select>
+          <select id="callOrigen">
+            <option value="">Selecciona el origen...</option>
+          </select>
           <button onClick={callOrigen}>Aceptar origen</button>
 
           <form>

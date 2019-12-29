@@ -13,7 +13,7 @@ class captura extends Component {
           <a className="textobarra" href="/captura">
             captura
           </a>
-          <a className="textobarra" href="/inventario">
+          <a className="textobarra" href="/inventario1">
             inventario
           </a>
           <a className="textobarra" href="/historial">

@@ -249,9 +249,26 @@ class App2 extends Component {
               <br />
               Fecha en que se registra el animal
               <br />
-              <input className="input1" type="text" id="diaAlt"></input>
-              <input className="input1" type="text" id="mesAlt"></input>
-              <input className="input1" type="text" id="anoAlt"></input>
+              <input
+                className="input1"
+                className="input2"
+                type="text"
+                id="diaAlt"
+              ></input>
+              /
+              <input
+                className="input1"
+                className="input2"
+                type="text"
+                id="mesAlt"
+              ></input>
+              /
+              <input
+                className="input1"
+                className="input2"
+                type="text"
+                id="anoAlt"
+              ></input>
               <br />
               <br />
             </div>
@@ -263,9 +280,26 @@ class App2 extends Component {
             <div className="textito-cuadrito">
               Fecha de nacimiento
               <br />
-              <input className="input1" type="text" id="dia"></input>
-              <input className="input1" type="text" id="mes"></input>
-              <input className="input1" type="text" id="ano"></input>
+              <input
+                className="input1"
+                className="input2"
+                type="text"
+                id="dia"
+              ></input>
+              /
+              <input
+                className="input1"
+                className="input2"
+                type="text"
+                id="mes"
+              ></input>
+              /
+              <input
+                className="input1"
+                className="input2"
+                type="text"
+                id="ano"
+              ></input>
               <br />
               <br />
               Lo que peso cuando se compro
@@ -291,9 +325,26 @@ class App2 extends Component {
               Ultima fecha en la que pario (Si nunca lo ha hecho, escribir la
               fecha de nacimiento)
               <br />
-              <input className="input1" type="text" id="diaVac"></input>
-              <input className="input1" type="text" id="mesVac"></input>
-              <input className="input1" type="text" id="anoVac"></input>
+              <input
+                className="input1"
+                className="input2"
+                type="text"
+                id="diaVac"
+              ></input>
+              /
+              <input
+                className="input1"
+                className="input2"
+                type="text"
+                id="mesVac"
+              ></input>
+              /
+              <input
+                className="input1"
+                className="input2"
+                type="text"
+                id="anoVac"
+              ></input>
               <br />
               <br />
               Alguna particularidad que pueda tener el animal

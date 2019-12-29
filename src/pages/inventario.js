@@ -1,28 +1,9 @@
 import React, { Component } from "react";
 import "../inve.css";
 import Inve from "../components/inve";
-import Filtros from "../components/filtros";
+
 class inventario extends Component {
-  async componentDidMount() {
-    const response = await fetch("http://localhost:4000/datos");
-    const data = await response.json();
-
-    /*   const edad11 = data.map(equis => {
-      console.log(equis.empresas);
-    });
-*/
-
-    this.setState({
-      items: data,
-      loading: false
-    });
-  }
-
   render() {
-    //console.log(
-    //"filtertext state from parent component",
-    //this.state.filtertext
-    //);
     return (
       <>
         <div className="barra-nav">
@@ -32,7 +13,7 @@ class inventario extends Component {
           <a className="textobarra" href="/captura">
             captura
           </a>
-          <a className="textobarra" href="/inventario">
+          <a className="textobarra" href="/inventario1">
             inventario
           </a>
           <a className="textobarra" href="/historial">
