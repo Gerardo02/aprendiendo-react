@@ -53,16 +53,16 @@ class Add extends Component {
         <div className="cuadrototal">
           <div className="cuadro-11">
             <div className="banner-agregar">
-              <div className="boton1">
+              <div className="boton">
                 <a href="/captura">
-                  <button>Regresar</button>
+                  <button className="boton1">Regresar</button>
                 </a>
               </div>
             </div>
             <div className="texto espacio1">
-              <input type="text" id="empresas" className="texto-prueba"></input>
+              <input type="text" id="empresas" className="texto-prueba"></input><br />
               <button onClick={agregarEmpresas}>Agregar empresas...</button>
-              <br />
+              
               <br />
               <br />
               <input type="text" id="tipo" className="texto-prueba"></input>

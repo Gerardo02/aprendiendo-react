@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 
-import fondo from "../images/fondo.mp4";
+import supervaca from "../images/super-vaca.png";
+
+import superlogo from "../images/super-logo.png";
+
+import mail from "../images/mail.png";
+
+import cellphone from "../images/cellphone.png";
 
 import "../style-principal.css";
 
@@ -19,10 +25,10 @@ class principal extends Component {
     today = dd + "/" + mm + "/" + yyyy;
     return (
       <>
-        <div>
+        <div className="todoelfondo">
           <div className="barra-nav">
             <a className="textobarra" href="/">
-              inicio
+              <img className="superlogo" src={superlogo}/>
             </a>
             <a className="textobarra" href="/captura">
               captura
@@ -40,36 +46,25 @@ class principal extends Component {
               reportes
             </a>
           </div>
+         
           <div className="fecha-hoy">
             <p className="fech dia-hoy"> {dd}</p>
             <p className="fech slash">/</p>
             <p className="fech mes-hoy"> {mm}</p>
           </div>
-          <div className="banner-iconos">
-            <a className="imagenbarra" href="/captura">
-              <img className="icono captura" src={icono} alt="" />
-            </a>
-            <a className="imagenbarra" href="/inventario">
-              <img className="icono inventario" src={icono} alt="" />
-            </a>
-            <a className="imagenbarra" href="/historial">
-              <img className="icono historial" src={icono} alt="" />
-            </a>
+          <div className="banner-vaca">
+            <a href="/captura">
+          <img className="vacavaca" src={supervaca} href="/captura"></img>
+          </a>
           </div>
-          <div className="div-bajas">
-            <a className="imagenbajas" href="/bajas">
-              <img className="bajas" src={bajasimg} alt="" />
-            </a>
+          <footer>
+            <div className="footer">
+            <a className="ayuda iconos-footer"> ¿necesitas ayuda o alguna sugerencia? </a>
+            <img className="iconos-footer" src={mail}/>
+            <img className="iconos-footer" src={cellphone}/>
+            </div>
+            </footer>
           </div>
-
-          <video
-            className="video-fondo"
-            autoPlay
-            muted
-            loop
-            src={fondo}
-          ></video>
-        </div>
       </>
     );
   }

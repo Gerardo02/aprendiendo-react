@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "../inve.css";
+import superlogo from "../images/super-logo.png";
+
 
 class historial extends Component {
   async componentDidMount() {
@@ -41,9 +43,9 @@ class historial extends Component {
     return (
       <>
         <div className="barra-nav">
-          <a className="textobarra" href="/">
-            inicio
-          </a>
+        <a className="textobarra" href="/">
+              <img className="superlogo" src={superlogo}/>
+            </a>
           <a className="textobarra" href="/captura">
             captura
           </a>

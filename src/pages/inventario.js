@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import "../inve.css";
 import Inve from "../components/inve";
 import Filtros from "../components/filtros";
+import superlogo from "../images/super-logo.png";
+
+
 class inventario extends Component {
   async componentDidMount() {
     const response = await fetch("http://localhost:4000/datos");
@@ -26,9 +29,9 @@ class inventario extends Component {
     return (
       <>
         <div className="barra-nav">
-          <a className="textobarra" href="/">
-            inicio
-          </a>
+        <a className="textobarra" href="/">
+              <img className="superlogo" src={superlogo}/>
+            </a>
           <a className="textobarra" href="/captura">
             captura
           </a>

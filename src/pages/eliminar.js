@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Delete from "../components/deleteOp";
+import DeleteOp from "../components/deleteOp";
 class eliminar extends Component {
   render() {
     return (
       <>
-        <Delete />
+        <DeleteOp />
       </>
     );
   }

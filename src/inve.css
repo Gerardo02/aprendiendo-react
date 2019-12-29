@@ -1,8 +1,6 @@
-.texto-prueba {
-  color: black;
-}
+/*---------------------------------------------atributos historial------------*/
 .cuadro-animal {
-  background-color: lightblue;
+  background-color:rgb(48, 47, 47);
   display: flex;
   justify-content: space-evenly;
   font-family: Arial, Helvetica, sans-serif;
@@ -11,18 +9,8 @@
   box-shadow: 10px 20px 28px #616060;
   border-radius: 15px;
 }
-.texto-inve1 {
-  padding: 5%;
-}
-.texto-inve2 {
-  padding: 5%;
-}
-.btn-baja {
-  margin-top: 30%;
-  margin-bottom: 30%;
-  z-index: 1;
-  border-radius: 15px;
-}
+
+/*----------------------seccion de dar de baja en inventario--------------------*/
 .top-btn {
   background-color: black;
   margin-top: 30%;
@@ -48,14 +36,89 @@
   border-bottom: 1px solid #b2b2b2;
   margin-bottom: 6px;
 }
-
-.div-actualizar {
-  display: flex;
-  margin: 15px;
-  justify-content: center;
+.btn-baja{
+  
+  height: fit-content;
+  border: none;
 }
-.btn-actualizar {
-  font-size: 20px;
 
+/*----------------------------------------banner de buscar arete, boton aceptar y actualizar-------------------------*/
+.opcioneshistorial{
+  background-color: #FBB03B;
+  color: white;
+  display: flex;
+  
+  position: relative;
+  width: 80%;
+  left: 10%;
   border-radius: 50px;
+  height: 50px;
+  align-items: center;
+}
+
+.buscararete{
+  left: 0px;
+  margin: 0px 10px 0 35px;
+}
+
+.inputbuscar{
+  margin: 0px 10px 0px 10px;
+  border: none;
+  border-radius: 50px;
+  height: 25px;
+  width: 90px;
+}
+
+.btn-actualizar{
+  border: none;
+  border-radius: 50px;
+  height: 25px;
+  width: 90px;
+  position: absolute;
+  right: 0px;
+  top: 12.5px;
+  margin: 0 30px 0 0 ;
+}
+
+
+
+/*--------------------------------------tabla de informacion--------------------*/
+.tablainventario{
+  
+  
+  position: relative;
+  width: 80%;
+  left: 10%;
+  display: flex;
+  border-radius: 5px;
+  justify-content: center;
+ 
+}
+.titulos1{
+  background-color: rgb(255, 127, 80);
+}
+.titulosnombres{
+  background-color: rgb(255, 255, 255, .7);
+  
+  position: relative;
+  width: 100%;
+}
+
+table{
+  position: static;
+  color: black;
+  
+  text-align: center;
+  width: 100%;
+  font-size: 14px;
+  
+  position: relative;
+}
+
+
+.btn-baja {
+  margin-top: 30%;
+  margin-bottom: 30%;
+  z-index: 1;
+  border-radius: 15px;
 }

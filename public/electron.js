@@ -11,7 +11,7 @@ let otherWindow;
 let createWindow = () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 1100,
+    width: 1300,
     height: 600,
     title: "hola",
     webPreferences: {
