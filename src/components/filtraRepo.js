@@ -232,8 +232,14 @@ class Filtra extends Component {
           <button onClick={callOrigen}>Aceptar origen</button>
 
           <form>
-            <button>Refrescar</button>
+            <button className="refrescar">Refrescar</button>
           </form>
+        </div>
+
+        <br />
+        <br />
+        <div className="tablainventario">
+          <div className="titulosnombres"></div>
         </div>
         <table id="table-inve" className="table-inve">
           <tr>

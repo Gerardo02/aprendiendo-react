@@ -100,9 +100,7 @@ td {
   display: flex;
   border-radius: 5px;
   justify-content: center;
-}
-.titulos1 {
-  background-color: rgb(255, 127, 80);
+  margin-bottom: 40px;
 }
 .titulosnombres {
   background-color: rgb(255, 255, 255, 0.7);
@@ -110,15 +108,16 @@ td {
   position: relative;
   width: 100%;
 }
+.titulos1 {
+  text-align: center;
+}
 
 table {
-  position: static;
   color: black;
 
   text-align: center;
   width: 100%;
   font-size: 14px;
-
   position: relative;
 }
 
@@ -127,4 +126,45 @@ table {
   margin-bottom: 30%;
   z-index: 1;
   border-radius: 15px;
+}
+
+/*---------------------------------------------inicia seccion para los filtros que no tengo idea por que los importamos desde aqui xdxd lol uwu -----------------------------------------------------*/
+/*---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.cuadroreportes {
+  background-color: #fbb03b;
+  position: relative;
+  top: 15px;
+  width: 80%;
+  height: 85px;
+  left: 10%;
+  border-radius: 20px;
+  display: flex;
+}
+.palflex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+.seleccionboton {
+  margin: 0 10px 0 0;
+}
+.seleccionboton2 {
+  margin: 5px 10px 0 0;
+}
+
+.select {
+  min-width: 100px;
+}
+.botonderefrescar {
+  position: relative;
+  display: inline;
+}
+.refrescar {
+  border: none;
+  border-radius: 15px;
+  height: 30px;
+  width: 90px;
+  margin: 27.5px 35px 10px 0;
 }

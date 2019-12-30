@@ -95,12 +95,14 @@ class Inve extends Component {
   render() {
     let buscarArete = async () => {
       const cuadro = document.getElementById("table-inve");
+      const listavariables = document.getElementById("listavariables");
       const arete = document.getElementById("buscar-arete").value;
       const response = await fetch(
         `http://localhost:4000/buscar/arete?arete=${arete}`
       );
       const data = await response.json();
       let flag = 0;
+      window.location.reload();
       data.forEach(element => {
         cuadro.innerHTML += `
         <tr>
