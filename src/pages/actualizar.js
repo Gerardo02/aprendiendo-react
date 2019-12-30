@@ -55,8 +55,8 @@ class Actualizar extends Component {
         <div className="index-page-actualizar">
           <div className="cuadroactualizar">
             <div className="banner-actualizar">
-              <div className="input-arete">
-                Arete del animal
+              <div className="input-arete ">
+                <p className="areteanimal">Arete del animal: </p>
                 <input className="input2" type="text" id="arete"></input>
               </div>
               <div className="div-botonsitos">
@@ -74,9 +74,9 @@ class Actualizar extends Component {
               </div>
             </div>
             <div className="textito-cuadrito">
-              Lo que pesa ahora
-              <br />
-              <input className="input2" type="text" id="peso-actual"></input>kg
+              Lo que pesa ahora :
+              
+              <input className="input2 pesoahora" maxLength="4" type="text" id="peso-actual"></input>kg
               <br />
               <br />
               Estado del animal
@@ -89,11 +89,11 @@ class Actualizar extends Component {
               <br />
               <br />
               Ultima fecha en la que pario (Si nunca lo ha hecho, escribir la
-              fecha de nacimiento)
+              fecha de nacimiento):
               <br />
-              <input className="input2" type="text" id="diaVac"></input>
-              <input className="input2" type="text" id="mesVac"></input>
-              <input className="input2" type="text" id="anoVac"></input>
+              <input className="input2 fechainput" type="text" maxLength="2" id="diaVac"/>/
+              <input className="input2 fechainput" type="text" maxLength="2" id="mesVac"/>/
+              <input className="input2 fechainput fechaaño" type="text" maxLength="4" id="anoVac"/>
               <br />
               <br />
               Alguna particularidad que pueda tener el animal

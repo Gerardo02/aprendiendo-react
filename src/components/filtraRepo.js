@@ -20,212 +20,117 @@ class Filtra extends Component {
       const response = await fetch("http://localhost:4000/filtrar");
       const data = await response.json();
       const inventario = document.getElementById("cuadro-reporte");
+      const listavariables = document.getElementById("listavariables");
       data.forEach(element => {
-        inventario.innerHTML += `
+        listavariables.innerHTML += `
       
-      <div class="cuadro-animal">
-      <div class="texto-inve1">
-      <strong>Empresa </strong><br/>
-      ${element.empresas}<br/><br/>
-      <strong>Predio </strong><br/>
-      ${element.predio}<br/><br/>
-      <strong>Precio </strong><br/>
-      ${element.precio}<br/><br/>
-      <strong>Numero de guia </strong><br/>
-      ${element.num_guia}<br/><br/>
-      <strong>Tipo de ganado </strong><br/>
-      ${element.tipo}<br/><br/>
-      <strong>Raza </strong><br/>
-      ${element.raza}<br/><br/>
-      <strong>Origen </strong><br/>
-      ${element.origen}<br/><br/>
-      <strong>Arete </strong><br/>
-      ${element.arete}<br/><br/>
-      <strong>Fecha de registro </strong><br/>
-      ${element.fecha_alta}<br/>
-      </div>
-      <div class="texto-inve2">
-      <strong>Fecha de nacimiento</strong><br/>
-      ${element.fecha_nacimiento}<br/><br/>
-      <strong>Peso de compra </strong><br/>
-      ${element.peso_compra}<br/><br/>
-      <strong>Peso actual </strong><br/>
-      ${element.peso_actual}<br/><br/>
-      <strong>Incremento de peso </strong><br/>
-      ${element.incremento_peso}<br/><br/>
-      <strong>Estatus </strong><br/>
-      ${element.estatus}<br/><br/>
-      <strong>Edad (en meses)</strong><br/>
-      ${element.edad}<br/><br/>
-      <strong>Ultimo parto </strong><br/>
-      ${element.ultimo_parto}<br/><br/>
-      <strong>Meses vacia </strong><br/>
-      ${element.meses_vacia}<br/><br/>
-      <strong>Particularidades </strong><br/>
-      ${element.particularidades}<br/>
-      </div>
-      </div>
-      <br/><br/><br/>
+        <tr>
+        <td> ${element.empresas} </td>
+        <td> ${element.predio} </td>
+         <td> ${element.precio} </td>
+         <td> ${element.num_guia} </td>
+         <td> ${element.tipo} </td>
+         <td> ${element.raza} </td>
+         <td> ${element.origen} </td>
+         <td> ${element.arete} </td>
+         <td> ${element.fecha_alta} </td>
+         <td> ${element.fecha_nacimiento} </td>
+         <td> ${element.peso_compra} </td>
+         <td> ${element.peso_actual} </td>
+         <td> ${element.estatus} </td>
+         <td> ${element.ultimo_parto} </td>
+         <td> ${element.particularidades} </td>
+  
+        </tr>
+        <br/>
       `;
       });
     };
     let callDecre = async () => {
       const response = await fetch("http://localhost:4000/filtrar/decre");
       const data = await response.json();
-      const inventario = document.getElementById("cuadro-reporte");
+      const listavariables = document.getElementById("listavariables");
       data.forEach(element => {
-        inventario.innerHTML += `
-        
-        <div class="cuadro-animal">
-        <div class="texto-inve1">
-        <strong>Empresa </strong><br/>
-        ${element.empresas}<br/><br/>
-        <strong>Predio </strong><br/>
-        ${element.predio}<br/><br/>
-        <strong>Precio </strong><br/>
-        ${element.precio}<br/><br/>
-        <strong>Numero de guia </strong><br/>
-        ${element.num_guia}<br/><br/>
-        <strong>Tipo de ganado </strong><br/>
-        ${element.tipo}<br/><br/>
-        <strong>Raza </strong><br/>
-        ${element.raza}<br/><br/>
-        <strong>Origen </strong><br/>
-        ${element.origen}<br/><br/>
-        <strong>Arete </strong><br/>
-        ${element.arete}<br/><br/>
-        <strong>Fecha de registro </strong><br/>
-        ${element.fecha_alta}<br/>
-        </div>
-        <div class="texto-inve2">
-        <strong>Fecha de nacimiento</strong><br/>
-        ${element.fecha_nacimiento}<br/><br/>
-        <strong>Peso de compra </strong><br/>
-        ${element.peso_compra}<br/><br/>
-        <strong>Peso actual </strong><br/>
-        ${element.peso_actual}<br/><br/>
-        <strong>Incremento de peso </strong><br/>
-        ${element.incremento_peso}<br/><br/>
-        <strong>Estatus </strong><br/>
-        ${element.estatus}<br/><br/>
-        <strong>Edad (en meses)</strong><br/>
-        ${element.edad}<br/><br/>
-        <strong>Ultimo parto </strong><br/>
-        ${element.ultimo_parto}<br/><br/>
-        <strong>Meses vacia </strong><br/>
-        ${element.meses_vacia}<br/><br/>
-        <strong>Particularidades </strong><br/>
-        ${element.particularidades}<br/>
-        </div>
-        </div>
-        <br/><br/><br/>
-        `;
+        listavariables.innerHTML += `
+      
+        <tr>
+        <td> ${element.empresas} </td>
+        <td> ${element.predio} </td>
+         <td> ${element.precio} </td>
+         <td> ${element.num_guia} </td>
+         <td> ${element.tipo} </td>
+         <td> ${element.raza} </td>
+         <td> ${element.origen} </td>
+         <td> ${element.arete} </td>
+         <td> ${element.fecha_alta} </td>
+         <td> ${element.fecha_nacimiento} </td>
+         <td> ${element.peso_compra} </td>
+         <td> ${element.peso_actual} </td>
+         <td> ${element.estatus} </td>
+         <td> ${element.ultimo_parto} </td>
+         <td> ${element.particularidades} </td>
+  
+        </tr>
+        <br/>
+      `;
       });
     };
     let callVacia = async () => {
       const response = await fetch("http://localhost:4000/filtrar/vacia");
       const data = await response.json();
-      const inventario = document.getElementById("cuadro-reporte");
+      const listavariables = document.getElementById("listavariables");
       data.forEach(element => {
-        inventario.innerHTML += `
-          
-          <div class="cuadro-animal">
-          <div class="texto-inve1">
-          <strong>Empresa </strong><br/>
-          ${element.empresas}<br/><br/>
-          <strong>Predio </strong><br/>
-          ${element.predio}<br/><br/>
-          <strong>Precio </strong><br/>
-          ${element.precio}<br/><br/>
-          <strong>Numero de guia </strong><br/>
-          ${element.num_guia}<br/><br/>
-          <strong>Tipo de ganado </strong><br/>
-          ${element.tipo}<br/><br/>
-          <strong>Raza </strong><br/>
-          ${element.raza}<br/><br/>
-          <strong>Origen </strong><br/>
-          ${element.origen}<br/><br/>
-          <strong>Arete </strong><br/>
-          ${element.arete}<br/><br/>
-          <strong>Fecha de registro </strong><br/>
-          ${element.fecha_alta}<br/>
-          </div>
-          <div class="texto-inve2">
-          <strong>Fecha de nacimiento</strong><br/>
-          ${element.fecha_nacimiento}<br/><br/>
-          <strong>Peso de compra </strong><br/>
-          ${element.peso_compra}<br/><br/>
-          <strong>Peso actual </strong><br/>
-          ${element.peso_actual}<br/><br/>
-          <strong>Incremento de peso </strong><br/>
-          ${element.incremento_peso}<br/><br/>
-          <strong>Estatus </strong><br/>
-          ${element.estatus}<br/><br/>
-          <strong>Edad (en meses)</strong><br/>
-          ${element.edad}<br/><br/>
-          <strong>Ultimo parto </strong><br/>
-          ${element.ultimo_parto}<br/><br/>
-          <strong>Meses vacia </strong><br/>
-          ${element.meses_vacia}<br/><br/>
-          <strong>Particularidades </strong><br/>
-          ${element.particularidades}<br/>
-          </div>
-          </div>
-          <br/><br/><br/>
-          `;
+        listavariables.innerHTML += `
+      
+        <tr>
+        <td> ${element.empresas} </td>
+        <td> ${element.predio} </td>
+         <td> ${element.precio} </td>
+         <td> ${element.num_guia} </td>
+         <td> ${element.tipo} </td>
+         <td> ${element.raza} </td>
+         <td> ${element.origen} </td>
+         <td> ${element.arete} </td>
+         <td> ${element.fecha_alta} </td>
+         <td> ${element.fecha_nacimiento} </td>
+         <td> ${element.peso_compra} </td>
+         <td> ${element.peso_actual} </td>
+         <td> ${element.estatus} </td>
+         <td> ${element.ultimo_parto} </td>
+         <td> ${element.particularidades} </td>
+  
+        </tr>
+        <br/>
+      `;
       });
     };
     let callCargada = async () => {
       const response = await fetch("http://localhost:4000/filtrar/cargada");
       const data = await response.json();
-      const inventario = document.getElementById("cuadro-reporte");
+      const listavariables = document.getElementById("listavariables");
       data.forEach(element => {
-        inventario.innerHTML += `
-            
-            <div class="cuadro-animal">
-            <div class="texto-inve1">
-            <strong>Empresa </strong><br/>
-            ${element.empresas}<br/><br/>
-            <strong>Predio </strong><br/>
-            ${element.predio}<br/><br/>
-            <strong>Precio </strong><br/>
-            ${element.precio}<br/><br/>
-            <strong>Numero de guia </strong><br/>
-            ${element.num_guia}<br/><br/>
-            <strong>Tipo de ganado </strong><br/>
-            ${element.tipo}<br/><br/>
-            <strong>Raza </strong><br/>
-            ${element.raza}<br/><br/>
-            <strong>Origen </strong><br/>
-            ${element.origen}<br/><br/>
-            <strong>Arete </strong><br/>
-            ${element.arete}<br/><br/>
-            <strong>Fecha de registro </strong><br/>
-            ${element.fecha_alta}<br/>
-            </div>
-            <div class="texto-inve2">
-            <strong>Fecha de nacimiento</strong><br/>
-            ${element.fecha_nacimiento}<br/><br/>
-            <strong>Peso de compra </strong><br/>
-            ${element.peso_compra}<br/><br/>
-            <strong>Peso actual </strong><br/>
-            ${element.peso_actual}<br/><br/>
-            <strong>Incremento de peso </strong><br/>
-            ${element.incremento_peso}<br/><br/>
-            <strong>Estatus </strong><br/>
-            ${element.estatus}<br/><br/>
-            <strong>Edad (en meses)</strong><br/>
-            ${element.edad}<br/><br/>
-            <strong>Ultimo parto </strong><br/>
-            ${element.ultimo_parto}<br/><br/>
-            <strong>Meses vacia </strong><br/>
-            ${element.meses_vacia}<br/><br/>
-            <strong>Particularidades </strong><br/>
-            ${element.particularidades}<br/>
-            </div>
-            </div>
-            <br/><br/><br/>
-            `;
+        listavariables.innerHTML += `
+      
+        <tr>
+        <td> ${element.empresas} </td>
+        <td> ${element.predio} </td>
+         <td> ${element.precio} </td>
+         <td> ${element.num_guia} </td>
+         <td> ${element.tipo} </td>
+         <td> ${element.raza} </td>
+         <td> ${element.origen} </td>
+         <td> ${element.arete} </td>
+         <td> ${element.fecha_alta} </td>
+         <td> ${element.fecha_nacimiento} </td>
+         <td> ${element.peso_compra} </td>
+         <td> ${element.peso_actual} </td>
+         <td> ${element.estatus} </td>
+         <td> ${element.ultimo_parto} </td>
+         <td> ${element.particularidades} </td>
+  
+        </tr>
+        <br/>
+      `;
       });
     };
 
@@ -237,55 +142,30 @@ class Filtra extends Component {
       );
 
       const data = await response.json();
-      const inventario = document.getElementById("cuadro-reporte");
-
+      const listavariables = document.getElementById("listavariables");
       data.forEach(element => {
-        inventario.innerHTML += `
-                  
-                  <div class="cuadro-animal">
-                  <div class="texto-inve1">
-                  <strong>Empresa </strong><br/>
-                  ${element.empresas}<br/><br/>
-                  <strong>Predio </strong><br/>
-                  ${element.predio}<br/><br/>
-                  <strong>Precio </strong><br/>
-                  ${element.precio}<br/><br/>
-                  <strong>Numero de guia </strong><br/>
-                  ${element.num_guia}<br/><br/>
-                  <strong>Tipo de ganado </strong><br/>
-                  ${element.tipo}<br/><br/>
-                  <strong>Raza </strong><br/>
-                  ${element.raza}<br/><br/>
-                  <strong>Origen </strong><br/>
-                  ${element.origen}<br/><br/>
-                  <strong>Arete </strong><br/>
-                  ${element.arete}<br/><br/>
-                  <strong>Fecha de registro </strong><br/>
-                  ${element.fecha_alta}<br/>
-                  </div>
-                  <div class="texto-inve2">
-                  <strong>Fecha de nacimiento</strong><br/>
-                  ${element.fecha_nacimiento}<br/><br/>
-                  <strong>Peso de compra </strong><br/>
-                  ${element.peso_compra}<br/><br/>
-                  <strong>Peso actual </strong><br/>
-                  ${element.peso_actual}<br/><br/>
-                  <strong>Incremento de peso </strong><br/>
-                  ${element.incremento_peso}<br/><br/>
-                  <strong>Estatus </strong><br/>
-                  ${element.estatus}<br/><br/>
-                  <strong>Edad (en meses)</strong><br/>
-                  ${element.edad}<br/><br/>
-                  <strong>Ultimo parto </strong><br/>
-                  ${element.ultimo_parto}<br/><br/>
-                  <strong>Meses vacia </strong><br/>
-                  ${element.meses_vacia}<br/><br/>
-                  <strong>Particularidades </strong><br/>
-                  ${element.particularidades}<br/>
-                  </div>
-                  </div>
-                  <br/><br/><br/>
-                  `;
+        listavariables.innerHTML += `
+      
+        <tr>
+        <td> ${element.empresas} </td>
+        <td> ${element.predio} </td>
+         <td> ${element.precio} </td>
+         <td> ${element.num_guia} </td>
+         <td> ${element.tipo} </td>
+         <td> ${element.raza} </td>
+         <td> ${element.origen} </td>
+         <td> ${element.arete} </td>
+         <td> ${element.fecha_alta} </td>
+         <td> ${element.fecha_nacimiento} </td>
+         <td> ${element.peso_compra} </td>
+         <td> ${element.peso_actual} </td>
+         <td> ${element.estatus} </td>
+         <td> ${element.ultimo_parto} </td>
+         <td> ${element.particularidades} </td>
+  
+        </tr>
+        <br/>
+      `;
       });
     };
     let callOrigen = async () => {
@@ -296,72 +176,79 @@ class Filtra extends Component {
       );
 
       const data = await response.json();
-      const inventario = document.getElementById("cuadro-reporte");
-
+      const listavariables = document.getElementById("listavariables");
       data.forEach(element => {
-        inventario.innerHTML += `
-                    
-                    <div class="cuadro-animal">
-                    <div class="texto-inve1">
-                    <strong>Empresa </strong><br/>
-                    ${element.empresas}<br/><br/>
-                    <strong>Predio </strong><br/>
-                    ${element.predio}<br/><br/>
-                    <strong>Precio </strong><br/>
-                    ${element.precio}<br/><br/>
-                    <strong>Numero de guia </strong><br/>
-                    ${element.num_guia}<br/><br/>
-                    <strong>Tipo de ganado </strong><br/>
-                    ${element.tipo}<br/><br/>
-                    <strong>Raza </strong><br/>
-                    ${element.raza}<br/><br/>
-                    <strong>Origen </strong><br/>
-                    ${element.origen}<br/><br/>
-                    <strong>Arete </strong><br/>
-                    ${element.arete}<br/><br/>
-                    <strong>Fecha de registro </strong><br/>
-                    ${element.fecha_alta}<br/>
-                    </div>
-                    <div class="texto-inve2">
-                    <strong>Fecha de nacimiento</strong><br/>
-                    ${element.fecha_nacimiento}<br/><br/>
-                    <strong>Peso de compra </strong><br/>
-                    ${element.peso_compra}<br/><br/>
-                    <strong>Peso actual </strong><br/>
-                    ${element.peso_actual}<br/><br/>
-                    <strong>Incremento de peso </strong><br/>
-                    ${element.incremento_peso}<br/><br/>
-                    <strong>Estatus </strong><br/>
-                    ${element.estatus}<br/><br/>
-                    <strong>Edad (en meses)</strong><br/>
-                    ${element.edad}<br/><br/>
-                    <strong>Ultimo parto </strong><br/>
-                    ${element.ultimo_parto}<br/><br/>
-                    <strong>Meses vacia </strong><br/>
-                    ${element.meses_vacia}<br/><br/>
-                    <strong>Particularidades </strong><br/>
-                    ${element.particularidades}<br/>
-                    </div>
-                    </div>
-                    <br/><br/><br/>
-                    `;
+        listavariables.innerHTML += `
+      
+        <tr>
+        <td> ${element.empresas} </td>
+        <td> ${element.predio} </td>
+         <td> ${element.precio} </td>
+         <td> ${element.num_guia} </td>
+         <td> ${element.tipo} </td>
+         <td> ${element.raza} </td>
+         <td> ${element.origen} </td>
+         <td> ${element.arete} </td>
+         <td> ${element.fecha_alta} </td>
+         <td> ${element.fecha_nacimiento} </td>
+         <td> ${element.peso_compra} </td>
+         <td> ${element.peso_actual} </td>
+         <td> ${element.estatus} </td>
+         <td> ${element.ultimo_parto} </td>
+         <td> ${element.particularidades} </td>
+  
+        </tr>
+        <br/>
+      `;
       });
     };
     return (
       <>
-        <div id="cuadro-reporte">
-          <button onClick={callFiltros}>Los que incrementaron de peso</button>
-          <button onClick={callDecre}>Los que decrementaron de peso</button>
-          <button onClick={callVacia}>Las que estan vacias</button>
-          <button onClick={callCargada}>Las que estan cargadas</button>
-          <select id="callPredio"></select>
-          <button onClick={callPredio}>Aceptar predio</button>
-          <select id="callOrigen"></select>
-          <button onClick={callOrigen}>Aceptar origen</button>
-
+      <div className="cuadropapa">
+        <div className="cuadroreportes" id="cuadro-reporte">
+          <div className="palflex">
+          <div className="botonesfiltros1">
+          <button className="seleccionboton" onClick={callFiltros}>Los que incrementaron de peso</button>
+          <button className="seleccionboton" onClick={callDecre}>Los que decrementaron de peso</button>
+          <button className="seleccionboton" onClick={callVacia}>Las que estan vacias</button>
+          <button className="seleccionboton" onClick={callCargada}>Las que estan cargadas</button>
+          </div>
+         
+          <div className="botonesfiltro2">
+          <select className="seleccionboton2 select" id="callPredio"></select>
+          <button className="seleccionboton2" onClick={callPredio}>Aceptar predio</button>
+          <select className="seleccionboton2 select" id="callOrigen"></select>
+          <button className="seleccionboton2" onClick={callOrigen}>Aceptar origen</button>
+          </div>
+          </div>
+          <div className="botonderefrescar">
           <form>
-            <button>Refrescar</button>
+            <button className="refrescar">Refrescar</button>
           </form>
+          </div>
+
+         
+        </div>
+        <br/>
+        <br/>
+        <div className="tablainventario">
+        <div className="titulosnombres">
+          <table id="listavariables">
+            <div className="titulos1">
+              
+           <tr className="titulos">
+           <th>empresas</th><th>Predio</th><th>Precio</th><th>N° Guia </th> <th>Tipo de ganado</th><th>Raza </th><th>Origen</th><th>Arete</th><th>Fecha de registro</th><th>Fecha de nacimiento</th><th>Peso de compra</th><th>Peso actual</th><th>Estado del animal</th><th>Ultima fecha de parto</th><th>Particularidad</th>
+           <br/>
+           </tr>
+           </div>
+          
+            <tr className="listavariables" >
+            </tr>
+            
+    
+          </table>
+          </div>
+          </div>
         </div>
       </>
     );

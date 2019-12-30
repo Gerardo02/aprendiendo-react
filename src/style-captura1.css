@@ -91,6 +91,8 @@
   position: fixed;
   box-shadow: 10px 20px 28px #616060;
 }
+
+/*----banner----*/
 .banner-actualizar {
   background-color: #FBB03B;
   border-radius: 0px 0px 5px 5px;
@@ -101,6 +103,13 @@
 .input-arete {
   position: relative;
   margin: 18px 0px 0px 15px;
+  
+}
+.areteanimal{
+  display: inline;
+  padding: 5px;
+  margin: 0px;
+  
 }
 .div-botonsitos {
   background-color: rgb(0, 0, 0, 0.5);
@@ -115,7 +124,7 @@
   border-radius: 5px;
   margin: 15px;
 }
-
+/*-------opciones dentro del cuadro actualizar------*/
 .input2 {
   outline: none;
   border: none;
@@ -125,7 +134,23 @@
   border-bottom: 1px solid #b2b2b2;
   margin-bottom: 6px;
 }
+.pesoahora{
+  padding:15px 0 0 0;
+  margin: 0 0 0 8px;
+  
+  width: 35px;
+}
+.fechainput{
+  width: 20px;
+  text-align: center;
+  padding-top:15px; 
+  padding-bottom: 0px;
+}
+.fechaaño{
+  width: 40px;
+}
 
+/*-----------inputs no se de donde------*/
 .inputfecha{
   text-align: center;
   width: 25px;

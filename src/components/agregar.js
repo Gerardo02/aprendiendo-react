@@ -53,33 +53,28 @@ class Add extends Component {
         <div className="cuadrototal">
           <div className="cuadro-11">
             <div className="banner-agregar">
+              <p className="tituloopciones">Acutaliza las opciones de captura</p>
               <div className="boton">
                 <a href="/captura">
                   <button className="boton1">Regresar</button>
                 </a>
               </div>
             </div>
-            <div className="texto espacio1">
-              <input type="text" id="empresas" className="texto-prueba"></input><br />
+            <div className="espacio1">
+              <div className="texto">
+              <input type="text" id="empresas" className="texto-prueba"></input>
               <button onClick={agregarEmpresas}>Agregar empresas...</button>
               
-              <br />
-              <br />
+             
               <input type="text" id="tipo" className="texto-prueba"></input>
               <button onClick={agregarTipo}>Agregar tipo...</button>
-              <br />
-              <br />
-              <br />
+             
               <input type="text" id="raza" className="texto-prueba"></input>
               <button onClick={agregarRaza}>Agregar raza...</button>
-              <br />
-              <br />
-              <br />
+              
               <input type="text" id="origen" className="texto-prueba"></input>
               <button onClick={agregarOrigen}>Agregar origen...</button>
-              <br />
-              <br />
-              <br />
+              
               <input
                 type="text"
                 id="particularidades"
@@ -88,17 +83,14 @@ class Add extends Component {
               <button onClick={agregarParticularidades}>
                 Agregar particularidades...
               </button>
-              <br />
-              <br />
-              <br />
+           
               <input type="text" id="estatus" className="texto-prueba"></input>
               <button onClick={agregarEstatus}>Agregar estatus...</button>
-              <br />
-              <br />
-              <br />
+            
               <input type="text" id="predio" className="texto-prueba"></input>
 
               <button onClick={agregarPredio}>Agregar predio...</button>
+            </div>
             </div>
           </div>
           <br />
