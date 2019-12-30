@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import historial from "./historial";
 import "../inve.css";
+import superlogo from "../images/super-logo.png";
 
 class bajas2 extends Component {
   async componentDidMount() {
@@ -89,22 +90,22 @@ class bajas2 extends Component {
       <>
         <div className="barra-nav">
           <a className="textobarra" href="/">
-            inicio
+            <img className="superlogo" src={superlogo} />
           </a>
           <a className="textobarra" href="/captura">
-            captura
+            Captura
           </a>
           <a className="textobarra" href="/inventario1">
-            inventario
+            Inventario
           </a>
           <a className="textobarra" href="/historial">
-            historial
+            Historial
           </a>
           <a className="textobarra" href="/bajas">
-            bajas
+            Bajas
           </a>
           <a className="textobarra" href="/reportes">
-            reportes
+            Reportes
           </a>
         </div>
         <br />
@@ -132,7 +133,7 @@ class bajas2 extends Component {
             <th>Ultimo Parto</th>
             <th>Meses Vacia</th>
             <th>Particularidades</th>
-            <th>Dar de Baja</th>
+            <th>Recuperar</th>
           </tr>
         </table>
       </>

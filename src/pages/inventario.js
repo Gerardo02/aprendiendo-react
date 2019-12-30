@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "../inve.css";
 import Inve from "../components/inve";
+import Filtros from "../components/filtros";
+import superlogo from "../images/super-logo.png";
 
 class inventario extends Component {
   render() {
@@ -8,22 +10,22 @@ class inventario extends Component {
       <>
         <div className="barra-nav">
           <a className="textobarra" href="/">
-            inicio
+            <img className="superlogo" src={superlogo} />
           </a>
           <a className="textobarra" href="/captura">
-            captura
+            Captura
           </a>
           <a className="textobarra" href="/inventario1">
-            inventario
+            Inventario
           </a>
           <a className="textobarra" href="/historial">
-            historial
+            Historial
           </a>
           <a className="textobarra" href="/bajas">
-            bajas
+            Bajas
           </a>
           <a className="textobarra" href="/reportes">
-            reportes
+            Reportes
           </a>
         </div>
 

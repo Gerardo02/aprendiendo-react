@@ -1,28 +1,30 @@
 import React, { Component } from "react";
 import Add from "../components/agregar";
 import Filtra from "../components/filtraRepo";
+import superlogo from "../images/super-logo.png";
+
 class reporte extends Component {
   render() {
     return (
       <>
         <div className="barra-nav">
           <a className="textobarra" href="/">
-            inicio
+            <img className="superlogo" src={superlogo} />
           </a>
           <a className="textobarra" href="/captura">
-            captura
+            Captura
           </a>
           <a className="textobarra" href="/inventario1">
-            inventario
+            Inventario
           </a>
           <a className="textobarra" href="/historial">
-            historial
+            Historial
           </a>
           <a className="textobarra" href="/bajas">
-            bajas
+            Bajas
           </a>
           <a className="textobarra" href="/reportes">
-            reportes
+            Reportes
           </a>
         </div>
         <Filtra />

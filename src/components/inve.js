@@ -130,39 +130,20 @@ class Inve extends Component {
     };
     return (
       <>
+        <div className="opcioneshistorial"></div>
+        <p className="buscararete"> Buscar arete </p>
+        <input type="text" id="buscar-arete"></input>
+        <button className="inputbuscar" onClick={buscarArete}>
+          Aceptrar
+        </button>
+        <div id="cuadro-arete" />
         <div className="div-actualizar">
           <a href="/actualizar">
             <button className="btn-actualizar">Actualizar</button>
           </a>
         </div>
-        Buscar arete
-        <input type="text" id="buscar-arete"></input>
-        <button onClick={buscarArete}>Aceptrar</button>
         <div id="cuadro-arete"></div>
         <div id="cuadro-inventario">
-          <table id="table-inve" className="table-inve">
-            <tr>
-              <th>Empresa</th>
-              <th>Predio</th>
-              <th>Precio</th>
-              <th>Numero de Guia</th>
-              <th>Tipo de Ganado</th>
-              <th>Raza</th>
-              <th>Origen</th>
-              <th>Arete</th>
-              <th>Fecha de Registro</th>
-              <th>Fecha de Nacimiento</th>
-              <th>Peso de Compra</th>
-              <th>Peso Actual</th>
-              <th>Incremento de peso</th>
-              <th>Estatus</th>
-              <th>Edad (en meses)</th>
-              <th>Ultimo Parto</th>
-              <th>Meses Vacia</th>
-              <th>Particularidades</th>
-              <th>Dar de Baja</th>
-            </tr>
-          </table>
           <div className="baja-container" id="baja-container">
             <form>
               Motivo de baja <br />
@@ -192,6 +173,29 @@ class Inve extends Component {
               <button className="eliminar">Dar de baja</button>
             </form>
           </div>
+          <table id="table-inve" className="table-inve">
+            <tr>
+              <th>Empresa</th>
+              <th>Predio</th>
+              <th>Precio</th>
+              <th>Numero de Guia</th>
+              <th>Tipo de Ganado</th>
+              <th>Raza</th>
+              <th>Origen</th>
+              <th>Arete</th>
+              <th>Fecha de Registro</th>
+              <th>Fecha de Nacimiento</th>
+              <th>Peso de Compra</th>
+              <th>Peso Actual</th>
+              <th>Incremento de peso</th>
+              <th>Estatus</th>
+              <th>Edad (en meses)</th>
+              <th>Ultimo Parto</th>
+              <th>Meses Vacia</th>
+              <th>Particularidades</th>
+              <th>Dar de Baja</th>
+            </tr>
+          </table>
         </div>
       </>
     );
