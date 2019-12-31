@@ -12,22 +12,6 @@ import reportes from "./pages/reportes";
 import eliminar from "./pages/eliminar";
 import App2 from "./components/App2";
 class App extends Component {
-  state = {
-    loading: true,
-    items: null
-  };
-
-  async componentDidMount() {
-    const response = await fetch("http://localhost:4000/datos");
-    const data = await response.json();
-
-    this.setState({
-      items: data,
-      loading: false
-    });
-    console.log(data);
-  }
-
   render() {
     return (
       <>
@@ -36,7 +20,7 @@ class App extends Component {
             <Route exact path="/" component={principal} />
             <Route exact path="/historial" component={historial} />
             <Route exact path="/bajas" component={bajas} />
-            <Route exact path="/inventario" component={inventario} />
+            <Route exact path="/inventario1" component={inventario} />
             <Route exact path="/captura" component={captura} />
             <Route exact path="/add" component={add} />
             <Route exact path="/actualizar" component={actualizar} />

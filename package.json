@@ -1,5 +1,5 @@
 {
-  "name": "ganadera-3",
+  "name": "inventario",
   "version": "0.1.0",
   "main": "public/electron.js",
   "description": "Inventario ganadero",
@@ -7,7 +7,7 @@
     "name": "Gerardo & Moises"
   },
   "build": {
-    "appId": "ganadera-3.menu"
+    "appId": "inventario.menu"
   },
   "win": {
     "icon": ""
@@ -49,8 +49,8 @@
     ]
   },
   "devDependencies": {
-    "concurrently": "^5.0.0",
-    "electron": "^7.1.3",
+    "concurrently": "^5.0.2",
+    "electron": "^7.1.7",
     "electron-builder": "^21.2.0",
     "wait-on": "^3.3.0"
   }

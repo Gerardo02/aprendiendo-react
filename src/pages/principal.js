@@ -28,25 +28,25 @@ class principal extends Component {
         <div className="todoelfondo">
           <div className="barra-nav">
             <a className="textobarra" href="/">
-              <img className="superlogo" src={superlogo}/>
+              <img className="superlogo" src={superlogo} />
             </a>
             <a className="textobarra" href="/captura">
-              captura
+              Captura
             </a>
-            <a className="textobarra" href="/inventario">
-              inventario
+            <a className="textobarra" href="/inventario1">
+              Inventario
             </a>
             <a className="textobarra" href="/historial">
-              historial
+              Historial
             </a>
             <a className="textobarra" href="/bajas">
-              bajas
+              Bajas
             </a>
             <a className="textobarra" href="/reportes">
-              reportes
+              Reportes
             </a>
           </div>
-         
+
           <div className="fecha-hoy">
             <p className="fech dia-hoy"> {dd}</p>
             <p className="fech slash">/</p>
@@ -59,12 +59,15 @@ class principal extends Component {
           
           <footer>
             <div className="footer">
-            <a className="ayuda iconos-footer"> ¿necesitas ayuda o alguna sugerencia? </a>
-            <img className="iconos-footer" src={mail}/>
-            <img className="iconos-footer" src={cellphone}/>
+              <a className="ayuda iconos-footer">
+                {" "}
+                ¿necesitas ayuda o alguna sugerencia?{" "}
+              </a>
+              <img className="iconos-footer" src={mail} />
+              <img className="iconos-footer" src={cellphone} />
             </div>
-            </footer>
-          </div>
+          </footer>
+        </div>
       </>
     );
   }

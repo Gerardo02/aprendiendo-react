@@ -3,8 +3,7 @@ import historial from "./historial";
 import "../inve.css";
 import superlogo from "../images/super-logo.png";
 
-
-class bajas extends Component {
+class bajas2 extends Component {
   async componentDidMount() {
     const response = await fetch("http://localhost:4000/bajas");
     const data = await response.json();
@@ -39,6 +38,7 @@ class bajas extends Component {
      
      
       `;
+
       flag++;
 
     });
@@ -94,23 +94,23 @@ class bajas extends Component {
     return (
       <>
         <div className="barra-nav">
-        <a className="textobarra" href="/">
-              <img className="superlogo" src={superlogo}/>
-            </a>
-          <a className="textobarra" href="/captura">
-            captura
+          <a className="textobarra" href="/">
+            <img className="superlogo" src={superlogo} />
           </a>
-          <a className="textobarra" href="/inventario">
-            inventario
+          <a className="textobarra" href="/captura">
+            Captura
+          </a>
+          <a className="textobarra" href="/inventario1">
+            Inventario
           </a>
           <a className="textobarra" href="/historial">
-            historial
+            Historial
           </a>
           <a className="textobarra" href="/bajas">
-            bajas
+            Bajas
           </a>
           <a className="textobarra" href="/reportes">
-            reportes
+            Reportes
           </a>
         </div>
         <br />
@@ -140,4 +140,4 @@ class bajas extends Component {
   }
 }
 
-export default bajas;
+export default bajas2;

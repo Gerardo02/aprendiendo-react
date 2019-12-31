@@ -203,7 +203,13 @@ class App2 extends Component {
               <br />
               Precio
               <br />
-              <input className="input1 inputprecio" type="text" maxlength="7" id="precio"/> $
+              <input
+                className="input1 inputprecio"
+                type="text"
+                maxlength="7"
+                id="precio"
+              />{" "}
+              $
               <br />
               <br />
               numero de guia
@@ -249,9 +255,26 @@ class App2 extends Component {
               <br />
               Fecha en que se registra el animal
               <br />
-              <input className="input1 inputfecha" maxlength="2" type="text" id="diaAlt"/>/
-              <input className="input1 inputfecha" maxlength="2" type="text" id="mesAlt"/>/
-              <input className="input1 inputfecha inputaño" maxlength="4" type="text" id="anoAlt"/>
+              <input
+                className="input1 inputfecha"
+                maxlength="2"
+                type="text"
+                id="diaAlt"
+              />
+              /
+              <input
+                className="input1 inputfecha"
+                maxlength="2"
+                type="text"
+                id="mesAlt"
+              />
+              /
+              <input
+                className="input1 inputfecha inputaño"
+                maxlength="4"
+                type="text"
+                id="anoAlt"
+              />
               <br />
               <br />
             </div>
@@ -263,20 +286,49 @@ class App2 extends Component {
             <div className="textito-cuadrito">
               Fecha de nacimiento
               <br />
-              <input className="input1 inputfecha" maxlength="2" type="text" id="dia"/>/
-              <input className="input1 inputfecha" maxlength="2" type="text" id="mes"/>/
-              <input className="input1 inputfecha inputaño" maxlength="4" type="text" id="ano"></input>
+              <input
+                className="input1 inputfecha"
+                maxlength="2"
+                type="text"
+                id="dia"
+              />
+              /
+              <input
+                className="input1 inputfecha"
+                maxlength="2"
+                type="text"
+                id="mes"
+              />
+              /
+              <input
+                className="input1 inputfecha inputaño"
+                maxlength="4"
+                type="text"
+                id="ano"
+              ></input>
               <br />
               <br />
               Lo que peso cuando se compro
               <br />
-              <input className="input1 inputkg" maxlength="3" type="text" id="peso-compra"></input>kg
+              <input
+                className="input1 inputkg"
+                maxlength="3"
+                type="text"
+                id="peso-compra"
+              ></input>
+              kg
               <br />
               <br />
               Lo que pesa ahora (Si se acaba de comprar, registrar el mismo
               peso)
               <br />
-              <input className="input1 inputkg" maxlength="3" type="text" id="peso-actual"></input>kg
+              <input
+                className="input1 inputkg"
+                maxlength="3"
+                type="text"
+                id="peso-actual"
+              ></input>
+              kg
               <br />
               <br />
               Estado del animal
@@ -291,9 +343,26 @@ class App2 extends Component {
               Ultima fecha en la que pario (Si nunca lo ha hecho, escribir la
               fecha de nacimiento)
               <br />
-              <input className="input1 inputfecha" maxlength="2" type="text" id="diaVac"/>/
-              <input className="input1 inputfecha" maxlength="2" type="text" id="mesVac"/>/
-              <input className="input1 inputfecha inputaño" maxlength="4" type="text" id="anoVac"/>
+              <input
+                className="input1 inputfecha"
+                maxlength="2"
+                type="text"
+                id="diaVac"
+              />
+              /
+              <input
+                className="input1 inputfecha"
+                maxlength="2"
+                type="text"
+                id="mesVac"
+              />
+              /
+              <input
+                className="input1 inputfecha inputaño"
+                maxlength="4"
+                type="text"
+                id="anoVac"
+              />
               <br />
               <br />
               Alguna particularidad que pueda tener el animal

@@ -20,7 +20,9 @@
   border-bottom: 1px solid #b2b2b2;
   margin-bottom: 6px;
 }
-
+.input2 {
+  width: 30px;
+}
 .cua {
   background-color: rgb(48, 47, 47);
   border-radius: 5px;
