@@ -52,11 +52,11 @@ class principal extends Component {
             <p className="fech slash">/</p>
             <p className="fech mes-hoy"> {mm}</p>
           </div>
-          <div className="banner-vaca">
+          <img className="vacalogo" src={superlogo} href="/captura"></img>
             <a href="/captura">
-          <img className="vacavaca" src={supervaca} href="/captura"></img>
+          <img className="vacavaca" src={supervaca} ></img>
           </a>
-          </div>
+          
           <footer>
             <div className="footer">
             <a className="ayuda iconos-footer"> ¿necesitas ayuda o alguna sugerencia? </a>

@@ -8,65 +8,39 @@ class bajas extends Component {
   async componentDidMount() {
     const response = await fetch("http://localhost:4000/bajas");
     const data = await response.json();
-    //console.log(data);
-    const { filtertext } = this.props;
-    const inventario = document.getElementById("cuadro-inventario");
     let flag = 0;
+    const listavariables = document.getElementById("listavariables");
     data.forEach(element => {
-      inventario.innerHTML += `
+      listavariables.innerHTML += `
       
-      <div class="cuadro-animal">
-      <div class="texto-inve1">
-      <strong>Empresa </strong><br/>
-      ${element.empresas}<br/><br/>
-      <strong>Predio </strong><br/>
-      ${element.predio}<br/><br/>
-      <strong>Precio </strong><br/>
-      ${element.precio}<br/><br/>
-      <strong>Numero de guia </strong><br/>
-      ${element.num_guia}<br/><br/>
-      <strong>Tipo de ganado </strong><br/>
-      ${element.tipo}<br/><br/>
-      <strong>Raza </strong><br/>
-      ${element.raza}<br/><br/>
-      <strong>Origen </strong><br/>
-      ${element.origen}<br/><br/>
-      <strong>Arete </strong><br/>
-      ${element.arete}<br/><br/>
-      <strong>Fecha de registro </strong><br/>
-      ${element.fecha_alta}<br/><br/>
-      <strong>Fecha de baja</strong><br/>
-      ${element.fecha_baja}<br/>
-      </div>
-      <div class="texto-inve2">
-      <strong>Fecha de nacimiento</strong><br/>
-      ${element.fecha_nacimiento}<br/><br/>
-      <strong>Peso de compra </strong><br/>
-      ${element.peso_compra}<br/><br/>
-      <strong>Peso actual </strong><br/>
-      ${element.peso_actual}<br/><br/>
-      <strong>Incremento de peso </strong><br/>
-      ${element.incremento_peso}<br/><br/>
-      <strong>Estatus </strong><br/>
-      ${element.estatus}<br/><br/>
-      <strong>Edad (en meses)</strong><br/>
-      ${element.edad}<br/><br/>
-      <strong>Ultimo parto </strong><br/>
-      ${element.ultimo_parto}<br/><br/>
-      <strong>Meses vacia </strong><br/>
-      ${element.meses_vacia}<br/><br/>
-      <strong>Particularidades </strong><br/>
-      ${element.particularidades}<br/><br/>
-      <strong>Motivo de baja </strong><br/>
-      ${element.motivo_baja}<br/>
-      </div>
+      <tr>
+      <td> ${element.empresas} </td>
+      <td> ${element.predio} </td>
+       <td> ${element.precio} </td>
+       <td> ${element.num_guia} </td>
+       <td> ${element.tipo} </td>
+       <td> ${element.raza} </td>
+       <td> ${element.origen} </td>
+       <td> ${element.arete} </td>
+       <td> ${element.fecha_alta} </td>
+       <td> ${element.fecha_nacimiento} </td>
+       <td> ${element.peso_compra} </td>
+       <td> ${element.peso_actual} </td>
+       <td> ${element.estatus} </td>
+       <td> ${element.ultimo_parto} </td>
+       <td> ${element.particularidades} </td>
+       <td> ${element.fecha_baja} </td>
+       <td> ${element.motivo_baja} </td>
       
-      <button class="btn-baja" data-arete=${element.arete} data-numero=${flag}>Recuperar ${element.arete}</button>
       
-      </div>
-      <br/><br/><br/>
+       <td>
+      <button class="btn-baja" data-arete=${element.arete} data-numero=${flag} >Recuperar ${element.arete}</button>
+      </td>
+     
+     
       `;
       flag++;
+
     });
     document.getElementById("btn-rec").style.display = "none";
     let buttons = document.querySelectorAll("button.btn-baja");
@@ -142,9 +116,25 @@ class bajas extends Component {
         <br />
         <br />
         <button className="recuperar-segunda" id="btn-rec">
-          Recuperar
+          Recuperarararara
         </button>
-        <div id="cuadro-inventario"></div>
+        <div className="tablainventariobajas">
+        <div className="titulosnombres">
+          <table id="listavariables">
+            <div className="titulos1">
+           <tr className="titulos">
+           <th>empresas</th><th>Predio</th><th>Precio</th><th>N° Guia </th> <th>Tipo de ganado</th><th>Raza </th><th>Origen</th><th>Arete</th><th>Fecha de registro</th><th>Fecha de nacimiento</th><th>Peso de compra</th><th>Peso actual</th><th>Estado del animal</th><th>Ultima fecha de parto</th><th>Particularidad</th><th>Fecha de baja</th><th>Motivo de baja</th><th>Recuperar</th>
+           </tr>
+           </div>
+          
+            <tr className="listavariables" >
+            </tr>
+            
+    
+          </table>
+          </div>
+        </div>
+        
       </>
     );
   }

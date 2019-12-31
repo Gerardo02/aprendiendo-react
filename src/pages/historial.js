@@ -9,34 +9,23 @@ class historial extends Component {
     const data = await response.json();
     //console.log(data);
     const { filtertext } = this.props;
-    const inventario = document.getElementById("cuadro-inventario");
+    const listavariables = document.getElementById("listavariables"); 
+   
     let flag = 0;
     data.forEach(element => {
-      inventario.innerHTML += `
-      
-      <div class="cuadro-animal">
-      <div class="texto-inve1">
-      <strong>Arete</strong><br/>
-      ${element.arete}<br/><br/>
-      <strong>Numero de guia</strong><br/>
-      ${element.num_guia}<br/><br/>
-      <strong>Fecha del movimiento</strong><br/>
-      ${element.fecha}<br/><br/>
-      
-      </div>
-      <div class="texto-inve2">
-      <strong>Movimiento</strong><br/>
-      ${element.movimiento}<br/><br/>
-      <strong>Tipo de ganado </strong><br/>
-      ${element.tipo}<br/><br/>
-      <strong>Raza </strong><br/>
-      ${element.raza}<br/><br/>
-      </div>
-      </div>
-      <br/><br/><br/>
-      `;
-      flag++;
-    });
+      listavariables.innerHTML += `
+      <tr>
+      <br/>
+      <td>${element.arete}</td>
+        <td>${element.num_guia}</td>
+        <td>${element.tipo}</td>
+        <td>${element.raza}</td>
+        <td>${element.fecha}</td>
+        <td>${element.movimiento}</td>
+
+      </tr>
+      `
+    }); 
   }
 
   render() {
@@ -64,8 +53,26 @@ class historial extends Component {
         </div>
         <br />
         <br />
-
-        <div id="cuadro-inventario"></div>
+        <div className="tablainventariohistorial">
+        <div className="titulosnombres">
+          <table id="listavariables">
+            <div className="titulos1">
+           <tr className="titulos">
+            <th className="tituloshistorial">Arete</th>
+            <th className="tituloshistorial">Numero de Guia</th>
+            <th className="tituloshistorial">Tipo de Ganado</th>
+            <th className="tituloshistorial">Raza</th>
+            <th className="tituloshistorial">Fecha</th>
+            <th className="tituloshistorial">Movimiento</th>
+           </tr>
+           </div>
+            <tr className="listavariables" >
+            </tr>
+            
+    
+          </table>
+          </div>
+          </div>
       </>
     );
   }

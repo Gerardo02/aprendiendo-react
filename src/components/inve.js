@@ -100,7 +100,7 @@ class Inve extends Component {
       );
       const data = await response.json();
       let flag = 0;
-      window.location.reload();
+      //window.location.reload();
       data.forEach(element => {
         listavariables.innerHTML += `
         <tr>

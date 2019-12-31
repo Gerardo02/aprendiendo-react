@@ -40,11 +40,12 @@
   right: 0%;
 }
 
-/*.banner-vaca {
- 
- width: 10px;
- 
-}*/
+.vacalogo{
+  position: relative;
+  width: 30%;
+  left: 10%;
+  top: 150px;
+}
 
 .vacavaca{
   position: fixed;

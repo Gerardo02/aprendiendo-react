@@ -91,6 +91,7 @@
   border-radius: 5px;
   justify-content: center;
   margin-bottom: 40px;
+  border: solid #FBB03B;
 }
 .titulosnombres{
   background-color: rgb(255, 255, 255, .7);
@@ -100,6 +101,7 @@
 }
 .titulos1{
   text-align: center;
+  
 }
 
 table{
@@ -164,3 +166,34 @@ table{
   margin: 27.5px 35px 10px 0;
 }
 
+
+/*-------------------------------------Edicion especifica del historial------------------------------------------------*/
+
+.tituloshistorial{
+  font-size: 20px;
+  padding: 0 0 12px 0;
+}
+.tablainventariohistorial{
+  position: relative;
+  width: 80%;
+  left: 10%;
+  display: flex;
+  justify-content: center;
+  margin:10px 0 50px 0;
+  border: solid #FBB03B;
+  border-radius: 5px;
+
+}
+
+/*-------------------------------------Edicion especifica de bajas------------------------------------------------*/
+
+.tablainventariobajas{
+  position: relative;
+  width: 90%;
+  left: 5%;
+  display: flex;
+  border-radius: 5px;
+  justify-content: center;
+  margin-bottom: 40px;
+  border: solid #FBB03B;
+}
