@@ -132,9 +132,9 @@ class Inve extends Component {
     };
     return (
       <>
-        <div className="opcioneshistorial"></div>
-        <p className="buscararete"> Buscar arete </p>
-        <input type="text" id="buscar-arete"></input>
+        <div className="opcioneshistorial">
+        <p className="buscararete"> Buscar arete: </p>
+        <input type="text"  id="buscar-arete"></input>
         <button className="inputbuscar" onClick={buscarArete}>
           Aceptrar
         </button>
@@ -144,7 +144,9 @@ class Inve extends Component {
             <button className="btn-actualizar">Actualizar</button>
           </a>
         </div>
-        <div id="cuadro-arete"></div>
+        </div>
+        <br/>
+        
         <div id="cuadro-inventario">
           <div className="baja-container" id="baja-container">
             <form>
@@ -175,6 +177,9 @@ class Inve extends Component {
               <button className="eliminar">Dar de baja</button>
             </form>
           </div>
+
+          <div className="tablainventario">
+          <div className="titulosnombres">
           <table id="table-inve" className="table-inve">
             <tr>
               <th>Empresa</th>
@@ -198,6 +203,8 @@ class Inve extends Component {
               <th>Dar de Baja</th>
             </tr>
           </table>
+        </div>
+        </div>
         </div>
       </>
     );

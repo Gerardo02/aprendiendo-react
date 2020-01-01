@@ -5,11 +5,9 @@ const app = express();
 
 // Create connection
 connection = mysql.createConnection({
-  connectionLimit: 100,
-  host: "192.168.192.51",
-  port: 3306,
-  user: "ganadera",
-  password: "767482",
+  host: "localhost",
+  user: "root",
+  password: "633d5ca8e4",
   database: "inventario_ganadero"
 });
 // connect
