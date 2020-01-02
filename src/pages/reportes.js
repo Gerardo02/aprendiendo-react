@@ -2,30 +2,30 @@ import React, { Component } from "react";
 import Add from "../components/agregar";
 import Filtra from "../components/filtraRepo";
 import superlogo from "../images/super-logo.png";
-
+import { Link } from "react-router-dom";
 class reporte extends Component {
   render() {
     return (
       <>
         <div className="barra-nav">
-          <a className="textobarra" href="/">
+          <Link className="textobarra" to="/">
             <img className="superlogo" src={superlogo} />
-          </a>
-          <a className="textobarra" href="/captura">
+          </Link>
+          <Link className="textobarra" to="/captura">
             Captura
-          </a>
-          <a className="textobarra" href="/inventario1">
+          </Link>
+          <Link className="textobarra" to="/inventario1">
             Inventario
-          </a>
-          <a className="textobarra" href="/historial">
+          </Link>
+          <Link className="textobarra" to="/historial">
             Historial
-          </a>
-          <a className="textobarra" href="/bajas">
+          </Link>
+          <Link className="textobarra" to="/bajas">
             Bajas
-          </a>
-          <a className="textobarra" href="/reportes">
+          </Link>
+          <Link className="textobarra" to="/reportes">
             Reportes
-          </a>
+          </Link>
         </div>
         <Filtra />
       </>
