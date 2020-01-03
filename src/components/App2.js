@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom";
 import "../style-captura1.css";
 //import toro from "../images/captura.png";
 
@@ -173,12 +173,12 @@ class App2 extends Component {
     return (
       <React.Fragment>
         <div className="div-filtros">
-          <a href="/add">
+          <Link to="/add">
             <button>Agregar Datos</button>
-          </a>
-          <a href="/eliminar">
+          </Link>
+          <Link to="/eliminar">
             <button>Eliminar Datos</button>
-          </a>
+          </Link>
         </div>
         <div className="index-page">
           <div className="cua cuadro-1">

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../style-agregar.css";
-
+import { Link } from "react-router-dom";
 class Add extends Component {
   render() {
     let id;
@@ -53,44 +53,53 @@ class Add extends Component {
         <div className="cuadrototal">
           <div className="cuadro-11">
             <div className="banner-agregar">
-              <p className="tituloopciones">Acutaliza las opciones de captura</p>
+              <p className="tituloopciones">
+                Acutaliza las opciones de captura
+              </p>
               <div className="boton">
-                <a href="/captura">
+                <Link to="/captura">
                   <button className="boton1">Regresar</button>
-                </a>
+                </Link>
               </div>
             </div>
             <div className="espacio1">
               <div className="texto">
-              <input type="text" id="empresas" className="texto-prueba"></input>
-              <button onClick={agregarEmpresas}>Agregar empresas...</button>
-              
-             
-              <input type="text" id="tipo" className="texto-prueba"></input>
-              <button onClick={agregarTipo}>Agregar tipo...</button>
-             
-              <input type="text" id="raza" className="texto-prueba"></input>
-              <button onClick={agregarRaza}>Agregar raza...</button>
-              
-              <input type="text" id="origen" className="texto-prueba"></input>
-              <button onClick={agregarOrigen}>Agregar origen...</button>
-              
-              <input
-                type="text"
-                id="particularidades"
-                className="texto-prueba"
-              ></input>
-              <button onClick={agregarParticularidades}>
-                Agregar particularidades...
-              </button>
-           
-              <input type="text" id="estatus" className="texto-prueba"></input>
-              <button onClick={agregarEstatus}>Agregar estatus...</button>
-            
-              <input type="text" id="predio" className="texto-prueba"></input>
+                <input
+                  type="text"
+                  id="empresas"
+                  className="texto-prueba"
+                ></input>
+                <button onClick={agregarEmpresas}>Agregar empresas...</button>
 
-              <button onClick={agregarPredio}>Agregar predio...</button>
-            </div>
+                <input type="text" id="tipo" className="texto-prueba"></input>
+                <button onClick={agregarTipo}>Agregar tipo...</button>
+
+                <input type="text" id="raza" className="texto-prueba"></input>
+                <button onClick={agregarRaza}>Agregar raza...</button>
+
+                <input type="text" id="origen" className="texto-prueba"></input>
+                <button onClick={agregarOrigen}>Agregar origen...</button>
+
+                <input
+                  type="text"
+                  id="particularidades"
+                  className="texto-prueba"
+                ></input>
+                <button onClick={agregarParticularidades}>
+                  Agregar particularidades...
+                </button>
+
+                <input
+                  type="text"
+                  id="estatus"
+                  className="texto-prueba"
+                ></input>
+                <button onClick={agregarEstatus}>Agregar estatus...</button>
+
+                <input type="text" id="predio" className="texto-prueba"></input>
+
+                <button onClick={agregarPredio}>Agregar predio...</button>
+              </div>
             </div>
           </div>
           <br />

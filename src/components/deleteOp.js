@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 class Delete extends Component {
   async componentDidMount() {
     const empresas = document.getElementById("empresa");
@@ -85,9 +86,9 @@ class Delete extends Component {
         <br />
         <br />
         <button onClick={deleteAgregados}>Aceptar</button>
-        <a href="/captura">
+        <Link to="/captura">
           <button>Regresar</button>
-        </a>
+        </Link>
       </>
     );
   }
