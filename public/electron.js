@@ -99,10 +99,11 @@ const app1 = express();
 
 // Create connection
 connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
+  host: "50.62.209.153",
+  port: 3306,
+  user: "ganado",
   password: "767482",
-  database: "inventario_ganadero"
+  database: "inventario_ganadero1"
 });
 // connect
 connection.connect(err => {
