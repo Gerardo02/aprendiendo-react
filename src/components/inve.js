@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "../inve.css";
+import { Link } from "react-router-dom";
+
 
 class Inve extends Component {
   async componentDidMount() {
@@ -124,7 +126,7 @@ class Inve extends Component {
           <td>${element.ultimo_parto}</td>
           <td>${element.meses_vacia}</td>
           <td>${element.particularidades}</td>
-          <td><button class="btn-baja" data-arete=${element.arete} data-numero=${flag} id="btn-top">Dar de baja ${element.arete}</button></td>
+          <td><button class="btn-baja" data-arete=${element.arete} data-numero=${flag} id="btn-top">${element.arete}</button></td>
         </tr>
         `;
         flag++;
@@ -140,9 +142,9 @@ class Inve extends Component {
         </button>
         <div id="cuadro-arete" />
         <div className="div-actualizar">
-          <a href="/actualizar">
+          <Link to="/actualizar">
             <button className="btn-actualizar">Actualizar</button>
-          </a>
+          </Link>
         </div>
         </div>
         <br/>

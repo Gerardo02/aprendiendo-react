@@ -15,24 +15,24 @@
   outline: none;
   border: none;
   background-color: transparent;
-  color: white;
   position: relative;
-  border-bottom: 1px solid #b2b2b2;
+  border-bottom: 1px solid #000000;
   margin-bottom: 6px;
+  color: black;
+  font-weight: bold;
 }
 .input2 {
   width: 30px;
 }
 .cua {
-  background-color: rgb(48, 47, 47);
+  background-color: rgb(255, 255, 255, 0.7);
+  border: solid #FBB03B;
   border-radius: 5px;
   width: 30%;
-  top: 20%;
-  margin: 0ch;
-  padding: 5px;
+  top: 15%;
   line-height: 20px;
   position: absolute;
-  box-shadow: 10px 20px 28px #616060;
+  box-shadow: 10px 20px 28px #000000;
   margin: 0 0 30px 0;
 
 }
@@ -45,9 +45,10 @@
 }
 
 .index-page {
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: "Arial Narrow Bold";
   font-size: 20px;
-  color: white;
+  font-weight: 500; 
+  color: rgb(0, 0, 0);
 }
 .textito-cuadrito {
   padding: 10px;
@@ -66,46 +67,66 @@
 
 .banner {
   background-color: #FBB03B;
-  border-radius: 0px 0px 5px 5px;
+  border-radius:5px 5px 0px 0px ;
   display: flex;
   flex-direction: row-reverse;
+  height: auto;
+}
+.banner1 {
+  background-color: #FBB03B;
+  border-radius:5px 5px 0px 0px ;
+  display: flex;
+  flex-direction: row;
   height: auto;
 }
 
 /*---------------------------------------- aqui inicia estilo para actualizar --------------------------------------*/
 
 .index-page-actualizar {
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: 20px;
-  color: white;
+  font-family: "Arial Narrow Bold";
+  font-size: 25px;
+  font-weight: bold;
   display: flex;
   justify-content: center;
 }
 .cuadroactualizar {
-  background-color: rgb(48, 47, 47);
+  background-color: rgb(255, 255, 255, 0.7);
   border-radius: 5px;
   width: 80%;
-  margin: 0ch;
-  padding: 5px;
+  border: solid #FBB03B;
   top: 15%;
   bottom: 15%;
   height: 70%;
   position: fixed;
-  box-shadow: 10px 20px 28px #616060;
+  box-shadow: 10px 20px 28px #000000;
 }
 
 /*----banner----*/
 .banner-actualizar {
   background-color: #FBB03B;
-  border-radius: 0px 0px 5px 5px;
+  border-radius:  5px 5px 0px 0px;
   display: flex;
   justify-content: space-between;
   height: auto;
+  color: white;
+  
 }
 .input-arete {
   position: relative;
+  color: white;
   margin: 18px 0px 0px 15px;
   
+}
+.inputarete{
+  width: 200px;
+  text-align: left;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  position: relative;
+  border-bottom: 1px solid #ffffff;
+  margin-bottom: 6px;
 }
 .areteanimal{
   display: inline;
@@ -116,7 +137,7 @@
 .div-botonsitos {
   background-color: rgb(0, 0, 0, 0.5);
   display: flex;
-  border-radius: 0px 0px 5px 0px;
+  border-radius: 0px 0px 0px 0px;
   justify-content: center;
 }
 
@@ -131,9 +152,8 @@
   outline: none;
   border: none;
   background-color: transparent;
-  color: white;
   position: relative;
-  border-bottom: 1px solid #b2b2b2;
+  border-bottom: 1px solid #000000;
   margin-bottom: 6px;
 }
 .pesoahora{

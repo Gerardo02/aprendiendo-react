@@ -11,9 +11,10 @@ let otherWindow;
 let createWindow = () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 1300,
-    height: 600,
+    width: 1250,
+    height: 768,
     title: "hola",
+    resizable: false,
     webPreferences: {
       nodeIntegration: true
     }
@@ -98,20 +99,56 @@ const cors = require("cors");
 const app1 = express();
 
 // Create connection
-connection = mysql.createConnection({
+/*connection = mysql.createConnection({
   host: "50.62.209.153",
   port: 3306,
   user: "ganado",
   password: "767482",
   database: "inventario_ganadero1"
-});
+});*/
 // connect
-connection.connect(err => {
+const db_config = {
+  host: "50.62.209.153",
+  port: 3306,
+  user: "ganado",
+  password: "767482",
+  database: "inventario_ganadero1"
+};
+
+let connection;
+
+let handleDisconnect = () => {
+  connection = mysql.createConnection(db_config); // Recreate the connection, since
+  // the old one cannot be reused.
+
+  connection.connect(err => {
+    // The server is either down
+    if (err) {
+      // or restarting (takes a while sometimes).
+      console.log("error when connecting to db:", err);
+      setTimeout(handleDisconnect, 2000); // We introduce a delay before attempting to reconnect,
+    } // to avoid a hot loop, and to allow our node script to
+  }); // process asynchronous requests in the meantime.
+  // If you're also serving http, display a 503 error.
+  connection.on("error", err => {
+    console.log("db error", err);
+    if (err.code === "PROTOCOL_CONNECTION_LOST") {
+      // Connection to the MySQL server is usually
+      handleDisconnect(); // lost due to either server restart, or a
+    } else {
+      // connnection idle timeout (the wait_timeout
+      throw err; // server variable configures this)
+    }
+  });
+};
+
+handleDisconnect();
+/*connection.connect(err => {
   if (err) {
     throw err;
   }
   console.log("Connected");
-});
+});*/
 
 app1.use(cors());
 
