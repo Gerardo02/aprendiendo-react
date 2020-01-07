@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom";
 import "../style-captura1.css";
 //import toro from "../images/captura.png";
 
@@ -172,16 +172,18 @@ class App2 extends Component {
     });*/
     return (
       <React.Fragment>
-        <div className="div-filtros">
-          <a href="/add">
-            <button>Agregar Datos</button>
-          </a>
-          <a href="/eliminar">
-            <button>Eliminar Datos</button>
-          </a>
-        </div>
+       
         <div className="index-page">
           <div className="cua cuadro-1">
+          <div className="banner1 cua-2">
+            <Link to="/add">
+            <button className="botonsito">Agregar Datos</button>
+          </Link>
+          <Link to="/eliminar">
+            <button className="botonsito">Eliminar Datos</button>
+          </Link> 
+         
+            </div>
             <div className="textito-cuadrito">
               Empresas
               <br />
@@ -278,11 +280,15 @@ class App2 extends Component {
               <br />
               <br />
             </div>
-            <div className="banner cua-1">
-              <p className="textito">Esto va dentro del banner </p>
-            </div>
+            
           </div>
           <div className="cua cuadro-2">
+            <div className="banner cua-2">
+            
+              <button className="botonsito" onClick={addData}>
+                Aceptar
+              </button>
+            </div>
             <div className="textito-cuadrito">
               Fecha de nacimiento
               <br />
@@ -375,11 +381,6 @@ class App2 extends Component {
               </select>
               <br />
               <br />
-            </div>
-            <div className="banner cua-2">
-              <button className="botonsito" onClick={addData}>
-                Aceptar
-              </button>
             </div>
           </div>
         </div>

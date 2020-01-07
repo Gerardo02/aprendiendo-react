@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import historial from "./historial";
 import "../inve.css";
 import superlogo from "../images/super-logo.png";
+import { Link } from "react-router-dom";
 
 class bajas2 extends Component {
   async componentDidMount() {
@@ -40,7 +41,6 @@ class bajas2 extends Component {
       `;
 
       flag++;
-
     });
     document.getElementById("btn-rec").style.display = "none";
     let buttons = document.querySelectorAll("button.btn-baja");
@@ -94,24 +94,24 @@ class bajas2 extends Component {
     return (
       <>
         <div className="barra-nav">
-          <a className="textobarra" href="/">
+          <Link className="textobarra" to="/">
             <img className="superlogo" src={superlogo} />
-          </a>
-          <a className="textobarra" href="/captura">
+          </Link>
+          <Link className="textobarra" to="/captura">
             Captura
-          </a>
-          <a className="textobarra" href="/inventario1">
+          </Link>
+          <Link className="textobarra" to="/inventario1">
             Inventario
-          </a>
-          <a className="textobarra" href="/historial">
+          </Link>
+          <Link className="textobarra" to="/historial">
             Historial
-          </a>
-          <a className="textobarra" href="/bajas">
+          </Link>
+          <Link className="textobarra" to="/bajas">
             Bajas
-          </a>
-          <a className="textobarra" href="/reportes">
+          </Link>
+          <Link className="textobarra" to="/reportes">
             Reportes
-          </a>
+          </Link>
         </div>
         <br />
         <br />
@@ -119,22 +119,34 @@ class bajas2 extends Component {
           Recuperarararara
         </button>
         <div className="tablainventariobajas">
-        <div className="titulosnombres">
-          <table id="listavariables">
-            <div className="titulos1">
-           <tr className="titulos">
-           <th>empresas</th><th>Predio</th><th>Precio</th><th>N° Guia </th> <th>Tipo de ganado</th><th>Raza </th><th>Origen</th><th>Arete</th><th>Fecha de registro</th><th>Fecha de nacimiento</th><th>Peso de compra</th><th>Peso actual</th><th>Estado del animal</th><th>Ultima fecha de parto</th><th>Particularidad</th><th>Fecha de baja</th><th>Motivo de baja</th><th>Recuperar</th>
-           </tr>
-           </div>
-          
-            <tr className="listavariables" >
-            </tr>
-            
-    
-          </table>
+          <div className="titulosnombres">
+            <table id="listavariables">
+              <div className="titulos1">
+                <tr className="titulos">
+                  <th>empresas</th>
+                  <th>Predio</th>
+                  <th>Precio</th>
+                  <th>N° Guia </th> <th>Tipo de ganado</th>
+                  <th>Raza </th>
+                  <th>Origen</th>
+                  <th>Arete</th>
+                  <th>Fecha de registro</th>
+                  <th>Fecha de nacimiento</th>
+                  <th>Peso de compra</th>
+                  <th>Peso actual</th>
+                  <th>Estado del animal</th>
+                  <th>Ultima fecha de parto</th>
+                  <th>Particularidad</th>
+                  <th>Fecha de baja</th>
+                  <th>Motivo de baja</th>
+                  <th>Recuperar</th>
+                </tr>
+              </div>
+
+              <tr className="listavariables"></tr>
+            </table>
           </div>
         </div>
-        
       </>
     );
   }

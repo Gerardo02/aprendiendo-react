@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import supervaca from "../images/super-vaca.png";
 
 import superlogo from "../images/super-logo.png";
-
+import { Link } from "react-router-dom";
 import mail from "../images/mail.png";
 
 import cellphone from "../images/cellphone.png";
@@ -16,7 +16,7 @@ import icono from "../images/captura.png";
 
 import bajasimg from "../images/bajas.png";
 
-class principal extends Component {
+class Principal extends Component {
   render() {
     let today = new Date();
     let dd = today.getDate();
@@ -27,43 +27,43 @@ class principal extends Component {
       <>
         <div className="todoelfondo">
           <div className="barra-nav">
-            <a className="textobarra" href="/">
+            <Link className="textobarra" to="/">
               <img className="superlogo" src={superlogo} />
-            </a>
-            <a className="textobarra" href="/captura">
+            </Link>
+            <Link className="textobarra" to="/captura">
               Captura
-            </a>
-            <a className="textobarra" href="/inventario1">
+            </Link>
+            <Link className="textobarra" to="/inventario1">
               Inventario
-            </a>
-            <a className="textobarra" href="/historial">
+            </Link>
+            <Link className="textobarra" to="/historial">
               Historial
-            </a>
-            <a className="textobarra" href="/bajas">
+            </Link>
+            <Link className="textobarra" to="/bajas">
               Bajas
-            </a>
-            <a className="textobarra" href="/reportes">
+            </Link>
+            <Link className="textobarra" to="/reportes">
               Reportes
-            </a>
+            </Link>
           </div>
 
           <div className="fecha-hoy">
-          
-
-            <p className="fech dia-hoy"> {dd} / {mm}</p>
-            
+            <p className="fech dia-hoy">
+              {" "}
+              {dd} / {mm}
+            </p>
           </div>
-          <img className="vacalogo" src={superlogo} href="/captura"></img>
-            <a href="/captura">
-          <img className="vacavaca" src={supervaca} ></img>
-          </a>
-          
+          <img className="vacalogo" src={superlogo}></img>
+          <Link to="/captura">
+            <img className="vacavaca" src={supervaca}></img>
+          </Link>
+
           <footer>
             <div className="footer">
-              <a className="ayuda iconos-footer">
+              <Link className="ayuda iconos-footer">
                 {" "}
                 ¿necesitas ayuda o alguna sugerencia?{" "}
-              </a>
+              </Link>
               <img className="iconos-footer" src={mail} />
               <img className="iconos-footer" src={cellphone} />
             </div>
@@ -74,4 +74,4 @@ class principal extends Component {
   }
 }
 
-export default principal;
+export default Principal;

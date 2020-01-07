@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 class Delete extends Component {
   async componentDidMount() {
     const empresas = document.getElementById("empresa");
@@ -54,40 +55,83 @@ class Delete extends Component {
     };
     return (
       <>
+      <div className= "pantalla-completa">
+        <div className="primercuadro">
+
+        <div className="losbotones">
+        <div className ="divtextoactualizar"> 
+              <p className="textoactualiza"> Elimina las opciones de captura: </p>   
+              </div>   
+        <div className="losbotones2">              
+        <button className="botonsecitos" onClick={deleteAgregados}>Aceptar</button>
+        <Link  to="/captura">
+          <button className="botonsecitos">Regresar</button>
+        </Link>
+        </div>
+        </div>
+        <div className="selects">
+        <div className="selects1">
+        <div className="selects11">
+
+        <div className="selectspersonal">
+
         <select id="empresa">
           <option value="">Selecciona una empresa...</option>
         </select>
+        </div>
         <br />
         <br />
+        <div className="selectspersonal">
+
         <select id="predio">
           <option value="">Selecciona un predio...</option>
         </select>
+        </div>
         <br />
         <br />
+        <div className="selectspersonal">
+
+
         <select id="tipo">
           <option value="">Selecciona un tipo...</option>
         </select>
+        </div>
         <br />
         <br />
+        </div>
+        </div>
+        <div className="selects2">
+        <div className="selects11">
+
+        <div className="selectspersonal">
+
         <select id="raza">
           <option value="">Selecciona una raza...</option>
         </select>
+        </div>
         <br />
         <br />
+        <div className="selectspersonal">
+
         <select id="origen">
           <option value="">Selecciona un origen...</option>
         </select>
+        </div>
         <br />
         <br />
+        <div className="selectspersonal">
+
         <select id="particularidades">
           <option value="">Selecciona una particularidad...</option>
         </select>
+        </div>
         <br />
         <br />
-        <button onClick={deleteAgregados}>Aceptar</button>
-        <a href="/captura">
-          <button>Regresar</button>
-        </a>
+        </div>
+        </div>
+        </div>
+      </div>
+      </div>
       </>
     );
   }

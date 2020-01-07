@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import principal from "./pages/principal";
+import { HashRouter as Router, Route, Switch, Link } from "react-router-dom";
+import Principal from "./pages/principal";
 import captura from "./pages/captura";
 import inventario from "./pages/inventario";
 import historial from "./pages/historial";
@@ -17,7 +17,7 @@ class App extends Component {
       <>
         <Router>
           <Switch>
-            <Route exact path="/" component={principal} />
+            <Route exact path="/" component={Principal} />
             <Route exact path="/historial" component={historial} />
             <Route exact path="/bajas" component={bajas} />
             <Route exact path="/inventario1" component={inventario} />

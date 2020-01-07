@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "../style-captura1.css";
+import { Link } from "react-router-dom";
+
 
 class Actualizar extends Component {
   render() {
@@ -57,17 +59,17 @@ class Actualizar extends Component {
             <div className="banner-actualizar">
               <div className="input-arete ">
                 <p className="areteanimal">Arete del animal: </p>
-                <input className="input2" type="text" id="arete"></input>
+                <input className=" inputarete" type="text" id="arete"></input>
               </div>
               <div className="div-botonsitos">
                 <button className="botonsito-actualizar" onClick={addData}>
                   Aceptar
                 </button>
-                <a href="/inventario1">
+                <Link to="/inventario1">
                   <button className="botonsito-actualizar regresar">
                     Regresar
                   </button>
-                </a>
+                </Link>
               </div>
             </div>
             <div className="textito-cuadrito">

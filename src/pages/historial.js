@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import "../inve.css";
 import superlogo from "../images/super-logo.png";
-
+import { Link } from "react-router-dom";
 class historial extends Component {
   async componentDidMount() {
     const response = await fetch("http://localhost:4000/historial");
     const data = await response.json();
     //console.log(data);
     const { filtertext } = this.props;
-    const listavariables = document.getElementById("listavariables"); 
-   
+    const listavariables = document.getElementById("listavariables");
+
     let flag = 0;
     data.forEach(element => {
       listavariables.innerHTML += `
@@ -23,55 +23,53 @@ class historial extends Component {
         <td>${element.movimiento}</td>
 
       </tr>
-      `
-    }); 
+      `;
+    });
   }
 
   render() {
     return (
       <>
         <div className="barra-nav">
-          <a className="textobarra" href="/">
+          <Link className="textobarra" to="/">
             <img className="superlogo" src={superlogo} />
-          </a>
-          <a className="textobarra" href="/captura">
+          </Link>
+          <Link className="textobarra" to="/captura">
             Captura
-          </a>
-          <a className="textobarra" href="/inventario1">
+          </Link>
+          <Link to="/inventario1" className="textobarra">
             Inventario
-          </a>
-          <a className="textobarra" href="/historial">
+          </Link>
+
+          <Link className="textobarra" to="/historial">
             Historial
-          </a>
-          <a className="textobarra" href="/bajas">
+          </Link>
+          <Link className="textobarra" to="/bajas">
             Bajas
-          </a>
-          <a className="textobarra" href="/reportes">
+          </Link>
+          <Link className="textobarra" to="/reportes">
             Reportes
-          </a>
+          </Link>
         </div>
         <br />
         <br />
         <div className="tablainventariohistorial">
-        <div className="titulosnombres">
-          <table id="listavariables">
-            <div className="titulos1">
-           <tr className="titulos">
-            <th className="tituloshistorial">Arete</th>
-            <th className="tituloshistorial">Numero de Guia</th>
-            <th className="tituloshistorial">Tipo de Ganado</th>
-            <th className="tituloshistorial">Raza</th>
-            <th className="tituloshistorial">Fecha</th>
-            <th className="tituloshistorial">Movimiento</th>
-           </tr>
-           </div>
-            <tr className="listavariables" >
-            </tr>
-            
-    
-          </table>
+          <div className="titulosnombres">
+            <table id="listavariables">
+              <div className="titulos1">
+                <tr className="titulos">
+                  <th className="tituloshistorial">Arete</th>
+                  <th className="tituloshistorial">Numero de Guia</th>
+                  <th className="tituloshistorial">Tipo de Ganado</th>
+                  <th className="tituloshistorial">Raza</th>
+                  <th className="tituloshistorial">Fecha</th>
+                  <th className="tituloshistorial">Movimiento</th>
+                </tr>
+              </div>
+              <tr className="listavariables"></tr>
+            </table>
           </div>
-          </div>
+        </div>
       </>
     );
   }

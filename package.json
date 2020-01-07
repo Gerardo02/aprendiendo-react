@@ -19,6 +19,7 @@
     "cross-env": "^6.0.3",
     "electron-find": "^1.0.6",
     "electron-is-dev": "^1.1.0",
+    "mssql": "^6.0.1",
     "mysql": "^2.17.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -32,7 +33,7 @@
     "react-eject": "react-scripts eject",
     "electron-build": "electron-builder",
     "build": "npm run react-build && npm run electron-build",
-    "start": "concurrently \"cross-env BROWSER=none npm run react-start\" \"wait-on http://localhost:3000 && electron .\" \"node server.js\""
+    "start": "concurrently \"cross-env BROWSER=none npm run react-start\" \"wait-on http://localhost:3000 && electron .\""
   },
   "eslintConfig": {
     "extends": "react-app"
