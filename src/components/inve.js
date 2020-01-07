@@ -31,7 +31,7 @@ class Inve extends Component {
         <td>${element.ultimo_parto}</td>
         <td>${element.meses_vacia}</td>
         <td>${element.particularidades}</td>
-        <td><button class="btn-baja" data-arete=${element.arete} data-numero=${flag} id="btn-top">Dar de baja ${element.arete}</button></td>
+        <td><button class="btn-baja" data-arete=${element.arete} data-numero=${flag} id="btn-top">Dar de baja: ${element.arete}</button></td>
       </tr>
       
       
@@ -97,7 +97,6 @@ class Inve extends Component {
   render() {
     let buscarArete = async () => {
       const cuadro = document.getElementById("table-inve");
-      const listavariables = document.getElementById("listavariables");
       const arete = document.getElementById("buscar-arete").value;
       const response = await fetch(
         `http://localhost:4000/buscar/arete?arete=${arete}`
@@ -126,7 +125,7 @@ class Inve extends Component {
           <td>${element.ultimo_parto}</td>
           <td>${element.meses_vacia}</td>
           <td>${element.particularidades}</td>
-          <td><button class="btn-baja" data-arete=${element.arete} data-numero=${flag} id="btn-top">${element.arete}</button></td>
+          <td><button class="btn-baja" data-arete=${element.arete} data-numero=${flag} id="btn-top">Dar de baja: ${element.arete}</button></td>
         </tr>
         `;
         flag++;
@@ -151,35 +150,43 @@ class Inve extends Component {
         
         <div id="cuadro-inventario">
           <div className="baja-container" id="baja-container">
+            <div className="baja-container2">
             <form>
-              Motivo de baja <br />
-              <input className="inputbaja" type="text" id="motivo-baja"></input>
+              Motivo de baja: <br />
+              <input className="inputbaja inputbajapersona" type="text" id="motivo-baja"></input>
               <br />
               <br />
-              Fecha de baja
+
+
+              <div className="fechabajaconboton">
+              Fecha de baja:
               <br />
               <input
-                className="inputbaja fechabaja"
+                className="inputbaja fecha-baja"
                 id="dia-baja"
                 type="text"
-              ></input>
+                maxlength="2"
+                ></input>
               /
               <input
-                className="inputbaja fechabaja"
+                className="inputbaja fecha-baja"
                 type="text"
                 id="mes-baja"
-              ></input>
+                maxlength="2"
+                ></input>
               /
               <input
                 className="inputbaja fechabaja"
                 type="text"
                 id="ano-baja"
-              ></input>
+                maxlength="4"
+                ></input>
               <br />
               <button className="eliminar">Dar de baja</button>
+                </div>
             </form>
           </div>
-
+          </div>
           <div className="tablainventario">
           <div className="titulosnombres">
           <table id="table-inve" className="table-inve">

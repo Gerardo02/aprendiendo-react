@@ -53,10 +53,33 @@ class Principal extends Component {
               {dd} / {mm}
             </p>
           </div>
+          <div>
           <img className="vacalogo" src={superlogo}></img>
           <Link to="/captura">
             <img className="vacavaca" src={supervaca}></img>
           </Link>
+          </div>
+
+
+          <div className="contactos">
+            <div className="contactos2">
+              <p className="desarrolladores">Desarrolladores del proyecto:</p>
+              <div className="informacion">
+              <div className="divisionmois">
+                <p> Moises Alberto Rodriguez Aceves </p>
+                <p> Correo electronico: Mrodrigueza98@gmail.com</p>
+                <p> celular: 6444625737</p>
+              </div>
+
+              <div className="divisiongera">
+              <p> Moises Alberto Rodriguez Aceves </p>
+                <p> Correo electronico: Mrodrigueza98@gmail.com</p>
+                <p> celular: 6444625737</p>
+
+              </div>
+              </div>
+          </div>
+          </div>
 
           <footer>
             <div className="footer">

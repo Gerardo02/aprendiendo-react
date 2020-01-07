@@ -62,7 +62,8 @@
   padding: 10px;
   border: none;
   border-radius: 5px;
-  margin: 15px;
+  margin: 10px;
+  border: solid rgb(255, 255, 255, 0.7) ;
 }
 
 .banner {
@@ -84,8 +85,8 @@
 
 .index-page-actualizar {
   font-family: "Arial Narrow Bold";
-  font-size: 25px;
   font-weight: bold;
+  font-size: 25px;
   display: flex;
   justify-content: center;
 }

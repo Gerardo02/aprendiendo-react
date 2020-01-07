@@ -68,24 +68,29 @@ class Add extends Component {
             <div className="selects1xd">
             <div className="selects11xd">
 
+            <div className ="divpersonal">
+                <p className="Agregaopciontexto">Agrega alguna opcion para capturar inventario: </p>                
+                </div>
+
               <div className ="divpersonal">
                 <input
                   type="text"
                   id="empresas"
                   className="texto-prueba"
                 ></input>
-                <button onClick={agregarEmpresas}>Agregar empresas...</button>
+                <button className="botonstiles" onClick={agregarEmpresas}>Agregar empresas...</button>
                 </div>
 
                 <div className ="divpersonal">
                 <input type="text" id="tipo" className="texto-prueba"></input>
-                <button onClick={agregarTipo}>Agregar tipo...</button>
+                <button className="botonstiles" onClick={agregarTipo}>Agregar tipo...</button>
                 </div>
 
                 <div className ="divpersonal">
                 <input type="text" id="raza" className="texto-prueba"></input>
-                <button onClick={agregarRaza}>Agregar raza...</button>
+                <button className="botonstiles" onClick={agregarRaza}>Agregar raza...</button>
                 </div>
+
 
               </div>
               </div>
@@ -95,7 +100,7 @@ class Add extends Component {
                 
               <div className ="divpersonal">
                 <input type="text" id="origen" className="texto-prueba"></input>
-                <button onClick={agregarOrigen}>Agregar origen...</button>
+                <button className="botonstiles" onClick={agregarOrigen}>Agregar origen...</button>
                 </div>
 
                 <div className ="divpersonal">
@@ -104,7 +109,7 @@ class Add extends Component {
                   id="particularidades"
                   className="texto-prueba"
                 ></input>
-                <button onClick={agregarParticularidades}>
+                <button className="botonstilesparticularidades" onClick={agregarParticularidades}>
                   Agregar particularidades...
                 </button>
                 </div>
@@ -115,13 +120,13 @@ class Add extends Component {
                   id="estatus"
                   className="texto-prueba"
                 ></input>
-                <button onClick={agregarEstatus}>Agregar estatus...</button>
+                <button className="botonstiles" onClick={agregarEstatus}>Agregar estatus...</button>
                 </div>
 
                 <div className ="divpersonal">
                 <input type="text" id="predio" className="texto-prueba"></input>
 
-                <button onClick={agregarPredio}>Agregar predio...</button>
+                <button className="botonstiles" onClick={agregarPredio}>Agregar predio...</button>
                 </div>
                 </div>
               </div>
