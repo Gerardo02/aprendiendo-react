@@ -17,12 +17,22 @@ import icono from "../images/captura.png";
 import bajasimg from "../images/bajas.png";
 
 class Principal extends Component {
+  async componentDidMount() {
+  document.getElementById("contactos").style.display = "none";
+
+}
+
+  
   render() {
+    let display = async () => { 
+    document.getElementById("contactos").style.display = "block";
+    } 
     let today = new Date();
     let dd = today.getDate();
     let mm = today.getMonth() + 1; //January is 0!
     let yyyy = today.getFullYear();
     today = dd + "/" + mm + "/" + yyyy;
+
     return (
       <>
         <div className="todoelfondo">
@@ -61,7 +71,7 @@ class Principal extends Component {
           </div>
 
 
-          <div className="contactos">
+          <div className="contactos" id="contactos">
             <div className="contactos2">
               <p className="desarrolladores">Desarrolladores del proyecto:</p>
               <div className="informacion">
@@ -72,9 +82,9 @@ class Principal extends Component {
               </div>
 
               <div className="divisiongera">
-              <p> Moises Alberto Rodriguez Aceves </p>
-                <p> Correo electronico: Mrodrigueza98@gmail.com</p>
-                <p> celular: 6444625737</p>
+              <p> Gera alias el boss en progra </p>
+                <p> Correo electronico: </p>
+                <p> celular: </p>
 
               </div>
               </div>
@@ -83,7 +93,7 @@ class Principal extends Component {
 
           <footer>
             <div className="footer">
-              <Link className="ayuda iconos-footer">
+              <Link onClick={display} className="ayuda iconos-footer">
                 {" "}
                 ¿necesitas ayuda o alguna sugerencia?{" "}
               </Link>

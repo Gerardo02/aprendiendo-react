@@ -177,10 +177,10 @@ class App2 extends Component {
           <div className="cua cuadro-1">
           <div className="banner1 cua-2">
             <Link to="/add">
-            <button className="botonsito">Agregar Datos</button>
+            <button className="botonsito">Agregar opciones</button>
           </Link>
           <Link to="/eliminar">
-            <button className="botonsito">Eliminar Datos</button>
+            <button className="botonsito">Eliminar opciones</button>
           </Link> 
          
             </div>
