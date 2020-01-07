@@ -18,6 +18,11 @@ let createWindow = () => {
       nodeIntegration: true
     }
   });
+  module.exports = {
+    webpack: {
+      publicPath: ''
+    }
+  }
 
   mainWindow.loadURL(
     isDev
