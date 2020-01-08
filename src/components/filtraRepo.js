@@ -215,63 +215,78 @@ class Filtra extends Component {
       `;
       });
     };
+
+    let refresh = () => {
+      window.location.reload();
+    };
     return (
       <>
-        <div id="cuadro-reporte" >
+        <div id="cuadro-reporte">
           <div className="cuadroreportes">
-          <div className="acomodacion">
-          <div className="seleccionboton">
-          <button className="marginbutons1 buton" onClick={callFiltros}>Los que incrementaron de peso</button>
-          <button className="marginbutons1 buton" onClick={callDecre}>Los que decrementaron de peso</button>
-          <button className="marginbutons1 buton" onClick={callVacia}>Las que estan vacias</button>
-          <button className="marginbutons1 buton" onClick={callCargada}>Las que estan cargadas</button>
-          </div>
-          <div className="seleccionboton2">
-          <select className="marginbutons1 " id="callPredio">
-            <option value="">Selecciona el predio...</option>
-          </select>
-          <button className=" buton" onClick={callPredio}>Aceptar predio</button>
-          <select className="marginbutons1" id="callOrigen">
-            <option value="">Selecciona el origen...</option>
-          </select>
-          <button className=" buton" onClick={callOrigen}>Aceptar origen</button>
-          </div>
-          
-        </div>
+            <div className="acomodacion">
+              <div className="seleccionboton">
+                <button className="marginbutons1 buton" onClick={callFiltros}>
+                  Los que incrementaron de peso
+                </button>
+                <button className="marginbutons1 buton" onClick={callDecre}>
+                  Los que decrementaron de peso
+                </button>
+                <button className="marginbutons1 buton" onClick={callVacia}>
+                  Las que estan vacias
+                </button>
+                <button className="marginbutons1 buton" onClick={callCargada}>
+                  Las que estan cargadas
+                </button>
+              </div>
+              <div className="seleccionboton2">
+                <select className="marginbutons1 " id="callPredio">
+                  <option value="">Selecciona el predio...</option>
+                </select>
+                <button className=" buton" onClick={callPredio}>
+                  Aceptar predio
+                </button>
+                <select className="marginbutons1" id="callOrigen">
+                  <option value="">Selecciona el origen...</option>
+                </select>
+                <button className="buton" onClick={callOrigen}>
+                  Aceptar origen
+                </button>
+              </div>
+            </div>
             <div className="select">
-          <form>
-            <button className="refrescar">Refrescar</button>
-          </form>
-          </div>
+              <button className="refrescar" onClick={refresh}>
+                Refrescar
+              </button>
+            </div>
           </div>
         </div>
         <br />
         <br />
         <div className="tablainventario">
           <div className="titulosnombres">
-        <table id="table-inve" className="table-inve">
-          <tr>
-            <th>Empresa</th>
-            <th>Predio</th>
-            <th>Precio</th>
-            <th>Numero de Guia</th>
-            <th>Tipo de Ganado</th>
-            <th>Raza</th>
-            <th>Origen</th>
-            <th>Arete</th>
-            <th>Fecha de Registro</th>
-            <th>Fecha de Nacimiento</th>
-            <th>Peso de Compra</th>
-            <th>Peso Actual</th>
-            <th>Incremento de peso</th>
-            <th>Estatus</th>
-            <th>Edad (en meses)</th>
-            <th>Ultimo Parto</th>
-            <th>Meses Vacia</th>
-            <th>Particularidades</th>
-          </tr>
-        </table>
-        </div>
+            <table id="table-inve" className="table-inve">
+              <tr>
+                <th>Empresa</th>
+                <th>Predio</th>
+                <th>Precio</th>
+                <th>Numero de Guia</th>
+                <th>Tipo de Ganado</th>
+                <th>Raza</th>
+                <th>Origen</th>
+                <th>Arete</th>
+                <th>Fecha de Registro</th>
+                <th>Fecha de Nacimiento</th>
+                <th>Peso de Compra</th>
+                <th>Peso Actual</th>
+                <th>Incremento de peso</th>
+                <th>Estatus</th>
+                <th>Edad (en meses)</th>
+                <th>Ultimo Parto</th>
+                <th>Meses Vacia</th>
+                <th>Particularidades</th>
+              </tr>
+            </table>
+          </div>
         </div>
       </>
     );

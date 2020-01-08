@@ -18,15 +18,13 @@ import bajasimg from "../images/bajas.png";
 
 class Principal extends Component {
   async componentDidMount() {
-  document.getElementById("contactos").style.display = "none";
+    document.getElementById("contactos").style.display = "none";
+  }
 
-}
-
-  
   render() {
-    let display = async () => { 
-    document.getElementById("contactos").style.display = "block";
-    } 
+    let display = async () => {
+      document.getElementById("contactos").style.display = "block";
+    };
     let today = new Date();
     let dd = today.getDate();
     let mm = today.getMonth() + 1; //January is 0!
@@ -64,31 +62,29 @@ class Principal extends Component {
             </p>
           </div>
           <div>
-          <img className="vacalogo" src={superlogo}></img>
-          <Link to="/captura">
-            <img className="vacavaca" src={supervaca}></img>
-          </Link>
+            <img className="vacalogo" src={superlogo}></img>
+            <Link to="/captura">
+              <img className="vacavaca" src={supervaca}></img>
+            </Link>
           </div>
-
 
           <div className="contactos" id="contactos">
             <div className="contactos2">
               <p className="desarrolladores">Desarrolladores del proyecto:</p>
               <div className="informacion">
-              <div className="divisionmois">
-                <p> Moises Alberto Rodriguez Aceves </p>
-                <p> Correo electronico: Mrodrigueza98@gmail.com</p>
-                <p> celular: 6444625737</p>
-              </div>
+                <div className="divisionmois">
+                  <p> Moises Alberto Rodriguez Aceves </p>
+                  <p> Correo electronico: Mrodrigueza98@gmail.com</p>
+                  <p> celular: 6444625737</p>
+                </div>
 
-              <div className="divisiongera">
-              <p> Gera alias el boss en progra </p>
-                <p> Correo electronico: </p>
-                <p> celular: </p>
-
+                <div className="divisiongera">
+                  <p> Gerardo Jerez Castro </p>
+                  <p> Correo electronico: gerardo.jerez@hotmail.com</p>
+                  <p> celular: 6449972024</p>
+                </div>
               </div>
-              </div>
-          </div>
+            </div>
           </div>
 
           <footer>

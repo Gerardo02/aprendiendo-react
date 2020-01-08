@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "../inve.css";
 import { Link } from "react-router-dom";
 
-
 class Inve extends Component {
   async componentDidMount() {
     const response = await fetch("http://localhost:4000/datos");
@@ -96,7 +95,7 @@ class Inve extends Component {
   }
   render() {
     let buscarArete = async () => {
-      const cuadro = document.getElementById("table-inve");
+      const cuadro = document.getElementById("tbl-arete");
       const arete = document.getElementById("buscar-arete").value;
       const response = await fetch(
         `http://localhost:4000/buscar/arete?arete=${arete}`
@@ -106,6 +105,8 @@ class Inve extends Component {
       //window.location.reload();
       data.forEach(element => {
         cuadro.innerHTML += `
+        
+        
         <tr>
           <td>${element.empresas}</td>
           <td>${element.predio}</td>     
@@ -134,86 +135,115 @@ class Inve extends Component {
     return (
       <>
         <div className="opcioneshistorial">
-        <p className="buscararete"> Buscar arete: </p>
-        <input type="text"  id="buscar-arete"></input>
-        <button className="inputbuscar" onClick={buscarArete}>
-          Aceptrar
-        </button>
-        <div id="cuadro-arete" />
-        <div className="div-actualizar">
-          <Link to="/actualizar">
-            <button className="btn-actualizar">Actualizar</button>
-          </Link>
+          <p className="buscararete"> Buscar arete: </p>
+          <input type="text" id="buscar-arete"></input>
+          <button className="inputbuscar" onClick={buscarArete}>
+            Aceptrar
+          </button>
+          <div id="cuadro-arete" />
+          <div className="div-actualizar">
+            <Link to="/actualizar">
+              <button className="btn-actualizar">Actualizar</button>
+            </Link>
+          </div>
         </div>
-        </div>
-        <br/>
-        
+        <br />
+
         <div id="cuadro-inventario">
           <div className="baja-container" id="baja-container">
             <div className="baja-container2">
-            <form>
-              Motivo de baja: <br />
-              <input className="inputbaja inputbajapersona" type="text" id="motivo-baja"></input>
-              <br />
-              <br />
-
-
-              <div className="fechabajaconboton">
-              Fecha de baja:
-              <br />
-              <input
-                className="inputbaja fecha-baja"
-                id="dia-baja"
-                type="text"
-                maxlength="2"
+              <form>
+                Motivo de baja: <br />
+                <input
+                  className="inputbaja inputbajapersona"
+                  type="text"
+                  id="motivo-baja"
                 ></input>
-              /
-              <input
-                className="inputbaja fecha-baja"
-                type="text"
-                id="mes-baja"
-                maxlength="2"
-                ></input>
-              /
-              <input
-                className="inputbaja fechabaja"
-                type="text"
-                id="ano-baja"
-                maxlength="4"
-                ></input>
-              <br />
-              <button className="eliminar">Dar de baja</button>
+                <br />
+                <br />
+                <div className="fechabajaconboton">
+                  Fecha de baja:
+                  <br />
+                  <input
+                    className="inputbaja fecha-baja"
+                    id="dia-baja"
+                    type="text"
+                    maxlength="2"
+                  ></input>
+                  /
+                  <input
+                    className="inputbaja fecha-baja"
+                    type="text"
+                    id="mes-baja"
+                    maxlength="2"
+                  ></input>
+                  /
+                  <input
+                    className="inputbaja fechabaja"
+                    type="text"
+                    id="ano-baja"
+                    maxlength="4"
+                  ></input>
+                  <br />
+                  <button className="eliminar">Dar de baja</button>
                 </div>
-            </form>
-          </div>
+              </form>
+            </div>
           </div>
           <div className="tablainventario">
-          <div className="titulosnombres">
-          <table id="table-inve" className="table-inve">
-            <tr>
-              <th>Empresa</th>
-              <th>Predio</th>
-              <th>Precio</th>
-              <th>Numero de Guia</th>
-              <th>Tipo de Ganado</th>
-              <th>Raza</th>
-              <th>Origen</th>
-              <th>Arete</th>
-              <th>Fecha de Registro</th>
-              <th>Fecha de Nacimiento</th>
-              <th>Peso de Compra</th>
-              <th>Peso Actual</th>
-              <th>Incremento de peso</th>
-              <th>Estatus</th>
-              <th>Edad (en meses)</th>
-              <th>Ultimo Parto</th>
-              <th>Meses Vacia</th>
-              <th>Particularidades</th>
-              <th>Dar de Baja</th>
-            </tr>
-          </table>
-        </div>
-        </div>
+            <div className="titulosnombres">
+              <table id="tbl-arete">
+                <tr>
+                  <th>Empresa</th>
+                  <th>Predio</th>
+                  <th>Precio</th>
+                  <th>Numero de Guia</th>
+                  <th>Tipo de Ganado</th>
+                  <th>Raza</th>
+                  <th>Origen</th>
+                  <th>Arete</th>
+                  <th>Fecha de Registro</th>
+                  <th>Fecha de Nacimiento</th>
+                  <th>Peso de Compra</th>
+                  <th>Peso Actual</th>
+                  <th>Incremento de peso</th>
+                  <th>Estatus</th>
+                  <th>Edad (en meses)</th>
+                  <th>Ultimo Parto</th>
+                  <th>Meses Vacia</th>
+                  <th>Particularidades</th>
+                  <th>Dar de Baja</th>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div className="tablainventario">
+            <div className="titulosnombres">
+              <table id="table-inve" className="table-inve">
+                <tr>
+                  <th>Empresa</th>
+                  <th>Predio</th>
+                  <th>Precio</th>
+                  <th>Numero de Guia</th>
+                  <th>Tipo de Ganado</th>
+                  <th>Raza</th>
+                  <th>Origen</th>
+                  <th>Arete</th>
+                  <th>Fecha de Registro</th>
+                  <th>Fecha de Nacimiento</th>
+                  <th>Peso de Compra</th>
+                  <th>Peso Actual</th>
+                  <th>Incremento de peso</th>
+                  <th>Estatus</th>
+                  <th>Edad (en meses)</th>
+                  <th>Ultimo Parto</th>
+                  <th>Meses Vacia</th>
+                  <th>Particularidades</th>
+                  <th>Dar de Baja</th>
+                </tr>
+              </table>
+            </div>
+          </div>
         </div>
       </>
     );
