@@ -3,6 +3,23 @@ import "../style-captura1.css";
 import { Link } from "react-router-dom";
 
 class Actualizar extends Component {
+  async componentDidMount() {
+    const response = await fetch("http://localhost:4000/agregados");
+    const data = await response.json();
+    const agregarEstatus = document.getElementById("estatus");
+    const agregarParti = document.getElementById("particularidades");
+
+    data.forEach(element => {
+      if (element.estatus === null) {
+      } else {
+        agregarEstatus.innerHTML += `<option value="${element.estatus}">${element.estatus}</option>`;
+      }
+      if (element.particularidades === null) {
+      } else {
+        agregarParti.innerHTML += `<option value="${element.particularidades}">${element.particularidades}</option>`;
+      }
+    });
+  }
   render() {
     let addData = async () => {
       const response1 = await fetch("http://localhost:4000/datos");
@@ -101,8 +118,6 @@ class Actualizar extends Component {
               <br />
               <select id="estatus">
                 <option value="">Selecciona el estatus del animal...</option>
-                <option value="Vacia">Vacia</option>
-                <option value="Cargada">Cargada</option>
               </select>
               <br />
               <br />
@@ -135,9 +150,6 @@ class Actualizar extends Component {
               <br />
               <select id="particularidades">
                 <option value="">Particularidad del animal</option>
-                <option value="Enfermo">Enfermo</option>
-                <option value="Extraviado">Extraviado</option>
-                <option value="Bronco">Bronco</option>
               </select>
               <br />
               <br />

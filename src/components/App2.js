@@ -300,7 +300,7 @@ class App2 extends Component {
               <br />
               <input
                 className="input1 inputkg"
-                maxlength="3"
+                maxlength="4"
                 type="text"
                 id="peso-compra"
               ></input>
@@ -314,7 +314,7 @@ class App2 extends Component {
               <br />
               <input
                 className="input1 inputkg"
-                maxlength="3"
+                maxlength="4"
                 type="text"
                 id="peso-actual"
               ></input>

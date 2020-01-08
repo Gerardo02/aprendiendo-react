@@ -118,7 +118,7 @@ class bajas2 extends Component {
         <div className="recuperarsegunda1" id="btn-rec">
           <div className="recuperarsegunda2" id="btn-rec">
             <button className="recuperar-segunda" id="btn-rec">
-              Recuperarararara
+              Confirmar
             </button>
           </div>
         </div>
