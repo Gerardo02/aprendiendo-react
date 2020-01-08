@@ -183,6 +183,17 @@ app1.get("/historial", (req, resp) => {
   });
 });
 
+app1.get("/borrar/historial", (req, resp) => {
+  connection.query("DELETE FROM historial", (err, rows) => {
+    if (err) {
+      throw err;
+    } else {
+      console.log("succes borrar");
+      resp.json(rows);
+    }
+  });
+});
+
 app1.get("/send/historial", (req, resp) => {
   const { numGuia, tipo, raza, arete, fecha, movimiento } = req.query;
   connection.query(

@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import "../inve.css";
 import superlogo from "../images/super-logo.png";
+import trash from "../images/delete.png";
 import { Link } from "react-router-dom";
 class historial extends Component {
   async componentDidMount() {
     const response = await fetch("http://localhost:4000/historial");
     const data = await response.json();
-    //console.log(data);
-    const { filtertext } = this.props;
     const listavariables = document.getElementById("listavariables");
 
     let flag = 0;
@@ -28,8 +27,14 @@ class historial extends Component {
   }
 
   render() {
+    let borrar = async () => {
+      const response = await fetch(
+        `http://localhost:4000/borrar/historial/`
+      );
+    }
     return (
       <>
+      <div className="divtotal">
         <div className="barra-nav">
           <Link className="textobarra" to="/">
             <img className="superlogo" src={superlogo} />
@@ -69,6 +74,13 @@ class historial extends Component {
               <tr className="listavariables"></tr>
             </table>
           </div>
+        </div>
+        <div className="trash" >
+          <Link onClick={borrar}>
+        <img className="trash1"  src={trash} ></img>
+          </Link>
+
+        </div>
         </div>
       </>
     );
