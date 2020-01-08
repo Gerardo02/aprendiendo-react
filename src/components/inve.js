@@ -189,14 +189,13 @@ class Inve extends Component {
                     maxlength="4"
                   ></input>
                   <br />
-                  anti-hacker
                   <button className="eliminar">Dar de baja</button>
                 </div>
               </form>
             </div>
           </div>
           <div className="tablainventario1" id="anti-hacker">
-            <div className="titulosnombres1" id="">
+            <div className="titulosnombres1" id="anti-hacker">
               <table id="tbl-arete">
                 <tr>
                   <th>Empresa</th>

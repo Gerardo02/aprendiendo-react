@@ -12,7 +12,7 @@ class historial extends Component {
     let flag = 0;
     data.forEach(element => {
       listavariables.innerHTML += `
-      <tr>
+      <tr className="titulos" >
       <br/>
       <td>${element.arete}</td>
         <td>${element.num_guia}</td>
@@ -28,8 +28,8 @@ class historial extends Component {
 
   render() {
     let borrar = async () => {
-      window.location.reload();
       const response = await fetch(`http://localhost:4000/borrar/historial/`);
+      window.location.reload();
     };
     return (
       <>
