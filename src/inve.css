@@ -110,6 +110,22 @@
   position: relative;
   width: 100%;
 }
+.tablainventario1 {
+  position: relative;
+  width: 95%;
+  left: 2.5%;
+  display: flex;
+  border-radius: 5px;
+  justify-content: center;
+  margin-bottom: 40px;
+  border: solid #fbb03b;
+}
+.titulosnombres1 {
+  background-color: rgb(255, 255, 255, 0.7);
+
+  position: relative;
+  width: 100%;
+}
 .titulos1 {
   text-align: center;
 } /*
@@ -229,7 +245,7 @@ table {
   border: solid #fbb03b;
   border-radius: 5px;
 }
-.trash{
+.trash {
   background-color: rgb(255, 255, 255, 0.7);
   position: absolute;
   left: 32.5px;
@@ -237,15 +253,14 @@ table {
   width: 60px;
   height: 60px;
   border-radius: 15px;
-  border: solid #FBB03B;
+  border: solid #fbb03b;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.trash1{
+.trash1 {
   position: relative;
   width: 40px;
-  
 }
 
 /*-------------------------------------Edicion especifica de bajas------------------------------------------------*/

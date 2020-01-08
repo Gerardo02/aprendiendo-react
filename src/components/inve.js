@@ -9,6 +9,8 @@ class Inve extends Component {
     //console.log(data);
     const inventario = document.getElementById("table-inve");
     let flag = 0;
+    document.getElementById("tbl-arete").style.display = "none";
+    document.getElementById("anti-hacker").style.display = "none";
     data.forEach(element => {
       inventario.innerHTML += `
       <tr>
@@ -102,6 +104,8 @@ class Inve extends Component {
       );
       const data = await response.json();
       let flag = 0;
+      document.getElementById("tbl-arete").style.display = "block";
+      document.getElementById("anti-hacker").style.display = "block";
       //window.location.reload();
       data.forEach(element => {
         cuadro.innerHTML += `
@@ -185,13 +189,14 @@ class Inve extends Component {
                     maxlength="4"
                   ></input>
                   <br />
+                  anti-hacker
                   <button className="eliminar">Dar de baja</button>
                 </div>
               </form>
             </div>
           </div>
-          <div className="tablainventario">
-            <div className="titulosnombres">
+          <div className="tablainventario1" id="anti-hacker">
+            <div className="titulosnombres1" id="">
               <table id="tbl-arete">
                 <tr>
                   <th>Empresa</th>

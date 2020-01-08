@@ -92,7 +92,7 @@ class bajas2 extends Component {
   }
   render() {
     return (
-        <div className="fullpage">
+      <div className="fullpage">
         <div className="barra-nav">
           <Link className="textobarra" to="/">
             <img className="superlogo" src={superlogo} />
@@ -115,19 +115,19 @@ class bajas2 extends Component {
         </div>
         <br />
         <br />
-        <div className="recuperarsegunda1"id="btn-rec" >
-        <div className="recuperarsegunda2"id="btn-rec" >
-        <button className="recuperar-segunda" id="btn-rec">
-          Recuperarararara
-        </button>
-        </div>
+        <div className="recuperarsegunda1" id="btn-rec">
+          <div className="recuperarsegunda2" id="btn-rec">
+            <button className="recuperar-segunda" id="btn-rec">
+              Recuperarararara
+            </button>
+          </div>
         </div>
         <div className="tablainventariobajas">
           <div className="titulosnombres">
             <table id="listavariables">
               <div className="titulos1">
                 <tr className="titulos">
-                  <th>empresas</th>
+                  <th>Empresas</th>
                   <th>Predio</th>
                   <th>Precio</th>
                   <th>N° Guia </th> <th>Tipo de ganado</th>
@@ -151,7 +151,7 @@ class bajas2 extends Component {
             </table>
           </div>
         </div>
-        </div>
+      </div>
     );
   }
 }
