@@ -21,9 +21,9 @@ let createWindow = () => {
   });
   module.exports = {
     webpack: {
-      publicPath: ''
+      publicPath: ""
     }
-  }
+  };
 
   mainWindow.loadURL(
     isDev
@@ -405,7 +405,7 @@ app1.get("/actualizar", (req, resp) => {
     incremento
   } = req.query;
   connection.query(
-    `UPDATE DATOS SET 
+    `UPDATE datos SET 
     peso_actual=${pesoActual},
     estatus='${estatus}',
     ultimo_parto='${ultimoParto}',

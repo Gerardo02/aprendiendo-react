@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "../style-captura1.css";
 import { Link } from "react-router-dom";
 
-
 class Actualizar extends Component {
   render() {
     let addData = async () => {
@@ -48,9 +47,24 @@ class Actualizar extends Component {
       const particularidades = document.getElementById("particularidades")
         .value;
       //window.location.reload();
-      const response = await fetch(
-        `http://localhost:4000/actualizar?arete=${arete}&pesoActual=${pesoActual}&estatus=${estatus}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}&incremento=${incremento}`
-      );
+
+      if (
+        pesoActual !== "" &&
+        estatus !== "" &&
+        diaVac !== " " &&
+        mesVac !== " " &&
+        anoVac !== " " &&
+        ultimoParto !== "" &&
+        particularidades !== ""
+      ) {
+        const response = await fetch(
+          `http://localhost:4000/actualizar?arete=${arete}&pesoActual=${pesoActual}&estatus=${estatus}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}&incremento=${incremento}`
+        );
+
+        window.location.reload();
+      } else {
+        alert("Favor de indicar los valores faltantes para la actualizacion");
+      }
     };
     return (
       <>
@@ -74,8 +88,13 @@ class Actualizar extends Component {
             </div>
             <div className="textito-cuadrito">
               Lo que pesa ahora :
-              
-              <input className="input2 pesoahora" maxLength="4" type="text" id="peso-actual"></input>kg
+              <input
+                className="input2 pesoahora"
+                maxLength="4"
+                type="text"
+                id="peso-actual"
+              ></input>
+              kg
               <br />
               <br />
               Estado del animal
@@ -90,9 +109,26 @@ class Actualizar extends Component {
               Ultima fecha en la que pario (Si nunca lo ha hecho, escribir la
               fecha de nacimiento):
               <br />
-              <input className="input2 fechainput" type="text" maxLength="2" id="diaVac"/>/
-              <input className="input2 fechainput" type="text" maxLength="2" id="mesVac"/>/
-              <input className="input2 fechainput fechaaño" type="text" maxLength="4" id="anoVac"/>
+              <input
+                className="input2 fechainput"
+                type="text"
+                maxLength="2"
+                id="diaVac"
+              />
+              /
+              <input
+                className="input2 fechainput"
+                type="text"
+                maxLength="2"
+                id="mesVac"
+              />
+              /
+              <input
+                className="input2 fechainput fechaaño"
+                type="text"
+                maxLength="4"
+                id="anoVac"
+              />
               <br />
               <br />
               Alguna particularidad que pueda tener el animal
