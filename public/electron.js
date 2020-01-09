@@ -21,9 +21,9 @@ let createWindow = () => {
   });
   module.exports = {
     webpack: {
-      publicPath: ''
+      publicPath: ""
     }
-  }
+  };
 
   mainWindow.loadURL(
     isDev

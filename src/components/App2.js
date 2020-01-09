@@ -172,38 +172,32 @@ class App2 extends Component {
     });*/
     return (
       <React.Fragment>
-       
         <div className="index-page">
           <div className="cua cuadro-1">
-          <div className="banner1 cua-2">
-            <Link to="/add">
-            <button className="botonsito">Agregar opciones</button>
-          </Link>
-          <Link to="/eliminar">
-            <button className="botonsito">Eliminar opciones</button>
-          </Link> 
-         
+            <div className="banner1 cua-2">
+              <Link to="/add">
+                <button className="botonsito">Agregar opciones</button>
+              </Link>
+              <Link to="/eliminar">
+                <button className="botonsito">Eliminar opciones</button>
+              </Link>
             </div>
             <div className="textito-cuadrito">
-              Empresas
+              <strong>Empresas</strong>
               <br />
               <select className="" id="empresas">
                 <option value="">Selecciona una empresa...</option>
-                <option value="Ganadera XX SPR de RL">
-                  Ganadera XX SPR de RL
-                </option>
               </select>
               <br />
               <br />
-              Predio
+              <strong>Predio</strong>
               <br />
               <select className="" id="predio">
                 <option value="">Selecciona el predio...</option>
-                <option value="Santa Teresa">Santa Teresa</option>
               </select>
               <br />
               <br />
-              Precio
+              <strong>Precio</strong>
               <br />
               <input
                 className="input1 inputprecio"
@@ -214,48 +208,38 @@ class App2 extends Component {
               $
               <br />
               <br />
-              numero de guia
+              <strong>Numero de guia</strong>
               <br />
               <input className="input1" type="text" id="numGuia"></input>
               <br />
               <br />
-              Tipo de ganado
+              <strong>Tipo de ganado</strong>
               <br />
               <select id="tipo">
                 <option value="">Selecciona el tipo de ganado...</option>
-                <option value="Toro">Toro</option>
-                <option value="Becerro">Becerro</option>
-                <option value="Becerra">Becerra</option>
-                <option value="Vaquilla">Vaquilla</option>
-                <option value="Vaquilla cargada">Vaquilla cargada</option>
-                <option value="Vaca adulta">Vaca adulta</option>
               </select>
               <br />
               <br />
-              Raza del animal
+              <strong>Raza del animal</strong>
               <br />
               <select id="raza">
                 <option value="">Selecciona la raza del animal...</option>
-                <option value="Brangus">Brangus</option>
-                <option value="Simental">Simental</option>
-                <option value="Pinta">Pinta</option>
               </select>
               <br />
               <br />
-              Origen del animal
+              <strong>Origen del animal</strong>
               <br />
               <select id="origen">
                 <option value="">Selecciona el origen del animal...</option>
-                <option value="Criollo">Criollo</option>
               </select>
               <br />
               <br />
-              Arete del animal
+              <strong>Arete del animal</strong>
               <br />
               <input className="input1" type="text" id="arete"></input>
               <br />
               <br />
-              Fecha en que se registra el animal
+              <strong>Fecha en que se registra el animal</strong>
               <br />
               <input
                 className="input1 inputfecha"
@@ -280,17 +264,15 @@ class App2 extends Component {
               <br />
               <br />
             </div>
-            
           </div>
           <div className="cua cuadro-2">
             <div className="banner cua-2">
-            
               <button className="botonsito" onClick={addData}>
                 Aceptar
               </button>
             </div>
             <div className="textito-cuadrito">
-              Fecha de nacimiento
+              <strong>Fecha de nacimiento</strong>
               <br />
               <input
                 className="input1 inputfecha"
@@ -314,40 +296,42 @@ class App2 extends Component {
               ></input>
               <br />
               <br />
-              Lo que peso cuando se compro
+              <strong>Lo que peso cuando se compro</strong>
               <br />
               <input
                 className="input1 inputkg"
-                maxlength="3"
+                maxlength="4"
                 type="text"
                 id="peso-compra"
               ></input>
               kg
               <br />
               <br />
-              Lo que pesa ahora (Si se acaba de comprar, registrar el mismo
-              peso)
+              <strong>
+                Lo que pesa ahora (Si se acaba de comprar, registrar el mismo
+                peso)
+              </strong>
               <br />
               <input
                 className="input1 inputkg"
-                maxlength="3"
+                maxlength="4"
                 type="text"
                 id="peso-actual"
               ></input>
               kg
               <br />
               <br />
-              Estado del animal
+              <strong>Estado del animal</strong>
               <br />
               <select id="estatus">
                 <option value="">Selecciona el estatus del animal...</option>
-                <option value="Vacia">Vacia</option>
-                <option value="Cargada">Cargada</option>
               </select>
               <br />
               <br />
-              Ultima fecha en la que pario (Si nunca lo ha hecho, escribir la
-              fecha de nacimiento)
+              <strong>
+                Ultima fecha en la que pario (Si nunca lo ha hecho, escribir la
+                fecha de nacimiento)
+              </strong>
               <br />
               <input
                 className="input1 inputfecha"
@@ -371,13 +355,10 @@ class App2 extends Component {
               />
               <br />
               <br />
-              Alguna particularidad que pueda tener el animal
+              <strong>Alguna particularidad que pueda tener el animal</strong>
               <br />
               <select id="particularidades">
-                <option value="">Particularidad del animal</option>
-                <option value="Enfermo">Enfermo</option>
-                <option value="Extraviado">Extraviado</option>
-                <option value="Bronco">Bronco</option>
+                <option value="">Particularidad del animal...</option>
               </select>
               <br />
               <br />

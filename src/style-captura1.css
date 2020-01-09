@@ -23,10 +23,13 @@
 }
 .input2 {
   width: 30px;
+  color: black;
+  justify-content: center;
+  text-align: center;
 }
 .cua {
   background-color: rgb(255, 255, 255, 0.7);
-  border: solid #FBB03B;
+  border: solid #fbb03b;
   border-radius: 5px;
   width: 30%;
   top: 15%;
@@ -34,7 +37,8 @@
   position: absolute;
   box-shadow: 10px 20px 28px #000000;
   margin: 0 0 30px 0;
-font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 .cuadro-1 {
   left: 15%;
@@ -47,7 +51,7 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 .index-page {
   font-family: "Arial Narrow Bold";
   font-size: 20px;
-  font-weight: 500; 
+  font-weight: 500;
   color: rgb(0, 0, 0);
 }
 .textito-cuadrito {
@@ -63,19 +67,19 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   border: none;
   border-radius: 5px;
   margin: 10px;
-  border: solid rgb(255, 255, 255, 0.7) ;
+  border: solid rgb(255, 255, 255, 0.7);
 }
 
 .banner {
-  background-color: #FBB03B;
-  border-radius:5px 5px 0px 0px ;
+  background-color: #fbb03b;
+  border-radius: 5px 5px 0px 0px;
   display: flex;
   flex-direction: row-reverse;
   height: auto;
 }
 .banner1 {
-  background-color: #FBB03B;
-  border-radius:5px 5px 0px 0px ;
+  background-color: #fbb03b;
+  border-radius: 5px 5px 0px 0px;
   display: flex;
   flex-direction: row;
   height: auto;
@@ -94,7 +98,7 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   background-color: rgb(255, 255, 255, 0.7);
   border-radius: 5px;
   width: 80%;
-  border: solid #FBB03B;
+  border: solid #fbb03b;
   top: 15%;
   bottom: 15%;
   height: 70%;
@@ -104,21 +108,19 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 
 /*----banner----*/
 .banner-actualizar {
-  background-color: #FBB03B;
-  border-radius:  5px 5px 0px 0px;
+  background-color: #fbb03b;
+  border-radius: 5px 5px 0px 0px;
   display: flex;
   justify-content: space-between;
   height: auto;
   color: white;
-  
 }
 .input-arete {
   position: relative;
   color: white;
   margin: 18px 0px 0px 15px;
-  
 }
-.inputarete{
+.inputarete {
   width: 200px;
   text-align: left;
   font-size: 18px;
@@ -129,11 +131,10 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   border-bottom: 1px solid #ffffff;
   margin-bottom: 6px;
 }
-.areteanimal{
+.areteanimal {
   display: inline;
   padding: 5px;
   margin: 0px;
-  
 }
 .div-botonsitos {
   display: flex;
@@ -156,38 +157,36 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   border-bottom: 1px solid #000000;
   margin-bottom: 6px;
 }
-.pesoahora{
-  padding:15px 0 0 0;
+.pesoahora {
+  padding: 15px 0 0 0;
   margin: 0 0 0 8px;
-  
+
   width: 35px;
 }
-.fechainput{
+.fechainput {
   width: 20px;
   text-align: center;
-  padding-top:15px; 
+  padding-top: 15px;
   padding-bottom: 0px;
 }
-.fechaaño{
+.fechaaño {
   width: 40px;
 }
 
 /*-----------inputs no se de donde------*/
-.inputfecha{
+.inputfecha {
   text-align: center;
   width: 25px;
 }
-.inputaño{
+.inputaño {
   width: 40px;
 }
 
-.inputkg{
+.inputkg {
   width: 30px;
   text-align: center;
-
 }
-.inputprecio{
+.inputprecio {
   width: 55px;
   text-align: center;
-
 }

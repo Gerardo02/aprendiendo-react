@@ -28,61 +28,56 @@ class historial extends Component {
 
   render() {
     let borrar = async () => {
-      const response = await fetch(
-        `http://localhost:4000/borrar/historial/`
-      );
+      const response = await fetch(`http://localhost:4000/borrar/historial/`);
       window.location.reload();
-    }
+    };
     return (
       <>
-      <div className="divtotal">
-        <div className="barra-nav">
-          <Link className="textobarra" to="/">
-            <img className="superlogo" src={superlogo} />
-          </Link>
-          <Link className="textobarra" to="/captura">
-            Captura
-          </Link>
-          <Link to="/inventario1" className="textobarra">
-            Inventario
-          </Link>
+        <div className="divtotal">
+          <div className="barra-nav">
+            <Link className="textobarra" to="/">
+              <img className="superlogo" src={superlogo} />
+            </Link>
+            <Link className="textobarra" to="/captura">
+              Captura
+            </Link>
+            <Link to="/inventario1" className="textobarra">
+              Inventario
+            </Link>
 
-          <Link className="textobarra" to="/historial">
-            Historial
-          </Link>
-          <Link className="textobarra" to="/bajas">
-            Bajas
-          </Link>
-          <Link className="textobarra" to="/reportes">
-            Reportes
-          </Link>
-        </div>
-        <br />
-        <br />
-        <div className="tablainventariohistorial">
-          <div className="titulosnombres">
-            <table id="listavariables">
-              <div className="titulos1">
-                <tr className="titulos">
-                  <th className="tituloshistorial">Arete</th>
-                  <th className="tituloshistorial">Numero de Guia</th>
-                  <th className="tituloshistorial">Tipo de Ganado</th>
-                  <th className="tituloshistorial">Raza</th>
-                  <th className="tituloshistorial">Fecha</th>
-                  <th className="tituloshistorial">Movimiento</th>
-                </tr>
-               
-              </div>
-              <tr className="listavariables"></tr>
-            </table>
+            <Link className="textobarra" to="/historial">
+              Historial
+            </Link>
+            <Link className="textobarra" to="/bajas">
+              Bajas
+            </Link>
+            <Link className="textobarra" to="/reportes">
+              Reportes
+            </Link>
           </div>
-        </div>
-        <div className="trash" >
-          <Link onClick={borrar}>
-        <img className="trash1"  src={trash} ></img>
-          </Link>
-
-        </div>
+          <br />
+          <br />
+          <div className="tablainventariohistorial">
+            <div className="titulosnombres">
+              <table id="listavariables">
+                <div className="titulos1">
+                  <tr className="titulos">
+                    <th className="tituloshistorial">Arete</th>
+                    <th className="tituloshistorial">Numero de Guia</th>
+                    <th className="tituloshistorial">Tipo de Ganado</th>
+                    <th className="tituloshistorial">Raza</th>
+                    <th className="tituloshistorial">Fecha</th>
+                    <th className="tituloshistorial">Movimiento</th>
+                  </tr>
+                </div>
+              </table>
+            </div>
+          </div>
+          <div className="trash">
+            <Link onClick={borrar}>
+              <img className="trash1" src={trash}></img>
+            </Link>
+          </div>
         </div>
       </>
     );
