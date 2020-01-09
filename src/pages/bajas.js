@@ -24,9 +24,6 @@ class bajas2 extends Component {
        <td> ${element.arete} </td>
        <td> ${element.fecha_alta} </td>
        <td> ${element.fecha_nacimiento} </td>
-       <td> ${element.peso_compra} </td>
-       <td> ${element.peso_actual} </td>
-       <td> ${element.estatus} </td>
        <td> ${element.ultimo_parto} </td>
        <td> ${element.particularidades} </td>
        <td> ${element.fecha_baja} </td>
@@ -34,7 +31,7 @@ class bajas2 extends Component {
       
       
        <td>
-      <button class="btn-baja" data-arete=${element.arete} data-numero=${flag} >Recuperar ${element.arete}</button>
+      <button class="btn-baja" data-arete=${element.arete} data-numero=${flag} >Recuperar</button>
       </td>
      
      
@@ -49,10 +46,18 @@ class bajas2 extends Component {
       const areteId = event.target.dataset.arete;
       const numId = event.target.dataset.numero;
 
-      const alertaSeguro = window.confirm(
-        `Estas seguro que quieres recuperar a ${areteId}?`
+      const { dialog } = global.require("electron").remote;
+
+      const dialogOptions = {
+        type: "info",
+        buttons: ["OK", "Cancel"],
+        message: `¿seguro que deseas recuperar ${areteId}?`
+      };
+
+      let alertaSeguro = dialog.showMessageBoxSync(dialogOptions, i =>
+        console.log(i)
       );
-      if (alertaSeguro === true) {
+      if (alertaSeguro !== 1) {
         document.getElementById("btn-rec").style.display = "block";
       }
       let fetch1 = async () => {
@@ -130,15 +135,13 @@ class bajas2 extends Component {
                   <th>Empresas</th>
                   <th>Predio</th>
                   <th>Precio</th>
-                  <th>N° Guia </th> <th>Tipo de ganado</th>
-                  <th>Raza </th>
+                  <th>N° Guia </th>
+                  <th>Tipo de ganado</th>
+                  <th>Raza</th>
                   <th>Origen</th>
                   <th>Arete</th>
                   <th>Fecha de registro</th>
                   <th>Fecha de nacimiento</th>
-                  <th>Peso de compra</th>
-                  <th>Peso actual</th>
-                  <th>Estado del animal</th>
                   <th>Ultima fecha de parto</th>
                   <th>Particularidad</th>
                   <th>Fecha de baja</th>

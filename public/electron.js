@@ -13,7 +13,6 @@ let createWindow = () => {
   mainWindow = new BrowserWindow({
     width: 1250,
     height: 768,
-    title: "hola",
     resizable: false,
     webPreferences: {
       nodeIntegration: true
@@ -69,15 +68,8 @@ const mainMenuTemplate = [
   }
 ];
 mainMenuTemplate.push({
-  label: "Dev tools",
+  label: "Refresh",
   submenu: [
-    {
-      label: "Sacar dev tools",
-      accelerator: "Ctrl+I",
-      click(item, focusedWindow) {
-        focusedWindow.toggleDevTools();
-      }
-    },
     {
       role: "reload"
     }

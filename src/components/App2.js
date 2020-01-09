@@ -129,42 +129,54 @@ class App2 extends Component {
       let mm3 = today3.getMonth() + 1;
       let yyyy3 = today3.getFullYear();
       let fechaMovimiento = `${dd3}/${mm3}/${yyyy3}`;
-
-      const particularidades = document.getElementById("particularidades")
-        .value;
-      const movimiento = "Captura";
-      let sendHistorial = async () => {
-        const response = await fetch(
-          `http://localhost:4000/send/historial?tipo=${tipo}&numGuia=${numGuia}&raza=${raza}&arete=${arete}&fecha=${fechaMovimiento}&movimiento=${movimiento}`
-        );
+      const { dialog } = global.require("electron").remote;
+      const dialogOptions = {
+        type: "info",
+        buttons: ["OK"],
+        message: "Falta el arete!!"
       };
       if (arete !== "") {
         console.log(empresas);
+
+        const particularidades = document.getElementById("particularidades")
+          .value;
+        const movimiento = "Captura";
+        let sendHistorial = async () => {
+          const response = await fetch(
+            `http://localhost:4000/send/historial?tipo=${tipo}&numGuia=${numGuia}&raza=${raza}&arete=${arete}&fecha=${fechaMovimiento}&movimiento=${movimiento}`
+          );
+        };
+
+        const dialogOptions1 = {
+          type: "info",
+          buttons: ["OK"],
+          message: "Datos incompletos (si no se sabe algun dato, inventarlo)"
+        };
+        if (
+          precio !== "" &&
+          numGuia !== "" &&
+          diaAlt !== "" &&
+          mesAlt !== "" &&
+          anoAlt !== "" &&
+          dia !== "" &&
+          mes !== "" &&
+          ano !== "" &&
+          pesoCompra !== "" &&
+          pesoActual !== "" &&
+          diaVac !== "" &&
+          mesVac !== "" &&
+          anoVac !== ""
+        ) {
+          window.location.reload();
+          const response = await fetch(
+            `http://localhost:4000/add?empresas=${empresas}&predio=${predio}&precio=${precio}&numGuia=${numGuia}&tipo=${tipo}&raza=${raza}&origen=${origen}&arete=${arete}&fechaAlta=${fechaAlta}&fechaNac=${fechaNac}&pesoCompra=${pesoCompra}&pesoActual=${pesoActual}&incremento=${incremento}&estatus=${estatus}&edad=${edad}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}`
+          );
+          sendHistorial();
+        } else {
+          dialog.showMessageBoxSync(dialogOptions1, i => console.log(i));
+        }
       } else {
-        alert("Arete necesario!!!!!!!!!!!!!!!!!!");
-      }
-      if (
-        precio !== "" &&
-        numGuia !== "" &&
-        diaAlt !== "" &&
-        mesAlt !== "" &&
-        anoAlt !== "" &&
-        dia !== "" &&
-        mes !== "" &&
-        ano !== "" &&
-        pesoCompra !== "" &&
-        pesoActual !== "" &&
-        diaVac !== "" &&
-        mesVac !== "" &&
-        anoVac !== ""
-      ) {
-        window.location.reload();
-        const response = await fetch(
-          `http://localhost:4000/add?empresas=${empresas}&predio=${predio}&precio=${precio}&numGuia=${numGuia}&tipo=${tipo}&raza=${raza}&origen=${origen}&arete=${arete}&fechaAlta=${fechaAlta}&fechaNac=${fechaNac}&pesoCompra=${pesoCompra}&pesoActual=${pesoActual}&incremento=${incremento}&estatus=${estatus}&edad=${edad}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}`
-        );
-        sendHistorial();
-      } else {
-        alert("Datos incompletos (si no se sabe algun dato, inventarlo)");
+        dialog.showMessageBoxSync(dialogOptions, i => console.log(i));
       }
     }; /* 
     buttons.forEach(button => {
@@ -202,7 +214,7 @@ class App2 extends Component {
               <input
                 className="input1 inputprecio"
                 type="text"
-                maxlength="7"
+                maxLength="7"
                 id="precio"
               />{" "}
               $
@@ -243,21 +255,21 @@ class App2 extends Component {
               <br />
               <input
                 className="input1 inputfecha"
-                maxlength="2"
+                maxLength="2"
                 type="text"
                 id="diaAlt"
               />
               /
               <input
                 className="input1 inputfecha"
-                maxlength="2"
+                maxLength="2"
                 type="text"
                 id="mesAlt"
               />
               /
               <input
                 className="input1 inputfecha inputaño"
-                maxlength="4"
+                maxLength="4"
                 type="text"
                 id="anoAlt"
               />
@@ -276,21 +288,21 @@ class App2 extends Component {
               <br />
               <input
                 className="input1 inputfecha"
-                maxlength="2"
+                maxLength="2"
                 type="text"
                 id="dia"
               />
               /
               <input
                 className="input1 inputfecha"
-                maxlength="2"
+                maxLength="2"
                 type="text"
                 id="mes"
               />
               /
               <input
                 className="input1 inputfecha inputaño"
-                maxlength="4"
+                maxLength="4"
                 type="text"
                 id="ano"
               ></input>
@@ -300,7 +312,7 @@ class App2 extends Component {
               <br />
               <input
                 className="input1 inputkg"
-                maxlength="4"
+                maxLength="4"
                 type="text"
                 id="peso-compra"
               ></input>
@@ -314,7 +326,7 @@ class App2 extends Component {
               <br />
               <input
                 className="input1 inputkg"
-                maxlength="4"
+                maxLength="4"
                 type="text"
                 id="peso-actual"
               ></input>
@@ -335,21 +347,21 @@ class App2 extends Component {
               <br />
               <input
                 className="input1 inputfecha"
-                maxlength="2"
+                maxLength="2"
                 type="text"
                 id="diaVac"
               />
               /
               <input
                 className="input1 inputfecha"
-                maxlength="2"
+                maxLength="2"
                 type="text"
                 id="mesVac"
               />
               /
               <input
                 className="input1 inputfecha inputaño"
-                maxlength="4"
+                maxLength="4"
                 type="text"
                 id="anoVac"
               />

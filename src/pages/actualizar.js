@@ -24,63 +24,78 @@ class Actualizar extends Component {
     let addData = async () => {
       const response1 = await fetch("http://localhost:4000/datos");
       const data = await response1.json();
-
       const arete = document.getElementById("arete").value;
       const pesoActual = document.getElementById("peso-actual").value;
+      const dialogOptions1 = {
+        type: "info",
+        buttons: ["OK"],
+        message: "Falta el arete!!"
+      };
+      const { dialog } = global.require("electron").remote;
+      if (arete !== "") {
+        const found = data.find(element => element.arete === `${arete}`);
+        console.log(arete);
+        console.log(found);
+        const pesoinicial = found.peso_compra;
+        console.log(pesoinicial);
 
-      const found = data.find(element => element.arete === `${arete}`);
-      console.log(arete);
-      console.log(found);
-      const pesoinicial = found.peso_compra;
-      console.log(pesoinicial);
+        let incremento = pesoActual - pesoinicial;
 
-      let incremento = pesoActual - pesoinicial;
+        console.log(incremento);
 
-      console.log(incremento);
+        const estatus = document.getElementById("estatus").value;
 
-      const estatus = document.getElementById("estatus").value;
+        //fecha de ultimo parto
+        let diaVac = document.getElementById("diaVac").value;
+        let mesVac = document.getElementById("mesVac").value;
+        let anoVac = document.getElementById("anoVac").value;
+        const ultimoParto = `${diaVac}/${mesVac}/${anoVac}`;
+        let mesesVacia;
+        let today2 = new Date();
+        let mm2 = today2.getMonth() + 1;
+        let yyyy2 = today2.getFullYear();
+        console.log(yyyy2);
+        if (yyyy2 <= anoVac) {
+          mesesVacia = mm2 - mesVac;
+        } else if (yyyy2 > anoVac) {
+          mesVac = 12 - mesVac;
+          yyyy2 = yyyy2 - anoVac;
+          yyyy2 = yyyy2 * 12;
+          mm2 = 12 - mm2;
+          mm2 = yyyy2 - mm2;
+          mesesVacia = mm2 + mesVac;
+        }
+        console.log(mesesVacia);
+        const particularidades = document.getElementById("particularidades")
+          .value;
+        //window.location.reload();
 
-      //fecha de ultimo parto
-      let diaVac = document.getElementById("diaVac").value;
-      let mesVac = document.getElementById("mesVac").value;
-      let anoVac = document.getElementById("anoVac").value;
-      const ultimoParto = `${diaVac}/${mesVac}/${anoVac}`;
-      let mesesVacia;
-      let today2 = new Date();
-      let mm2 = today2.getMonth() + 1;
-      let yyyy2 = today2.getFullYear();
-      console.log(yyyy2);
-      if (yyyy2 <= anoVac) {
-        mesesVacia = mm2 - mesVac;
-      } else if (yyyy2 > anoVac) {
-        mesVac = 12 - mesVac;
-        yyyy2 = yyyy2 - anoVac;
-        yyyy2 = yyyy2 * 12;
-        mm2 = 12 - mm2;
-        mm2 = yyyy2 - mm2;
-        mesesVacia = mm2 + mesVac;
-      }
-      console.log(mesesVacia);
-      const particularidades = document.getElementById("particularidades")
-        .value;
-      //window.location.reload();
+        const dialogOptions = {
+          type: "info",
+          buttons: ["OK"],
+          message:
+            "Favor de indicar los valores faltantes para la actualizacion"
+        };
 
-      if (
-        pesoActual !== "" &&
-        estatus !== "" &&
-        diaVac !== " " &&
-        mesVac !== " " &&
-        anoVac !== " " &&
-        ultimoParto !== "" &&
-        particularidades !== ""
-      ) {
-        const response = await fetch(
-          `http://localhost:4000/actualizar?arete=${arete}&pesoActual=${pesoActual}&estatus=${estatus}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}&incremento=${incremento}`
-        );
+        if (
+          pesoActual !== "" &&
+          estatus !== "" &&
+          diaVac !== " " &&
+          mesVac !== " " &&
+          anoVac !== " " &&
+          ultimoParto !== "" &&
+          particularidades !== ""
+        ) {
+          const response = await fetch(
+            `http://localhost:4000/actualizar?arete=${arete}&pesoActual=${pesoActual}&estatus=${estatus}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}&incremento=${incremento}`
+          );
 
-        window.location.reload();
+          window.location.reload();
+        } else {
+          dialog.showMessageBoxSync(dialogOptions, i => console.log(i));
+        }
       } else {
-        alert("Favor de indicar los valores faltantes para la actualizacion");
+        dialog.showMessageBoxSync(dialogOptions1, i => console.log(i));
       }
     };
     return (

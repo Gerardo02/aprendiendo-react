@@ -2,10 +2,8 @@ import React, { Component } from "react";
 import "../inve.css";
 import { Link } from "react-router-dom";
 
-
 class Inve extends Component {
   async componentDidMount() {
-
     const response = await fetch("http://localhost:4000/datos");
     const data = await response.json();
     //console.log(data);
@@ -34,7 +32,7 @@ class Inve extends Component {
         <td>${element.ultimo_parto}</td>
         <td>${element.meses_vacia}</td>
         <td>${element.particularidades}</td>
-        <td><button class="btn-baja" data-arete=${element.arete} data-numero=${flag} id="btn-top">Dar de baja: ${element.arete}</button></td>
+        <td><button class="btn-baja" data-arete=${element.arete} data-numero=${flag} id="btn-top">Dar de baja</button></td>
       </tr>
       
       
@@ -49,13 +47,18 @@ class Inve extends Component {
       const areteId = event.target.dataset.arete;
       const numId = event.target.dataset.numero;
 
-      const {dialog} = global.require('electron').remote
+      const { dialog } = global.require("electron").remote;
 
-      const dialogOptions = {type: 'info', buttons: ['OK', 'Cancel'], message: '¿seguro que deseas darlo de baja?'}
-      
+      const dialogOptions = {
+        type: "info",
+        buttons: ["OK", "Cancel"],
+        message: `¿seguro que desea dar de baja ${areteId}?`
+      };
 
-      let alertaSeguro = dialog.showMessageBox(dialogOptions, i => console.log(i));
-      
+      let alertaSeguro = dialog.showMessageBoxSync(dialogOptions, i =>
+        console.log(i)
+      );
+
       if (alertaSeguro !== 1) {
         document.getElementById("baja-container").style.display = "block";
       }
@@ -136,7 +139,7 @@ class Inve extends Component {
           <td>${element.ultimo_parto}</td>
           <td>${element.meses_vacia}</td>
           <td>${element.particularidades}</td>
-          <td><button class="btn-baja" data-arete=${element.arete} data-numero=${flag} id="btn-top">Dar de baja: ${element.arete}</button></td>
+          <td><button class="btn-baja" data-arete=${element.arete} data-numero=${flag} id="btn-top">Dar de baja</button></td>
         </tr>
         `;
         flag++;
@@ -178,21 +181,21 @@ class Inve extends Component {
                     className="inputbaja fecha-baja"
                     id="dia-baja"
                     type="text"
-                    maxlength="2"
+                    maxLength="2"
                   ></input>
                   /
                   <input
                     className="inputbaja fecha-baja"
                     type="text"
                     id="mes-baja"
-                    maxlength="2"
+                    maxLength="2"
                   ></input>
                   /
                   <input
                     className="inputbaja fechabaja"
                     type="text"
                     id="ano-baja"
-                    maxlength="4"
+                    maxLength="4"
                   ></input>
                   <br />
                   <button className="eliminar">Dar de baja</button>

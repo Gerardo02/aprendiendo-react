@@ -74,9 +74,9 @@ class historial extends Component {
             </div>
           </div>
           <div className="trash">
-            <Link onClick={borrar}>
+            <a onClick={borrar}>
               <img className="trash1" src={trash}></img>
-            </Link>
+            </a>
           </div>
         </div>
       </>
