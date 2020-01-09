@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import "../inve.css";
 import { Link } from "react-router-dom";
 
+
 class Inve extends Component {
   async componentDidMount() {
+
     const response = await fetch("http://localhost:4000/datos");
     const data = await response.json();
     //console.log(data);
@@ -47,10 +49,14 @@ class Inve extends Component {
       const areteId = event.target.dataset.arete;
       const numId = event.target.dataset.numero;
 
-      const alertaSeguro = window.confirm(
-        `Estas seguro que quieres borrar ${areteId}?`
-      );
-      if (alertaSeguro === true) {
+      const {dialog} = global.require('electron').remote
+
+      const dialogOptions = {type: 'info', buttons: ['OK', 'Cancel'], message: '¿seguro que deseas darlo de baja?'}
+      
+
+      let alertaSeguro = dialog.showMessageBox(dialogOptions, i => console.log(i));
+      
+      if (alertaSeguro !== 1) {
         document.getElementById("baja-container").style.display = "block";
       }
 
