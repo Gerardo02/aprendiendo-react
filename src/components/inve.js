@@ -23,7 +23,6 @@ class Inve extends Component {
         <td>${element.origen}</td>
         <td>${element.arete}</td>
         <td>${element.fecha_alta}</td>
-        <td>${element.fecha_nacimiento}</td>
         <td>${element.peso_compra}</td>
         <td>${element.peso_actual}</td>
         <td>${element.incremento_peso}</td>
@@ -130,7 +129,6 @@ class Inve extends Component {
           <td>${element.origen}</td>
           <td>${element.arete}</td>
           <td>${element.fecha_alta}</td>
-          <td>${element.fecha_nacimiento}</td>
           <td>${element.peso_compra}</td>
           <td>${element.peso_actual}</td>
           <td>${element.incremento_peso}</td>
@@ -216,7 +214,6 @@ class Inve extends Component {
                   <th>Origen</th>
                   <th>Arete</th>
                   <th>Fecha de Registro</th>
-                  <th>Fecha de Nacimiento</th>
                   <th>Peso de Compra</th>
                   <th>Peso Actual</th>
                   <th>Incremento de peso</th>
@@ -243,7 +240,6 @@ class Inve extends Component {
                   <th>Origen</th>
                   <th>Arete</th>
                   <th>Fecha de Registro</th>
-                  <th>Fecha de Nacimiento</th>
                   <th>Peso de Compra</th>
                   <th>Peso Actual</th>
                   <th>Incremento de peso</th>
