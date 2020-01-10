@@ -59,7 +59,7 @@ class bajas2 extends Component {
       const dialogOptions = {
         type: "info",
         buttons: ["OK", "Cancel"],
-        message: `¿seguro que deseas eliminar ${areteId}?`
+        message: `¿seguro que deseas eliminar ${areteId}? (esto es irreversible)`
       };
 
       let alertaSeguro = dialog.showMessageBoxSync(dialogOptions, i =>
@@ -200,7 +200,7 @@ class bajas2 extends Component {
       const dialogOptions = {
         type: "info",
         buttons: ["OK", "Cancel"],
-        message: `¿seguro que deseas eliminar ${areteId}?`
+        message: `¿seguro que deseas eliminar ${areteId}? (esto es irreversible)`
       };
 
       let alertaSeguro = dialog.showMessageBoxSync(dialogOptions, i =>
