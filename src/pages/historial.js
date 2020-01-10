@@ -28,6 +28,7 @@ class historial extends Component {
 
   render() {
     let borrar = async () => {
+      
       const response = await fetch(`http://localhost:4000/borrar/historial/`);
       window.location.reload();
     };

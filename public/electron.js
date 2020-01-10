@@ -314,6 +314,20 @@ app1.get("/buscar/arete", (req, resp) => {
     }
   );
 });
+app1.get("/buscarbajas/arete", (req, resp) => {
+  const { arete } = req.query;
+  connection.query(
+    `SELECT * FROM bajas WHERE arete = '${arete}'`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes busqueda arete en bajas");
+        resp.json(rows);
+      }
+    }
+  );
+});
 
 app1.get("/add", (req, resp) => {
   const {
@@ -431,6 +445,30 @@ app1.get("/delete", (req, resp) => {
 });
 
 app1.get("/delete/bajas", (req, resp) => {
+  const { arete } = req.query;
+  connection.query(
+    `DELETE FROM bajas WHERE arete = '${arete}'`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes delete from bajas");
+      }
+    }
+  );
+});
+app1.get("/borrar/todaslasbajas", (req, resp) => {
+  connection.query("DELETE FROM bajas", (err, rows) => {
+    if (err) {
+      throw err;
+    } else {
+      console.log("succes eliminaicon de bajas");
+      resp.json(rows);
+    }
+  });
+});
+
+app1.get("/borrar/bajaespecifica", (req, resp) => {
   const { arete } = req.query;
   connection.query(
     `DELETE FROM bajas WHERE arete = '${arete}'`,

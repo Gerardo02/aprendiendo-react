@@ -32,7 +32,7 @@ class Inve extends Component {
         <td>${element.ultimo_parto}</td>
         <td>${element.meses_vacia}</td>
         <td>${element.particularidades}</td>
-        <td><button class="btn-baja" data-arete=${element.arete} data-numero=${flag} id="btn-top">Dar de baja</button></td>
+        <td><button class="btn-baja" data-arete=${element.arete} data-numero=${flag} id="btn-top">Baja</button></td>
       </tr>
       
       
@@ -139,7 +139,7 @@ class Inve extends Component {
           <td>${element.ultimo_parto}</td>
           <td>${element.meses_vacia}</td>
           <td>${element.particularidades}</td>
-          <td><button class="btn-baja" data-arete=${element.arete} data-numero=${flag} id="btn-top">Dar de baja</button></td>
+          <td><button class="btn-baja" data-arete=${element.arete} data-numero=${flag} id="btn-top">Baja</button></td>
         </tr>
         `;
         flag++;
