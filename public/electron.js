@@ -10,14 +10,20 @@ let otherWindow;
 
 let createWindow = () => {
   // Create the browser window.
+
   mainWindow = new BrowserWindow({
-    width: 1300,
-    height: 600,
-    title: "hola",
+    width: 1250,
+    height: 768,
+    resizable: false,
     webPreferences: {
       nodeIntegration: true
     }
   });
+  module.exports = {
+    webpack: {
+      publicPath: ""
+    }
+  };
 
   mainWindow.loadURL(
     isDev
@@ -63,15 +69,8 @@ const mainMenuTemplate = [
   }
 ];
 mainMenuTemplate.push({
-  label: "Dev tools",
+  label: "Refresh",
   submenu: [
-    {
-      label: "Sacar dev tools",
-      accelerator: "Ctrl+I",
-      click(item, focusedWindow) {
-        focusedWindow.toggleDevTools();
-      }
-    },
     {
       role: "reload"
     }
@@ -92,3 +91,669 @@ app.on("activate", () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+const mysql = require("mysql");
+const express = require("express");
+const cors = require("cors");
+const app1 = express();
+
+// Create connection
+/*connection = mysql.createConnection({
+  host: "50.62.209.153",
+  port: 3306,
+  user: "ganado",
+  password: "767482",
+  database: "inventario_ganadero1"
+});*/
+// connect
+const db_config = {
+  host: "50.62.209.153",
+  port: 3306,
+  user: "ganado",
+  password: "767482",
+  database: "inventario_ganadero1"
+};
+
+let connection;
+
+let handleDisconnect = () => {
+  connection = mysql.createConnection(db_config); // Recreate the connection, since
+  // the old one cannot be reused.
+
+  connection.connect(err => {
+    // The server is either down
+    if (err) {
+      // or restarting (takes a while sometimes).
+      console.log("error when connecting to db:", err);
+      setTimeout(handleDisconnect, 2000); // We introduce a delay before attempting to reconnect,
+    } // to avoid a hot loop, and to allow our node script to
+  }); // process asynchronous requests in the meantime.
+  // If you're also serving http, display a 503 error.
+  connection.on("error", err => {
+    console.log("db error", err);
+    if (err.code === "PROTOCOL_CONNECTION_LOST") {
+      // Connection to the MySQL server is usually
+      handleDisconnect(); // lost due to either server restart, or a
+    } else {
+      // connnection idle timeout (the wait_timeout
+      throw err; // server variable configures this)
+    }
+  });
+};
+
+handleDisconnect();
+/*connection.connect(err => {
+  if (err) {
+    throw err;
+  }
+  console.log("Connected");
+});*/
+
+app1.use(cors());
+
+app1.listen("4000", () => {
+  console.log("inicializa servidor en puerto 4000");
+});
+
+app1.get("/datos", (req, resp) => {
+  connection.query("SELECT * FROM datos", (err, rows) => {
+    if (err) {
+      throw err;
+    } else {
+      console.log("succes datos");
+      resp.json(rows);
+    }
+  });
+});
+
+app1.get("/historial", (req, resp) => {
+  connection.query("SELECT * FROM historial", (err, rows) => {
+    if (err) {
+      throw err;
+    } else {
+      console.log("succes datos");
+      resp.json(rows);
+    }
+  });
+});
+
+app1.get("/borrar/historial", (req, resp) => {
+  connection.query("DELETE FROM historial", (err, rows) => {
+    if (err) {
+      throw err;
+    } else {
+      console.log("succes borrar");
+      resp.json(rows);
+    }
+  });
+});
+
+app1.get("/send/historial", (req, resp) => {
+  const { numGuia, tipo, raza, arete, fecha, movimiento } = req.query;
+  connection.query(
+    `INSERT INTO historial (
+    num_guia,
+    tipo,
+    raza,
+    arete,
+    fecha,
+    movimiento
+  ) VALUES (
+    '${numGuia}',
+    '${tipo}', 
+    '${raza}', 
+    '${arete}', 
+    '${fecha}', 
+    '${movimiento}')`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes send historial");
+      }
+    }
+  );
+});
+
+app1.get("/filtrar", (req, resp) => {
+  connection.query(
+    "SELECT * FROM datos WHERE incremento_peso > 0",
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes filtrados incremento");
+        resp.json(rows);
+      }
+    }
+  );
+});
+
+app1.get("/filtrar/decre", (req, resp) => {
+  connection.query(
+    "SELECT * FROM datos WHERE incremento_peso <= 0",
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes filtrados decremento");
+        resp.json(rows);
+      }
+    }
+  );
+});
+
+app1.get("/filtrar/vacia", (req, resp) => {
+  connection.query(
+    "SELECT * FROM datos WHERE estatus = 'Vacia'",
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes filtrados vacia");
+        resp.json(rows);
+      }
+    }
+  );
+});
+
+app1.get("/filtrar/cargada", (req, resp) => {
+  connection.query(
+    "SELECT * FROM datos WHERE estatus = 'Cargada'",
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes filtrados cargada");
+        resp.json(rows);
+      }
+    }
+  );
+});
+
+app1.get("/filtrar/predio", (req, resp) => {
+  const { predio } = req.query;
+  connection.query(
+    `SELECT * FROM datos WHERE predio = '${predio}'`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes filtrados predio");
+        resp.json(rows);
+      }
+    }
+  );
+});
+
+app1.get("/filtrar/origen", (req, resp) => {
+  const { origen } = req.query;
+  connection.query(
+    `SELECT * FROM datos WHERE origen = '${origen}'`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes filtrados origen");
+        resp.json(rows);
+      }
+    }
+  );
+});
+
+app1.get("/buscar/arete", (req, resp) => {
+  const { arete } = req.query;
+  connection.query(
+    `SELECT * FROM datos WHERE arete = '${arete}'`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes busqueda arete");
+        resp.json(rows);
+      }
+    }
+  );
+});
+app1.get("/buscarbajas/arete", (req, resp) => {
+  const { arete } = req.query;
+  connection.query(
+    `SELECT * FROM bajas WHERE arete = '${arete}'`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes busqueda arete en bajas");
+        resp.json(rows);
+      }
+    }
+  );
+});
+
+app1.get("/add", (req, resp) => {
+  const {
+    empresas,
+    predio,
+    precio,
+    numGuia,
+    tipo,
+    raza,
+    origen,
+    fechaAlta,
+    fechaNac,
+    pesoCompra,
+    pesoActual,
+    incremento,
+    estatus,
+    arete,
+    edad,
+    ultimoParto,
+    mesesVacia,
+    particularidades
+  } = req.query;
+  connection.query(
+    `INSERT INTO datos (
+      empresas,
+      predio,
+      precio,
+      num_guia,
+      tipo,
+      raza,
+      origen,
+      arete,
+      fecha_alta,
+      fecha_nacimiento,
+      peso_compra,
+      peso_actual,
+      incremento_peso,
+      estatus,
+      edad,
+      ultimo_parto,
+      meses_vacia,
+      particularidades
+    ) VALUES (
+      '${empresas}',
+      '${predio}', 
+      ${precio},
+      '${numGuia}',
+      '${tipo}', 
+      '${raza}', 
+      '${origen}', 
+      '${arete}', 
+      '${fechaAlta}', 
+      '${fechaNac}', 
+      ${pesoCompra}, 
+      ${pesoActual}, 
+      ${incremento}, 
+      '${estatus}', 
+      ${edad}, 
+      '${ultimoParto}', 
+      ${mesesVacia}, 
+      '${particularidades}'
+      )`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("se anadio");
+        resp.send("added");
+      }
+    }
+  );
+});
+
+app1.get("/actualizar", (req, resp) => {
+  const {
+    arete,
+    pesoActual,
+    estatus,
+    ultimoParto,
+    mesesVacia,
+    particularidades,
+    incremento
+  } = req.query;
+  connection.query(
+    `UPDATE datos SET 
+    peso_actual=${pesoActual},
+    estatus='${estatus}',
+    ultimo_parto='${ultimoParto}',
+    meses_vacia=${mesesVacia},
+    particularidades='${particularidades}',
+    incremento_peso='${incremento}'  WHERE arete = '${arete}'`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("se ACTUALIZO");
+        resp.send("added");
+      }
+    }
+  );
+});
+
+app1.get("/delete", (req, resp) => {
+  const { arete } = req.query;
+  connection.query(
+    `DELETE FROM datos WHERE arete = '${arete}'`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes delete");
+      }
+    }
+  );
+});
+
+app1.get("/delete/bajas", (req, resp) => {
+  const { arete } = req.query;
+  connection.query(
+    `DELETE FROM bajas WHERE arete = '${arete}'`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes delete from bajas");
+      }
+    }
+  );
+});
+app1.get("/borrar/todaslasbajas", (req, resp) => {
+  connection.query("DELETE FROM bajas", (err, rows) => {
+    if (err) {
+      throw err;
+    } else {
+      console.log("succes eliminaicon de bajas");
+      resp.json(rows);
+    }
+  });
+});
+
+app1.get("/borrar/bajaespecifica", (req, resp) => {
+  const { arete } = req.query;
+  connection.query(
+    `DELETE FROM bajas WHERE arete = '${arete}'`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes delete from bajas");
+      }
+    }
+  );
+});
+
+app1.get("/bajas", (req, resp) => {
+  connection.query(`SELECT * FROM bajas`, (err, rows) => {
+    if (err) {
+      throw err;
+    } else {
+      console.log("succes bajas");
+      resp.json(rows);
+    }
+  });
+});
+
+app1.get("/send", (req, resp) => {
+  const {
+    empresas,
+    predio,
+    precio,
+    numGuia,
+    tipo,
+    raza,
+    origen,
+    fechaAlta,
+    fechaNac,
+    pesoCompra,
+    pesoActual,
+    incremento,
+    estatus,
+    arete,
+    edad,
+    ultimoParto,
+    mesesVacia,
+    particularidades,
+    fechaBaja,
+    motivoBaja
+  } = req.query;
+  connection.query(
+    `INSERT INTO bajas (
+      empresas,
+      predio,
+      precio,
+      num_guia,
+      tipo,
+      raza,
+      origen,
+      arete,
+      fecha_alta,
+      fecha_nacimiento,
+      peso_compra,
+      peso_actual,
+      incremento_peso,
+      estatus,
+      edad,
+      ultimo_parto,
+      meses_vacia,
+      particularidades,
+      fecha_baja,
+      motivo_baja
+      ) VALUES (
+      '${empresas}',
+      '${predio}', 
+      ${precio},
+      '${numGuia}',
+      '${tipo}', 
+      '${raza}', 
+      '${origen}', 
+      '${arete}', 
+      '${fechaAlta}', 
+      '${fechaNac}', 
+      ${pesoCompra}, 
+      ${pesoActual}, 
+      ${incremento}, 
+      '${estatus}', 
+      ${edad}, 
+      '${ultimoParto}', 
+      ${mesesVacia}, 
+      '${particularidades}',
+      '${fechaBaja}',
+      '${motivoBaja}'
+      )`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes add baja");
+      }
+    }
+  );
+});
+
+app1.get("/send/bajas", (req, resp) => {
+  const {
+    empresas,
+    predio,
+    precio,
+    numGuia,
+    tipo,
+    raza,
+    origen,
+    fechaAlta,
+    fechaNac,
+    pesoCompra,
+    pesoActual,
+    incremento,
+    estatus,
+    arete,
+    edad,
+    ultimoParto,
+    mesesVacia,
+    particularidades
+  } = req.query;
+  connection.query(
+    `INSERT INTO datos (
+      empresas,
+      predio,
+      precio,
+      num_guia,
+      tipo,
+      raza,
+      origen,
+      arete,
+      fecha_alta,
+      fecha_nacimiento,
+      peso_compra,
+      peso_actual,
+      incremento_peso,
+      estatus,
+      edad,
+      ultimo_parto,
+      meses_vacia,
+      particularidades
+      ) VALUES (
+      '${empresas}',
+      '${predio}', 
+      ${precio},
+      '${numGuia}',
+      '${tipo}', 
+      '${raza}', 
+      '${origen}', 
+      '${arete}', 
+      '${fechaAlta}', 
+      '${fechaNac}', 
+      ${pesoCompra}, 
+      ${pesoActual}, 
+      ${incremento}, 
+      '${estatus}', 
+      ${edad}, 
+      '${ultimoParto}', 
+      ${mesesVacia}, 
+      '${particularidades}'
+      )`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes send to datos");
+      }
+    }
+  );
+});
+
+app1.get("/agregados", (req, resp) => {
+  connection.query("SELECT * FROM agregados", (err, rows) => {
+    if (err) {
+      throw err;
+    } else {
+      console.log("succes agregados");
+      resp.json(rows);
+    }
+  });
+});
+
+app1.get("/agregados/delete", (req, resp) => {
+  const { empresas, tipo, predio, raza, origen, particularidades } = req.query;
+  connection.query(
+    `DELETE FROM agregados WHERE tipo = '${tipo}' OR empresas = '${empresas}' OR predio = '${predio}' OR raza = '${raza}' OR origen = '${origen}' OR particularidades = '${particularidades}'`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("succes delete agregados");
+      }
+    }
+  );
+});
+
+app1.get("/add/predio", (req, resp) => {
+  const { predio } = req.query;
+  connection.query(
+    `INSERT INTO agregados (predio) VALUES ('${predio}')`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("se agregaron predio");
+      }
+    }
+  );
+});
+app1.get("/add/empresas", (req, resp) => {
+  const { empresas } = req.query;
+  connection.query(
+    `INSERT INTO agregados (empresas) VALUES ('${empresas}')`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("se agregaron empresas");
+      }
+    }
+  );
+});
+app1.get("/add/origen", (req, resp) => {
+  const { origen } = req.query;
+  connection.query(
+    `INSERT INTO agregados (origen) VALUES ('${origen}')`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("se agregaron origen");
+      }
+    }
+  );
+});
+app1.get("/add/tipo", (req, resp) => {
+  const { tipo } = req.query;
+  connection.query(
+    `INSERT INTO agregados (tipo) VALUES ('${tipo}')`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("se agregaron tipo");
+      }
+    }
+  );
+});
+app1.get("/add/raza", (req, resp) => {
+  const { raza } = req.query;
+  connection.query(
+    `INSERT INTO agregados (raza) VALUES ('${raza}')`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("se agregaron raza");
+      }
+    }
+  );
+});
+app1.get("/add/estatus", (req, resp) => {
+  const { estatus } = req.query;
+  connection.query(
+    `INSERT INTO agregados (estatus) VALUES ('${estatus}')`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("se agregaron estatus");
+      }
+    }
+  );
+});
+app1.get("/add/particularidades", (req, resp) => {
+  const { particularidades } = req.query;
+  connection.query(
+    `INSERT INTO agregados (particularidades) VALUES ('${particularidades}')`,
+    (err, rows) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log("se agregaron particularidades");
+      }
+    }
+  );
+});

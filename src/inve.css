@@ -16,18 +16,32 @@
 .texto-inve2 {
   padding: 5%;
 }
-.btn-baja {
+.btn-baja{
   margin-top: 30%;
   margin-bottom: 30%;
   z-index: 1;
   border-radius: 15px;
+  border: none;
+  height: 25px;
+
+}
+
+.btn-recuperar{
+  margin-top: 30%;
+  margin-bottom: 30%;
+  z-index: 1;
+  border-radius: 15px;
+  border: none;
+  height: 25px;
 }
 .fecha-baja {
-  width: 15px;
+  width: 17px;
   margin-right: 1%;
+  text-align: center;
 }
 .fechabaja {
-  width: 30px;
+  width: 35px;
+  text-align: center;
 }
 
 .baja-container {
@@ -40,12 +54,18 @@
   border: none;
   background-color: transparent;
   position: relative;
-  border-bottom: 1px solid #b2b2b2;
+  border-bottom: 1px solid #000000;
   margin-bottom: 6px;
+  color: #000000;
+}
+.inputbajapersona {
+  width: 250px;
+  padding-top: 10px;
 }
 .btn-baja {
   height: fit-content;
   border: none;
+  height: 25px;
 }
 
 /*----------------------------------------banner de buscar arete, boton aceptar y actualizar-------------------------*/
@@ -57,6 +77,19 @@
   position: relative;
   width: 80%;
   left: 10%;
+  border-radius: 50px;
+  height: 50px;
+  align-items: center;
+}
+
+.opcioneshistorial1 {
+  background-color: #fbb03b;
+  color: white;
+  display: flex;
+  top: 5%;
+  position: relative;
+  width: 35%;
+  left: 5%;
   border-radius: 50px;
   height: 50px;
   align-items: center;
@@ -85,17 +118,27 @@
   top: 12.5px;
   margin: 0 30px 0 0;
 }
+.btn-recuperartodos{
+  border: none;
+  border-radius: 50px;
+  height: 25px;
+  width: 150px;
+  position: absolute;
+  right: 0px;
+  top: 12.5px;
+  margin: 0 30px 0 0;
+}
 
-/*--------------------------------------tabla de informacion--------------------*/
+/*--------------------------------------tabla de informacion de inventario--------------------*/
 .tablainventario {
   position: relative;
-  width: 90%;
-  left: 5%;
+  width: 95%;
+  left: 2.5%;
   display: flex;
   border-radius: 5px;
   justify-content: center;
   margin-bottom: 40px;
-  border: solid #FBB03B;
+  border: solid #fbb03b;
 }
 .titulosnombres {
   background-color: rgb(255, 255, 255, 0.7);
@@ -103,10 +146,29 @@
   position: relative;
   width: 100%;
 }
-.titulos1 {
+.tablainventario1 {
+  position: relative;
+  width: 95%;
+  left: 2.5%;
+  display: flex;
+  border-radius: 5px;
+  justify-content: center;
+  margin-bottom: 40px;
+  border: solid #fbb03b;
+}
+.titulosnombres1 {
+  background-color: rgb(255, 255, 255, 0.7);
+
+  position: relative;
+  width: 100%;
+}
+.titulos111 {
   text-align: center;
+  display: flex;
+  justify-content: space-between;
   
 }
+
 
 table {
   color: black;
@@ -124,10 +186,46 @@ table {
   border-radius: 15px;
 }
 
+/*------cuadro de dar de baja-------*/
+
+.baja-container {
+  width: 100%;
+  height: 180px;
+
+  position: relative;
+}
+.baja-container2 {
+  background-color: rgb(255, 255, 255, 0.7);
+  position: relative;
+  width: 25%;
+  left: 10%;
+  height: 80%;
+  border-radius: 15px;
+  border: solid #fbb03b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.eliminar {
+  border: none;
+  border-radius: 50px;
+  height: 25px;
+  width: 90px;
+}
+.fechabajaconboton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: relative;
+  width: 290px;
+}
+
 /*---------------------------------------------inicia seccion para los filtros que no tengo idea por que los importamos desde aqui xdxd lol uwu -----------------------------------------------------*/
 /*---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-.cuadroreportes{
+.cuadroreportes {
   background-color: #fbb03b;
   position: relative;
   top: 15px;
@@ -138,31 +236,28 @@ table {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  
 }
-.acomodacion{
+.acomodacion {
   position: relative;
   left: 2%;
 }
-.marginbutons1{
+.marginbutons1 {
   margin: 5px;
 }
-.seleccionboton2{
+.seleccionboton2 {
   position: relative;
-  left: 15%;
-  
 }
-.select{
+.select {
   position: absolute;
   right: 5%;
 }
 .refrescar {
-  border: solid rgb(255, 255, 255, 0.7) ;
-  border-radius: 15px;
+  border: solid rgb(255, 255, 255, 0.7);
+  border-radius: 5px;
   height: 45px;
   width: 105px;
 }
-.buton{
+.buton {
   border: none;
   border-radius: 15px;
   height: 25px;
@@ -171,25 +266,62 @@ table {
 
 /*-------------------------------------Edicion especifica del historial------------------------------------------------*/
 
-.tituloshistorial{
+.tituloshistorial {
   font-size: 20px;
   padding: 0 0 12px 0;
 }
-.tablainventariohistorial{
+.tablainventariohistorial {
   position: relative;
   width: 80%;
   left: 10%;
   display: flex;
   justify-content: center;
-  margin:10px 0 50px 0;
-  border: solid #FBB03B;
+  margin: 10px 0 50px 0;
+  border: solid #fbb03b;
   border-radius: 5px;
-
+}
+.trash {
+  background-color: rgb(255, 255, 255, 0.7);
+  position: absolute;
+  left: 32.5px;
+  top: 120px;
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  border: solid #fbb03b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.trash1 {
+  position: relative;
+  width: 40px;
+}
+.trashsh {
+  background-color: rgb(255, 255, 255, 0.7);
+  position: absolute;
+  left: 510px;
+  top: 72px;
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  border: solid #fbb03b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.trashsh1 {
+  position: relative;
+  width: 40px;
 }
 
 /*-------------------------------------Edicion especifica de bajas------------------------------------------------*/
-
-.tablainventariobajas{
+.fullpage {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.tablainventariobajas {
   position: relative;
   width: 90%;
   left: 5%;
@@ -197,5 +329,214 @@ table {
   border-radius: 5px;
   justify-content: center;
   margin-bottom: 40px;
-  border: solid #FBB03B;
+  border: solid #fbb03b;
+}
+.recuperar-segunda {
+  border: none;
+  border-radius: 10px;
+  height: 25px;
+}
+.recuperarsegunda1 {
+  position: absolute;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+}
+
+.recuperarsegunda2 {
+  background-color: rgb(255, 255, 255, 0.7);
+  position: absolute;
+  left: 48%;
+  bottom: 88px;
+  width: 15%;
+  height: 60%;
+  border-radius: 15px;
+  border: solid #fbb03b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*---------------------------------------------------estilo para seccion de borrar opciones/ agregar opciones select en el area de captura-------------------------*/
+
+.pantalla-completa {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.primercuadro {
+  background-color: rgb(255, 255, 255, 0.7);
+  position: relative;
+  width: 80%;
+  height: 70%;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.selects {
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.selectsxd {
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.selects1 {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.selects1xd {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.selects11 {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+  background-color: rgb(48, 47, 47);
+  border-radius: 15px;
+  border: solid #fbb03b;
+  width: 90%;
+  height: 50%;
+}
+.selects11xd {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: left;
+  position: relative;
+  background-color: rgb(48, 47, 47);
+  border-radius: 15px;
+  border: solid #fbb03b;
+  width: 80%;
+  height: 80%;
+}
+.selects2 {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.selects2xd {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+select {
+  width: 150px;
+}
+option {
+  width: 150px;
+}
+.divpersonal {
+  align-items: flex-start;
+  position: relative;
+  left: 10%;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+}
+input {
+  text-align: left;
+}
+.selectspersonal {
+  background-color: rgb(255, 255, 255, 0.7);
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.losbotones {
+  background-color: #fbb03b;
+  position: relative;
+  height: 12%;
+  border-radius: 15px 15px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.losbotones2 {
+  position: relative;
+  width: 23%;
+  height: 100%;
+  border-radius: 0 15px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.divtextoactualizar {
+  border-radius: 15px 0 0 0;
+  display: flex;
+  height: 100%;
+  width: 30%;
+  justify-content: center;
+}
+.textoactualiza {
+  font-size: 20px;
+  position: relative;
+  color: white;
+  height: 100%;
+  padding: 0px 0px 0px 22px;
+}
+.losbotones2xd {
+  position: relative;
+  width: 23%;
+  height: 100%;
+  border-radius: 0 15px 0 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.botonsecitos {
+  padding: 10px;
+  border-radius: 5px;
+  margin: 15px;
+  width: 80px;
+  border: none;
+  border: solid rgb(255, 255, 255, 0.7);
+}
+
+.botonstiles {
+  border: none;
+  border-radius: 15px;
+  height: 22px;
+  width: 800px;
+  margin-left: 15px;
+}
+.botonstilesparticularidades {
+  border: none;
+  border-radius: 15px;
+  height: 37px;
+  width: 800px;
+  margin-left: 15px;
+}
+.Agregaopciontexto {
+  width: 100%;
+  position: relative;
+  color: white;
+  font-size: 16px;
 }

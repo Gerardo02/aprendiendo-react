@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom";
 import "../style-captura1.css";
 //import toro from "../images/captura.png";
 
@@ -129,42 +129,54 @@ class App2 extends Component {
       let mm3 = today3.getMonth() + 1;
       let yyyy3 = today3.getFullYear();
       let fechaMovimiento = `${dd3}/${mm3}/${yyyy3}`;
-
-      const particularidades = document.getElementById("particularidades")
-        .value;
-      const movimiento = "Captura";
-      let sendHistorial = async () => {
-        const response = await fetch(
-          `http://localhost:4000/send/historial?tipo=${tipo}&numGuia=${numGuia}&raza=${raza}&arete=${arete}&fecha=${fechaMovimiento}&movimiento=${movimiento}`
-        );
+      const { dialog } = global.require("electron").remote;
+      const dialogOptions = {
+        type: "info",
+        buttons: ["OK"],
+        message: "Falta el arete!!"
       };
       if (arete !== "") {
         console.log(empresas);
+
+        const particularidades = document.getElementById("particularidades")
+          .value;
+        const movimiento = "Captura";
+        let sendHistorial = async () => {
+          const response = await fetch(
+            `http://localhost:4000/send/historial?tipo=${tipo}&numGuia=${numGuia}&raza=${raza}&arete=${arete}&fecha=${fechaMovimiento}&movimiento=${movimiento}`
+          );
+        };
+
+        const dialogOptions1 = {
+          type: "info",
+          buttons: ["OK"],
+          message: "Datos incompletos (si no se sabe algun dato, inventarlo)"
+        };
+        if (
+          precio !== "" &&
+          numGuia !== "" &&
+          diaAlt !== "" &&
+          mesAlt !== "" &&
+          anoAlt !== "" &&
+          dia !== "" &&
+          mes !== "" &&
+          ano !== "" &&
+          pesoCompra !== "" &&
+          pesoActual !== "" &&
+          diaVac !== "" &&
+          mesVac !== "" &&
+          anoVac !== ""
+        ) {
+          window.location.reload();
+          const response = await fetch(
+            `http://localhost:4000/add?empresas=${empresas}&predio=${predio}&precio=${precio}&numGuia=${numGuia}&tipo=${tipo}&raza=${raza}&origen=${origen}&arete=${arete}&fechaAlta=${fechaAlta}&fechaNac=${fechaNac}&pesoCompra=${pesoCompra}&pesoActual=${pesoActual}&incremento=${incremento}&estatus=${estatus}&edad=${edad}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}`
+          );
+          sendHistorial();
+        } else {
+          dialog.showMessageBoxSync(dialogOptions1, i => console.log(i));
+        }
       } else {
-        alert("Arete necesario!!!!!!!!!!!!!!!!!!");
-      }
-      if (
-        precio !== "" &&
-        numGuia !== "" &&
-        diaAlt !== "" &&
-        mesAlt !== "" &&
-        anoAlt !== "" &&
-        dia !== "" &&
-        mes !== "" &&
-        ano !== "" &&
-        pesoCompra !== "" &&
-        pesoActual !== "" &&
-        diaVac !== "" &&
-        mesVac !== "" &&
-        anoVac !== ""
-      ) {
-        window.location.reload();
-        const response = await fetch(
-          `http://localhost:4000/add?empresas=${empresas}&predio=${predio}&precio=${precio}&numGuia=${numGuia}&tipo=${tipo}&raza=${raza}&origen=${origen}&arete=${arete}&fechaAlta=${fechaAlta}&fechaNac=${fechaNac}&pesoCompra=${pesoCompra}&pesoActual=${pesoActual}&incremento=${incremento}&estatus=${estatus}&edad=${edad}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}`
-        );
-        sendHistorial();
-      } else {
-        alert("Datos incompletos (si no se sabe algun dato, inventarlo)");
+        dialog.showMessageBoxSync(dialogOptions, i => console.log(i));
       }
     }; /* 
     buttons.forEach(button => {
@@ -172,214 +184,196 @@ class App2 extends Component {
     });*/
     return (
       <React.Fragment>
-        <div className="div-filtros">
-          <a href="/add">
-            <button>Agregar Datos</button>
-          </a>
-          <a href="/eliminar">
-            <button>Eliminar Datos</button>
-          </a>
-        </div>
         <div className="index-page">
           <div className="cua cuadro-1">
+            <div className="banner1 cua-2">
+              <Link to="/add">
+                <button className="botonsito">Agregar opciones</button>
+              </Link>
+              <Link to="/eliminar">
+                <button className="botonsito">Eliminar opciones</button>
+              </Link>
+            </div>
             <div className="textito-cuadrito">
-              Empresas
+              <strong>Empresas</strong>
               <br />
               <select className="" id="empresas">
                 <option value="">Selecciona una empresa...</option>
-                <option value="Ganadera XX SPR de RL">
-                  Ganadera XX SPR de RL
-                </option>
               </select>
               <br />
               <br />
-              Predio
+              <strong>Predio</strong>
               <br />
               <select className="" id="predio">
                 <option value="">Selecciona el predio...</option>
-                <option value="Santa Teresa">Santa Teresa</option>
               </select>
               <br />
               <br />
-              Precio
+              <strong>Precio</strong>
               <br />
               <input
                 className="input1 inputprecio"
                 type="text"
-                maxlength="7"
+                maxLength="7"
                 id="precio"
               />{" "}
               $
               <br />
               <br />
-              numero de guia
+              <strong>Numero de guia</strong>
               <br />
               <input className="input1" type="text" id="numGuia"></input>
               <br />
               <br />
-              Tipo de ganado
+              <strong>Tipo de ganado</strong>
               <br />
               <select id="tipo">
                 <option value="">Selecciona el tipo de ganado...</option>
-                <option value="Toro">Toro</option>
-                <option value="Becerro">Becerro</option>
-                <option value="Becerra">Becerra</option>
-                <option value="Vaquilla">Vaquilla</option>
-                <option value="Vaquilla cargada">Vaquilla cargada</option>
-                <option value="Vaca adulta">Vaca adulta</option>
               </select>
               <br />
               <br />
-              Raza del animal
+              <strong>Raza del animal</strong>
               <br />
               <select id="raza">
                 <option value="">Selecciona la raza del animal...</option>
-                <option value="Brangus">Brangus</option>
-                <option value="Simental">Simental</option>
-                <option value="Pinta">Pinta</option>
               </select>
               <br />
               <br />
-              Origen del animal
+              <strong>Origen del animal</strong>
               <br />
               <select id="origen">
                 <option value="">Selecciona el origen del animal...</option>
-                <option value="Criollo">Criollo</option>
               </select>
               <br />
               <br />
-              Arete del animal
+              <strong>Arete del animal</strong>
               <br />
               <input className="input1" type="text" id="arete"></input>
               <br />
               <br />
-              Fecha en que se registra el animal
+              <strong>Fecha en que se registra el animal</strong>
               <br />
               <input
                 className="input1 inputfecha"
-                maxlength="2"
+                maxLength="2"
                 type="text"
                 id="diaAlt"
               />
               /
               <input
                 className="input1 inputfecha"
-                maxlength="2"
+                maxLength="2"
                 type="text"
                 id="mesAlt"
               />
               /
               <input
                 className="input1 inputfecha inputaño"
-                maxlength="4"
+                maxLength="4"
                 type="text"
                 id="anoAlt"
               />
               <br />
               <br />
             </div>
-            <div className="banner cua-1">
-              <p className="textito">Esto va dentro del banner </p>
-            </div>
           </div>
           <div className="cua cuadro-2">
+            <div className="banner cua-2">
+              <button className="botonsito" onClick={addData}>
+                Aceptar
+              </button>
+            </div>
             <div className="textito-cuadrito">
-              Fecha de nacimiento
+              <strong>Fecha de nacimiento</strong>
               <br />
               <input
                 className="input1 inputfecha"
-                maxlength="2"
+                maxLength="2"
                 type="text"
                 id="dia"
               />
               /
               <input
                 className="input1 inputfecha"
-                maxlength="2"
+                maxLength="2"
                 type="text"
                 id="mes"
               />
               /
               <input
                 className="input1 inputfecha inputaño"
-                maxlength="4"
+                maxLength="4"
                 type="text"
                 id="ano"
               ></input>
               <br />
               <br />
-              Lo que peso cuando se compro
+              <strong>Lo que peso cuando se compro</strong>
               <br />
               <input
                 className="input1 inputkg"
-                maxlength="3"
+                maxLength="4"
                 type="text"
                 id="peso-compra"
               ></input>
               kg
               <br />
               <br />
-              Lo que pesa ahora (Si se acaba de comprar, registrar el mismo
-              peso)
+              <strong>
+                Lo que pesa ahora (Si se acaba de comprar, registrar el mismo
+                peso)
+              </strong>
               <br />
               <input
                 className="input1 inputkg"
-                maxlength="3"
+                maxLength="4"
                 type="text"
                 id="peso-actual"
               ></input>
               kg
               <br />
               <br />
-              Estado del animal
+              <strong>Estado del animal</strong>
               <br />
               <select id="estatus">
                 <option value="">Selecciona el estatus del animal...</option>
-                <option value="Vacia">Vacia</option>
-                <option value="Cargada">Cargada</option>
               </select>
               <br />
               <br />
-              Ultima fecha en la que pario (Si nunca lo ha hecho, escribir la
-              fecha de nacimiento)
+              <strong>
+                Ultima fecha en la que pario (Si nunca lo ha hecho, escribir la
+                fecha de nacimiento)
+              </strong>
               <br />
               <input
                 className="input1 inputfecha"
-                maxlength="2"
+                maxLength="2"
                 type="text"
                 id="diaVac"
               />
               /
               <input
                 className="input1 inputfecha"
-                maxlength="2"
+                maxLength="2"
                 type="text"
                 id="mesVac"
               />
               /
               <input
                 className="input1 inputfecha inputaño"
-                maxlength="4"
+                maxLength="4"
                 type="text"
                 id="anoVac"
               />
               <br />
               <br />
-              Alguna particularidad que pueda tener el animal
+              <strong>Alguna particularidad que pueda tener el animal</strong>
               <br />
               <select id="particularidades">
-                <option value="">Particularidad del animal</option>
-                <option value="Enfermo">Enfermo</option>
-                <option value="Extraviado">Extraviado</option>
-                <option value="Bronco">Bronco</option>
+                <option value="">Particularidad del animal...</option>
               </select>
               <br />
               <br />
-            </div>
-            <div className="banner cua-2">
-              <button className="botonsito" onClick={addData}>
-                Aceptar
-              </button>
             </div>
           </div>
         </div>
