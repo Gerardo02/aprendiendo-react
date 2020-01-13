@@ -48,15 +48,16 @@ class principal extends Component {
           </div>
 
           <div className="fecha-hoy">
-            <p className="fech dia-hoy"> {dd}</p>
-            <p className="fech slash">/</p>
-            <p className="fech mes-hoy"> {mm}</p>
+          
+
+            <p className="fech dia-hoy"> {dd} / {mm}</p>
+            
           </div>
-          <div className="banner-vaca">
+          <img className="vacalogo" src={superlogo} href="/captura"></img>
             <a href="/captura">
-              <img className="vacavaca" src={supervaca} href="/captura"></img>
-            </a>
-          </div>
+          <img className="vacavaca" src={supervaca} ></img>
+          </a>
+          
           <footer>
             <div className="footer">
               <a className="ayuda iconos-footer">

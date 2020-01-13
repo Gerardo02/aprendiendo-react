@@ -7,35 +7,40 @@ class bajas2 extends Component {
   async componentDidMount() {
     const response = await fetch("http://localhost:4000/bajas");
     const data = await response.json();
-    //console.log(data);
-    const inventario = document.getElementById("table-inve");
     let flag = 0;
+    const listavariables = document.getElementById("listavariables");
     data.forEach(element => {
-      inventario.innerHTML += `
+      listavariables.innerHTML += `
+      
       <tr>
-          <td>${element.empresas}</td>
-          <td>${element.predio}</td>     
-          <td>${element.precio}</td>     
-          <td>${element.num_guia}</td>     
-          <td>${element.tipo}</td>     
-          <td>${element.raza}</td>   
-          <td>${element.origen}</td>
-          <td>${element.arete}</td>
-          <td>${element.fecha_alta}</td>
-          <td>${element.fecha_nacimiento}</td>
-          <td>${element.peso_compra}</td>
-          <td>${element.peso_actual}</td>
-          <td>${element.incremento_peso}</td>
-          <td>${element.estatus}</td>
-          <td>${element.edad}</td>
-          <td>${element.ultimo_parto}</td>
-          <td>${element.meses_vacia}</td>
-          <td>${element.particularidades}</td>
-          <td><button class="btn-baja" data-arete=${element.arete} data-numero=${flag}>Recuperar ${element.arete}</button></td>
-        </tr>
+      <td> ${element.empresas} </td>
+      <td> ${element.predio} </td>
+       <td> ${element.precio} </td>
+       <td> ${element.num_guia} </td>
+       <td> ${element.tipo} </td>
+       <td> ${element.raza} </td>
+       <td> ${element.origen} </td>
+       <td> ${element.arete} </td>
+       <td> ${element.fecha_alta} </td>
+       <td> ${element.fecha_nacimiento} </td>
+       <td> ${element.peso_compra} </td>
+       <td> ${element.peso_actual} </td>
+       <td> ${element.estatus} </td>
+       <td> ${element.ultimo_parto} </td>
+       <td> ${element.particularidades} </td>
+       <td> ${element.fecha_baja} </td>
+       <td> ${element.motivo_baja} </td>
+      
+      
+       <td>
+      <button class="btn-baja" data-arete=${element.arete} data-numero=${flag} >Recuperar ${element.arete}</button>
+      </td>
+     
+     
       `;
 
       flag++;
+
     });
     document.getElementById("btn-rec").style.display = "none";
     let buttons = document.querySelectorAll("button.btn-baja");
@@ -111,31 +116,25 @@ class bajas2 extends Component {
         <br />
         <br />
         <button className="recuperar-segunda" id="btn-rec">
-          Recuperar
+          Recuperarararara
         </button>
-        <table id="table-inve" className="table-inve">
-          <tr>
-            <th>Empresa</th>
-            <th>Predio</th>
-            <th>Precio</th>
-            <th>Numero de Guia</th>
-            <th>Tipo de Ganado</th>
-            <th>Raza</th>
-            <th>Origen</th>
-            <th>Arete</th>
-            <th>Fecha de Registro</th>
-            <th>Fecha de Nacimiento</th>
-            <th>Peso de Compra</th>
-            <th>Peso Actual</th>
-            <th>Incremento de peso</th>
-            <th>Estatus</th>
-            <th>Edad (en meses)</th>
-            <th>Ultimo Parto</th>
-            <th>Meses Vacia</th>
-            <th>Particularidades</th>
-            <th>Recuperar</th>
-          </tr>
-        </table>
+        <div className="tablainventariobajas">
+        <div className="titulosnombres">
+          <table id="listavariables">
+            <div className="titulos1">
+           <tr className="titulos">
+           <th>empresas</th><th>Predio</th><th>Precio</th><th>N° Guia </th> <th>Tipo de ganado</th><th>Raza </th><th>Origen</th><th>Arete</th><th>Fecha de registro</th><th>Fecha de nacimiento</th><th>Peso de compra</th><th>Peso actual</th><th>Estado del animal</th><th>Ultima fecha de parto</th><th>Particularidad</th><th>Fecha de baja</th><th>Motivo de baja</th><th>Recuperar</th>
+           </tr>
+           </div>
+          
+            <tr className="listavariables" >
+            </tr>
+            
+    
+          </table>
+          </div>
+        </div>
+        
       </>
     );
   }

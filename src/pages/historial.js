@@ -8,22 +8,23 @@ class historial extends Component {
     const data = await response.json();
     //console.log(data);
     const { filtertext } = this.props;
-    const inventario = document.getElementById("table-inve");
+    const listavariables = document.getElementById("listavariables"); 
+   
     let flag = 0;
     data.forEach(element => {
-      inventario.innerHTML += `
-      
+      listavariables.innerHTML += `
       <tr>
-        <td>${element.arete}</td>
+      <br/>
+      <td>${element.arete}</td>
         <td>${element.num_guia}</td>
-        <td>${element.fecha}</td>
-        <td>${element.movimiento}</td>
         <td>${element.tipo}</td>
         <td>${element.raza}</td>
+        <td>${element.fecha}</td>
+        <td>${element.movimiento}</td>
+
       </tr>
-      `;
-      flag++;
-    });
+      `
+    }); 
   }
 
   render() {
@@ -51,18 +52,26 @@ class historial extends Component {
         </div>
         <br />
         <br />
-
-        <div id="cuadro-inventario"></div>
-        <table id="table-inve" className="table-inve">
-          <tr>
-            <th>Arete</th>
-            <th>Numero de Guia</th>
-            <th>Fecha</th>
-            <th>Movimiento</th>
-            <th>Tipo de Ganado</th>
-            <th>Raza</th>
-          </tr>
-        </table>
+        <div className="tablainventariohistorial">
+        <div className="titulosnombres">
+          <table id="listavariables">
+            <div className="titulos1">
+           <tr className="titulos">
+            <th className="tituloshistorial">Arete</th>
+            <th className="tituloshistorial">Numero de Guia</th>
+            <th className="tituloshistorial">Tipo de Ganado</th>
+            <th className="tituloshistorial">Raza</th>
+            <th className="tituloshistorial">Fecha</th>
+            <th className="tituloshistorial">Movimiento</th>
+           </tr>
+           </div>
+            <tr className="listavariables" >
+            </tr>
+            
+    
+          </table>
+          </div>
+          </div>
       </>
     );
   }

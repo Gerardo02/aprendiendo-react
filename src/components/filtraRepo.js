@@ -217,30 +217,38 @@ class Filtra extends Component {
     };
     return (
       <>
-        <div id="cuadro-reporte">
-          <button onClick={callFiltros}>Los que incrementaron de peso</button>
-          <button onClick={callDecre}>Los que decrementaron de peso</button>
-          <button onClick={callVacia}>Las que estan vacias</button>
-          <button onClick={callCargada}>Las que estan cargadas</button>
-          <select id="callPredio">
+        <div id="cuadro-reporte" >
+          <div className="cuadroreportes">
+          <div className="acomodacion">
+          <div className="seleccionboton">
+          <button className="marginbutons1 buton" onClick={callFiltros}>Los que incrementaron de peso</button>
+          <button className="marginbutons1 buton" onClick={callDecre}>Los que decrementaron de peso</button>
+          <button className="marginbutons1 buton" onClick={callVacia}>Las que estan vacias</button>
+          <button className="marginbutons1 buton" onClick={callCargada}>Las que estan cargadas</button>
+          </div>
+          <div className="seleccionboton2">
+          <select className="marginbutons1 " id="callPredio">
             <option value="">Selecciona el predio...</option>
           </select>
-          <button onClick={callPredio}>Aceptar predio</button>
-          <select id="callOrigen">
+          <button className=" buton" onClick={callPredio}>Aceptar predio</button>
+          <select className="marginbutons1" id="callOrigen">
             <option value="">Selecciona el origen...</option>
           </select>
-          <button onClick={callOrigen}>Aceptar origen</button>
-
+          <button className=" buton" onClick={callOrigen}>Aceptar origen</button>
+          </div>
+          
+        </div>
+            <div className="select">
           <form>
             <button className="refrescar">Refrescar</button>
           </form>
+          </div>
+          </div>
         </div>
-
         <br />
         <br />
         <div className="tablainventario">
-          <div className="titulosnombres"></div>
-        </div>
+          <div className="titulosnombres">
         <table id="table-inve" className="table-inve">
           <tr>
             <th>Empresa</th>
@@ -263,6 +271,8 @@ class Filtra extends Component {
             <th>Particularidades</th>
           </tr>
         </table>
+        </div>
+        </div>
       </>
     );
   }
