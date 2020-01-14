@@ -130,6 +130,17 @@
   margin: 0 30px 0 0;
 }
 
+.btn-InveRegresar{
+  border: none;
+  border-radius: 50px;
+  height: 25px;
+  width: 90px;
+  position: absolute;
+  top: 12.5px;
+  right: 115px;
+  margin: 0 30px 0 0;
+}
+
 .btn-recuperartodos{
   border: none;
   border-radius: 50px;
@@ -184,11 +195,18 @@
 
 table {
   color: black;
-
+  font-size: 12px;
   text-align: center;
   width: 100%;
-  font-size: 14px;
+  height: auto;
   position: relative;
+  table-layout: fixed;
+  
+}
+
+th ,td {
+  
+  width: "5.555%";
 }
 
 .btn-baja {

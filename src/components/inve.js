@@ -210,7 +210,7 @@ class Inve extends Component {
           </div>
           <div className="tablainventario1" id="anti-hacker">
             <div className="titulosnombres1" id="anti-hacker">
-              <table id="tbl-arete">
+              <table id="tbl-arete" >
                 <tr>
                   <th>Empresa</th>
                   <th>Predio</th>
@@ -236,7 +236,7 @@ class Inve extends Component {
           </div>
           <div className="tablainventario">
             <div className="titulosnombres">
-              <table id="table-inve" className="table-inve">
+              <table id="table-inve" className="table-inve" >
                 <tr>
                   <th>Empresa</th>
                   <th>Predio</th>
@@ -255,8 +255,9 @@ class Inve extends Component {
                   <th>Ultimo Parto</th>
                   <th>Meses Vacia</th>
                   <th>Particularidades</th>
-                  <th>Dar de Baja</th>
+                <th>Dar de Baja</th>
                 </tr>
+                
               </table>
             </div>
           </div>

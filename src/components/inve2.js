@@ -156,8 +156,8 @@ class Inve extends Component {
           </button>
           
           <div className="div-actualizar">
-          <Link to="/inventarioCompleto">
-              <button className="btn-Invecompleto">Inventario completo</button>
+          <Link to="/inventario1">
+              <button className="btn-InveRegresar">Regresar</button>
             </Link>
             <Link to="/actualizar">
               <button className="btn-actualizar">Actualizar</button>
