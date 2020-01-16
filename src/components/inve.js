@@ -11,7 +11,7 @@ class Inve extends Component {
     let flag = 0;
     document.getElementById("tbl-arete").style.display = "none";
     document.getElementById("anti-hacker").style.display = "none";
-    for(let i = 0; i<50; i++){
+    for (let i = 0; i < 50; i++) {
       const element = data[i];
       inventario.innerHTML += `
       <tr>
@@ -39,8 +39,6 @@ class Inve extends Component {
       `;
       flag++;
     }
-      
-    
 
     document.getElementById("baja-container").style.display = "none";
     let buttons = document.querySelectorAll("button.btn-baja");
@@ -120,8 +118,6 @@ class Inve extends Component {
       //window.location.reload();
       data.forEach(element => {
         cuadro.innerHTML += `
-        
-        
         <tr>
           <td>${element.empresas}</td>
           <td>${element.predio}</td>     
