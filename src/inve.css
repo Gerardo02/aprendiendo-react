@@ -200,8 +200,7 @@ table {
   width: 100%;
   height: auto;
   position: relative;
-  table-layout: fixed;
-  
+  overflow: hidden;
 }
 
 th ,td {

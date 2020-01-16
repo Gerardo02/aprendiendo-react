@@ -14,30 +14,29 @@ class Inve extends Component {
     for(let i = 0; i<50; i++){
       const element = data[i];
       inventario.innerHTML += `
+       
       <tr>
-        <td>${element.empresas}</td>
-        <td>${element.predio}</td>     
-        <td>${element.precio}</td>     
-        <td>${element.num_guia}</td>     
-        <td>${element.tipo}</td>     
-        <td>${element.raza}</td>   
-        <td>${element.origen}</td>
-        <td>${element.arete}</td>
-        <td>${element.fecha_alta}</td>
-        <td>${element.peso_compra}</td>
-        <td>${element.peso_actual}</td>
-        <td>${element.incremento_peso}</td>
-        <td>${element.estatus}</td>
-        <td>${element.edad}</td>
-        <td>${element.ultimo_parto}</td>
-        <td>${element.meses_vacia}</td>
-        <td>${element.particularidades}</td>
-        <td><button class="btn-baja" data-arete=${element.arete} data-numero=${flag} id="btn-top">Baja</button></td>
-      </tr>
-      
-      
-      `;
-      flag++;
+      <td>${element.empresas}</td>
+      <td>${element.predio}</td>     
+      <td>${element.precio}</td>     
+      <td>${element.num_guia}</td>     
+      <td>${element.tipo}</td>     
+      <td>${element.raza}</td>   
+      <td>${element.origen}</td>
+      <td>${element.arete}</td>
+      <td>${element.fecha_alta}</td>
+      <td>${element.peso_compra}</td>
+      <td>${element.peso_actual}</td>
+      <td>${element.incremento_peso}</td>
+      <td>${element.estatus}</td>
+      <td>${element.edad}</td>
+      <td>${element.ultimo_parto}</td>
+      <td>${element.meses_vacia}</td>
+      <td>${element.particularidades}</td>
+      <td><button class="btn-baja" data-arete=${element.arete} data-numero=${flag} id="btn-top">Baja</button></td>
+    </tr>
+    `;
+    flag++;
     }
       
     
