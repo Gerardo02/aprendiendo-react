@@ -11,8 +11,7 @@ class Inve extends Component {
     let flag = 0;
     document.getElementById("tbl-arete").style.display = "none";
     document.getElementById("anti-hacker").style.display = "none";
-    for(let i = 0; i<50; i++){
-      const element = data[i];
+    data.forEach(element => {
       inventario.innerHTML += `
       <tr>
         <td>${element.empresas}</td>
@@ -38,7 +37,7 @@ class Inve extends Component {
       
       `;
       flag++;
-    }
+    });
       
     
 
