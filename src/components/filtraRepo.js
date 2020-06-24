@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../inve.css";
 class Filtra extends Component {
   async componentDidMount() {
-    const response = await fetch("http://localhost:4000/agregados");
+    const response = await fetch("https://server-inve.herokuapp.com/agregados");
     const data = await response.json();
     const inventario = document.getElementById("callPredio");
     const origen = document.getElementById("callOrigen");
@@ -22,11 +22,14 @@ class Filtra extends Component {
     });
   }
   render() {
+
+    let flag = 0;
     let callFiltros = async () => {
-      const response = await fetch("http://localhost:4000/filtrar");
+      const response = await fetch("https://server-inve.herokuapp.com/filtrar");
       const data = await response.json();
       const inventario = document.getElementById("table-inve");
       data.forEach(element => {
+        const total = document.getElementById("total");
         inventario.innerHTML += `
       
         <tr>
@@ -50,13 +53,16 @@ class Filtra extends Component {
         <td>${element.particularidades}</td>
       </tr>
       `;
+        flag++;
+        total.innerText = flag;
       });
     };
     let callDecre = async () => {
-      const response = await fetch("http://localhost:4000/filtrar/decre");
+      const response = await fetch("https://server-inve.herokuapp.com/filtrar/decre");
       const data = await response.json();
       const inventario = document.getElementById("table-inve");
       data.forEach(element => {
+        const total = document.getElementById("total");
         inventario.innerHTML += `
         
         <tr>
@@ -80,13 +86,16 @@ class Filtra extends Component {
         <td>${element.particularidades}</td>
       </tr>
         `;
+        flag++;
+        total.innerText = flag;
       });
     };
     let callVacia = async () => {
-      const response = await fetch("http://localhost:4000/filtrar/vacia");
+      const response = await fetch("https://server-inve.herokuapp.com/filtrar/vacia");
       const data = await response.json();
       const inventario = document.getElementById("table-inve");
       data.forEach(element => {
+        const total = document.getElementById("total");
         inventario.innerHTML += `
           
         <tr>
@@ -110,13 +119,16 @@ class Filtra extends Component {
         <td>${element.particularidades}</td>
       </tr>
           `;
+        flag++;
+        total.innerText = flag;
       });
     };
     let callCargada = async () => {
-      const response = await fetch("http://localhost:4000/filtrar/cargada");
+      const response = await fetch("https://server-inve.herokuapp.com/filtrar/cargada");
       const data = await response.json();
       const inventario = document.getElementById("table-inve");
       data.forEach(element => {
+        const total = document.getElementById("total");
         inventario.innerHTML += `
             
         <tr>
@@ -140,6 +152,8 @@ class Filtra extends Component {
         <td>${element.particularidades}</td>
       </tr>
       `;
+        flag++;
+        total.innerText = flag;
       });
     };
 
@@ -147,13 +161,14 @@ class Filtra extends Component {
       const predioCall = document.getElementById("callPredio").value;
 
       const response = await fetch(
-        `http://localhost:4000/filtrar/predio?predio=${predioCall}`
+        `https://server-inve.herokuapp.com/filtrar/predio?predio=${predioCall}`
       );
 
       const data = await response.json();
       const inventario = document.getElementById("table-inve");
 
       data.forEach(element => {
+        const total = document.getElementById("total");
         inventario.innerHTML += `
                   
         <tr>
@@ -177,19 +192,22 @@ class Filtra extends Component {
         <td>${element.particularidades}</td>
       </tr>
       `;
+        flag++;
+        total.innerText = flag;
       });
     };
     let callOrigen = async () => {
       const origenCall = document.getElementById("callOrigen").value;
 
       const response = await fetch(
-        `http://localhost:4000/filtrar/origen?origen=${origenCall}`
+        `https://server-inve.herokuapp.com/filtrar/origen?origen=${origenCall}`
       );
 
       const data = await response.json();
       const inventario = document.getElementById("table-inve");
 
       data.forEach(element => {
+        const total = document.getElementById("total");
         inventario.innerHTML += `
                     
         <tr>
@@ -213,14 +231,52 @@ class Filtra extends Component {
         <td>${element.particularidades}</td>
       </tr>
       `;
+        flag++;
+        total.innerText = flag;
       });
     };
+    let callVenta = async () => {
+      const response = await fetch("https://server-inve.herokuapp.com/bajas");
+      const data = await response.json();
+      const inventario = document.getElementById("table-inve");
+      data.forEach(element => {
+        const total = document.getElementById("total");
+        if (element.motivo_baja === "Vendido" || element.motivo_baja === "vendido") {
+          inventario.innerHTML += `
+        
+          <tr>
+          <td>${element.empresas}</td>
+          <td>${element.predio}</td>     
+          <td>${element.precio}</td>     
+          <td>${element.num_guia}</td>     
+          <td>${element.tipo}</td>     
+          <td>${element.raza}</td>   
+          <td>${element.origen}</td>
+          <td>${element.arete}</td>
+          <td>${element.fecha_alta}</td>
+          <td>${element.fecha_nacimiento}</td>
+          <td>${element.peso_compra}</td>
+          <td>${element.peso_actual}</td>
+          <td>${element.incremento_peso}</td>
+          <td>${element.estatus}</td>
+          <td>${element.edad}</td>
+          <td>${element.ultimo_parto}</td>
+          <td>${element.meses_vacia}</td>
+          <td>${element.particularidades}</td>
+        </tr>
+          `;
+          flag++;
+          total.innerText = flag;
+        }
 
+      });
+    };
     let refresh = () => {
       window.location.reload();
     };
     return (
       <>
+
         <div id="cuadro-reporte">
           <div className="cuadroreportes">
             <div className="acomodacion">
@@ -236,6 +292,9 @@ class Filtra extends Component {
                 </button>
                 <button className="marginbutons1 buton" onClick={callCargada}>
                   Las que estan cargadas
+                </button>
+                <button className="marginbutons1 buton" onClick={callVenta}>
+                  Vendido
                 </button>
               </div>
               <div className="seleccionboton2">
@@ -253,6 +312,7 @@ class Filtra extends Component {
                 </button>
               </div>
             </div>
+            <span className="total">Total: <span id="total"></span></span>
             <div className="select">
               <button className="refrescar" onClick={refresh}>
                 Refrescar

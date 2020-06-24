@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 class Inve extends Component {
   async componentDidMount() {
-    const response = await fetch("http://localhost:4000/datos");
+    const response = await fetch("https://server-inve.herokuapp.com/datos");
     const data = await response.json();
     //console.log(data);
     const inventario = document.getElementById("table-inve");
@@ -38,8 +38,8 @@ class Inve extends Component {
       `;
       flag++;
     });
-      
-    
+
+
 
     document.getElementById("baja-container").style.display = "none";
     let buttons = document.querySelectorAll("button.btn-baja");
@@ -73,12 +73,12 @@ class Inve extends Component {
         const motivoBaja = document.getElementById("motivo-baja").value;
         const fechaBaja = `${dia}/${mes}/${ano}`;
         const sendToBajas = await fetch(
-          `http://localhost:4000/send?empresas=${data[numId].empresas}&predio=${data[numId].predio}&precio=${data[numId].precio}&numGuia=${data[numId].num_guia}&tipo=${data[numId].tipo}&raza=${data[numId].raza}&origen=${data[numId].origen}&arete=${data[numId].arete}&fechaAlta=${data[numId].fecha_alta}&fechaNac=${data[numId].fecha_nacimiento}&pesoCompra=${data[numId].peso_compra}&pesoActual=${data[numId].peso_actual}&incremento=${data[numId].incremento_peso}&estatus=${data[numId].estatus}&edad=${data[numId].edad}&ultimoParto=${data[numId].ultimo_parto}&mesesVacia=${data[numId].meses_vacia}&particularidades=${data[numId].particularidades}&motivoBaja=${motivoBaja}&fechaBaja=${fechaBaja}`
+          `https://server-inve.herokuapp.com/send?empresas=${data[numId].empresas}&predio=${data[numId].predio}&precio=${data[numId].precio}&numGuia=${data[numId].num_guia}&tipo=${data[numId].tipo}&raza=${data[numId].raza}&origen=${data[numId].origen}&arete=${data[numId].arete}&fechaAlta=${data[numId].fecha_alta}&fechaNac=${data[numId].fecha_nacimiento}&pesoCompra=${data[numId].peso_compra}&pesoActual=${data[numId].peso_actual}&incremento=${data[numId].incremento_peso}&estatus=${data[numId].estatus}&edad=${data[numId].edad}&ultimoParto=${data[numId].ultimo_parto}&mesesVacia=${data[numId].meses_vacia}&particularidades=${data[numId].particularidades}&motivoBaja=${motivoBaja}&fechaBaja=${fechaBaja}`
         );
       };
       let eliminarBien = async () => {
         const deleteRow = await fetch(
-          `http://localhost:4000/delete?arete=${areteId}&numGuia=${data[numId].num_guia}`
+          `https://server-inve.herokuapp.com/delete?arete=${areteId}&numGuia=${data[numId].num_guia}`
         );
       };
       let sendHistorial = async () => {
@@ -90,7 +90,7 @@ class Inve extends Component {
         const movimiento = "Baja";
 
         const deleteRow = await fetch(
-          `http://localhost:4000/send/historial?tipo=${data[numId].tipo}&numGuia=${data[numId].num_guia}&raza=${data[numId].raza}&arete=${areteId}&fecha=${fechaMovimiento}&movimiento=${movimiento}`
+          `https://server-inve.herokuapp.com/send/historial?tipo=${data[numId].tipo}&numGuia=${data[numId].num_guia}&raza=${data[numId].raza}&arete=${areteId}&fecha=${fechaMovimiento}&movimiento=${movimiento}`
         );
       };
 
@@ -110,7 +110,7 @@ class Inve extends Component {
       const cuadro = document.getElementById("tbl-arete");
       const arete = document.getElementById("buscar-arete").value;
       const response = await fetch(
-        `http://localhost:4000/buscar/arete?arete=${arete}`
+        `https://server-inve.herokuapp.com/buscar/arete?arete=${arete}`
       );
       const data = await response.json();
       let flag = 0;
@@ -153,9 +153,9 @@ class Inve extends Component {
           <button className="inputbuscar" onClick={buscarArete}>
             Aceptrar
           </button>
-          
+
           <div className="div-actualizar">
-          <Link to="/inventario1">
+            <Link to="/inventario1">
               <button className="btn-InveRegresar">Regresar</button>
             </Link>
             <Link to="/actualizar">

@@ -5,7 +5,7 @@ import trash from "../images/delete.png";
 import { Link } from "react-router-dom";
 class historial extends Component {
   async componentDidMount() {
-    const response = await fetch("http://localhost:4000/historial");
+    const response = await fetch("https://server-inve.herokuapp.com/historial");
     const data = await response.json();
     const listavariables = document.getElementById("listavariables");
 
@@ -28,8 +28,8 @@ class historial extends Component {
 
   render() {
     let borrar = async () => {
-      
-      const response = await fetch(`http://localhost:4000/borrar/historial/`);
+
+      const response = await fetch(`https://server-inve.herokuapp.com/borrar/historial/`);
       window.location.reload();
     };
     return (

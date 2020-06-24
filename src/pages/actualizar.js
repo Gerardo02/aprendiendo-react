@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 class Actualizar extends Component {
   async componentDidMount() {
-    const response = await fetch("http://localhost:4000/agregados");
+    const response = await fetch("https://server-inve.herokuapp.com/agregados");
     const data = await response.json();
     const agregarEstatus = document.getElementById("estatus");
     const agregarParti = document.getElementById("particularidades");
@@ -22,7 +22,7 @@ class Actualizar extends Component {
   }
   render() {
     let addData = async () => {
-      const response1 = await fetch("http://localhost:4000/datos");
+      const response1 = await fetch("https://server-inve.herokuapp.com/datos");
       const data = await response1.json();
       const arete = document.getElementById("arete").value;
       const pesoActual = document.getElementById("peso-actual").value;
@@ -87,7 +87,7 @@ class Actualizar extends Component {
           particularidades !== ""
         ) {
           const response = await fetch(
-            `http://localhost:4000/actualizar?arete=${arete}&pesoActual=${pesoActual}&estatus=${estatus}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}&incremento=${incremento}`
+            `https://server-inve.herokuapp.com/actualizar?arete=${arete}&pesoActual=${pesoActual}&estatus=${estatus}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}&incremento=${incremento}`
           );
 
           window.location.reload();

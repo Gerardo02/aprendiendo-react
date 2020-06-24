@@ -4,14 +4,48 @@ import { Link } from "react-router-dom";
 
 class Inve extends Component {
   async componentDidMount() {
-    const response = await fetch("http://localhost:4000/datos");
+    const response = await fetch("https://server-inve.herokuapp.com/datos");
     const data = await response.json();
     //console.log(data);
     const inventario = document.getElementById("table-inve");
     let flag = 0;
+    let flag2 = 0;
+    let cont = 0;
+    const contAnimales = document.getElementById('numero-animales');
     document.getElementById("tbl-arete").style.display = "none";
     document.getElementById("anti-hacker").style.display = "none";
-    for (let i = 0; i < 50; i++) {
+    data.forEach(element => {
+      flag2++;
+      contAnimales.innerText = flag2;
+    })
+    for (let i = 0; i < 100; i++) {
+      inventario.innerHTML += `
+       
+      <tr>
+      <td>${data[i].empresas}</td>
+      <td>${data[i].predio}</td>     
+      <td>${data[i].precio}</td>     
+      <td>${data[i].num_guia}</td>     
+      <td>${data[i].tipo}</td>     
+      <td>${data[i].raza}</td>   
+      <td>${data[i].origen}</td>
+      <td>${data[i].arete}</td>
+      <td>${data[i].fecha_alta}</td>
+      <td>${data[i].peso_compra}</td>
+      <td>${data[i].peso_actual}</td>
+      <td>${data[i].incremento_peso}</td>
+      <td>${data[i].estatus}</td>
+      <td>${data[i].edad}</td>
+      <td>${data[i].ultimo_parto}</td>
+      <td>${data[i].meses_vacia}</td>
+      <td>${data[i].particularidades}</td>
+      <td><button class="btn-baja" data-arete=${data[i].arete} data-numero=${flag} id="btn-top">Baja</button></td>
+    </tr>
+    `;
+      flag++;
+    }
+
+    /*for (let i = 0; i < 100; i++) {
       const element = data[i];
       inventario.innerHTML += `
        
@@ -36,13 +70,13 @@ class Inve extends Component {
       <td><button class="btn-baja" data-arete=${element.arete} data-numero=${flag} id="btn-top">Baja</button></td>
     </tr>
     `;
-    flag++;
-    }
+      flag++;
+    }*/
 
     document.getElementById("baja-container").style.display = "none";
     let buttons = document.querySelectorAll("button.btn-baja");
     let button = document.querySelectorAll("button.eliminar");
-    let deleteData = async event => {
+    let deleteData = async (event) => {
       const areteId = event.target.dataset.arete;
       const numId = event.target.dataset.numero;
 
@@ -51,10 +85,10 @@ class Inve extends Component {
       const dialogOptions = {
         type: "info",
         buttons: ["OK", "Cancel"],
-        message: `¿seguro que desea dar de baja ${areteId}?`
+        message: `¿seguro que desea dar de baja ${areteId}?`,
       };
 
-      let alertaSeguro = dialog.showMessageBoxSync(dialogOptions, i =>
+      let alertaSeguro = dialog.showMessageBoxSync(dialogOptions, (i) =>
         console.log(i)
       );
 
@@ -71,12 +105,12 @@ class Inve extends Component {
         const motivoBaja = document.getElementById("motivo-baja").value;
         const fechaBaja = `${dia}/${mes}/${ano}`;
         const sendToBajas = await fetch(
-          `http://localhost:4000/send?empresas=${data[numId].empresas}&predio=${data[numId].predio}&precio=${data[numId].precio}&numGuia=${data[numId].num_guia}&tipo=${data[numId].tipo}&raza=${data[numId].raza}&origen=${data[numId].origen}&arete=${data[numId].arete}&fechaAlta=${data[numId].fecha_alta}&fechaNac=${data[numId].fecha_nacimiento}&pesoCompra=${data[numId].peso_compra}&pesoActual=${data[numId].peso_actual}&incremento=${data[numId].incremento_peso}&estatus=${data[numId].estatus}&edad=${data[numId].edad}&ultimoParto=${data[numId].ultimo_parto}&mesesVacia=${data[numId].meses_vacia}&particularidades=${data[numId].particularidades}&motivoBaja=${motivoBaja}&fechaBaja=${fechaBaja}`
+          `https://server-inve.herokuapp.com/send?empresas=${data[numId].empresas}&predio=${data[numId].predio}&precio=${data[numId].precio}&numGuia=${data[numId].num_guia}&tipo=${data[numId].tipo}&raza=${data[numId].raza}&origen=${data[numId].origen}&arete=${data[numId].arete}&fechaAlta=${data[numId].fecha_alta}&fechaNac=${data[numId].fecha_nacimiento}&pesoCompra=${data[numId].peso_compra}&pesoActual=${data[numId].peso_actual}&incremento=${data[numId].incremento_peso}&estatus=${data[numId].estatus}&edad=${data[numId].edad}&ultimoParto=${data[numId].ultimo_parto}&mesesVacia=${data[numId].meses_vacia}&particularidades=${data[numId].particularidades}&motivoBaja=${motivoBaja}&fechaBaja=${fechaBaja}`
         );
       };
       let eliminarBien = async () => {
         const deleteRow = await fetch(
-          `http://localhost:4000/delete?arete=${areteId}&numGuia=${data[numId].num_guia}`
+          `https://server-inve.herokuapp.com/delete?arete=${areteId}&numGuia=${data[numId].num_guia}`
         );
       };
       let sendHistorial = async () => {
@@ -88,18 +122,18 @@ class Inve extends Component {
         const movimiento = "Baja";
 
         const deleteRow = await fetch(
-          `http://localhost:4000/send/historial?tipo=${data[numId].tipo}&numGuia=${data[numId].num_guia}&raza=${data[numId].raza}&arete=${areteId}&fecha=${fechaMovimiento}&movimiento=${movimiento}`
+          `https://server-inve.herokuapp.com/send/historial?tipo=${data[numId].tipo}&numGuia=${data[numId].num_guia}&raza=${data[numId].raza}&arete=${areteId}&fecha=${fechaMovimiento}&movimiento=${movimiento}`
         );
       };
 
-      button.forEach(button => {
+      button.forEach((button) => {
         button.addEventListener("click", eliminar);
         button.addEventListener("click", eliminarBien);
         button.addEventListener("click", sendHistorial);
       });
     };
 
-    buttons.forEach(button => {
+    buttons.forEach((button) => {
       button.addEventListener("click", deleteData);
     });
   }
@@ -108,14 +142,14 @@ class Inve extends Component {
       const cuadro = document.getElementById("tbl-arete");
       const arete = document.getElementById("buscar-arete").value;
       const response = await fetch(
-        `http://localhost:4000/buscar/arete?arete=${arete}`
+        `https://server-inve.herokuapp.com/buscar/arete?arete=${arete}`
       );
       const data = await response.json();
       let flag = 0;
       document.getElementById("tbl-arete").style.display = "block";
       document.getElementById("anti-hacker").style.display = "block";
       //window.location.reload();
-      data.forEach(element => {
+      data.forEach((element) => {
         cuadro.innerHTML += `
         <tr>
           <td>${element.empresas}</td>
@@ -140,6 +174,68 @@ class Inve extends Component {
         `;
         flag++;
       });
+      document.getElementById("baja-container").style.display = "none";
+      let buttons = document.querySelectorAll("button.btn-baja");
+      let button = document.querySelectorAll("button.eliminar");
+      let deleteData = async (event) => {
+        const areteId = event.target.dataset.arete;
+        const numId = event.target.dataset.numero;
+
+        const { dialog } = global.require("electron").remote;
+
+        const dialogOptions = {
+          type: "info",
+          buttons: ["OK", "Cancel"],
+          message: `¿seguro que desea dar de baja ${areteId}?`,
+        };
+
+        let alertaSeguro = dialog.showMessageBoxSync(dialogOptions, (i) =>
+          console.log(i)
+        );
+
+        if (alertaSeguro !== 1) {
+          document.getElementById("baja-container").style.display = "block";
+        }
+
+        let eliminar = async () => {
+          console.log(data[numId].fecha_alta);
+          window.location.reload();
+          const dia = document.getElementById("dia-baja").value;
+          const mes = document.getElementById("mes-baja").value;
+          const ano = document.getElementById("ano-baja").value;
+          const motivoBaja = document.getElementById("motivo-baja").value;
+          const fechaBaja = `${dia}/${mes}/${ano}`;
+          const sendToBajas = await fetch(
+            `https://server-inve.herokuapp.com/send?empresas=${data[numId].empresas}&predio=${data[numId].predio}&precio=${data[numId].precio}&numGuia=${data[numId].num_guia}&tipo=${data[numId].tipo}&raza=${data[numId].raza}&origen=${data[numId].origen}&arete=${data[numId].arete}&fechaAlta=${data[numId].fecha_alta}&fechaNac=${data[numId].fecha_nacimiento}&pesoCompra=${data[numId].peso_compra}&pesoActual=${data[numId].peso_actual}&incremento=${data[numId].incremento_peso}&estatus=${data[numId].estatus}&edad=${data[numId].edad}&ultimoParto=${data[numId].ultimo_parto}&mesesVacia=${data[numId].meses_vacia}&particularidades=${data[numId].particularidades}&motivoBaja=${motivoBaja}&fechaBaja=${fechaBaja}`
+          );
+        };
+        let eliminarBien = async () => {
+          const deleteRow = await fetch(
+            `https://server-inve.herokuapp.com/delete?arete=${areteId}&numGuia=${data[numId].num_guia}`
+          );
+        };
+        let sendHistorial = async () => {
+          let today3 = new Date();
+          let dd3 = today3.getDate();
+          let mm3 = today3.getMonth() + 1;
+          let yyyy3 = today3.getFullYear();
+          let fechaMovimiento = `${dd3}/${mm3}/${yyyy3}`;
+          const movimiento = "Baja";
+
+          const deleteRow = await fetch(
+            `https://server-inve.herokuapp.com/send/historial?tipo=${data[numId].tipo}&numGuia=${data[numId].num_guia}&raza=${data[numId].raza}&arete=${areteId}&fecha=${fechaMovimiento}&movimiento=${movimiento}`
+          );
+        };
+
+        button.forEach((button) => {
+          button.addEventListener("click", eliminar);
+          button.addEventListener("click", eliminarBien);
+          button.addEventListener("click", sendHistorial);
+        });
+      };
+      buttons.forEach((button) => {
+        button.addEventListener("click", deleteData);
+      });
     };
     return (
       <>
@@ -149,15 +245,14 @@ class Inve extends Component {
           <button className="inputbuscar" onClick={buscarArete}>
             Aceptrar
           </button>
-          
+
           <div className="div-actualizar">
-          <Link to="/inventarioCompleto">
+            <Link to="/inventarioCompleto">
               <button className="btn-Invecompleto">Inventario completo</button>
             </Link>
             <Link to="/actualizar">
               <button className="btn-actualizar">Actualizar</button>
             </Link>
-
           </div>
         </div>
         <br />
@@ -205,7 +300,7 @@ class Inve extends Component {
           </div>
           <div className="tablainventario1" id="anti-hacker">
             <div className="titulosnombres1" id="anti-hacker">
-              <table id="tbl-arete" >
+              <table id="tbl-arete">
                 <tr>
                   <th>Empresa</th>
                   <th>Predio</th>
@@ -231,7 +326,7 @@ class Inve extends Component {
           </div>
           <div className="tablainventario">
             <div className="titulosnombres">
-              <table id="table-inve" className="table-inve" >
+              <table id="table-inve" className="table-inve">
                 <tr>
                   <th>Empresa</th>
                   <th>Predio</th>
@@ -250,13 +345,13 @@ class Inve extends Component {
                   <th>Ultimo Parto</th>
                   <th>Meses Vacia</th>
                   <th>Particularidades</th>
-                <th>Dar de Baja</th>
+                  <th>Dar de Baja</th>
                 </tr>
-                
               </table>
             </div>
           </div>
         </div>
+        <div className="numeros-animales">Total de animales: <span id="numero-animales"></span></div>
       </>
     );
   }

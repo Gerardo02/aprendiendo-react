@@ -10,7 +10,7 @@ class App2 extends Component {
   };
 
   async componentDidMount() {
-    const response = await fetch("http://localhost:4000/agregados");
+    const response = await fetch("https://server-inve.herokuapp.com/agregados");
     const data = await response.json();
 
     this.setState({
@@ -143,7 +143,7 @@ class App2 extends Component {
         const movimiento = "Captura";
         let sendHistorial = async () => {
           const response = await fetch(
-            `http://localhost:4000/send/historial?tipo=${tipo}&numGuia=${numGuia}&raza=${raza}&arete=${arete}&fecha=${fechaMovimiento}&movimiento=${movimiento}`
+            `https://server-inve.herokuapp.com/send/historial?tipo=${tipo}&numGuia=${numGuia}&raza=${raza}&arete=${arete}&fecha=${fechaMovimiento}&movimiento=${movimiento}`
           );
         };
 
@@ -169,7 +169,7 @@ class App2 extends Component {
         ) {
           window.location.reload();
           const response = await fetch(
-            `http://localhost:4000/add?empresas=${empresas}&predio=${predio}&precio=${precio}&numGuia=${numGuia}&tipo=${tipo}&raza=${raza}&origen=${origen}&arete=${arete}&fechaAlta=${fechaAlta}&fechaNac=${fechaNac}&pesoCompra=${pesoCompra}&pesoActual=${pesoActual}&incremento=${incremento}&estatus=${estatus}&edad=${edad}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}`
+            `https://server-inve.herokuapp.com/add?empresas=${empresas}&predio=${predio}&precio=${precio}&numGuia=${numGuia}&tipo=${tipo}&raza=${raza}&origen=${origen}&arete=${arete}&fechaAlta=${fechaAlta}&fechaNac=${fechaNac}&pesoCompra=${pesoCompra}&pesoActual=${pesoActual}&incremento=${incremento}&estatus=${estatus}&edad=${edad}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}`
           );
           sendHistorial();
         } else {

@@ -8,7 +8,7 @@ class Delete extends Component {
     const raza = document.getElementById("raza");
     const origen = document.getElementById("origen");
     const particularidades = document.getElementById("particularidades");
-    const response = await fetch(`http://localhost:4000/agregados`);
+    const response = await fetch(`https://server-inve.herokuapp.com/agregados`);
     const data = await response.json();
     data.forEach(element => {
       if (element.predio === null) {
@@ -49,7 +49,7 @@ class Delete extends Component {
       const particularidades = document.getElementById("particularidades")
         .value;
       const response = await fetch(
-        `http://localhost:4000/agregados/delete?empresas=${empresas}&predio=${predio}&tipo=${tipo}&raza=${raza}&origen=${origen}&particularidades=${particularidades}`
+        `https://server-inve.herokuapp.com/agregados/delete?empresas=${empresas}&predio=${predio}&tipo=${tipo}&raza=${raza}&origen=${origen}&particularidades=${particularidades}`
       );
       window.location.reload();
     };
