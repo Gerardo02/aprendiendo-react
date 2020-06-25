@@ -49,8 +49,13 @@ class Actualizar extends Component {
         let diaVac = document.getElementById("diaVac").value;
         let mesVac = document.getElementById("mesVac").value;
         let anoVac = document.getElementById("anoVac").value;
-        const ultimoParto = `${diaVac}/${mesVac}/${anoVac}`;
+        let diaVac2 = document.getElementById("diaVac").value;
+        let mesVac2 = document.getElementById("mesVac").value;
+        let anoVac2 = document.getElementById("anoVac").value;
+        let ultimoParto = "";
         let mesesVacia;
+
+
         let today2 = new Date();
         let mm2 = today2.getMonth() + 1;
         let yyyy2 = today2.getFullYear();
@@ -77,6 +82,29 @@ class Actualizar extends Component {
             "Favor de indicar los valores faltantes para la actualizacion"
         };
 
+
+        const response = await fetch(
+          `https://server-inve.herokuapp.com/actualizar/pesoactual?arete=${arete}&pesoActual=${pesoActual}&incremento=${incremento}`
+        );
+        const response2 = await fetch(
+          `https://server-inve.herokuapp.com/actualizar/estatus?arete=${arete}&estatus=${estatus}`
+        );
+        const response3 = await fetch(
+          `https://server-inve.herokuapp.com/actualizar/particularidades?arete=${arete}&particularidades=${particularidades}`
+        );
+        if (diaVac2 === "" || mesVac2 === "" || anoVac2 === "") {
+          const response4 = await fetch(
+            `https://server-inve.herokuapp.com/actualizar/ultimoparto?arete=${arete}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}`
+          );
+        } else {
+          ultimoParto = `${diaVac2}/${mesVac2}/${anoVac2}`;
+          const response4 = await fetch(
+            `https://server-inve.herokuapp.com/actualizar/ultimoparto?arete=${arete}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}`
+          );
+        }
+
+        window.location.reload();
+        /*
         if (
           pesoActual !== "" &&
           estatus !== "" &&
@@ -86,16 +114,41 @@ class Actualizar extends Component {
           ultimoParto !== "" &&
           particularidades !== ""
         ) {
+          
+        } if (pesoActual === "") {
+
           const response = await fetch(
             `https://server-inve.herokuapp.com/actualizar?arete=${arete}&pesoActual=${pesoActual}&estatus=${estatus}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}&incremento=${incremento}`
           );
 
           window.location.reload();
-        } else {
-          dialog.showMessageBoxSync(dialogOptions, i => console.log(i));
         }
-      } else {
-        dialog.showMessageBoxSync(dialogOptions1, i => console.log(i));
+        if (estatus === "") {
+
+          const response = await fetch(
+            `https://server-inve.herokuapp.com/actualizar?arete=${arete}&pesoActual=${pesoActual}&estatus=${estatus}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}&incremento=${incremento}`
+          );
+
+          window.location.reload();
+        } if (
+          diaVac === " " &&
+          mesVac === " " &&
+          anoVac === " "
+        ) {
+          ultimoParto = "";
+          const response = await fetch(
+            `https://server-inve.herokuapp.com/actualizar?arete=${arete}&pesoActual=${pesoActual}&estatus=${estatus}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}&incremento=${incremento}`
+          );
+
+          window.location.reload();
+        } if (particularidades === "") {
+
+          const response = await fetch(
+            `https://server-inve.herokuapp.com/actualizar?arete=${arete}&pesoActual=${pesoActual}&estatus=${estatus}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}&incremento=${incremento}`
+          );
+
+          window.location.reload();
+        }*/
       }
     };
     return (
@@ -136,8 +189,7 @@ class Actualizar extends Component {
               </select>
               <br />
               <br />
-              Ultima fecha en la que pario (Si nunca lo ha hecho, escribir la
-              fecha de nacimiento):
+              Ultima fecha en la que pario (Si no lo ha hecho, no escribir nada):
               <br />
               <input
                 className="input2 fechainput"

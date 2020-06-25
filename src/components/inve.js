@@ -20,7 +20,7 @@ class Inve extends Component {
     })
     for (let i = 0; i < 100; i++) {
       inventario.innerHTML += `
-       
+      
       <tr>
       <td>${data[i].empresas}</td>
       <td>${data[i].predio}</td>     
@@ -41,37 +41,10 @@ class Inve extends Component {
       <td>${data[i].particularidades}</td>
       <td><button class="btn-baja" data-arete=${data[i].arete} data-numero=${flag} id="btn-top">Baja</button></td>
     </tr>
+    
     `;
       flag++;
     }
-
-    /*for (let i = 0; i < 100; i++) {
-      const element = data[i];
-      inventario.innerHTML += `
-       
-      <tr>
-      <td>${element.empresas}</td>
-      <td>${element.predio}</td>     
-      <td>${element.precio}</td>     
-      <td>${element.num_guia}</td>     
-      <td>${element.tipo}</td>     
-      <td>${element.raza}</td>   
-      <td>${element.origen}</td>
-      <td>${element.arete}</td>
-      <td>${element.fecha_alta}</td>
-      <td>${element.peso_compra}</td>
-      <td>${element.peso_actual}</td>
-      <td>${element.incremento_peso}</td>
-      <td>${element.estatus}</td>
-      <td>${element.edad}</td>
-      <td>${element.ultimo_parto}</td>
-      <td>${element.meses_vacia}</td>
-      <td>${element.particularidades}</td>
-      <td><button class="btn-baja" data-arete=${element.arete} data-numero=${flag} id="btn-top">Baja</button></td>
-    </tr>
-    `;
-      flag++;
-    }*/
 
     document.getElementById("baja-container").style.display = "none";
     let buttons = document.querySelectorAll("button.btn-baja");
@@ -151,6 +124,7 @@ class Inve extends Component {
       //window.location.reload();
       data.forEach((element) => {
         cuadro.innerHTML += `
+        
         <tr>
           <td>${element.empresas}</td>
           <td>${element.predio}</td>     
@@ -171,6 +145,7 @@ class Inve extends Component {
           <td>${element.particularidades}</td>
           <td><button class="btn-baja" data-arete=${element.arete} data-numero=${flag} id="btn-top">Baja</button></td>
         </tr>
+        
         `;
         flag++;
       });
@@ -301,52 +276,56 @@ class Inve extends Component {
           <div className="tablainventario1" id="anti-hacker">
             <div className="titulosnombres1" id="anti-hacker">
               <table id="tbl-arete">
-                <tr>
-                  <th>Empresa</th>
-                  <th>Predio</th>
-                  <th>Precio</th>
-                  <th>Numero de Guia</th>
-                  <th>Tipo de Ganado</th>
-                  <th>Raza</th>
-                  <th>Origen</th>
-                  <th>Arete</th>
-                  <th>Fecha de Registro</th>
-                  <th>Peso de Compra</th>
-                  <th>Peso Actual</th>
-                  <th>Incremento de peso</th>
-                  <th>Estatus</th>
-                  <th>Edad (en meses)</th>
-                  <th>Ultimo Parto</th>
-                  <th>Meses Vacia</th>
-                  <th>Particularidades</th>
-                  <th>Dar de Baja</th>
-                </tr>
+                <tbody>
+                  <tr>
+                    <th>Empresa</th>
+                    <th>Predio</th>
+                    <th>Precio</th>
+                    <th>Numero de Guia</th>
+                    <th>Tipo de Ganado</th>
+                    <th>Raza</th>
+                    <th>Origen</th>
+                    <th>Arete</th>
+                    <th>Fecha de Registro</th>
+                    <th>Peso de Compra</th>
+                    <th>Peso Actual</th>
+                    <th>Incremento de peso</th>
+                    <th>Estatus</th>
+                    <th>Edad (en meses)</th>
+                    <th>Ultimo Parto</th>
+                    <th>Meses Vacia</th>
+                    <th>Particularidades</th>
+                    <th>Dar de Baja</th>
+                  </tr>
+                </tbody>
               </table>
             </div>
           </div>
           <div className="tablainventario">
             <div className="titulosnombres">
               <table id="table-inve" className="table-inve">
-                <tr>
-                  <th>Empresa</th>
-                  <th>Predio</th>
-                  <th>Precio</th>
-                  <th>Numero de Guia</th>
-                  <th>Tipo de Ganado</th>
-                  <th>Raza</th>
-                  <th>Origen</th>
-                  <th>Arete</th>
-                  <th>Fecha de Registro</th>
-                  <th>Peso de Compra</th>
-                  <th>Peso Actual</th>
-                  <th>Incremento de peso</th>
-                  <th>Estatus</th>
-                  <th>Edad (en meses)</th>
-                  <th>Ultimo Parto</th>
-                  <th>Meses Vacia</th>
-                  <th>Particularidades</th>
-                  <th>Dar de Baja</th>
-                </tr>
+                <tbody>
+                  <tr>
+                    <th>Empresa</th>
+                    <th>Predio</th>
+                    <th>Precio</th>
+                    <th>Numero de Guia</th>
+                    <th>Tipo de Ganado</th>
+                    <th>Raza</th>
+                    <th>Origen</th>
+                    <th>Arete</th>
+                    <th>Fecha de Registro</th>
+                    <th>Peso de Compra</th>
+                    <th>Peso Actual</th>
+                    <th>Incremento de peso</th>
+                    <th>Estatus</th>
+                    <th>Edad (en meses)</th>
+                    <th>Ultimo Parto</th>
+                    <th>Meses Vacia</th>
+                    <th>Particularidades</th>
+                    <th>Dar de Baja</th>
+                  </tr>
+                </tbody>
               </table>
             </div>
           </div>

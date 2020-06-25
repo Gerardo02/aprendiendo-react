@@ -13,6 +13,7 @@ class Inve extends Component {
     document.getElementById("anti-hacker").style.display = "none";
     data.forEach(element => {
       inventario.innerHTML += `
+      
       <tr>
         <td>${element.empresas}</td>
         <td>${element.predio}</td>     
@@ -141,6 +142,7 @@ class Inve extends Component {
           <td>${element.particularidades}</td>
           <td><button class="btn-baja" data-arete=${element.arete} data-numero=${flag} id="btn-top">Baja</button></td>
         </tr>
+        
         `;
         flag++;
       });
@@ -210,52 +212,56 @@ class Inve extends Component {
           <div className="tablainventario1" id="anti-hacker">
             <div className="titulosnombres1" id="anti-hacker">
               <table id="tbl-arete">
-                <tr>
-                  <th>Empresa</th>
-                  <th>Predio</th>
-                  <th>Precio</th>
-                  <th>Numero de Guia</th>
-                  <th>Tipo de Ganado</th>
-                  <th>Raza</th>
-                  <th>Origen</th>
-                  <th>Arete</th>
-                  <th>Fecha de Registro</th>
-                  <th>Peso de Compra</th>
-                  <th>Peso Actual</th>
-                  <th>Incremento de peso</th>
-                  <th>Estatus</th>
-                  <th>Edad (en meses)</th>
-                  <th>Ultimo Parto</th>
-                  <th>Meses Vacia</th>
-                  <th>Particularidades</th>
-                  <th>Dar de Baja</th>
-                </tr>
+                <tbody>
+                  <tr>
+                    <th>Empresa</th>
+                    <th>Predio</th>
+                    <th>Precio</th>
+                    <th>Numero de Guia</th>
+                    <th>Tipo de Ganado</th>
+                    <th>Raza</th>
+                    <th>Origen</th>
+                    <th>Arete</th>
+                    <th>Fecha de Registro</th>
+                    <th>Peso de Compra</th>
+                    <th>Peso Actual</th>
+                    <th>Incremento de peso</th>
+                    <th>Estatus</th>
+                    <th>Edad (en meses)</th>
+                    <th>Ultimo Parto</th>
+                    <th>Meses Vacia</th>
+                    <th>Particularidades</th>
+                    <th>Dar de Baja</th>
+                  </tr>
+                </tbody>
               </table>
             </div>
           </div>
           <div className="tablainventario">
             <div className="titulosnombres">
               <table id="table-inve" className="table-inve">
-                <tr>
-                  <th>Empresa</th>
-                  <th>Predio</th>
-                  <th>Precio</th>
-                  <th>Numero de Guia</th>
-                  <th>Tipo de Ganado</th>
-                  <th>Raza</th>
-                  <th>Origen</th>
-                  <th>Arete</th>
-                  <th>Fecha de Registro</th>
-                  <th>Peso de Compra</th>
-                  <th>Peso Actual</th>
-                  <th>Incremento de peso</th>
-                  <th>Estatus</th>
-                  <th>Edad (en meses)</th>
-                  <th>Ultimo Parto</th>
-                  <th>Meses Vacia</th>
-                  <th>Particularidades</th>
-                  <th>Dar de Baja</th>
-                </tr>
+                <tbody>
+                  <tr>
+                    <th>Empresa</th>
+                    <th>Predio</th>
+                    <th>Precio</th>
+                    <th>Numero de Guia</th>
+                    <th>Tipo de Ganado</th>
+                    <th>Raza</th>
+                    <th>Origen</th>
+                    <th>Arete</th>
+                    <th>Fecha de Registro</th>
+                    <th>Peso de Compra</th>
+                    <th>Peso Actual</th>
+                    <th>Incremento de peso</th>
+                    <th>Estatus</th>
+                    <th>Edad (en meses)</th>
+                    <th>Ultimo Parto</th>
+                    <th>Meses Vacia</th>
+                    <th>Particularidades</th>
+                    <th>Dar de Baja</th>
+                  </tr>
+                </tbody>
               </table>
             </div>
           </div>

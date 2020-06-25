@@ -61,7 +61,9 @@ class historial extends Component {
           <div className="tablainventariohistorial">
             <div className="titulosnombres">
               <table id="listavariables">
-                <div className="titulos1">
+                <tbody>
+
+
                   <tr className="titulos">
                     <th className="tituloshistorial">Arete</th>
                     <th className="tituloshistorial">Numero de Guia</th>
@@ -70,7 +72,8 @@ class historial extends Component {
                     <th className="tituloshistorial">Fecha</th>
                     <th className="tituloshistorial">Movimiento</th>
                   </tr>
-                </div>
+
+                </tbody>
               </table>
             </div>
           </div>

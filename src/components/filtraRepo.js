@@ -325,26 +325,28 @@ class Filtra extends Component {
         <div className="tablainventario">
           <div className="titulosnombres">
             <table id="table-inve" className="table-inve">
-              <tr>
-                <th>Empresa</th>
-                <th>Predio</th>
-                <th>Precio</th>
-                <th>Numero de Guia</th>
-                <th>Tipo de Ganado</th>
-                <th>Raza</th>
-                <th>Origen</th>
-                <th>Arete</th>
-                <th>Fecha de Registro</th>
-                <th>Fecha de Nacimiento</th>
-                <th>Peso de Compra</th>
-                <th>Peso Actual</th>
-                <th>Incremento de peso</th>
-                <th>Estatus</th>
-                <th>Edad (en meses)</th>
-                <th>Ultimo Parto</th>
-                <th>Meses Vacia</th>
-                <th>Particularidades</th>
-              </tr>
+              <tbody>
+                <tr>
+                  <th>Empresa</th>
+                  <th>Predio</th>
+                  <th>Precio</th>
+                  <th>Numero de Guia</th>
+                  <th>Tipo de Ganado</th>
+                  <th>Raza</th>
+                  <th>Origen</th>
+                  <th>Arete</th>
+                  <th>Fecha de Registro</th>
+                  <th>Fecha de Nacimiento</th>
+                  <th>Peso de Compra</th>
+                  <th>Peso Actual</th>
+                  <th>Incremento de peso</th>
+                  <th>Estatus</th>
+                  <th>Edad (en meses)</th>
+                  <th>Ultimo Parto</th>
+                  <th>Meses Vacia</th>
+                  <th>Particularidades</th>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>

@@ -353,39 +353,8 @@ class bajas2 extends Component {
           <div className="tablainventariobajas" id="anti-hacker">
             <div className="titulosnombres" id="anti-hacker">
               <table id="tbl-arete">
-                <div className="ayuda">
-                  <div className="titulos111">
-                    <tr className="titulos">
-                      <th>Empresas</th>
-                      <th>Predio</th>
-                      <th>Precio</th>
-                      <th>N° Guia </th>
-                      <th>Tipo de ganado</th>
-                      <th>Raza</th>
-                      <th>Origen</th>
-                      <th>Arete</th>
-                      <th>Fecha de registro</th>
-                      <th>Ultima fecha de parto</th>
-                      <th>Particularidad</th>
-                      <th>Fecha de baja</th>
-                      <th>Motivo de baja</th>
-                      <th>Recuperar</th>
-                      <th>Eliminar</th>
-                    </tr>
-                  </div>
-                </div>
+                <tbody>
 
-              </table>
-            </div>
-          </div>
-
-
-
-
-          <div className="tablainventariobajas">
-            <div className="titulosnombres">
-              <table id="listavariables">
-                <div className="titulos1">
                   <tr className="titulos">
                     <th>Empresas</th>
                     <th>Predio</th>
@@ -403,9 +372,41 @@ class bajas2 extends Component {
                     <th>Recuperar</th>
                     <th>Eliminar</th>
                   </tr>
-                </div>
 
-                <tr className="listavariables"></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+
+
+
+          <div className="tablainventariobajas">
+            <div className="titulosnombres">
+              <table id="listavariables">
+                <tbody>
+
+                  <tr className="titulos">
+                    <th>Empresas</th>
+                    <th>Predio</th>
+                    <th>Precio</th>
+                    <th>N° Guia </th>
+                    <th>Tipo de ganado</th>
+                    <th>Raza</th>
+                    <th>Origen</th>
+                    <th>Arete</th>
+                    <th>Fecha de registro</th>
+                    <th>Ultima fecha de parto</th>
+                    <th>Particularidad</th>
+                    <th>Fecha de baja</th>
+                    <th>Motivo de baja</th>
+                    <th>Recuperar</th>
+                    <th>Eliminar</th>
+                  </tr>
+
+
+                  <tr className="listavariables"></tr>
+                </tbody>
               </table>
             </div>
           </div>

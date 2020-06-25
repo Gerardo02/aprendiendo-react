@@ -89,10 +89,10 @@ class Principal extends Component {
 
           <footer>
             <div className="footer">
-              <Link onClick={display} className="ayuda iconos-footer">
+              <a onClick={display} className="ayuda iconos-footer">
                 {" "}
                 ¿necesitas ayuda o alguna sugerencia?{" "}
-              </Link>
+              </a>
               <img className="iconos-footer" src={mail} />
               <img className="iconos-footer" src={cellphone} />
             </div>
