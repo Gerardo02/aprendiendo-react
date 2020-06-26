@@ -67,22 +67,23 @@ const mainMenuTemplate = [
       },
     ],
   },
-];
-mainMenuTemplate.push({
-  label: "Refresh",
-  submenu: [
-    {
-      label: "Sacar dev tools",
-      accelerator: "Ctrl+I",
-      click(item, focusedWindow) {
-        focusedWindow.toggleDevTools();
+  {
+    label: "Refresh",
+    submenu: [
+      /*{
+        label: "Sacar dev tools",
+        accelerator: "Ctrl+I",
+        click(item, focusedWindow) {
+          focusedWindow.toggleDevTools();
+        },
+      },*/
+      {
+        role: "reload",
       },
-    },
-    {
-      role: "reload",
-    },
-  ],
-});
+    ],
+  }
+];
+//mainMenuTemplate.push();
 // Quit when all windows are closed.
 app.on("window-all-closed", () => {
   // On macOS it is common for applications and their menu bar
