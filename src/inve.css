@@ -43,33 +43,20 @@
   border: none;
   height: 25px;
 }
-.fecha-baja {
-  width: 17px;
-  margin-right: 1%;
-  text-align: center;
-}
-.fechabaja {
-  width: 35px;
-  text-align: center;
-}
+
+
 
 .baja-container {
   text-align: center;
   justify-items: left;
 }
 
-.inputbaja {
-  outline: none;
-  border: none;
-  background-color: transparent;
-  position: relative;
-  border-bottom: 1px solid #000000;
-  margin-bottom: 6px;
-  color: #000000;
-}
+
 .inputbajapersona {
   width: 250px;
   padding-top: 10px;
+  color: black;
+  border-bottom: 1px solid #000000;
 }
 .btn-baja {
   height: fit-content;
@@ -248,17 +235,16 @@ th ,td {
 .eliminar {
   border: none;
   border-radius: 50px;
+  height: 30px;
+  width: 90px;
+}
+.eliminarVenta{
+  border: none;
+  border-radius: 50px;
   height: 25px;
   width: 90px;
 }
-.fechabajaconboton {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 
-  position: relative;
-  width: 290px;
-}
 
 /*---------------------------------------------inicia seccion para los filtros que no tengo idea por que los importamos desde aqui xdxd lol uwu -----------------------------------------------------*/
 /*---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
