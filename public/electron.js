@@ -103,7 +103,7 @@ app.on("activate", () => {
 
 
 
-const server = 'https://aprendiendo-react-one.vercel.app';
+const server = 'https://aprendiendo-react-er2n148ar.vercel.app/';
 const url = `${server}/update/${process.platform}/${app.getVersion()}`;
 
 autoUpdater.setFeedURL({ url });
