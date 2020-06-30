@@ -6,6 +6,10 @@
   "author": {
     "name": "Gerardo & Moises"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gerardo02/aprendiendo-react"
+  },
   "build": {
     "appId": "inventario.menu"
   },
