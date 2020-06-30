@@ -1,6 +1,5 @@
 const path = require("path");
 const { app, BrowserWindow, Menu, autoUpdater, dialog } = require("electron");
-const url = require("url");
 const isDev = require("electron-is-dev");
 require('update-electron-app')()
 
@@ -103,10 +102,12 @@ app.on("activate", () => {
 // code. You can also put them in separate files and require them here.
 
 
-const server = "https://aprendiendo-react-one.vercel.app"
-const feed = `${server}/update/${process.platform}/${app.getVersion()}`
 
-autoUpdater.setFeedURL(feed)
+const server = 'https://aprendiendo-react-one.vercel.app';
+const url = `${server}/update/${process.platform}/${app.getVersion()}`;
+
+autoUpdater.setFeedURL({ url });
+
 
 setInterval(() => {
   autoUpdater.checkForUpdates()

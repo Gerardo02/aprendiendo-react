@@ -401,7 +401,7 @@ class Filtra extends Component {
             <span className="total">Total: <span id="total"></span></span>
             <div className="select">
               <button className="refrescar" onClick={refresh}>
-                Refrescar
+                Holis 3
               </button>
               <button className="botonPrint buton" id="botonadios">Imprimir</button>
             </div>
