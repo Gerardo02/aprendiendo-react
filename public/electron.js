@@ -1,7 +1,8 @@
 const path = require("path");
 const { app, BrowserWindow, Menu, autoUpdater, dialog } = require("electron");
 const isDev = require("electron-is-dev");
-require('update-electron-app')()
+require('update-electron-app')();
+
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -102,32 +103,34 @@ app.on("activate", () => {
 // code. You can also put them in separate files and require them here.
 
 
+if (!isDev) {
+  const server = 'https://aprendiendo-react-er2n148ar.vercel.app/';
+  const url = `${server}/update/${process.platform}/${app.getVersion()}`;
 
-const server = 'https://aprendiendo-react-er2n148ar.vercel.app/';
-const url = `${server}/update/${process.platform}/${app.getVersion()}`;
-
-autoUpdater.setFeedURL({ url });
+  autoUpdater.setFeedURL({ url });
 
 
-setInterval(() => {
-  autoUpdater.checkForUpdates()
-}, 60000)
+  setInterval(() => {
+    autoUpdater.checkForUpdates()
+  }, 60000)
 
-autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
-  const dialogOpts = {
-    type: 'info',
-    buttons: ['Reiniciar', 'Mas Tarde'],
-    title: 'Actualizacion de aplicacion',
-    message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'Una nueva version ha sido descargada. Reiniciar la aplicacion por favor.'
-  }
+  autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
+    const dialogOpts = {
+      type: 'info',
+      buttons: ['Reiniciar', 'Mas Tarde'],
+      title: 'Actualizacion de aplicacion',
+      message: process.platform === 'win32' ? releaseNotes : releaseName,
+      detail: 'Una nueva version ha sido descargada. Reiniciar la aplicacion por favor.'
+    }
 
-  dialog.showMessageBox(dialogOpts).then((returnValue) => {
-    if (returnValue.response === 0) autoUpdater.quitAndInstall()
+    dialog.showMessageBox(dialogOpts).then((returnValue) => {
+      if (returnValue.response === 0) autoUpdater.quitAndInstall()
+    })
   })
-})
 
-autoUpdater.on('error', message => {
-  console.error('There was a problem updating the application')
-  console.error(message)
-})
+  autoUpdater.on('error', message => {
+    console.error('There was a problem updating the application')
+    console.error(message)
+  })
+}
+
