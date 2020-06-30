@@ -28,6 +28,7 @@ class Filtra extends Component {
       const response = await fetch("https://server-inve.herokuapp.com/filtrar");
       const data = await response.json();
       const inventario = document.getElementById("table-inve");
+      const printBut = document.querySelector('.botonPrint')
       data.forEach(element => {
         const total = document.getElementById("total");
         inventario.innerHTML += `
@@ -56,11 +57,24 @@ class Filtra extends Component {
         flag++;
         total.innerText = flag;
       });
+      const printData = () => {
+        const divToPrint = document.getElementById("table-inve");
+        let newWin = null;
+        newWin = window.open("");
+        newWin.document.write(divToPrint.outerHTML);
+        newWin.print();
+        newWin.close();
+      }
+      printBut.addEventListener('click', printData);
+      const buttonPrint = document.getElementById('botonadios');
+      buttonPrint.style.display = "block";
     };
+
     let callDecre = async () => {
       const response = await fetch("https://server-inve.herokuapp.com/filtrar/decre");
       const data = await response.json();
       const inventario = document.getElementById("table-inve");
+      const printBut = document.querySelector('.botonPrint')
       data.forEach(element => {
         const total = document.getElementById("total");
         inventario.innerHTML += `
@@ -89,11 +103,23 @@ class Filtra extends Component {
         flag++;
         total.innerText = flag;
       });
+      const printData = () => {
+        const divToPrint = document.getElementById("table-inve");
+        let newWin = null;
+        newWin = window.open("");
+        newWin.document.write(divToPrint.outerHTML);
+        newWin.print();
+        newWin.close();
+      }
+      printBut.addEventListener('click', printData);
+      const buttonPrint = document.getElementById('botonadios');
+      buttonPrint.style.display = "block";
     };
     let callVacia = async () => {
       const response = await fetch("https://server-inve.herokuapp.com/filtrar/vacia");
       const data = await response.json();
       const inventario = document.getElementById("table-inve");
+      const printBut = document.querySelector('.botonPrint')
       data.forEach(element => {
         const total = document.getElementById("total");
         inventario.innerHTML += `
@@ -122,11 +148,23 @@ class Filtra extends Component {
         flag++;
         total.innerText = flag;
       });
+      const printData = () => {
+        const divToPrint = document.getElementById("table-inve");
+        let newWin = null;
+        newWin = window.open("");
+        newWin.document.write(divToPrint.outerHTML);
+        newWin.print();
+        newWin.close();
+      }
+      printBut.addEventListener('click', printData);
+      const buttonPrint = document.getElementById('botonadios');
+      buttonPrint.style.display = "block";
     };
     let callCargada = async () => {
       const response = await fetch("https://server-inve.herokuapp.com/filtrar/cargada");
       const data = await response.json();
       const inventario = document.getElementById("table-inve");
+      const printBut = document.querySelector('.botonPrint')
       data.forEach(element => {
         const total = document.getElementById("total");
         inventario.innerHTML += `
@@ -155,6 +193,17 @@ class Filtra extends Component {
         flag++;
         total.innerText = flag;
       });
+      const printData = () => {
+        const divToPrint = document.getElementById("table-inve");
+        let newWin = null;
+        newWin = window.open("");
+        newWin.document.write(divToPrint.outerHTML);
+        newWin.print();
+        newWin.close();
+      }
+      printBut.addEventListener('click', printData);
+      const buttonPrint = document.getElementById('botonadios');
+      buttonPrint.style.display = "block";
     };
 
     let callPredio = async () => {
@@ -163,7 +212,7 @@ class Filtra extends Component {
       const response = await fetch(
         `https://server-inve.herokuapp.com/filtrar/predio?predio=${predioCall}`
       );
-
+      const printBut = document.querySelector('.botonPrint')
       const data = await response.json();
       const inventario = document.getElementById("table-inve");
 
@@ -195,10 +244,22 @@ class Filtra extends Component {
         flag++;
         total.innerText = flag;
       });
+      const printData = () => {
+        const divToPrint = document.getElementById("table-inve");
+        let newWin = null;
+        newWin = window.open("");
+        newWin.document.write(divToPrint.outerHTML);
+        newWin.print();
+        newWin.close();
+      }
+      printBut.addEventListener('click', printData);
+      const buttonPrint = document.getElementById('botonadios');
+      buttonPrint.style.display = "block";
     };
+
     let callOrigen = async () => {
       const origenCall = document.getElementById("callOrigen").value;
-
+      const printBut = document.querySelector('.botonPrint')
       const response = await fetch(
         `https://server-inve.herokuapp.com/filtrar/origen?origen=${origenCall}`
       );
@@ -234,11 +295,23 @@ class Filtra extends Component {
         flag++;
         total.innerText = flag;
       });
+      const printData = () => {
+        const divToPrint = document.getElementById("table-inve");
+        let newWin = null;
+        newWin = window.open("");
+        newWin.document.write(divToPrint.outerHTML);
+        newWin.print();
+        newWin.close();
+      }
+      printBut.addEventListener('click', printData);
+      const buttonPrint = document.getElementById('botonadios');
+      buttonPrint.style.display = "block";
     };
     let callVenta = async () => {
       const response = await fetch("https://server-inve.herokuapp.com/bajas");
       const data = await response.json();
       const inventario = document.getElementById("table-inve");
+      const printBut = document.querySelector('.botonPrint')
       data.forEach(element => {
         const total = document.getElementById("total");
         if (element.motivo_baja === "Vendido" || element.motivo_baja === "vendido") {
@@ -270,6 +343,18 @@ class Filtra extends Component {
         }
 
       });
+      const printData = () => {
+        const divToPrint = document.getElementById("table-inve");
+        let newWin = null;
+        newWin = window.open("");
+        newWin.document.write(divToPrint.outerHTML);
+        newWin.print();
+        newWin.close();
+      }
+      printBut.addEventListener('click', printData);
+      const buttonPrint = document.getElementById('botonadios');
+      buttonPrint.style.display = "block";
+
     };
     let refresh = () => {
       window.location.reload();
@@ -310,6 +395,7 @@ class Filtra extends Component {
                 <button className="buton" onClick={callOrigen}>
                   Aceptar origen
                 </button>
+
               </div>
             </div>
             <span className="total">Total: <span id="total"></span></span>
@@ -317,11 +403,15 @@ class Filtra extends Component {
               <button className="refrescar" onClick={refresh}>
                 Refrescar
               </button>
+              <button className="botonPrint buton" id="botonadios">Imprimir</button>
             </div>
           </div>
         </div>
         <br />
         <br />
+
+
+
         <div className="tablainventario">
           <div className="titulosnombres">
             <table id="table-inve" className="table-inve">
@@ -350,6 +440,7 @@ class Filtra extends Component {
             </table>
           </div>
         </div>
+
       </>
     );
   }

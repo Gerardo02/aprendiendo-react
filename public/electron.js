@@ -17,6 +17,7 @@ let createWindow = () => {
     resizable: false,
     webPreferences: {
       nodeIntegration: true,
+      nativeWindowOpen: true
     },
   });
   module.exports = {
@@ -70,13 +71,13 @@ const mainMenuTemplate = [
   {
     label: "Refresh",
     submenu: [
-      /*{
+      {
         label: "Sacar dev tools",
         accelerator: "Ctrl+I",
         click(item, focusedWindow) {
           focusedWindow.toggleDevTools();
         },
-      },*/
+      },
       {
         role: "reload",
       },

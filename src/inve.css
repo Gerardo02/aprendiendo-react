@@ -51,7 +51,10 @@
   justify-items: left;
 }
 
-
+.botonPrint{
+  display: none;
+  padding-left: 3px;
+}
 .inputbajapersona {
   width: 250px;
   padding-top: 10px;
