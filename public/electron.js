@@ -103,7 +103,7 @@ app.on("activate", () => {
 // code. You can also put them in separate files and require them here.
 
 
-const server = "https://aprendiendo-react-iwcjvdspp.vercel.app"
+const server = "https://aprendiendo-react-one.vercel.app"
 const feed = `${server}/update/${process.platform}/${app.getVersion()}`
 
 autoUpdater.setFeedURL(feed)
