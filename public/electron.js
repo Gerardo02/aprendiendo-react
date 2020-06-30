@@ -1,7 +1,8 @@
 const path = require("path");
-const { app, BrowserWindow, Menu } = require("electron");
+const { app, BrowserWindow, Menu, autoUpdater, dialog } = require("electron");
 const url = require("url");
 const isDev = require("electron-is-dev");
+require('update-electron-app')()
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -100,3 +101,32 @@ app.on("activate", () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+
+const server = "https://aprendiendo-react.gerardo02.vercel.app"
+const feed = `${server}/update/${process.platform}/${app.getVersion()}`
+
+autoUpdater.setFeedURL(feed)
+
+setInterval(() => {
+  autoUpdater.checkForUpdates()
+}, 60000)
+
+autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
+  const dialogOpts = {
+    type: 'info',
+    buttons: ['Reiniciar', 'Mas Tarde'],
+    title: 'Actualizacion de aplicacion',
+    message: process.platform === 'win32' ? releaseNotes : releaseName,
+    detail: 'Una nueva version ha sido descargada. Reiniciar la aplicacion por favor.'
+  }
+
+  dialog.showMessageBox(dialogOpts).then((returnValue) => {
+    if (returnValue.response === 0) autoUpdater.quitAndInstall()
+  })
+})
+
+autoUpdater.on('error', message => {
+  console.error('There was a problem updating the application')
+  console.error(message)
+})
