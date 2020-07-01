@@ -1,8 +1,8 @@
 const path = require("path");
-const { app, BrowserWindow, Menu, autoUpdater, dialog } = require("electron");
+const { app, BrowserWindow, Menu, dialog } = require("electron");
 const isDev = require("electron-is-dev");
 require('update-electron-app')();
-
+const { autoUpdater } = require("electron-updater");
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -103,34 +103,47 @@ app.on("activate", () => {
 // code. You can also put them in separate files and require them here.
 
 
-if (!isDev) {
-  const server = 'https://aprendiendo-react-er2n148ar.vercel.app/';
-  const url = `${server}/update/${process.platform}/${app.getVersion()}`;
-
-  autoUpdater.setFeedURL({ url });
 
 
-  setInterval(() => {
-    autoUpdater.checkForUpdates()
-  }, 60000)
+//const server = 'https://aprendiendo-react-er2n148ar.vercel.app/';
+//const url = `${server}/update/${process.platform}/${app.getVersion()}`;
 
-  autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
-    const dialogOpts = {
-      type: 'info',
-      buttons: ['Reiniciar', 'Mas Tarde'],
-      title: 'Actualizacion de aplicacion',
-      message: process.platform === 'win32' ? releaseNotes : releaseName,
-      detail: 'Una nueva version ha sido descargada. Reiniciar la aplicacion por favor.'
-    }
+//autoUpdater.setFeedURL({ url });
 
-    dialog.showMessageBox(dialogOpts).then((returnValue) => {
-      if (returnValue.response === 0) autoUpdater.quitAndInstall()
-    })
+
+setInterval(() => {
+  autoUpdater.checkForUpdatesAndNotify()
+}, 60000)
+
+autoUpdater.on('update-available', () => {
+  const dialogOpts = {
+    type: 'info',
+    buttons: ['Ok'],
+    title: 'Application Update',
+    message: 'Hay una actualizacion disponible',
+    detail: 'Se descargara automaticamente.'
+  }
+
+  dialog.showMessageBox(dialogOpts);
+})
+
+autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
+  const dialogOpts = {
+    type: 'info',
+    buttons: ['Reiniciar', 'Mas Tarde'],
+    title: 'Actualizacion de aplicacion',
+    message: process.platform === 'win32' ? releaseNotes : releaseName,
+    detail: 'Una nueva version ha sido descargada. Reiniciar la aplicacion por favor.'
+  }
+
+  dialog.showMessageBox(dialogOpts).then((returnValue) => {
+    if (returnValue.response === 0) autoUpdater.quitAndInstall()
   })
+})
 
-  autoUpdater.on('error', message => {
-    console.error('There was a problem updating the application')
-    console.error(message)
-  })
-}
+autoUpdater.on('error', message => {
+  console.error('There was a problem updating the application')
+  console.error(message)
+})
+
 

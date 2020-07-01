@@ -23,6 +23,7 @@
     "cross-env": "^6.0.3",
     "electron-find": "^1.0.6",
     "electron-is-dev": "^1.2.0",
+    "electron-updater": "^4.3.1",
     "mssql": "^6.2.0",
     "mysql": "^2.18.1",
     "react": "^16.13.1",
