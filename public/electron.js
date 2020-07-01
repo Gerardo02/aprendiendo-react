@@ -111,41 +111,41 @@ app.on("activate", () => {
 //autoUpdater.setFeedURL({ url });
 
 app.on('ready', () => {
-  setInterval(() => {
-    autoUpdater.checkForUpdates()
-  }, 60000)
+  autoUpdater.checkForUpdatesAndNotify()
+
+  autoUpdater.on('update-available', () => {
+    const dialogOpts = {
+      type: 'info',
+      buttons: ['Ok'],
+      title: 'Application Update',
+      message: 'Hay una actualizacion disponible',
+      detail: 'Se descargara automaticamente.'
+    }
+
+    dialog.showMessageBox(dialogOpts);
+  })
+
+  autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
+    const dialogOpts = {
+      type: 'info',
+      buttons: ['Reiniciar', 'Mas Tarde'],
+      title: 'Actualizacion de aplicacion',
+      message: process.platform === 'win32' ? releaseNotes : releaseName,
+      detail: 'Una nueva version ha sido descargada. Reiniciar la aplicacion por favor.'
+    }
+
+    dialog.showMessageBox(dialogOpts).then((returnValue) => {
+      if (returnValue.response === 0) autoUpdater.quitAndInstall()
+    })
+  })
+
+  autoUpdater.on('error', message => {
+    console.error('There was a problem updating the application')
+    console.error(message)
+  })
 });
 
 
-autoUpdater.on('update-available', () => {
-  const dialogOpts = {
-    type: 'info',
-    buttons: ['Ok'],
-    title: 'Application Update',
-    message: 'Hay una actualizacion disponible',
-    detail: 'Se descargara automaticamente.'
-  }
 
-  dialog.showMessageBox(dialogOpts);
-})
-
-autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
-  const dialogOpts = {
-    type: 'info',
-    buttons: ['Reiniciar', 'Mas Tarde'],
-    title: 'Actualizacion de aplicacion',
-    message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'Una nueva version ha sido descargada. Reiniciar la aplicacion por favor.'
-  }
-
-  dialog.showMessageBox(dialogOpts).then((returnValue) => {
-    if (returnValue.response === 0) autoUpdater.quitAndInstall()
-  })
-})
-
-autoUpdater.on('error', message => {
-  console.error('There was a problem updating the application')
-  console.error(message)
-})
 
 
