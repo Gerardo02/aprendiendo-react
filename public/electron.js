@@ -111,7 +111,9 @@ app.on("activate", () => {
 //autoUpdater.setFeedURL({ url });
 
 app.on('ready', () => {
-  autoUpdater.checkForUpdatesAndNotify()
+  setInterval(() => {
+    autoUpdater.checkForUpdates()
+  }, 60000)
 });
 
 
