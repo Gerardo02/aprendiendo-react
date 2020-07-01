@@ -114,7 +114,7 @@ app.on('ready', () => {
   autoUpdater.checkForUpdatesAndNotify()
 });
 
-/*
+
 autoUpdater.on('update-available', () => {
   const dialogOpts = {
     type: 'info',
@@ -146,4 +146,4 @@ autoUpdater.on('error', message => {
   console.error(message)
 })
 
-*/
+
