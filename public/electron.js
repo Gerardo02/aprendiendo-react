@@ -110,11 +110,11 @@ app.on("activate", () => {
 
 //autoUpdater.setFeedURL({ url });
 
-
-setInterval(() => {
+app.on('ready', () => {
   autoUpdater.checkForUpdatesAndNotify()
-}, 60000)
+});
 
+/*
 autoUpdater.on('update-available', () => {
   const dialogOpts = {
     type: 'info',
@@ -146,4 +146,4 @@ autoUpdater.on('error', message => {
   console.error(message)
 })
 
-
+*/
