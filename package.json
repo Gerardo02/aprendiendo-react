@@ -16,7 +16,7 @@
       "publish": [
         "github"
       ],
-      "icon": "build/icono-inve.png"
+      "icon": "build/icono-inve.ico"
     }
   },
   "homepage": "./",
