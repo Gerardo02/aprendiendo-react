@@ -73,19 +73,32 @@ const mainMenuTemplate = [
     label: "Refresh",
     submenu: [
       {
-        label: "Sacar dev tools",
-        accelerator: "Ctrl+I",
-        click(item, focusedWindow) {
-          focusedWindow.toggleDevTools();
-        },
-      },
-      {
         role: "reload",
-      },
+      }
     ],
   }
+
 ];
-//mainMenuTemplate.push();
+if (isDev) {
+  mainMenuTemplate.push(
+    {
+      label: "Dev tools",
+      submenu: [
+        {
+          label: "Sacar dev tools",
+          accelerator: "Ctrl+I",
+          click(item, focusedWindow) {
+            focusedWindow.toggleDevTools();
+          },
+        },
+        {
+          role: "reload",
+        },
+      ],
+    }
+  );
+}
+
 // Quit when all windows are closed.
 app.on("window-all-closed", () => {
   // On macOS it is common for applications and their menu bar
@@ -118,19 +131,19 @@ app.on('ready', () => {
       type: 'info',
       buttons: ['Ok'],
       title: 'Application Update',
-      message: 'Hay una actualizacion disponible',
-      detail: 'Se descargara automaticamente.'
+      message: 'Hay una actualizacion disponible. Favor de no cerrar la aplicación.',
+      detail: 'Se descargara automaticamente. Favor de no cerrar la aplicación hasta que se indique.'
     }
 
     dialog.showMessageBox(dialogOpts);
   })
 
-  autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
+  autoUpdater.on('update-downloaded', (info) => {
     const dialogOpts = {
       type: 'info',
       buttons: ['Reiniciar', 'Mas Tarde'],
       title: 'Actualizacion de aplicacion',
-      message: process.platform === 'win32' ? releaseNotes : releaseName,
+      message: process.platform === 'win32' ? info.releaseNotes : info.releaseName,
       detail: 'Una nueva version ha sido descargada. Reiniciar la aplicacion por favor.'
     }
 

@@ -131,6 +131,15 @@
   border-bottom: 1px solid #ffffff;
   margin-bottom: 6px;
 }
+.guia{
+  border-bottom: 1px solid #000000;
+  color: #000000;
+}
+.disclaimer{
+  font-size: 25px;
+  color: white;
+  text-align: center;
+}
 .areteanimal {
   display: inline;
   padding: 5px;

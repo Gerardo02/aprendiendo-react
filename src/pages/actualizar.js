@@ -81,7 +81,7 @@ class Actualizar extends Component {
           message:
             "Favor de indicar los valores faltantes para la actualizacion"
         };
-
+        const guia = document.getElementById('guia').value;
 
         const response = await fetch(
           `https://server-inve.herokuapp.com/actualizar/pesoactual?arete=${arete}&pesoActual=${pesoActual}&incremento=${incremento}`
@@ -102,6 +102,9 @@ class Actualizar extends Component {
             `https://server-inve.herokuapp.com/actualizar/ultimoparto?arete=${arete}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}`
           );
         }
+        const response5 = await fetch(
+          `https://server-inve.herokuapp.com/actualizar/guia?arete=${arete}&guia=${guia}`
+        );
 
         window.location.reload();
         /*
@@ -148,15 +151,18 @@ class Actualizar extends Component {
           );
 
           window.location.reload();
+          
         }*/
       }
     };
     return (
       <>
+        <p className="disclaimer">Solo llenar las opciones que se quieran cambiar. <br></br>Las que no se llenen, se tomaran como nulas y no habra cambio alguno.</p>
         <div className="index-page-actualizar">
           <div className="cuadroactualizar">
             <div className="banner-actualizar">
               <div className="input-arete ">
+
                 <p className="areteanimal">Arete del animal: </p>
                 <input className=" inputarete" type="text" id="arete"></input>
               </div>
@@ -172,7 +178,8 @@ class Actualizar extends Component {
               </div>
             </div>
             <div className="textito-cuadrito">
-              Lo que pesa ahora :
+
+              Lo que pesa ahora:
               <input
                 className="input2 pesoahora"
                 maxLength="4"
@@ -220,6 +227,9 @@ class Actualizar extends Component {
               </select>
               <br />
               <br />
+              Num. Guia
+              <br />
+              <input className="inputarete guia" type="text" id="guia"></input>
             </div>
           </div>
         </div>

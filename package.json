@@ -1,6 +1,6 @@
 {
   "name": "inventario",
-  "version": "0.14.0",
+  "version": "0.15.0",
   "main": "public/electron.js",
   "description": "Inventario ganadero",
   "author": {
@@ -16,7 +16,7 @@
       "publish": [
         "github"
       ],
-      "icon": "build1/icono-inve.ico"
+      "icon": "icon/icono-inve.ico"
     }
   },
   "homepage": "./",

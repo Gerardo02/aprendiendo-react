@@ -426,7 +426,7 @@ class Filtra extends Component {
                   <th>Origen</th>
                   <th>Arete</th>
                   <th>Fecha de Registro</th>
-                  <th>Fecha de Nacimiento</th>
+                  <th>Fecha de Nacimiento o Compra</th>
                   <th>Peso de Compra</th>
                   <th>Peso Actual</th>
                   <th>Incremento de peso</th>
