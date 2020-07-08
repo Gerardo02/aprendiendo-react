@@ -356,6 +356,56 @@ class Filtra extends Component {
       buttonPrint.style.display = "block";
 
     };
+    let callGuia = async () => {
+      const response = await fetch("https://server-inve.herokuapp.com/datos");
+      const data = await response.json();
+      const inventario = document.getElementById("table-inve");
+      const printBut = document.querySelector('.botonPrint')
+      const inputGuia = document.getElementById("guiarec").value;
+      data.forEach(element => {
+        const total = document.getElementById("total");
+        if (element.num_guia === inputGuia) {
+          inventario.innerHTML += `
+        
+          <tr>
+          <td>${element.empresas}</td>
+          <td>${element.predio}</td>     
+          <td>${element.precio}</td>     
+          <td>${element.num_guia}</td>     
+          <td>${element.tipo}</td>     
+          <td>${element.raza}</td>   
+          <td>${element.origen}</td>
+          <td>${element.arete}</td>
+          <td>${element.fecha_alta}</td>
+          <td>${element.fecha_nacimiento}</td>
+          <td>${element.peso_compra}</td>
+          <td>${element.peso_actual}</td>
+          <td>${element.incremento_peso}</td>
+          <td>${element.estatus}</td>
+          <td>${element.edad}</td>
+          <td>${element.ultimo_parto}</td>
+          <td>${element.meses_vacia}</td>
+          <td>${element.particularidades}</td>
+        </tr>
+          `;
+          flag++;
+          total.innerText = flag;
+        }
+
+      });
+      const printData = () => {
+        const divToPrint = document.getElementById("table-inve");
+        let newWin = null;
+        newWin = window.open("");
+        newWin.document.write(divToPrint.outerHTML);
+        newWin.print();
+        newWin.close();
+      }
+      printBut.addEventListener('click', printData);
+      const buttonPrint = document.getElementById('botonadios');
+      buttonPrint.style.display = "block";
+
+    };
     let refresh = () => {
       window.location.reload();
     };
@@ -392,8 +442,14 @@ class Filtra extends Component {
                 <select className="marginbutons1" id="callOrigen">
                   <option value="">Selecciona el origen...</option>
                 </select>
-                <button className="buton" onClick={callOrigen}>
+
+                <button className="buton" onClick={callOrigen} >
                   Aceptar origen
+                </button>
+
+                <input type="text" style={{ width: "100px" }} id="guiarec"></input>
+                <button className="buton" onClick={callGuia}>
+                  Buscar Guia
                 </button>
 
               </div>

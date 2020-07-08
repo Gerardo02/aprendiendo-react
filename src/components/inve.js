@@ -255,6 +255,7 @@ class Inve extends Component {
     };
     return (
       <>
+
         <div className="opcioneshistorial">
           <p className="buscararete"> Buscar arete: </p>
           <input type="text" id="buscar-arete"></input>
@@ -271,8 +272,9 @@ class Inve extends Component {
             </Link>
           </div>
         </div>
-        <br />
 
+        <br />
+        <div className="numeros-animales">Total de animales: <span id="numero-animales"></span></div>
         <div id="cuadro-inventario">
           <div className="baja-container" id="baja-container">
             <div className="baja-container2">
@@ -351,7 +353,7 @@ class Inve extends Component {
             </div>
           </div>
         </div>
-        <div className="numeros-animales">Total de animales: <span id="numero-animales"></span></div>
+
       </>
     );
   }

@@ -49,8 +49,10 @@
 .baja-container {
   text-align: center;
   justify-items: left;
-}
-
+}/*
+.guiacontainer{
+  flex-direction: row;
+}*/
 .botonPrint{
   display: none;
   padding-left: 3px;
