@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "../inve.css";
-import Inve from "../components/inve";
 import Inve2 from "../components/inve2";
-import Filtros from "../components/filtros";
 import superlogo from "../images/super-logo.png";
 import { Link } from "react-router-dom";
 class inventarioCompleto extends Component {
@@ -11,7 +9,7 @@ class inventarioCompleto extends Component {
       <>
         <div className="barra-nav">
           <Link className="textobarra" to="/">
-            <img className="superlogo" src={superlogo} />
+            <img className="superlogo" alt="logo" src={superlogo} />
           </Link>
           <Link className="textobarra" to="/captura">
             Captura

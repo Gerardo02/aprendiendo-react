@@ -134,13 +134,23 @@ app.on('ready', () => {
 
     dialog.showMessageBox(dialogOpts);
   })
+  autoUpdater.on('download-progress', (progress, percent) => {
+    const dialogOpts = {
+      type: 'info',
+      buttons: ['Ok'],
+      title: 'Descargando',
+      message: progress,
+      detail: percent
+    }
+    dialog.showMessageBox(dialogOpts)
+  })
 
   autoUpdater.on('update-downloaded', (info) => {
     const dialogOpts = {
       type: 'info',
       buttons: ['Reiniciar', 'Mas Tarde'],
       title: 'Actualizacion de aplicacion',
-      message: process.platform === 'win32' ? info.releaseNotes : info.releaseName,
+      message: info.releaseName,
       detail: 'Una nueva version ha sido descargada. Reiniciar la aplicacion por favor.'
     }
 
@@ -153,6 +163,9 @@ app.on('ready', () => {
     console.error('There was a problem updating the application')
     console.error(message)
   })
+
+
+
 });
 
 

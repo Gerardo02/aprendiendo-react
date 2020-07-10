@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import historial from "./historial";
 import "../inve.css";
-import trash from "../images/delete.png";
 import superlogo from "../images/super-logo.png";
 import { Link } from "react-router-dom";
 
@@ -47,7 +45,6 @@ class bajas2 extends Component {
 
 
     let buttonseliminar = document.querySelectorAll("button.btn-baja");
-    let buttoneliminar = document.querySelectorAll("button.recuperar-segunda");
 
 
     let deleteData2 = async event => {
@@ -67,7 +64,7 @@ class bajas2 extends Component {
       );
       if (alertaSeguro !== 1) {
         window.location.reload();
-        const deleteRow = await fetch(
+        await fetch(
           `https://server-inve.herokuapp.com/delete/bajas?arete=${areteId}`
 
 
@@ -106,12 +103,12 @@ class bajas2 extends Component {
       }
       let fetch1 = async () => {
         window.location.reload();
-        const sendToBajas = await fetch(
+        await fetch(
           `https://server-inve.herokuapp.com/send/bajas?empresas=${data[numId].empresas}&predio=${data[numId].predio}&precio=${data[numId].precio}&numGuia=${data[numId].num_guia}&tipo=${data[numId].tipo}&raza=${data[numId].raza}&origen=${data[numId].origen}&arete=${data[numId].arete}&fechaAlta=${data[numId].fecha_alta}&fechaNac=${data[numId].fecha_nacimiento}&pesoCompra=${data[numId].peso_compra}&pesoActual=${data[numId].peso_actual}&incremento=${data[numId].incremento_peso}&estatus=${data[numId].estatus}&edad=${data[numId].edad}&ultimoParto=${data[numId].ultimo_parto}&mesesVacia=${data[numId].meses_vacia}&particularidades=${data[numId].particularidades}`
         );
       };
       let fetch2 = async () => {
-        const deleteRow = await fetch(
+        await fetch(
           `https://server-inve.herokuapp.com/delete/bajas?arete=${areteId}&numGuia=${data[numId].num_guia}`
         );
       };
@@ -123,7 +120,7 @@ class bajas2 extends Component {
         let yyyy3 = today3.getFullYear();
         let fechaMovimiento = `${dd3}/${mm3}/${yyyy3}`;
 
-        const deleteRow = await fetch(
+        await fetch(
           `https://server-inve.herokuapp.com/send/historial?tipo=${data[numId].tipo}&numGuia=${data[numId].num_guia}&raza=${data[numId].raza}&arete=${areteId}&fecha=${fechaMovimiento}&movimiento=${movimiento}`
         );
       };
@@ -188,7 +185,6 @@ class bajas2 extends Component {
 
 
       let buttonseliminar = document.querySelectorAll("button.btn-baja");
-      let buttoneliminar = document.querySelectorAll("button.recuperar-segunda");
 
 
       let deleteData2 = async event => {
@@ -208,7 +204,7 @@ class bajas2 extends Component {
         );
         if (alertaSeguro !== 1) {
           window.location.reload();
-          const deleteRow = await fetch(
+          await fetch(
             `https://server-inve.herokuapp.com/delete/bajas?arete=${areteId}`
 
 
@@ -247,12 +243,12 @@ class bajas2 extends Component {
         }
         let fetch1 = async () => {
           window.location.reload();
-          const sendToBajas = await fetch(
+          await fetch(
             `https://server-inve.herokuapp.com/send/bajas?empresas=${data[numId].empresas}&predio=${data[numId].predio}&precio=${data[numId].precio}&numGuia=${data[numId].num_guia}&tipo=${data[numId].tipo}&raza=${data[numId].raza}&origen=${data[numId].origen}&arete=${data[numId].arete}&fechaAlta=${data[numId].fecha_alta}&fechaNac=${data[numId].fecha_nacimiento}&pesoCompra=${data[numId].peso_compra}&pesoActual=${data[numId].peso_actual}&incremento=${data[numId].incremento_peso}&estatus=${data[numId].estatus}&edad=${data[numId].edad}&ultimoParto=${data[numId].ultimo_parto}&mesesVacia=${data[numId].meses_vacia}&particularidades=${data[numId].particularidades}`
           );
         };
         let fetch2 = async () => {
-          const deleteRow = await fetch(
+          await fetch(
             `https://server-inve.herokuapp.com/delete/bajas?arete=${areteId}&numGuia=${data[numId].num_guia}`
           );
         };
@@ -264,7 +260,7 @@ class bajas2 extends Component {
           let yyyy3 = today3.getFullYear();
           let fechaMovimiento = `${dd3}/${mm3}/${yyyy3}`;
 
-          const deleteRow = await fetch(
+          await fetch(
             `https://server-inve.herokuapp.com/send/historial?tipo=${data[numId].tipo}&numGuia=${data[numId].num_guia}&raza=${data[numId].raza}&arete=${areteId}&fecha=${fechaMovimiento}&movimiento=${movimiento}`
           );
         };
@@ -282,7 +278,7 @@ class bajas2 extends Component {
     }
 
 
-    let borrar = async () => {
+    /*let borrar = async () => {
 
       const { dialog } = global.require("electron").remote;
 
@@ -292,9 +288,7 @@ class bajas2 extends Component {
         message: `¿seguro que deseas eliminar las bajas? (este proceso es irreversible)`
       };
 
-      let alertaSeguro = dialog.showMessageBoxSync(dialogOptions, i =>
-        console.log(i)
-      );
+      let alertaSeguro = dialog.showMessageBoxSync(dialogOptions);
       if (alertaSeguro !== 1) {
 
         const deleteRow = await fetch(
@@ -304,12 +298,12 @@ class bajas2 extends Component {
       }
 
 
-    };
+    };*/
     return (
       <div className="fullpage">
         <div className="barra-nav">
           <Link className="textobarra" to="/">
-            <img className="superlogo" src={superlogo} />
+            <img className="superlogo" alt="logo" src={superlogo} />
           </Link>
           <Link className="textobarra" to="/captura">
             Captura

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { HashRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import Principal from "./pages/principal";
 import captura from "./pages/captura";
 import inventario from "./pages/inventario";
@@ -11,7 +11,6 @@ import add from "./pages/addSel";
 import actualizar from "./pages/actualizar";
 import reportes from "./pages/reportes";
 import eliminar from "./pages/eliminar";
-import App2 from "./components/App2";
 class App extends Component {
   render() {
     return (

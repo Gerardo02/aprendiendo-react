@@ -61,7 +61,7 @@ class App2 extends Component {
   }
 
   render() {
-    const buttons = document.querySelectorAll("button.botonsito");
+
 
     let addData = async () => {
       const predio = document.getElementById("predio").value;
@@ -142,7 +142,7 @@ class App2 extends Component {
           .value;
         const movimiento = "Captura";
         let sendHistorial = async () => {
-          const response = await fetch(
+          await fetch(
             `https://server-inve.herokuapp.com/send/historial?tipo=${tipo}&numGuia=${numGuia}&raza=${raza}&arete=${arete}&fecha=${fechaMovimiento}&movimiento=${movimiento}`
           );
         };
@@ -168,7 +168,7 @@ class App2 extends Component {
           anoVac !== ""
         ) {
           window.location.reload();
-          const response = await fetch(
+          await fetch(
             `https://server-inve.herokuapp.com/add?empresas=${empresas}&predio=${predio}&precio=${precio}&numGuia=${numGuia}&tipo=${tipo}&raza=${raza}&origen=${origen}&arete=${arete}&fechaAlta=${fechaAlta}&fechaNac=${fechaNac}&pesoCompra=${pesoCompra}&pesoActual=${pesoActual}&incremento=${incremento}&estatus=${estatus}&edad=${edad}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}`
           );
           sendHistorial();

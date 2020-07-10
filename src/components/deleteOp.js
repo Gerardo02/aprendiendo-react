@@ -48,7 +48,7 @@ class Delete extends Component {
       const origen = document.getElementById("origen").value;
       const particularidades = document.getElementById("particularidades")
         .value;
-      const response = await fetch(
+      await fetch(
         `https://server-inve.herokuapp.com/agregados/delete?empresas=${empresas}&predio=${predio}&tipo=${tipo}&raza=${raza}&origen=${origen}&particularidades=${particularidades}`
       );
       window.location.reload();

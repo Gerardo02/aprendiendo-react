@@ -8,6 +8,7 @@ class Actualizar extends Component {
     const data = await response.json();
     const agregarEstatus = document.getElementById("estatus");
     const agregarParti = document.getElementById("particularidades");
+    const agregarOrigen = document.getElementById("origen");
 
     data.forEach(element => {
       if (element.estatus === null) {
@@ -18,6 +19,10 @@ class Actualizar extends Component {
       } else {
         agregarParti.innerHTML += `<option value="${element.particularidades}">${element.particularidades}</option>`;
       }
+      if (element.origen === null) {
+      } else {
+        agregarOrigen.innerHTML += `<option value="${element.origen}">${element.origen}</option>`;
+      }
     });
   }
   render() {
@@ -26,7 +31,7 @@ class Actualizar extends Component {
       const data = await response1.json();
       const arete = document.getElementById("arete").value;
       const pesoActual = document.getElementById("peso-actual").value;
-      const dialogOptions1 = {
+      const dialogOptions = {
         type: "info",
         buttons: ["OK"],
         message: "Falta el arete!!"
@@ -74,85 +79,41 @@ class Actualizar extends Component {
         const particularidades = document.getElementById("particularidades")
           .value;
         //window.location.reload();
+        const origen = document.getElementById("origen")
+          .value;
 
-        const dialogOptions = {
-          type: "info",
-          buttons: ["OK"],
-          message:
-            "Favor de indicar los valores faltantes para la actualizacion"
-        };
         const guia = document.getElementById('guia').value;
 
-        const response = await fetch(
+        await fetch(
           `https://server-inve.herokuapp.com/actualizar/pesoactual?arete=${arete}&pesoActual=${pesoActual}&incremento=${incremento}`
         );
-        const response2 = await fetch(
+        await fetch(
           `https://server-inve.herokuapp.com/actualizar/estatus?arete=${arete}&estatus=${estatus}`
         );
-        const response3 = await fetch(
+        await fetch(
           `https://server-inve.herokuapp.com/actualizar/particularidades?arete=${arete}&particularidades=${particularidades}`
         );
         if (diaVac2 === "" || mesVac2 === "" || anoVac2 === "") {
-          const response4 = await fetch(
+          await fetch(
             `https://server-inve.herokuapp.com/actualizar/ultimoparto?arete=${arete}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}`
           );
         } else {
           ultimoParto = `${diaVac2}/${mesVac2}/${anoVac2}`;
-          const response4 = await fetch(
+          await fetch(
             `https://server-inve.herokuapp.com/actualizar/ultimoparto?arete=${arete}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}`
           );
         }
-        const response5 = await fetch(
+        await fetch(
           `https://server-inve.herokuapp.com/actualizar/guia?arete=${arete}&guia=${guia}`
+        );
+        await fetch(
+          `https://server-inve.herokuapp.com/actualizar/origen?arete=${arete}&origen=${origen}`
         );
 
         window.location.reload();
-        /*
-        if (
-          pesoActual !== "" &&
-          estatus !== "" &&
-          diaVac !== " " &&
-          mesVac !== " " &&
-          anoVac !== " " &&
-          ultimoParto !== "" &&
-          particularidades !== ""
-        ) {
-          
-        } if (pesoActual === "") {
 
-          const response = await fetch(
-            `https://server-inve.herokuapp.com/actualizar?arete=${arete}&pesoActual=${pesoActual}&estatus=${estatus}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}&incremento=${incremento}`
-          );
-
-          window.location.reload();
-        }
-        if (estatus === "") {
-
-          const response = await fetch(
-            `https://server-inve.herokuapp.com/actualizar?arete=${arete}&pesoActual=${pesoActual}&estatus=${estatus}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}&incremento=${incremento}`
-          );
-
-          window.location.reload();
-        } if (
-          diaVac === " " &&
-          mesVac === " " &&
-          anoVac === " "
-        ) {
-          ultimoParto = "";
-          const response = await fetch(
-            `https://server-inve.herokuapp.com/actualizar?arete=${arete}&pesoActual=${pesoActual}&estatus=${estatus}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}&incremento=${incremento}`
-          );
-
-          window.location.reload();
-        } if (particularidades === "") {
-
-          const response = await fetch(
-            `https://server-inve.herokuapp.com/actualizar?arete=${arete}&pesoActual=${pesoActual}&estatus=${estatus}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}&particularidades=${particularidades}&incremento=${incremento}`
-          );
-
-          window.location.reload();
-          
-        }*/
+      } else {
+        dialog.showMessageBoxSync(dialogOptions);
       }
     };
     return (
@@ -230,9 +191,20 @@ class Actualizar extends Component {
               Num. Guia
               <br />
               <input className="inputarete guia" type="text" id="guia"></input>
+              <br />
+              <br />
+              Origen
+              <br />
+              <select id="origen">
+                <option value="">Selecciona el origen...</option>
+              </select>
             </div>
           </div>
         </div>
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
       </>
     );
   }

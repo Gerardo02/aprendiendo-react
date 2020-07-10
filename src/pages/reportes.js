@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Add from "../components/agregar";
 import Filtra from "../components/filtraRepo";
 import superlogo from "../images/super-logo.png";
 import { Link } from "react-router-dom";
@@ -9,7 +8,7 @@ class reporte extends Component {
       <>
         <div className="barra-nav">
           <Link className="textobarra" to="/">
-            <img className="superlogo" src={superlogo} />
+            <img className="superlogo" alt="logo" src={superlogo} />
           </Link>
           <Link className="textobarra" to="/captura">
             Captura
