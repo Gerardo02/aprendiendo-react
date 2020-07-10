@@ -1,6 +1,6 @@
 {
   "name": "inventario",
-  "version": "0.15.2",
+  "version": "0.15.3",
   "main": "public/electron.js",
   "description": "Inventario ganadero",
   "author": {

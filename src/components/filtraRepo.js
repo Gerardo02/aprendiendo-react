@@ -423,10 +423,10 @@ class Filtra extends Component {
                   Los que decrementaron de peso
                 </button>
                 <button className="marginbutons1 buton" onClick={callVacia}>
-                  Las que estan vacias
+                  Vacias
                 </button>
                 <button className="marginbutons1 buton" onClick={callCargada}>
-                  Las que estan cargadas
+                  Cargadas
                 </button>
                 <button className="marginbutons1 buton" onClick={callVenta}>
                   Vendido

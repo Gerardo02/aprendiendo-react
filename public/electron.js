@@ -128,7 +128,7 @@ app.on('ready', () => {
       type: 'info',
       buttons: ['Ok'],
       title: 'Application Update',
-      message: 'Hay una actualizacion disponible. Favor de no cerrar la aplicación.',
+      message: 'Hay una actualizacion disponible.',
       detail: 'Se descargara automaticamente. Favor de no cerrar la aplicación hasta que se indique.'
     }
 
