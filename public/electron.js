@@ -133,17 +133,17 @@ app.on('ready', () => {
     }
 
     dialog.showMessageBox(dialogOpts);
-  })
-  autoUpdater.on('download-progress', (progress, percent) => {
+  })/*
+  autoUpdater.on('download-progress', (progress) => {
     const dialogOpts = {
       type: 'info',
       buttons: ['Ok'],
       title: 'Descargando',
-      message: `${progress}`,
+      message: 'Descargando',
       detail: `${percent}`
     }
     dialog.showMessageBox(dialogOpts)
-  })
+  })*/
 
   autoUpdater.on('update-downloaded', (info) => {
     const dialogOpts = {
