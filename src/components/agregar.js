@@ -7,7 +7,7 @@ class Add extends Component {
     let agregarEmpresas = async () => {
       const empresas = document.getElementById("empresas").value;
       window.location.reload();
-      const response = await fetch(
+      await fetch(
         `https://server-inve.herokuapp.com/add/empresas?empresas=${empresas}`
       );
     };
@@ -15,28 +15,28 @@ class Add extends Component {
       id++;
       const predio = document.getElementById("predio").value;
       window.location.reload();
-      const response = await fetch(
+      await fetch(
         `https://server-inve.herokuapp.com/add/predio?predio=${predio}&id=${id}`
       );
     };
     let agregarTipo = async () => {
       const tipo = document.getElementById("tipo").value;
       window.location.reload();
-      const response = await fetch(
+      await fetch(
         `https://server-inve.herokuapp.com/add/tipo?tipo=${tipo}`
       );
     };
     let agregarRaza = async () => {
       const raza = document.getElementById("raza").value;
       window.location.reload();
-      const response = await fetch(
+      await fetch(
         `https://server-inve.herokuapp.com/add/raza?raza=${raza}`
       );
     };
     let agregarOrigen = async () => {
       const origen = document.getElementById("origen").value;
       window.location.reload();
-      const response = await fetch(
+      await fetch(
         `https://server-inve.herokuapp.com/add/origen?origen=${origen}`
       );
     };
@@ -44,14 +44,14 @@ class Add extends Component {
       const particularidades = document.getElementById("particularidades")
         .value;
       window.location.reload();
-      const response = await fetch(
+      await fetch(
         `https://server-inve.herokuapp.com/add/particularidades?particularidades=${particularidades}`
       );
     };
     let agregarEstatus = async () => {
       const estatus = document.getElementById("estatus").value;
       window.location.reload();
-      const response = await fetch(
+      await fetch(
         `https://server-inve.herokuapp.com/add/estatus?estatus=${estatus}`
       );
     };

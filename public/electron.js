@@ -139,8 +139,8 @@ app.on('ready', () => {
       type: 'info',
       buttons: ['Ok'],
       title: 'Descargando',
-      message: progress,
-      detail: percent
+      message: `${progress}`,
+      detail: `${percent}`
     }
     dialog.showMessageBox(dialogOpts)
   })
