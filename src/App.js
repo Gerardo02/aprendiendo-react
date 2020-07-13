@@ -11,6 +11,7 @@ import add from "./pages/addSel";
 import actualizar from "./pages/actualizar";
 import reportes from "./pages/reportes";
 import eliminar from "./pages/eliminar";
+import ActualizarGuia from "./pages/ActualizarGuia";
 class App extends Component {
   render() {
     return (
@@ -27,6 +28,7 @@ class App extends Component {
             <Route exact path="/actualizar" component={actualizar} />
             <Route exact path="/reportes" component={reportes} />
             <Route exact path="/eliminar" component={eliminar} />
+            <Route exact path="/actualizarguia" component={ActualizarGuia} />
           </Switch>
         </Router>
       </>
