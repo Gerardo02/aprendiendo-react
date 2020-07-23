@@ -44,10 +44,6 @@ class App2 extends Component {
       } else {
         agregarRaza.innerHTML += `<option value="${element.raza}">${element.raza}</option>`;
       }
-      if (element.origen === null) {
-      } else {
-        agregarOrigen.innerHTML += `<option value="${element.origen}">${element.origen}</option>`;
-      }
       if (element.estatus === null) {
       } else {
         agregarEstatus.innerHTML += `<option value="${element.estatus}">${element.estatus}</option>`;
@@ -61,8 +57,20 @@ class App2 extends Component {
   }
 
   render() {
+    let agregarParticularidades = async () => {
+      const particularidades = document.getElementById("particularidades")
+        .value;
+      await fetch(
+        `https://server-inve.herokuapp.com/add/particularidades?particularidades=${particularidades}`
+      );
+    };
+    let agregarOrigen = async () => {
+      const origen = document.getElementById("origen").value;
 
-
+      await fetch(
+        `https://server-inve.herokuapp.com/add/origen?origen=${origen}`
+      );
+    };
     let addData = async () => {
       const predio = document.getElementById("predio").value;
       const precio = document.getElementById("precio").value;
@@ -178,7 +186,11 @@ class App2 extends Component {
       } else {
         dialog.showMessageBoxSync(dialogOptions, i => console.log(i));
       }
-    }; /* 
+      agregarOrigen();
+      agregarParticularidades();
+    };
+
+    /* 
     buttons.forEach(button => {
       button.addEventListener("click", addData);
     });*/
@@ -241,9 +253,8 @@ class App2 extends Component {
               <br />
               <strong>Origen del animal</strong>
               <br />
-              <select id="origen">
-                <option value="">Selecciona el origen del animal...</option>
-              </select>
+              <input type="text" className="input1" id="origen"></input>
+
               <br />
               <br />
               <strong>Arete del animal</strong>
@@ -284,7 +295,7 @@ class App2 extends Component {
               </button>
             </div>
             <div className="textito-cuadrito">
-              <strong>Fecha de nacimiento</strong>
+              <strong>Fecha de nacimiento o de compra</strong>
               <br />
               <input
                 className="input1 inputfecha"
@@ -369,9 +380,8 @@ class App2 extends Component {
               <br />
               <strong>Alguna particularidad que pueda tener el animal</strong>
               <br />
-              <select id="particularidades">
-                <option value="">Particularidad del animal...</option>
-              </select>
+              <input type="text" className="input1" id="particularidades"></input>
+
               <br />
               <br />
             </div>

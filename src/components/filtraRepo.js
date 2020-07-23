@@ -13,7 +13,7 @@ class Filtra extends Component {
         <option value="${element.predio}">${element.predio}</option>
         `;
       }
-      if (element.origen === null) {
+      if (element.origen === null || element.origen === "") {
       } else {
         origen.innerHTML += `
         <option value="${element.origen}">${element.origen}</option>

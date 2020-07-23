@@ -7,7 +7,7 @@ class Delete extends Component {
     const tipo = document.getElementById("tipo");
     const raza = document.getElementById("raza");
     const origen = document.getElementById("origen");
-    const particularidades = document.getElementById("particularidades");
+    const estatus = document.getElementById("estatus");
     const response = await fetch(`https://server-inve.herokuapp.com/agregados`);
     const data = await response.json();
     data.forEach(element => {
@@ -27,13 +27,13 @@ class Delete extends Component {
       } else {
         raza.innerHTML += `<option value="${element.raza}">${element.raza}</option>`;
       }
-      if (element.origen === null) {
+      if (element.origen === null || element.origen === "") {
       } else {
         origen.innerHTML += `<option value="${element.origen}">${element.origen}</option>`;
       }
-      if (element.particularidades === null) {
+      if (element.estatus === null) {
       } else {
-        particularidades.innerHTML += `<option value="${element.particularidades}">${element.particularidades}</option>`;
+        estatus.innerHTML += `<option value="${element.estatus}">${element.estatus}</option>`;
       }
     });
   }
@@ -46,10 +46,9 @@ class Delete extends Component {
       const tipo = document.getElementById("tipo").value;
       const raza = document.getElementById("raza").value;
       const origen = document.getElementById("origen").value;
-      const particularidades = document.getElementById("particularidades")
-        .value;
+      const estatus = document.getElementById("estatus").value;
       await fetch(
-        `https://server-inve.herokuapp.com/agregados/delete?empresas=${empresas}&predio=${predio}&tipo=${tipo}&raza=${raza}&origen=${origen}&particularidades=${particularidades}`
+        `https://server-inve.herokuapp.com/agregados/delete?empresas=${empresas}&predio=${predio}&tipo=${tipo}&raza=${raza}&origen=${origen}&estatus=${estatus}`
       );
       window.location.reload();
     };
@@ -116,8 +115,8 @@ class Delete extends Component {
                   <br />
                   <br />
                   <div className="selectspersonal">
-                    <select id="particularidades">
-                      <option value="">Particularidades...</option>
+                    <select id="estatus">
+                      <option value="">Estatus...</option>
                     </select>
                   </div>
                   <br />

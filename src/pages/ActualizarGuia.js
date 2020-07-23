@@ -166,16 +166,12 @@ class ActualizarGuia extends Component {
               <br />
               Alguna particularidad que pueda tener el animal
               <br />
-              <select id="particularidades">
-                <option value="">Particularidad del animal</option>
-              </select>
+              <input text="text" id="particularidades" className="inputarete guia"></input>
               <br />
               <br />
               Origen
               <br />
-              <select id="origen">
-                <option value="">Selecciona el origen...</option>
-              </select>
+              <input type="text" className="inputarete guia" id="origen"></input>
               <br />
               <br />
               Precio
@@ -231,6 +227,7 @@ class ActualizarGuia extends Component {
         <br />
         <br />
         <br />
+        <br /><br />
       </>
     );
   }

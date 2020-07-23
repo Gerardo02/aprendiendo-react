@@ -15,11 +15,11 @@ class Actualizar extends Component {
       } else {
         agregarEstatus.innerHTML += `<option value="${element.estatus}">${element.estatus}</option>`;
       }
-      if (element.particularidades === null) {
+      if (element.particularidades === null || element.particularidades === "") {
       } else {
         agregarParti.innerHTML += `<option value="${element.particularidades}">${element.particularidades}</option>`;
       }
-      if (element.origen === null) {
+      if (element.origen === null || element.origen === "") {
       } else {
         agregarOrigen.innerHTML += `<option value="${element.origen}">${element.origen}</option>`;
       }
@@ -76,6 +76,28 @@ class Actualizar extends Component {
           mesesVacia = mm2 + mesVac;
         }
         console.log(mesesVacia);
+        let diaCom = document.getElementById("diaCom").value;
+        let mesCom = document.getElementById("mesCom").value;
+        let anoCom = document.getElementById("anoCom").value;
+        let diaCom2 = document.getElementById("diaCom").value;
+        let mesCom2 = document.getElementById("mesCom").value;
+        let anoCom2 = document.getElementById("anoCom").value;
+        let fechaCompra = "";
+        let today3 = new Date();
+        let mm3 = today2.getMonth() + 1;
+        let yyyy3 = today2.getFullYear();
+        let edad;
+        if (yyyy3 <= anoCom) {
+          edad = mm3 - mesCom;
+        } else if (yyyy3 > anoCom) {
+          mesCom = 12 - mesCom;
+          yyyy3 = yyyy3 - anoCom;
+          yyyy3 = yyyy3 * 12;
+          mm3 = 12 - mm3;
+          mm3 = yyyy3 - mm3;
+          edad = mm3 + mesCom;
+        }
+
         const particularidades = document.getElementById("particularidades")
           .value;
         //window.location.reload();
@@ -101,6 +123,16 @@ class Actualizar extends Component {
           ultimoParto = `${diaVac2}/${mesVac2}/${anoVac2}`;
           await fetch(
             `https://server-inve.herokuapp.com/actualizar/ultimoparto?arete=${arete}&ultimoParto=${ultimoParto}&mesesVacia=${mesesVacia}`
+          );
+        }
+        if (diaCom2 === "" || mesCom2 === "" || anoCom2 === "") {
+          await fetch(
+            `https://server-inve.herokuapp.com/actualizar/compra?arete=${arete}&compra=${fechaCompra}&edad=${edad}`
+          );
+        } else {
+          fechaCompra = `${diaCom2}/${mesCom2}/${anoCom2}`;
+          await fetch(
+            `https://server-inve.herokuapp.com/actualizar/compra?arete=${arete}&compra=${fechaCompra}&edad=${edad}`
           );
         }
         await fetch(
@@ -165,6 +197,30 @@ class Actualizar extends Component {
               </select>
               <br />
               <br />
+              Fecha de nacimiento o de compra:
+              <br />
+              <input
+                className="input2 fechainput"
+                type="text"
+                maxLength="2"
+                id="diaCom"
+              />
+              /
+              <input
+                className="input2 fechainput"
+                type="text"
+                maxLength="2"
+                id="mesCom"
+              />
+              /
+              <input
+                className="input2 fechainput fechaaño"
+                type="text"
+                maxLength="4"
+                id="anoCom"
+              />
+              <br />
+              <br />
               Ultima fecha en la que pario (Si no lo ha hecho, no escribir nada):
               <br />
               <input
@@ -191,9 +247,8 @@ class Actualizar extends Component {
               <br />
               Alguna particularidad que pueda tener el animal
               <br />
-              <select id="particularidades">
-                <option value="">Particularidad del animal</option>
-              </select>
+              <input text="text" id="particularidades" className="inputarete guia"></input>
+
               <br />
               <br />
               Num. Guia
@@ -203,9 +258,8 @@ class Actualizar extends Component {
               <br />
               Origen
               <br />
-              <select id="origen">
-                <option value="">Selecciona el origen...</option>
-              </select>
+              <input type="text" className="inputarete guia" id="origen"></input>
+
               <br />
               <br />
               Precio
@@ -217,6 +271,7 @@ class Actualizar extends Component {
         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <br /><br />
 
       </>
     );

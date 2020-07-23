@@ -33,21 +33,8 @@ class Add extends Component {
         `https://server-inve.herokuapp.com/add/raza?raza=${raza}`
       );
     };
-    let agregarOrigen = async () => {
-      const origen = document.getElementById("origen").value;
-      window.location.reload();
-      await fetch(
-        `https://server-inve.herokuapp.com/add/origen?origen=${origen}`
-      );
-    };
-    let agregarParticularidades = async () => {
-      const particularidades = document.getElementById("particularidades")
-        .value;
-      window.location.reload();
-      await fetch(
-        `https://server-inve.herokuapp.com/add/particularidades?particularidades=${particularidades}`
-      );
-    };
+
+
     let agregarEstatus = async () => {
       const estatus = document.getElementById("estatus").value;
       window.location.reload();
@@ -118,30 +105,9 @@ class Add extends Component {
 
               <div className="selects2xd">
                 <div className="selects11xd">
-                  <div className="divpersonal">
-                    <input
-                      type="text"
-                      id="origen"
-                      className="texto-prueba"
-                    ></input>
-                    <button className="botonstiles" onClick={agregarOrigen}>
-                      Agregar origen...
-                    </button>
-                  </div>
 
-                  <div className="divpersonal">
-                    <input
-                      type="text"
-                      id="particularidades"
-                      className="texto-prueba"
-                    ></input>
-                    <button
-                      className="botonstilesparticularidades"
-                      onClick={agregarParticularidades}
-                    >
-                      Agregar particularidades...
-                    </button>
-                  </div>
+
+
 
                   <div className="divpersonal">
                     <input
