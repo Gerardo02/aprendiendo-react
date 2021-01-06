@@ -21,7 +21,7 @@
   },
   "homepage": "./",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "cors": "^2.8.5",
     "cross-env": "^6.0.3",
     "electron-find": "^1.0.6",
